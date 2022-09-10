@@ -7,7 +7,8 @@ import styles from "./Navbar.module.scss";
 const Navbar = () => {
   return (
     <nav className={styles.nav}>
-      <Logo />
+      nav stuff here
+      {/* <Logo /> */}
       {navLinks.map((navLink, i) => {
         console.log("NAV LINK:", navLink);
         return <NavLink key={i} label={navLink.label} route={navLink.route} />;
