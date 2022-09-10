@@ -1,2 +1,8 @@
+@use "sass:color";
+
 // Text colors
-$text-primary: #111111;
+$text-base: #000;
+$text-primary: color.adjust($text-base, $alpha: .87);
+$text-secondary: color.adjust($text-base, $alpha: .6);
+
+
