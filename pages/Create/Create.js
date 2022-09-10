@@ -1,7 +1,13 @@
 import React from "react";
 
+import Theme from "components/Theme";
+
 const Create = () => {
-  return <div>Create</div>;
+  return (
+    <div>
+      <Theme />
+    </div>
+  );
 };
 
 export default Create;
