@@ -1,0 +1,24 @@
+const posts = [
+  {
+    title: "First Post",
+    body: "Ut ullamco qui in et deserunt occaecat dolore mollit. Ut quis eu ea consequat labore cupidatat consectetur esse minim occaecat irure ut reprehenderit. Commodo voluptate adipisicing occaecat ullamco incididunt magna magna aliquip non veniam aliqua incididunt tempor cillum.  Ut ullamco qui in et deserunt occaecat dolore mollit. Ut quis eu ea consequat labore cupidatat consectetur esse minim occaecat irure ut reprehenderit. Commodo voluptate adipisicing occaecat ullamco incididunt magna magna aliquip non veniam aliqua incididunt tempor cillum",
+  },
+  {
+    title: "Second Post",
+    body: "Nostrud quix velit quis. Ea excepteur quis pariatur adipisicing et pariatur excepteur aliqua aliquip ad. Elit laboris laboris nostrud reprehenderit aliqua minim ea.  Non veniam eu ut minim sunt dolore sunt eu velit ex. Commodo proident ullamco nisi duis ipsum velit adipisicing occaecat laboris ex deserunt. Ea et ullamco aliquip quis cillum quis cillum occaecat laboris tempor sunt ad minim officia. Cillum aute aliqua sunt incididunt ea labore.  Adipisicing excepteur sunt quis nostrud minim deserunt nisi veniam occaecat reprehenderit eu sit id. Est adipisicing voluptate occaecat non proident fugiat adipisicing ut incididunt ullamco ut incididunt adipisicing esse. Ullamco tempor exercitation officia magna in. Aliqua id nulla ex ipsum officia commodo quis culpa esse. Fugiat eiusmod enim excepteur est aute sunt nostrud eu non sunt ex eu. Quis esse pariatur esse ea elit quis pariatur ullamco voluptate velit pariatur non eu. Ea esse tempor reprehenderit quis exercitation deserunt amet velit fugiat.",
+  },
+  {
+    title: "Third Post",
+    body: "Quis nostrud velit quis. Ea excepteur quis pariatur adipisicing et pariatur excepteur aliqua aliquip ad. Elit laboris laboris nostrud reprehenderit aliqua minim ea.  Non veniam eu ut minim sunt dolore sunt eu velit ex. Commodo proident ullamco nisi duis ipsum velit adipisicing occaecat laboris ex deserunt. Ea et ullamco aliquip quis cillum quis cillum occaecat laboris tempor sunt ad minim officia. Cillum aute aliqua sunt incididunt ea labore.  Adipisicing excepteur sunt quis nostrud minim deserunt nisi veniam occaecat reprehenderit eu sit id. Est adipisicing voluptate occaecat non proident fugiat adipisicing ut incididunt ullamco ut incididunt adipisicing esse. Ullamco tempor exercitation officia magna in. Aliqua id nulla ex ipsum officia commodo quis culpa esse. Fugiat eiusmod enim excepteur est aute sunt nostrud eu non sunt ex eu. Quis esse pariatur esse ea elit quis pariatur ullamco voluptate velit pariatur non eu. Ea esse tempor reprehenderit quis exercitation deserunt amet velit fugiat.",
+  },
+  {
+    title: "Fourth Post",
+    body: "Deserunt irure est quis nostrud velit quis. Ea excepteur quis pariatur adipisicing et pariatur excepteur aliqua aliquip ad. Elit laboris laboris nostrud reprehenderit aliqua minim ea.  Non veniam eu ut minim sunt dolore sunt eu velit ex. Commodo proident ullamco nisi duis ipsum velit adipisicing occaecat laboris ex deserunt. Ea et ullamco aliquip quis cillum quis cillum occaecat laboris tempor sunt ad minim officia. Cillum aute aliqua sunt incididunt ea labore.  Adipisicing excepteur sunt quis nostrud minim deserunt nisi veniam occaecat reprehenderit eu sit id. Est adipisicing voluptate occaecat non proident fugiat adipisicing ut incididunt ullamco ut incididunt adipisicing esse. Ullamco tempor exercitation officia magna in. Aliqua id nulla ex ipsum officia commodo quis culpa esse. Fugiat eiusmod enim excepteur est aute sunt nostrud eu non sunt ex eu. Quis esse pariatur esse ea elit quis pariatur ullamco voluptate velit pariatur non eu. Ea esse tempor reprehenderit quis exercitation deserunt amet velit fugiat.",
+  },
+  {
+    title: "Fifth Post",
+    body: "Adipisicing ad est duis ex in eiusmod labore deserunt irure est quis nostrud velit quis. Ea excepteur quis pariatur adipisicing et pariatur excepteur aliqua aliquip ad. Elit laboris laboris nostrud reprehenderit aliqua minim ea.  Non veniam eu ut minim sunt dolore sunt eu velit ex. Commodo proident ullamco nisi duis ipsum velit adipisicing occaecat laboris ex deserunt. Ea et ullamco aliquip quis cillum quis cillum occaecat laboris tempor sunt ad minim officia. Cillum aute aliqua sunt incididunt ea labore.  Adipisicing excepteur sunt quis nostrud minim deserunt nisi veniam occaecat reprehenderit eu sit id. Est adipisicing voluptate occaecat non proident fugiat adipisicing ut incididunt ullamco ut incididunt adipisicing esse. Ullamco tempor exercitation officia magna in. Aliqua id nulla ex ipsum officia commodo quis culpa esse. Fugiat eiusmod enim excepteur est aute sunt nostrud eu non sunt ex eu. Quis esse pariatur esse ea elit quis pariatur ullamco voluptate velit pariatur non eu. Ea esse tempor reprehenderit quis exercitation deserunt amet velit fugiat.",
+  },
+];
+
+export default posts;

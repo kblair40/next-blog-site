@@ -1,0 +1,32 @@
+@use "../../../styles/abstracts" as abs;
+
+.card {
+  padding: 1rem;
+  box-shadow: abs.$shadow-xs;
+  width: fit-content;
+  border-radius: abs.$border-radius-sm;
+
+  &__title {
+    margin: 0.5rem 0 1rem;
+  }
+
+  &__body {
+    &__text {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    &__link {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 18px;
+      a {
+        color: abs.$text-primary;
+        font-family: cursive;
+      }
+    }
+  }
+}
