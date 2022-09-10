@@ -1,5 +1,9 @@
 .container {
-  padding: 0 2rem;
+  padding-top: 1rem;
+
+  &__posts {
+    padding: 1rem 1rem 0;
+  }
 }
 
 .main {
