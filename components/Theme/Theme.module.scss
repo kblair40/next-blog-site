@@ -1,15 +1,27 @@
 @use "../../styles/abstracts" as abs;
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__section {
+    // border: 1px solid #ececec;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    section {
-        color: abs.$text-primary;
-    }
 
     &__heading {
-
+      margin-bottom: 1rem;
     }
+  }
+}
+
+.text_primary {
+  color: abs.$text-primary;
+  margin-bottom: 0.25rem;
+}
+.text_secondary {
+  color: abs.$text-secondary;
 }

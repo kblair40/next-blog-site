@@ -24,3 +24,7 @@ a {
     text-decoration: none;
 }
   
+p {
+  // user agent stylesheet issues require this.  Add cssreset at some point.
+  margin: 0;
+}
