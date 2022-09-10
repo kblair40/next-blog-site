@@ -2,7 +2,7 @@ import React from "react";
 
 import Theme from "components/Theme";
 
-const Create = () => {
+const ThemePage = () => {
   return (
     <div>
       <Theme />
@@ -10,4 +10,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default ThemePage;

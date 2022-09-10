@@ -4,8 +4,8 @@ const navLinks = [
     route: "/",
   },
   {
-    label: "Create",
-    route: "/create",
+    label: "Theme",
+    route: "/theme",
   },
 ];
 
