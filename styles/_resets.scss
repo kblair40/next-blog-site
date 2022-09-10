@@ -25,6 +25,6 @@ a {
 }
   
 p {
-  // user agent stylesheet issues require this.  Add cssreset at some point.
+  // still necessary, even with _normalize.scss partial
   margin: 0;
 }
