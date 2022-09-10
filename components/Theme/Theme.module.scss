@@ -1,0 +1,15 @@
+@use "../../styles/abstracts" as abs;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    section {
+        color: abs.$text-primary;
+    }
+
+    &__heading {
+
+    }
+}
