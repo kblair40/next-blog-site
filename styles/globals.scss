@@ -4,5 +4,6 @@
 
 body { 
     min-height: 100vh;
-    background-color: lighten(abstracts.$color-primary, 10%);
+    // background-color: lighten(abstracts.$color-primary, 10%);
+    background-color: abstracts.$color-background;
 }

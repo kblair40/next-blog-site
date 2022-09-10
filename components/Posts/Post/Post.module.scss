@@ -1,0 +1,57 @@
+@use "../../../styles/abstracts" as abs;
+
+.post {
+  padding: 1rem;
+  box-shadow: abs.$shadow-xs;
+  width: fit-content;
+  border-radius: abs.$border-radius-sm;
+  position: relative;
+
+  &__title {
+    margin: 0.5rem 0 1rem;
+  }
+
+  &__body {
+    &__text {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    &__link {
+      font-size: 18px;
+
+      a {
+        @include abs.transition-ease(0.3s);
+        white-space: nowrap;
+        color: abs.$text-primary;
+        font-family: cursive;
+        position: absolute;
+        bottom: 1rem;
+        right: 0rem;
+        padding-right: 1.5rem;
+        background-color: abs.$color-background;
+
+        &::after {
+          content: "\2192";
+          @include abs.transition-ease(0.3s);
+          position: absolute;
+          right: 0;
+          color: transparent;
+        }
+
+        &:hover {
+          transform: translateX(-24px);
+
+          &:after {
+            // z-index: 1;
+            color: abs.$text-primary;
+            right: -.5rem;
+          }
+        }
+      }
+    }
+  }
+}
