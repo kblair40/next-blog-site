@@ -1,0 +1,16 @@
+@use "../../styles/abstracts" as abs;
+
+.container {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__content {
+        width: 80vw;
+        max-width: 800px;
+        height: 60vh;
+        background-color: white;
+        border-radius: abs.$border-radius-md;
+    }
+}

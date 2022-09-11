@@ -1,0 +1,15 @@
+@use "../../../styles/abstracts" as abs;
+
+.text_area {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: abs.$border-radius-md;
+    padding: .5rem;
+    margin-bottom: 1rem;
+
+    &:focus-visible {
+        outline: none;
+        border: 1px solid abs.$color-secondary;
+    }
+}

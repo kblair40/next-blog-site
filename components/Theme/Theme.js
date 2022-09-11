@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./Theme.module.scss";
-import Card from "components/UI/Card";
+import Card from "components/Posts/Post";
 
 const Theme = () => {
   return (
