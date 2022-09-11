@@ -8,20 +8,6 @@ import styles from "./PreviewModal.module.scss";
 
 ReactModal.setAppElement("#layout");
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "90vw",
-    maxWidth: "800px",
-    paddingTop: "3rem",
-  },
-};
-
 const PreviewModal = ({ isOpen, onClose, markdown }) => {
   const [bodyContent, setBodyContent] = useState();
 
@@ -40,8 +26,8 @@ const PreviewModal = ({ isOpen, onClose, markdown }) => {
       <ReactModal
         isOpen={isOpen}
         onRequestClose={onClose}
-        style={customStyles}
         contentLabel="Content Label"
+        className={styles.preview_modal}
       >
         <div className={styles.close_button}>
           <IconButton icon={closeIcon} onClick={onClose} />
