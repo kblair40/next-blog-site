@@ -33,7 +33,10 @@ const PreviewModal = ({ isOpen, onClose, markdown }) => {
           <IconButton icon={closeIcon} onClick={onClose} />
         </div>
 
-        <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
+        <div
+          className={styles.preview_modal__content}
+          dangerouslySetInnerHTML={{ __html: bodyContent }}
+        />
       </ReactModal>
     </React.Fragment>
   );
