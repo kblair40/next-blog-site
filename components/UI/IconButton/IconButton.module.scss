@@ -1,0 +1,15 @@
+@use "../../../styles/abstracts/" as abs;
+
+.iconbutton {
+    @include abs.transition-ease(0.2s);
+    border: none;
+    background-color: #fff;
+    border-radius: abs.$border-radius-md;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: #eaeaea;
+    }
+}
