@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { default as ReactModal } from "react-modal";
 
-import markdownToHtml from "utils/markdownToHtml";
+import markdownToHtml from "utils/md";
 import IconButton from "components/UI/IconButton";
 import closeIcon from "public/assets/icons/close-icon.svg";
 import styles from "./PreviewModal.module.scss";

@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as abs;
 
 .container {
-    padding: 1rem;
+    padding-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,7 @@
     &__content {
         width: 80vw;
         max-width: 800px;
-        background-color: white;
+        // background-color: white;
         border-radius: abs.$border-radius-md;
     }
 }

@@ -3,41 +3,15 @@
 .container {
   width: 100%;
   height: 100%;
-
-  &__editor {
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: abs.$border-radius-md;
-    overflow: hidden;
-
-
-    .image_input {
-        border-radius: 0 0 abs.$border-radius-md abs.$border-radius-md;
-    }
-  }
-
-  &__toolbar {
-    border-radius: abs.$border-radius-md abs.$border-radius-md 0 0;
-  }
 }
 
+.preview {
+  // white-space: pre-wrap;
+  margin-top: 2rem;
 
-
-
-
-//
-//
-//
-// .text_area {
-//     height: 100%;
-//     width: 100%;
-//     border: none;
-//     border-radius: abs.$border-radius-md;
-//     padding: .5rem;
-//     margin-bottom: 1rem;
-
-//     &:focus-visible {
-//         outline: none;
-//         border: 1px solid abs.$color-secondary;
-//     }
-// }
+  h1, h2, h3, h4, h5, h6, p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-bottom: .5rem;
+  }
+}

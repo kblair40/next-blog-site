@@ -1,9 +1,11 @@
 @use "abstracts";
 @use "resets";
 @use "normalize";
+// @import 'codemirror/lib/codemirror.css';
 
-body { 
-    min-height: 100vh;
-    // background-color: lighten(abstracts.$color-primary, 10%);
-    background-color: abstracts.$color-background;
+
+body {
+  min-height: 100vh;
+  background-color: abstracts.$color-background;
 }
+
