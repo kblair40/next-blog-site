@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { default as ReactModal } from "react-modal";
 
 import markdownToHtml from "utils/markdownToHtml";
-import styles from "./Modal.module.scss";
+import IconButton from "components/UI/IconButton";
+import closeIcon from "public/assets/icons/close-icon.svg";
+import styles from "./PreviewModal.module.scss";
 
 ReactModal.setAppElement("#layout");
 
@@ -14,10 +16,13 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    width: "90vw",
+    maxWidth: "800px",
+    paddingTop: "3rem",
   },
 };
 
-const Modal = ({ isOpen, onClose, markdown }) => {
+const PreviewModal = ({ isOpen, onClose, markdown }) => {
   const [bodyContent, setBodyContent] = useState();
 
   useEffect(() => {
@@ -30,24 +35,22 @@ const Modal = ({ isOpen, onClose, markdown }) => {
     if (markdown) convertMarkdown();
   }, [markdown]);
 
-  const handleClose = () => {
-    setOpened(false);
-    onClose();
-  };
-
   return (
-    <div className={styles.container}>
+    <React.Fragment>
       <ReactModal
         isOpen={isOpen}
-        // onAfterOpen={() => setOpened(true)}
-        onRequestClose={handleClose}
+        onRequestClose={onClose}
         style={customStyles}
         contentLabel="Content Label"
       >
+        <div className={styles.close_button}>
+          <IconButton icon={closeIcon} onClick={onClose} />
+        </div>
+
         <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
       </ReactModal>
-    </div>
+    </React.Fragment>
   );
 };
 
-export default Modal;
+export default PreviewModal;
