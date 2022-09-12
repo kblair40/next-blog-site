@@ -1,7 +1,6 @@
 @use "abstracts";
 @use "resets";
 @use "normalize";
-// @import 'codemirror/lib/codemirror.css';
 
 
 body {
@@ -9,3 +8,8 @@ body {
   background-color: abstracts.$color-background;
 }
 
+.tme-menu {
+  .right {
+    display: none !important;
+  }
+}
