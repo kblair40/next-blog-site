@@ -3,6 +3,7 @@ import Modal from "react-modal";
 
 import Stack from "components/UI/Stack";
 import Input from "components/UI/Input";
+import Button from "components/UI/Button";
 import styles from "./SubscribeModal.module.scss";
 
 Modal.setAppElement("#layout");
@@ -16,9 +17,9 @@ const SubscribeModal = ({ isOpen, onClose }) => {
 
       <div className={styles.modal__body}>
         <Stack direction="column">
-          <Input />
-          <Input />
-          <Input />
+          <Input placeholder="Your name (optional)" />
+          <Input placeholder="Your email (required)" />
+          <Button>Submit</Button>
         </Stack>
       </div>
     </Modal>
