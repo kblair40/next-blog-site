@@ -42,13 +42,6 @@ export default async function handler(req, res) {
         data = await getAllPosts();
         return res.status(200).json({ success: true, posts: data });
       }
-
-    // try {
-    //   const posts = await Post.find({}); /* gets all posts in db */
-    //   res.status(200).json({ success: true, posts });
-    // } catch (error) {
-    //   res.status(400).json({ success: false });
-    // }
     case "POST":
       try {
         const post = await Post.create(req.body);
