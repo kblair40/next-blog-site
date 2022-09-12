@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import md from "utils/md";
-
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 
+import md from "utils/md";
+import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import styles from "./Editor.module.scss";
 
@@ -24,12 +24,12 @@ const Editor = () => {
   return (
     <React.Fragment>
       <div className={styles.container}>
-        <TextareaMarkdownEditor
-          ref={textareaRef}
-          doParse={md.render}
-          // onChange={(val) => console.log("val:", val)}
-          // onChange={(e) => console.log("val:", e.target.value)}
-        />
+        <div className={styles.container__title_input}>
+          <p className={styles.container__title_input__label}>Post Title:</p>
+          <Input />
+        </div>
+
+        <TextareaMarkdownEditor ref={textareaRef} doParse={md.render} />
         <Button onClick={handleSubmit}>Preview</Button>
       </div>
 
