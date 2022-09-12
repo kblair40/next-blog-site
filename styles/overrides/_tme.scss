@@ -1,0 +1,20 @@
+@use "../abstracts" as abs;
+
+.tme-container {
+    .tme-menu {
+      background-color: #fafafa;
+      border-radius: abs.$border-radius-lg abs.$border-radius-lg 0 0;
+      .right {
+        display: none !important;
+      }
+    }
+  
+    .tme-textarea {
+      border-radius: 0 0 abs.$border-radius-xl abs.$border-radius-xl !important;
+    
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+  

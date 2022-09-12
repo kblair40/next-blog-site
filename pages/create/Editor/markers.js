@@ -4,6 +4,8 @@ import ulIcon from "public/assets/icons/list-ul.svg";
 import olIcon from "public/assets/icons/list-ol.svg";
 import linkIcon from "public/assets/icons/link.svg";
 
+const hStyle = { margin: "0 0.5rem" };
+
 const markers = [
   {
     key: "header",
@@ -14,29 +16,43 @@ const markers = [
           {
             key: "h1",
             marker: "# ",
-            name: <b>H1</b>,
+            name: <p style={hStyle}>H1</p>,
             title: "H1",
             type: "line-marker",
           },
           {
             key: "h2",
             marker: "## ",
-            name: <b>H2</b>,
+            name: <p style={hStyle}>H2</p>,
             title: "H2",
             type: "line-marker",
           },
           {
             key: "h3",
             marker: "### ",
-            name: <b>H3</b>,
+            name: <p style={hStyle}>H3</p>,
             title: "H3",
             type: "line-marker",
           },
           {
             key: "h4",
             marker: "#### ",
-            name: <b>H4</b>,
+            name: <p style={hStyle}>H4</p>,
             title: "H4",
+            type: "line-marker",
+          },
+          {
+            key: "h4",
+            marker: "##### ",
+            name: <p style={hStyle}>H5</p>,
+            title: "H5",
+            type: "line-marker",
+          },
+          {
+            key: "h4",
+            marker: "###### ",
+            name: <p style={hStyle}>H6</p>,
+            title: "H6",
             type: "line-marker",
           },
         ],
@@ -53,7 +69,7 @@ const markers = [
           {
             defaultText: "bold",
             key: "bold",
-            name: <b>bold</b>,
+            name: <p style={hStyle}>bold</p>,
             prefix: "**",
             suffix: "**",
             title: "bold",
@@ -62,7 +78,7 @@ const markers = [
           {
             defaultText: "italic",
             key: "italic",
-            name: <i>italic</i>,
+            name: <i style={hStyle}>italic</i>,
             prefix: "*",
             suffix: "*",
             title: "italic",
@@ -71,7 +87,7 @@ const markers = [
           {
             defaultText: "strikethrough",
             key: "strikethrough",
-            name: <del>strikethrough</del>,
+            name: <del style={hStyle}>strikethrough</del>,
             prefix: "~~",
             suffix: "~~",
             title: "strikethrough",
@@ -80,36 +96,9 @@ const markers = [
           {
             key: "blockquote",
             marker: "> ",
-            name: "blockquote",
+            name: <p style={hStyle}>blockquote</p>,
             title: "blockquote",
             type: "line-marker",
-          },
-          {
-            defaultText: "inline code",
-            key: "inline-code",
-            name: "inlineCode",
-            prefix: "`",
-            suffix: "`",
-            title: "inlineCode",
-            type: "marker",
-          },
-          {
-            defaultText: "code",
-            key: "code",
-            multipleLine: true,
-            name: "code",
-            prefix: "```",
-            suffix: "```",
-            title: "code",
-            type: "marker",
-          },
-          {
-            key: "hr",
-            multipleLine: true,
-            name: <hr style={{ width: "100%" }} />,
-            template: "---",
-            title: "hr",
-            type: "template",
           },
         ],
         type: "dropdown",
@@ -148,10 +137,6 @@ const markers = [
         type: "marker",
       },
     ],
-  },
-  {
-    key: "other",
-    markers: [],
   },
 ];
 

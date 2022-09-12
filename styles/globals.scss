@@ -1,15 +1,9 @@
 @use "abstracts";
 @use "resets";
 @use "normalize";
-
+@use "overrides";
 
 body {
   min-height: 100vh;
   background-color: abstracts.$color-background;
-}
-
-.tme-menu {
-  .right {
-    display: none !important;
-  }
 }
