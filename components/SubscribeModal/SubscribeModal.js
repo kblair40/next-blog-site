@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 
+import Stack from "components/UI/Stack";
 import Input from "components/UI/Input";
 import styles from "./SubscribeModal.module.scss";
 
@@ -14,8 +15,11 @@ const SubscribeModal = ({ isOpen, onClose }) => {
       </div>
 
       <div className={styles.modal__body}>
-        <Input />
-        <Input />
+        <Stack direction="column">
+          <Input />
+          <Input />
+          <Input />
+        </Stack>
       </div>
     </Modal>
   );

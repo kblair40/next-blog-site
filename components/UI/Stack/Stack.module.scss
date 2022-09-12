@@ -1,0 +1,22 @@
+@mixin flex {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.stack_col {
+    @include flex;
+  flex-direction: column;
+}
+
+.stack_col > * + * {
+  margin-block-start: 1rem;
+}
+
+.stack_row {
+    @include flex;
+}
+
+.stack_row > * + * {
+//   margin-block-start: 1rem;
+  margin-inline-start: 1rem;
+}
