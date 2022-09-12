@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import styles from "./PostPreview.module.scss";
 
-const Post = ({ title, children }) => {
+const PostPreview = ({ title, children }) => {
   return (
     <div className={styles.post}>
       <h3 className={styles.post__title}>{title}</h3>
@@ -18,4 +18,4 @@ const Post = ({ title, children }) => {
   );
 };
 
-export default Post;
+export default PostPreview;
