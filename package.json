@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "markdown-it": "^13.0.1",
     "mongoose": "^6.6.0",
     "next": "12.3.0",
