@@ -2,13 +2,13 @@ import React from "react";
 
 import classes from "./Button.module.scss";
 
-const Button = ({ onClick, styles, children }) => {
+const Button = ({ onClick, isDisabled, styles, children }) => {
   return (
     <button
       onClick={onClick}
       className={classes.button}
       style={styles ? { ...styles } : undefined}
-      disabled
+      disabled={isDisabled}
     >
       {children}
     </button>
