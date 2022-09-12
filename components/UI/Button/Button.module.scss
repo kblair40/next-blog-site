@@ -8,6 +8,9 @@
     background-color: abs.$color-alt-2;
     color: white;
     border: 1px solid #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     // States
     &:hover {

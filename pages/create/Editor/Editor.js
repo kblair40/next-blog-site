@@ -6,8 +6,10 @@ import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import markers from "./markers";
 import styles from "./Editor.module.scss";
+// import CircleLoader from "components/UI/Loaders/CircleLoader";
+import Loading from "components/UI/Loading";
 
-const Editor = ({ onSubmit }) => {
+const Editor = ({ onSubmit, loading }) => {
   const [postTitle, setPostTitle] = useState("");
   const [htmlPreview, setHtmlPreview] = useState("");
 
@@ -51,7 +53,7 @@ const Editor = ({ onSubmit }) => {
             onClick={handleSubmit}
             styles={{ width: "50%", marginLeft: "1rem" }}
           >
-            Submit
+            {loading ? <Loading scale={0.6} /> : "Submit"}
           </Button>
         </div>
       </div>
@@ -67,3 +69,37 @@ const Editor = ({ onSubmit }) => {
 };
 
 export default Editor;
+
+// const Loading = ({ scale }) => (
+//   <span
+//     style={{
+//       display: "block",
+//       transform: `scale(${scale ? scale : 1})`,
+//       border: "1px solid white",
+//     }}
+//   >
+//     <svg
+//       width="38"
+//       height="38"
+//       viewBox="0 0 38 38"
+//       xmlns="http://www.w3.org/2000/svg"
+//       stroke="#fff"
+//     >
+//       <g fill="none" fillRule="evenodd">
+//         <g transform="translate(1 1)" strokeWidth="3">
+//           <circle strokeOpacity=".5" cx="18" cy="18" r="18" />
+//           <path d="M36 18c0-9.94-8.06-18-18-18">
+//             <animateTransform
+//               attributeName="transform"
+//               type="rotate"
+//               from="0 18 18"
+//               to="360 18 18"
+//               dur="1s"
+//               repeatCount="indefinite"
+//             />
+//           </path>
+//         </g>
+//       </g>
+//     </svg>
+//   </span>
+// );
