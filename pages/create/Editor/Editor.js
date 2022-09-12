@@ -6,8 +6,6 @@ import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import markers from "./markers";
 import styles from "./Editor.module.scss";
-// import CircleLoader from "components/UI/Loaders/CircleLoader";
-import Loading from "components/UI/Loading";
 
 const Editor = ({ onSubmit, loading }) => {
   const [postTitle, setPostTitle] = useState("");
@@ -52,8 +50,9 @@ const Editor = ({ onSubmit, loading }) => {
           <Button
             onClick={handleSubmit}
             styles={{ width: "50%", marginLeft: "1rem" }}
+            loading={loading}
           >
-            {loading ? <Loading scale={0.6} /> : "Submit"}
+            Submit
           </Button>
         </div>
       </div>

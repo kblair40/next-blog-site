@@ -1,8 +1,9 @@
 import React from "react";
 
+import Loading from "components/UI/Loading";
 import classes from "./Button.module.scss";
 
-const Button = ({ onClick, isDisabled, styles, children }) => {
+const Button = ({ onClick, isDisabled, loading, styles, children }) => {
   return (
     <button
       onClick={onClick}
@@ -10,7 +11,7 @@ const Button = ({ onClick, isDisabled, styles, children }) => {
       style={styles ? { ...styles } : undefined}
       disabled={isDisabled}
     >
-      {children}
+      {loading ? <Loading scale={0.6} /> : children}
     </button>
   );
 };
