@@ -36,7 +36,12 @@ const Editor = ({ onSubmit }) => {
           <Input onChange={(val) => setPostTitle(val)} />
         </div>
 
-        <TextareaMarkdownEditor ref={textareaRef} doParse={md.render} />
+        <TextareaMarkdownEditor
+          ref={textareaRef}
+          doParse={md.render}
+          className={styles.container__editor}
+          rows={20}
+        />
 
         <div className={styles.container__buttons}>
           <Button onClick={showPreview} styles={{ width: "50%" }}>

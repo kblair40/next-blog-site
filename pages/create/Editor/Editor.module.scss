@@ -15,6 +15,17 @@
     }
   }
 
+  &__editor {
+
+    &.tme-textarea {
+      height: 60vh !important;
+    }
+    // height: 60vh;
+    textarea {
+      // height: 60vh;
+    }
+  }
+
   &__buttons {
     margin-top: 1rem;
     display: flex;
