@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import styles from "./Post.module.scss";
+import styles from "./PostPreview.module.scss";
 
 const Post = ({ title, children }) => {
   return (
