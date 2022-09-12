@@ -1,9 +1,25 @@
 @use "../../../styles/abstracts" as abs;
 
 .button {
+    @include abs.transition-ease(0.2s);
     width: 100%;
     height: 40px;
     border-radius: abs.$border-radius-md;
-    background-color: white;
+    background-color: abs.$color-alt-2;
+    color: white;
     border: 1px solid #fafafa;
+
+    // States
+    &:hover {
+        background-color: lighten(abs.$color-alt-2, 5%);
+    }
+    &:active {
+        background-color: lighten(abs.$color-alt-2, 10%);
+    }
+
+    &:disabled {
+        color: #ccc;
+        &:hover { background-color: abs.$color-alt-2; }
+        &:active { background-color: abs.$color-alt-2; }
+    }
 }

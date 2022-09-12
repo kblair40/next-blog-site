@@ -8,6 +8,7 @@ const Button = ({ onClick, styles, children }) => {
       onClick={onClick}
       className={classes.button}
       style={styles ? { ...styles } : undefined}
+      disabled
     >
       {children}
     </button>
