@@ -21,7 +21,16 @@ const SubscribeModal = ({ isOpen, onClose }) => {
       email: emailRef.current.value,
     });
 
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => {
+      clearForm();
+      setLoading(false);
+      onClose();
+    }, 1500);
+  };
+
+  const clearForm = () => {
+    nameRef.current.value = "";
+    emailRef.current.value = "";
   };
 
   return (

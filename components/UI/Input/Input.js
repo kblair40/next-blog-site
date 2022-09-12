@@ -2,7 +2,7 @@ import React, { useState, forwardRef } from "react";
 import classNames from "classnames";
 
 import classes from "./Input.module.scss";
-// eslint-disable-next-line react/display-name
+
 const Input = forwardRef(
   ({ placeholder, styles, onChange, size = "md" }, ref) => {
     const [value, setValue] = useState("");
@@ -33,13 +33,12 @@ const Input = forwardRef(
         onChange={handleChange}
         ref={ref}
         className={inputClasses}
-        // className={classNames(classes.input, classes.input_md)}
         style={styles ? styles : undefined}
       />
     );
   }
 );
 
-// Input.displayName = "Input";
+Input.displayName = "Input";
 
 export default Input;

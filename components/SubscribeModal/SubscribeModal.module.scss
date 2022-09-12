@@ -14,6 +14,7 @@
   padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
+  box-shadow: abs.$shadow-xl;
 
   &__header {
     padding: .5rem 0;
