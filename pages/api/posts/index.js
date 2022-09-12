@@ -1,4 +1,5 @@
 import dbConnect from "utils/dbConnect";
+import Post from "models/Post";
 
 export default async function handler(req, res) {
   const { method } = req;
@@ -12,26 +13,24 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        // const pets = await Pet.find({}); /* find all the data in our database */
-        // res.status(200).json({ success: true, data: pets });
+        const posts = await Post.find({}); /* gets all posts in db */
+        res.status(200).json({ success: true, data: posts });
       } catch (error) {
-        // res.status(400).json({ success: false });
+        res.status(400).json({ success: false });
       }
-    // break;
+      break;
     case "POST":
       try {
-        // const pet = await Pet.create(
-        //   req.body
-        // ); /* create a new model in the database */
-        // res.status(201).json({ success: true, data: pet });
+        const post = await Post.create(
+          req.body
+        ); /* create a new model in the database */
+        res.status(201).json({ success: true, data: post });
       } catch (error) {
-        // res.status(400).json({ success: false });
+        res.status(400).json({ success: false });
       }
-    // break;
+      break;
     default:
-    // res.status(400).json({ success: false });
-    // break;
+      res.status(400).json({ success: false });
+      break;
   }
-
-  return res.status(200).send({ msg: "not ready yet" });
 }
