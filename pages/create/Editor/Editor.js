@@ -4,6 +4,7 @@ import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import md from "utils/md";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
+import markers from "./markers";
 import styles from "./Editor.module.scss";
 
 const Editor = ({ onSubmit }) => {
@@ -11,7 +12,6 @@ const Editor = ({ onSubmit }) => {
   const [htmlPreview, setHtmlPreview] = useState("");
 
   const textareaRef = useRef();
-  console.log("MD:", console.dir(md));
 
   const showPreview = () => {
     const value = textareaRef.current.state.value;
@@ -23,7 +23,6 @@ const Editor = ({ onSubmit }) => {
   };
 
   const handleSubmit = () => {
-    // const content = textareaRef.current.state.value;
     const content = md.render(textareaRef.current.state.value);
     onSubmit({ title: postTitle, content });
   };
@@ -38,9 +37,9 @@ const Editor = ({ onSubmit }) => {
 
         <TextareaMarkdownEditor
           ref={textareaRef}
-          doParse={md.render}
           className={styles.container__editor}
           rows={20}
+          markers={markers}
         />
 
         <div className={styles.container__buttons}>
