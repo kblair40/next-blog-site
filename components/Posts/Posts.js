@@ -15,7 +15,7 @@ const Posts = () => {
     const fetchPosts = async () => {
       try {
         const allPosts = await api.get("/posts");
-        // console.log("ALL POSTS:", allPosts.data.posts);
+        console.log("ALL POSTS:", allPosts.data.posts);
 
         setAllPosts(
           allPosts.data.posts.map((post, i) => {
@@ -69,7 +69,7 @@ const Posts = () => {
                 i % 2 ? styles.mr : ""
               }`}
             >
-              <PostPreview title={post.title}>
+              <PostPreview title={post.title} postId={post._id}>
                 <div
                   dangerouslySetInnerHTML={{ __html: md.render(post.content) }}
                 />

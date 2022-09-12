@@ -3,7 +3,7 @@
 .post {
   padding: 1rem;
   box-shadow: abs.$shadow-xs;
-  width: fit-content;
+  width: 100%;
   border-radius: abs.$border-radius-sm;
   position: relative;
 
@@ -56,7 +56,6 @@
           transform: translateX(-24px);
 
           &:after {
-            // z-index: 1;
             color: abs.$text-primary;
             right: -.5rem;
           }
