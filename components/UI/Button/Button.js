@@ -1,10 +1,14 @@
 import React from "react";
 
-import styles from "./Button.module.scss";
+import classes from "./Button.module.scss";
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, styles, children }) => {
   return (
-    <button onClick={onClick} className={styles.button}>
+    <button
+      onClick={onClick}
+      className={classes.button}
+      style={styles ? { ...styles } : undefined}
+    >
       {children}
     </button>
   );
