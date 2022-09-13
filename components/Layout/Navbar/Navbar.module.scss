@@ -1,6 +1,7 @@
 @use "../../../styles/abstracts" as abs;
 
-$color-active-link: abs.$color-alt-2;
+$color-active-link: darken(abs.$color-alt-2, 15%);
+$color-hover-link: lighten($color-active-link, 8%);
 
 $color-gradient-start: lighten(abs.$color-alt-3, 17.5%);
 $color-gradient-end: lighten(abs.$color-alt-3, 19%);
@@ -8,13 +9,16 @@ $color-gradient-end: lighten(abs.$color-alt-3, 19%);
 @mixin inactive-link-styles {
   @include abs.transition-ease(0.2s);
   padding: 4px 12px;
+  font-weight: 500;
+  height: 32px;
+  position: relative;
 
   &:visited {
     color: initial;
   }
 
   &:hover {
-    color: abs.$color-alt-4;
+    color: $color-hover-link;
   }
 }
 
@@ -22,18 +26,26 @@ $color-gradient-end: lighten(abs.$color-alt-3, 19%);
   position: fixed;
   top: 0;
   z-index: 10000;
-  background: linear-gradient(90deg, $color-gradient-start 50%, $color-gradient-end 100%);
+  background: linear-gradient(
+    90deg,
+    $color-gradient-start 50%,
+    $color-gradient-end 100%
+  );
   height: 64px;
   width: 100vw;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 20px 16px 16px;
   box-shadow: abs.$shadow-xs;
 
   &__subscribe_btn {
     @include inactive-link-styles;
+    cursor: pointer;
     background-color: transparent;
     border: none;
+    position: relative;
+    bottom: 2px;
+
   }
 
   a {
@@ -46,21 +58,21 @@ $color-gradient-end: lighten(abs.$color-alt-3, 19%);
       color: $color-active-link;
 
       &:visited {
-        color: $color-active-link;
+        color: $color-hover-link;
       }
 
       &::after {
         content: "";
         height: 1px;
         width: 24px;
-        background-color: $color-active-link;
-        position: relative;
-        top: 0.25rem;
+        background-color: $color-hover-link;
+        position: absolute;
+        bottom: 0;
       }
     }
   }
 
   &__logo {
-    margin-right: 3rem;
+    margin-right: 2rem;
   }
 }
