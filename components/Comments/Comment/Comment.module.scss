@@ -1,4 +1,29 @@
+@use "../../../styles/abstracts/" as abs;
+
 .comment {
-    min-height: 100px;
-    border: 1px solid #4a8;
+    // width: fit-content;
+    padding: 4px 8px;
+    border-radius: abs.$border-radius-lg;
+    background-color: #eee;
+
+    &__name_and_time {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__name {
+        font-size: 17px;
+        font-weight: 500;
+        margin-right: .5rem;
+    }
+
+    &__time {
+        color: abs.$text-secondary;
+        font-style: italic;
+        font-size: 14px;
+    }
+
+    &__text {
+
+    }
 }

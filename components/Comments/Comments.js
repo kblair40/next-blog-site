@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Comment from "./Comment";
 import api from "utils/api";
 import Loading from "components/UI/Loading";
+import Stack from "components/UI/Stack";
 import styles from "./Comments.module.scss";
 
 const Comments = ({ postId }) => {
@@ -38,16 +39,17 @@ const Comments = ({ postId }) => {
 
   return (
     <div className={styles.comments}>
+      <h3>Comments</h3>
       {loading ? (
         <CommentsLoading />
       ) : !loading && !comments.length ? (
         <NoComments />
       ) : (
-        <React.Fragment>
+        <Stack direction="column">
           {comments.map((cmt, i) => {
             return <Comment key={i} comment={cmt} />;
           })}
-        </React.Fragment>
+        </Stack>
       )}
 
       <div>

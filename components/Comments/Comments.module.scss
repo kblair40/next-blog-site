@@ -7,7 +7,11 @@
 }
 
 .comments {
-  padding: 1rem 0;
+  padding: 2rem 0 1rem;
+
+  h3 {
+    margin-bottom: 1rem;
+  }
 
   &__loading {
     @include no-comments;
