@@ -12,7 +12,8 @@ $color-alt-1: #E1D2B2;
 $color-alt-2: #605955;
 $color-alt-3: #E0CCA7;
 $color-alt-4: #9F9776;
-$color-background: lighten($color-primary, 18.75%)
+$color-background: lighten($color-primary, 18.75%);
 
+$color-layer-1: color.adjust($color-alt-3, $alpha: -.8);
 
 

@@ -3,29 +3,31 @@
 $color-active-link: abs.$color-alt-2;
 
 @mixin inactive-link-styles {
-    @include abs.transition-ease(0.2s);
-    padding: 4px 12px;
+  @include abs.transition-ease(0.2s);
+  padding: 4px 12px;
 
-    &:visited {
-      color: initial;
-    }
+  &:visited {
+    color: initial;
+  }
 
-    &:hover {
-      color: abs.$color-alt-4;
-    }
+  &:hover {
+    color: abs.$color-alt-4;
+  }
 }
 
 .nav {
   position: fixed;
   top: 0;
   z-index: 1000000;
-  background-color: abs.$color-background;
+  // background: linear-gradient(90deg,#f8fbfd 50%,rgba(255,255,255,0) 100%);
+  // background: linear-gradient(90deg,#f8fbfd 66%, rgba(248, 251, 253, .8) 100%);
+  background: linear-gradient(90deg, rgba(224, 204, 167, .2) 66%, rgba(224, 204, 167, .1) 100%);
   height: 72px;
   width: 100vw;
   display: flex;
   align-items: center;
   padding: 1rem;
-  box-shadow: abs.$shadow-sm;
+  box-shadow: abs.$shadow-xs;
 
   &__subscribe_btn {
     @include inactive-link-styles;

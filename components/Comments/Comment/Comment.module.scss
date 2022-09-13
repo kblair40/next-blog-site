@@ -2,9 +2,10 @@
 
 .comment {
     // width: fit-content;
-    padding: 4px 8px;
+    padding: 8px;
     border-radius: abs.$border-radius-lg;
-    background-color: #eee;
+    // background-color: rgba(224, 204, 167, .2);
+    background-color: abs.$color-layer-1;
 
     &__name_and_time {
         display: flex;
