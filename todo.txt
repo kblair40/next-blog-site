@@ -1,7 +1,3 @@
 1. Add FormControl component
     - Add error showing to it
-2. Add Comment model
-    - Implement in Post model
-    - Comments section for posts is needed
-3. Show toast after someone successfully subscribes
-    - react-hot-toast is already installed
+2. Add context for erin

@@ -51,10 +51,6 @@ const Comments = ({ postId }) => {
           })}
         </Stack>
       )}
-
-      <div>
-        <div></div>
-      </div>
     </div>
   );
 };

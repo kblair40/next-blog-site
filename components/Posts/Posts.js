@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import PostPreview from "./PostPreview";
-import bgImage from "public/assets/images/posts-bg.jpg";
+// import bgImage from "public/assets/images/posts-bg.jpg";
+import bgImage from "public/assets/images/money.jpg";
 import styles from "./Posts.module.scss";
 import api from "utils/api";
 import md from "utils/md";
