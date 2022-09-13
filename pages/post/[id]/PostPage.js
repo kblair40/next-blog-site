@@ -5,6 +5,7 @@ import api from "utils/api";
 import md from "utils/md";
 import styles from "./PostPage.module.scss";
 import Comments from "components/Comments";
+import CommentInput from "components/CommentInput";
 
 const PostPage = () => {
   const [loading, setLoading] = useState(true);
@@ -50,6 +51,7 @@ const PostPage = () => {
         <h1 className={styles.post_page__title}>{postTitle}</h1>
         <div dangerouslySetInnerHTML={{ __html: md.render(postContent) }} />
 
+        <CommentInput />
         <Comments postId={router.query.id} />
       </div>
     </div>
