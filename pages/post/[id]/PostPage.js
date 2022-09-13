@@ -6,6 +6,7 @@ import md from "utils/md";
 import styles from "./PostPage.module.scss";
 import Comments from "components/Comments";
 import CommentInput from "components/CommentInput";
+import GoBack from "components/GoBack";
 
 const PostPage = () => {
   const [loading, setLoading] = useState(true);
@@ -13,7 +14,6 @@ const PostPage = () => {
   const [postContent, setPostContent] = useState("");
 
   const router = useRouter();
-  // const postId = router.query.id;
 
   useEffect(() => {
     const fetchPost = async (id) => {
@@ -21,7 +21,6 @@ const PostPage = () => {
         const res = await api.get("/posts/", {
           params: { id },
         });
-        // console.log("RES:", res);
         setPostContent("<div>" + res.data.post.content + "</div>");
         setPostTitle(res.data.post.title);
       } catch (err) {
@@ -48,6 +47,8 @@ const PostPage = () => {
   return (
     <div className={styles.post_page}>
       <div className={styles.post_page__content_container}>
+        <GoBack route="/" label="Back to all posts" />
+
         <h1 className={styles.post_page__title}>{postTitle}</h1>
         <div dangerouslySetInnerHTML={{ __html: md.render(postContent) }} />
 
