@@ -5,6 +5,7 @@
 
   textarea {
     @include abs.transition-ease(0.2s);
+    margin-top: 1rem;
     width: 100%;
     border-width: 1px;
     border-style: solid;
