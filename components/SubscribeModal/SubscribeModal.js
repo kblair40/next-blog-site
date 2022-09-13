@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import Stack from "components/UI/Stack";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
+import api from "utils/api";
 import styles from "./SubscribeModal.module.scss";
 
 Modal.setAppElement("#layout");
@@ -21,11 +22,18 @@ const SubscribeModal = ({ isOpen, onClose }) => {
       email: emailRef.current.value,
     });
 
-    setTimeout(() => {
-      clearForm();
-      setLoading(false);
-      onClose();
-    }, 1500);
+    const response = await api.post("/subscribe", {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+    });
+
+    console.log("RESPONSE:", response.data);
+
+    // setTimeout(() => {
+    clearForm();
+    setLoading(false);
+    onClose();
+    // }, 1500);
   };
 
   const clearForm = () => {

@@ -1,0 +1,5 @@
+1. Add FormControl component
+    - Add error showing to it
+2. Add Comment model
+    - Implement in Post model
+    - Comments section for posts is needed
