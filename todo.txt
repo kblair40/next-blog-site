@@ -4,3 +4,4 @@
     - Implement in Post model
     - Comments section for posts is needed
 3. Show toast after someone successfully subscribes
+    - react-hot-toast is already installed
