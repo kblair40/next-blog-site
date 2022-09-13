@@ -4,12 +4,12 @@ const navLinks = [
     route: "/",
   },
   {
-    label: "Page 2",
-    route: "/theme",
+    label: "Page 1",
+    route: "/page1",
   },
   {
-    label: "Page 3",
-    route: "/theme",
+    label: "Page 2",
+    route: "/page2",
   },
 ];
 
