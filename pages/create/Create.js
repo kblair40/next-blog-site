@@ -13,7 +13,7 @@ const Create = () => {
 
     try {
       const res = await api.post("/posts", { title, content });
-      console.log("RESPONSE:", res);
+      // console.log("RESPONSE:", res);
     } catch (err) {
       console.error("FAILED TO POST:", err);
     }

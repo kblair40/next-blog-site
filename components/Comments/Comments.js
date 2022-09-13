@@ -9,38 +9,27 @@ import styles from "./Comments.module.scss";
 const Comments = ({ postId }) => {
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
-  const [idReceived, setIdReceived] = useState(false);
 
   const { query } = useRouter();
-  console.log("\n\nROUTER-QUERY:", query, "\n\n");
-
-  useEffect(() => {
-    if (query && query.id) setIdReceived(true);
-    else setIdReceived(false);
-  }, [query]);
 
   useEffect(() => {
     // fetch comments, then set in state and set loading to false
     const fetchComments = async () => {
       if (query && query.id) {
         try {
-          let comments = await api.get("/comments", {
-            params: { postId: query.postId },
-          });
+          let comments = await api.get(`/comments/${postId}`);
 
           console.log("\n\nCOMMENTS RCVD:", comments, "\n\n");
-          setComments(comments);
+          setComments(comments.data.data);
         } catch (e) {
           console.error("FAILED FETCHING COMMENTS:", comments);
         }
       }
+
+      setLoading(false);
     };
 
     fetchComments();
-
-    // setTimeout(() => {
-    setLoading(false);
-    // }, 1500);
   }, [query]);
 
   if (loading) {
@@ -54,7 +43,11 @@ const Comments = ({ postId }) => {
       ) : !loading && !comments.length ? (
         <NoComments />
       ) : (
-        <div>Map over all comments here</div>
+        <React.Fragment>
+          {comments.map((cmt, i) => {
+            return <Comment key={i} comment={cmt} />;
+          })}
+        </React.Fragment>
       )}
 
       <div>

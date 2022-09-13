@@ -7,8 +7,6 @@ const Input = forwardRef(
   ({ placeholder, styles, onChange, size = "md" }, ref) => {
     const [value, setValue] = useState("");
 
-    console.log("\n\nREF:", Boolean(ref));
-
     const handleChange = (e) => {
       const { value } = e.target;
       setValue(value);

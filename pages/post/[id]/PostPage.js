@@ -21,7 +21,7 @@ const PostPage = () => {
         const res = await api.get("/posts/", {
           params: { id },
         });
-        console.log("RES:", res);
+        // console.log("RES:", res);
         setPostContent("<div>" + res.data.post.content + "</div>");
         setPostTitle(res.data.post.title);
       } catch (err) {

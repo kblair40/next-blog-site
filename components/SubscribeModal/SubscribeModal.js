@@ -32,7 +32,7 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
     if (name && email) onSubscribe();
 
     const response = await api.post("/subscribe", { name, email });
-    console.log("RESPONSE:", response.data, "\n");
+    // console.log("RESPONSE:", response.data, "\n");
 
     clearForm();
     setLoading(false);
