@@ -3,3 +3,4 @@
 2. Add Comment model
     - Implement in Post model
     - Comments section for posts is needed
+3. Show toast after someone successfully subscribes
