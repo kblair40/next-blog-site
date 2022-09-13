@@ -54,11 +54,17 @@ const Posts = () => {
 
   return (
     <div className={styles.posts_container}>
-      <Image
-        alt="bg-image"
-        src={bgImage}
-        className={styles.posts_container__bgimage}
-      />
+      <div className={styles.posts_container__image}>
+        <Image
+          alt="bg-image"
+          src={bgImage}
+          className={styles.posts_container__bgimage}
+        />
+
+        <div className={styles.posts_container__overlay}>
+          <p style={{ color: "white" }}>Text Content Here</p>
+        </div>
+      </div>
 
       <div className={styles.posts_container__posts}>
         {allPosts.map((post, i) => {

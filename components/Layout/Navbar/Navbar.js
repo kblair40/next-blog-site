@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
 import styles from "./Navbar.module.scss";
+import classNames from "classnames";
 
 const Navbar = () => {
   const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
@@ -21,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <React.Fragment>
+    <div className={styles.nav_container}>
       <SubscribeModal
         isOpen={subscribeModalOpen}
         onClose={() => setSubscribeModalOpen(false)}
@@ -48,7 +49,8 @@ const Navbar = () => {
           Subscribe
         </button>
       </nav>
-    </React.Fragment>
+      <div className={styles.bottom_border} />
+    </div>
   );
 };
 

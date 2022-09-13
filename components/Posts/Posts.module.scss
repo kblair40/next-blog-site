@@ -1,10 +1,29 @@
 @use "../../styles/abstracts" as abs;
 
 .posts_container {
+    &__image {
+        position: relative;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(33, 33, 33, .9);
+        padding: 8px 16px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+    }
+
     &__bgimage {
         width: 100%;
-        border-radius: abs.$border-radius-sm;
+        height: 100%;
+        border-radius: abs.$border-radius-lg;
     }
+
 
     &__posts {
         margin: .75rem -1rem 0;
