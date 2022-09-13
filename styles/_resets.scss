@@ -1,34 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+}
+
+footer, header, nav, section, main{
+  display: block;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    html {
-      color-scheme: dark;
-    }
-    body {
-      color: white;
-      background: black;
-    }
-  }
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
 
 a {
-    text-decoration: none;
-}
-  
-p {
-  // still necessary, even with _normalize.scss partial
-  margin: 0;
+  text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
