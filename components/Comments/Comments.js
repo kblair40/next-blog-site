@@ -21,10 +21,27 @@ const Comments = ({ postId }) => {
 
   useEffect(() => {
     // fetch comments, then set in state and set loading to false
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-  }, []);
+    const fetchComments = async () => {
+      if (query && query.id) {
+        try {
+          let comments = await api.get("/comments", {
+            params: { postId: query.postId },
+          });
+
+          console.log("\n\nCOMMENTS RCVD:", comments, "\n\n");
+          setComments(comments);
+        } catch (e) {
+          console.error("FAILED FETCHING COMMENTS:", comments);
+        }
+      }
+    };
+
+    fetchComments();
+
+    // setTimeout(() => {
+    setLoading(false);
+    // }, 1500);
+  }, [query]);
 
   if (loading) {
     return <CommentsLoading />;
