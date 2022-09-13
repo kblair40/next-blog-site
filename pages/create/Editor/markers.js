@@ -42,14 +42,14 @@ const markers = [
             type: "line-marker",
           },
           {
-            key: "h4",
+            key: "h5",
             marker: "##### ",
             name: <p style={hStyle}>H5</p>,
             title: "H5",
             type: "line-marker",
           },
           {
-            key: "h4",
+            key: "p",
             marker: "###### ",
             name: <p style={hStyle}>H6</p>,
             title: "H6",
