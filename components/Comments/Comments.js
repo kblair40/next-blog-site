@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import Comment from "./Comment";
+import api from "utils/api";
 import Loading from "components/UI/Loading";
 import styles from "./Comments.module.scss";
 
 const Comments = ({ postId }) => {
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
+  const [idReceived, setIdReceived] = useState(false);
+
+  const { query } = useRouter();
+  console.log("\n\nROUTER-QUERY:", query, "\n\n");
+
+  useEffect(() => {
+    if (query && query.id) setIdReceived(true);
+    else setIdReceived(false);
+  }, [query]);
 
   useEffect(() => {
     // fetch comments, then set in state and set loading to false

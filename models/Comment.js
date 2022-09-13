@@ -14,6 +14,10 @@ const CommentSchema = new mongoose.Schema(
       type: String,
       required: [true, "Did not receive an email for the commenter"],
     },
+    postId: {
+      type: mongoose.Types.ObjectId,
+      ref: "Post",
+    },
     status: {
       type: Number,
       enum: [1, 2, 3, 4],
