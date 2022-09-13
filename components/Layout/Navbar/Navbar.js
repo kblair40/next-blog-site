@@ -13,7 +13,11 @@ const Navbar = () => {
   const { pathname } = useRouter();
 
   const handleSubscribe = () => {
-    toast("testing");
+    const config = {
+      position: toast.POSITION.BOTTOM_CENTER,
+      pauseOnHover: false,
+    };
+    toast.success("Successfully subscribed!", config);
   };
 
   return (

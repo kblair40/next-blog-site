@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Modal from "react-modal";
 
 import Stack from "components/UI/Stack";
@@ -9,37 +9,44 @@ import styles from "./SubscribeModal.module.scss";
 
 Modal.setAppElement("#layout");
 
-const SubscribeModal = ({ isOpen, onClose }) => {
+const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
   const [loading, setLoading] = useState(false);
+  const [elementSet, setElementSet] = useState(false);
+
+  useEffect(() => {
+    if (document.querySelector("#layout")) {
+      Modal.setAppElement("#layout");
+      setElementSet(true);
+    }
+  }, []);
 
   const nameRef = useRef();
   const emailRef = useRef();
 
   const handleSubmit = async () => {
     setLoading(true);
-    console.log("VALUES:", {
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-    });
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    console.log("\nVALUES:", { name, email });
 
-    const response = await api.post("/subscribe", {
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-    });
+    if (name && email) onSubscribe();
 
-    console.log("RESPONSE:", response.data);
+    const response = await api.post("/subscribe", { name, email });
+    console.log("RESPONSE:", response.data, "\n");
 
-    // setTimeout(() => {
     clearForm();
     setLoading(false);
     onClose();
-    // }, 1500);
   };
 
   const clearForm = () => {
     nameRef.current.value = "";
     emailRef.current.value = "";
   };
+
+  if (!elementSet) {
+    return <div />;
+  }
 
   return (
     <Modal className={styles.modal} isOpen={isOpen} onRequestClose={onClose}>
