@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import api from "utils/api";
 import md from "utils/md";
 import styles from "./PostPage.module.scss";
+import Comments from "components/Comments";
 
 const PostPage = () => {
   const [loading, setLoading] = useState(true);
@@ -48,6 +49,8 @@ const PostPage = () => {
       <div className={styles.post_page__content_container}>
         <h1 className={styles.post_page__title}>{postTitle}</h1>
         <div dangerouslySetInnerHTML={{ __html: md.render(postContent) }} />
+
+        <Comments postId={router.query.id} />
       </div>
     </div>
   );
