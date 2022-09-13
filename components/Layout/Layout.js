@@ -1,13 +1,13 @@
 import React from "react";
-import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
 
 import Navbar from "./Navbar";
 
 const layout = ({ children }) => {
   return (
     <div id="layout" style={{ overflowX: "hidden" }}>
-      <Toaster /> {/* doesn't occupy any space */}
       <Navbar />
+      <ToastContainer />
       {children}
     </div>
   );

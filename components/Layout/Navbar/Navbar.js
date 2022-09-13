@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
@@ -11,11 +12,16 @@ const Navbar = () => {
 
   const { pathname } = useRouter();
 
+  const handleSubscribe = () => {
+    toast("testing");
+  };
+
   return (
     <React.Fragment>
       <SubscribeModal
         isOpen={subscribeModalOpen}
         onClose={() => setSubscribeModalOpen(false)}
+        onSubscribe={handleSubscribe}
       />
       <nav className={styles.nav}>
         <Logo />
