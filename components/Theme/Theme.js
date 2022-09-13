@@ -14,7 +14,7 @@ const Theme = () => {
       </section>
 
       <section className={styles.container__section}>
-        <h3 classname={styles.conatiner__section__heading}>Cards</h3>
+        <h3 className={styles.conatiner__section__heading}>Cards</h3>
 
         <Card title="First Post">Card content</Card>
       </section>
