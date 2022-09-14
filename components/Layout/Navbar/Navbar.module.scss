@@ -24,14 +24,9 @@ $color-gradient-end: lighten(abs.$color-alt-3, 19%);
 }
 
 .nav {
-  position: fixed;
-  top: 0;
-  z-index: 10000;
-  height: 64px;
-  width: 100vw;
   display: flex;
   align-items: center;
-  padding: 20px 16px 16px;
+  padding: 20px 16px 12px;
 
   &__subscribe_btn {
     @include inactive-link-styles;
@@ -69,6 +64,15 @@ $color-gradient-end: lighten(abs.$color-alt-3, 19%);
   &__logo {
     margin-right: 2rem;
   }
+}
+
+.nav_container {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  height: 64px;
+  width: 100vw;
 }
 
 .nav_container .bottom_border {
