@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className={styles.nav_container}>
+    <div className="fixed h-16 top-0 w-screen">
       <SubscribeModal
         isOpen={subscribeModalOpen}
         onClose={() => setSubscribeModalOpen(false)}
@@ -67,3 +67,35 @@ const NavLink = ({ label, route, active }) => {
 const Logo = () => {
   return <h2 className={styles.nav__logo}>LogoHere</h2>;
 };
+
+// return (
+//   <div className={styles.nav_container}>
+//     <SubscribeModal
+//       isOpen={subscribeModalOpen}
+//       onClose={() => setSubscribeModalOpen(false)}
+//       onSubscribe={handleSubscribe}
+//     />
+//     <nav className={styles.nav}>
+//       <Logo />
+//       {navLinks.map((navLink, i) => {
+//         console.log("IS ACTIVE:", pathname, navLink.route === pathname);
+//         return (
+//           <NavLink
+//             key={i}
+//             active={pathname === navLink.route}
+//             label={navLink.label}
+//             route={navLink.route}
+//           />
+//         );
+//       })}
+
+//       <button
+//         onClick={() => setSubscribeModalOpen(true)}
+//         className={styles.nav__subscribe_btn}
+//       >
+//         Subscribe
+//       </button>
+//     </nav>
+//     <div className={styles.bottom_border} />
+//   </div>
+// );

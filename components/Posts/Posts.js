@@ -55,7 +55,7 @@ const Posts = () => {
 
   return (
     <div className={styles.posts_container}>
-      <Hero />
+      {/* <Hero /> */}
 
       <div className={styles.posts_container__posts}>
         {allPosts.map((post, i) => {
