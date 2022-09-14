@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
+import Hero from "components/Hero";
 import PostPreview from "./PostPreview";
 // import bgImage from "public/assets/images/posts-bg.jpg";
 import bgImage from "public/assets/images/money.jpg";
@@ -54,17 +55,7 @@ const Posts = () => {
 
   return (
     <div className={styles.posts_container}>
-      <div className={styles.posts_container__image}>
-        <Image
-          alt="bg-image"
-          src={bgImage}
-          className={styles.posts_container__bgimage}
-        />
-
-        <div className={styles.posts_container__overlay}>
-          <p style={{ color: "white" }}>Text Content Here</p>
-        </div>
-      </div>
+      <Hero />
 
       <div className={styles.posts_container__posts}>
         {allPosts.map((post, i) => {
