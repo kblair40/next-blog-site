@@ -20,11 +20,7 @@ module.exports = {
     fontFamily: {
       cursive: ["cursive"],
     },
-    extend: {
-      colors: {
-        faint: "#FCFCFA",
-      },
-    },
+    extend: {},
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };
