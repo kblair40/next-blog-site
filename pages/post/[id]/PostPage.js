@@ -49,7 +49,7 @@ const PostPage = () => {
       <div className="w-full mt-4 max-w-4xl min-h-75 border">
         <GoBack route="/" label="Back to all posts" />
 
-        <h1 className="mb-4">{postTitle}</h1>
+        <h1 className="mb-4 text-3xl font-semibold">{postTitle}</h1>
 
         <div dangerouslySetInnerHTML={{ __html: md.render(postContent) }} />
 
