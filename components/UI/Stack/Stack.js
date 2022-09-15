@@ -1,13 +1,14 @@
 import React from "react";
-
-import styles from "./Stack.module.scss";
+import classNames from "classnames";
 
 const Stack = ({ direction = "row", children }) => {
-  return (
-    <div className={direction === "row" ? styles.stack_row : styles.stack_col}>
-      {children}
-    </div>
-  );
+  const classes = [
+    direction === "row" ? "flex-row" : "flex-col",
+    direction === "row" ? "space-x-4" : "space-y-4",
+    "w-full",
+  ];
+
+  return <div className={classNames(classes)}>{children}</div>;
 };
 
 export default Stack;

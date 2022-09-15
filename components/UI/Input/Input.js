@@ -10,7 +10,7 @@ const sizeClasses = {
 };
 
 const Input = forwardRef(
-  ({ placeholder, styles, onChange, size = "md" }, ref) => {
+  ({ placeholder, onChange, classes = [], size = "md" }, ref) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -32,6 +32,7 @@ const Input = forwardRef(
       "focus:border-slate-500",
       "duration-300",
       sizeClasses[size],
+      ...classes,
     ];
 
     return (
@@ -41,7 +42,7 @@ const Input = forwardRef(
         onChange={handleChange}
         ref={ref}
         className={classNames(inputClasses)}
-        style={styles ? styles : undefined}
+        // style={styles ? styles : undefined}
       />
     );
   }

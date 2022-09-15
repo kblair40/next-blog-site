@@ -67,9 +67,17 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
 
       <div className="mt-2 py-2">
         <Stack direction="column">
-          <Input ref={nameRef} placeholder="Your name (optional)" />
-          <Input ref={emailRef} placeholder="Your email (required)" />
-          <Button loading={loading} onClick={handleSubmit}>
+          <Input
+            classes={["w-full"]}
+            ref={nameRef}
+            placeholder="Your name (optional)"
+          />
+          <Input
+            classes={["w-full"]}
+            ref={emailRef}
+            placeholder="Your email (required)"
+          />
+          <Button classes={["w-full"]} loading={loading} onClick={handleSubmit}>
             Submit
           </Button>
         </Stack>
