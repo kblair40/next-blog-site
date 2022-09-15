@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
-import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
@@ -21,7 +20,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed h-16 top-0 w-screen">
+    <div className="fixed h-16 top-0 w-screen z-50 bg-white">
       <SubscribeModal
         isOpen={subscribeModalOpen}
         onClose={() => setSubscribeModalOpen(false)}
@@ -31,7 +30,6 @@ const Navbar = () => {
       <nav className="flex items-center px-4 pt-5 pb-3">
         <Logo />
         {navLinks.map((navLink, i) => {
-          // console.log("IS ACTIVE:", pathname, navLink.route === pathname);
           return (
             <NavLink
               key={i}
@@ -50,7 +48,7 @@ const Navbar = () => {
         </button>
       </nav>
 
-      <div className="border-1" />
+      <hr className="bg-slate-50" />
     </div>
   );
 };
@@ -67,37 +65,5 @@ const NavLink = ({ label, route, active }) => {
 };
 
 const Logo = () => {
-  return <h2 className={styles.nav__logo}>LogoHere</h2>;
+  return <h2 className="mr-8">LogoHere</h2>;
 };
-
-// return (
-//   <div className={styles.nav_container}>
-//     <SubscribeModal
-//       isOpen={subscribeModalOpen}
-//       onClose={() => setSubscribeModalOpen(false)}
-//       onSubscribe={handleSubscribe}
-//     />
-//     <nav className={styles.nav}>
-//       <Logo />
-//       {navLinks.map((navLink, i) => {
-//         console.log("IS ACTIVE:", pathname, navLink.route === pathname);
-//         return (
-//           <NavLink
-//             key={i}
-//             active={pathname === navLink.route}
-//             label={navLink.label}
-//             route={navLink.route}
-//           />
-//         );
-//       })}
-
-//       <button
-//         onClick={() => setSubscribeModalOpen(true)}
-//         className={styles.nav__subscribe_btn}
-//       >
-//         Subscribe
-//       </button>
-//     </nav>
-//     <div className={styles.bottom_border} />
-//   </div>
-// );

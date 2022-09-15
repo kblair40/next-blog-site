@@ -54,7 +54,7 @@ const Posts = () => {
   }
 
   return (
-    <div>
+    <div className="border z-0">
       {/* <Hero /> */}
 
       <div className="px-4 flex flex-wrap">
@@ -81,3 +81,31 @@ const Posts = () => {
 };
 
 export default Posts;
+
+// return (
+//   <div
+//   // className="border-4"
+//   >
+//     {/* <Hero /> */}
+
+//     <div className="px-4 flex flex-wrap">
+//       {allPosts.map((post, i) => {
+//         console.log("POST CONTENT:", md.render(post.content));
+//         return (
+//           <div
+//             key={i}
+//             className={`${styles.posts_container__posts__card} ${
+//               i % 2 ? styles.mr : ""
+//             }`}
+//           >
+//             <PostPreview title={post.title} postId={post._id}>
+//               <div
+//                 dangerouslySetInnerHTML={{ __html: md.render(post.content) }}
+//               />
+//             </PostPreview>
+//           </div>
+//         );
+//       })}
+//     </div>
+//   </div>
+// );
