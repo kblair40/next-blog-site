@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed h-16 top-0 w-screen border-2">
+    <div className="fixed h-16 top-0 w-screen">
       <SubscribeModal
         isOpen={subscribeModalOpen}
         onClose={() => setSubscribeModalOpen(false)}

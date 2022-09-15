@@ -5,10 +5,11 @@ import Navbar from "./Navbar";
 
 const layout = ({ children }) => {
   return (
-    <div id="layout" style={{ overflowX: "hidden" }}>
+    <div id="layout" className="overflow-hidden">
       <Navbar />
       <ToastContainer />
-      {children}
+
+      <div className="pt-12">{children}</div>
     </div>
   );
 };

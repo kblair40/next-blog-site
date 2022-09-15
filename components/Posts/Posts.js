@@ -54,10 +54,10 @@ const Posts = () => {
   }
 
   return (
-    <div className={styles.posts_container}>
+    <div>
       {/* <Hero /> */}
 
-      <div className={styles.posts_container__posts}>
+      <div className="px-4 flex flex-wrap">
         {allPosts.map((post, i) => {
           console.log("POST CONTENT:", md.render(post.content));
           return (
