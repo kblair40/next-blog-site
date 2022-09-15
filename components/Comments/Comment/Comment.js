@@ -4,7 +4,7 @@ import { getRelativeTime } from "utils/dateHelpers";
 
 const Comment = ({ comment }) => {
   return (
-    <div className="px-2 py-4 rounded-lg bg-faint">
+    <div className="px-2 py-4 rounded-lg bg-slate-50">
       <div className="flex items-end mb-3">
         <p className="text-lg font-medium mr-2 leading-none">{comment.name}</p>
 
