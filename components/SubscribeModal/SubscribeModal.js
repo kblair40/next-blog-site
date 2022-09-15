@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import Modal from "react-modal";
+import classNames from "classnames";
 
 import Stack from "components/UI/Stack";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import api from "utils/api";
-import styles from "./SubscribeModal.module.scss";
 
 Modal.setAppElement("#layout");
 
@@ -48,13 +48,24 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
     return <div />;
   }
 
+  const baseClasses = [
+    "absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
+    "drop-shadow-xl rounded-xl min-h-50 py-4 px-6 bg-white",
+    "flex flex-col",
+    "w-5/6 sm:w-80 md:w-96",
+  ];
+
   return (
-    <Modal className={styles.modal} isOpen={isOpen} onRequestClose={onClose}>
-      <div className={styles.modal__header}>
-        <p className={styles.modal__title}>Subscribe</p>
+    <Modal
+      className={classNames(baseClasses)}
+      isOpen={isOpen}
+      onRequestClose={onClose}
+    >
+      <div className="py-2">
+        <p className="text-xl font-medium">Subscribe</p>
       </div>
 
-      <div className={styles.modal__body}>
+      <div className="mt-2 py-2">
         <Stack direction="column">
           <Input ref={nameRef} placeholder="Your name (optional)" />
           <Input ref={emailRef} placeholder="Your email (required)" />
