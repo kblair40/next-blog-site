@@ -5,7 +5,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      cursive: ["cursive"],
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
