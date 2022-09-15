@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import Comment from "./Comment";
 import api from "utils/api";
+import Comment from "./Comment";
 import Loading from "components/UI/Loading";
 import Stack from "components/UI/Stack";
 

@@ -1,17 +1,15 @@
 @use "../../styles/abstracts/" as abs;
 
 .comment_input {
-  margin-top: 2.5rem;
-
   textarea {
     @include abs.transition-ease(0.2s);
-    margin-top: 1rem;
-    width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #a9a9a9;
-    border-radius: abs.$border-radius-md;
-    padding: 6px 8px;
+    // margin-top: 1rem;
+    // width: 100%;
+    // border-radius: abs.$border-radius-md;
+    // padding: 6px 8px;
+    // border-width: 1px;
+    // border-style: solid;
+    // border-color: #a9a9a9;
 
     &:focus-visible {
       outline: none;

@@ -5,14 +5,12 @@ import api from "utils/api";
 import Button from "components/UI/Button";
 import Input from "components/UI/Input";
 import Stack from "components/UI/Stack";
-import styles from "./CommentInput.module.scss";
+import classNames from "classnames";
 
 const CommentInput = () => {
   const [saving, setSaving] = useState(false);
 
   const { query } = useRouter();
-
-  // console.log("QUERY")
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -26,7 +24,6 @@ const CommentInput = () => {
       email: emailRef.current?.value,
       comment: commentRef.current?.value,
     };
-    console.log("\nCOMMENT DATA:", data, "\n");
 
     if (!data.name || !data.email || !data.comment) {
       // Todo: set error here instead
@@ -55,16 +52,35 @@ const CommentInput = () => {
     }, 1000);
   };
 
+  const textareaClasses = classNames([
+    "block",
+    "border",
+    "rounded-lg",
+    "w-full",
+    "mt-4",
+    "p-2",
+    "border-slate-300",
+    "hover:border-slate-400",
+    "focus-visible:outline-0",
+    "focus:border-slate-500",
+    "duration-300",
+  ]);
+
   return (
-    <div className={styles.comment_input}>
+    <div className="mt-10">
       <Stack direction="column">
         <Input ref={nameRef} placeholder="Name (required)" />
         <Input ref={emailRef} placeholder="Email (required)" />
       </Stack>
 
-      <textarea ref={commentRef} placeholder="Write a comment..." rows={4} />
+      <textarea
+        ref={commentRef}
+        className={textareaClasses}
+        placeholder="Write a comment..."
+        rows={2}
+      />
 
-      <div className={styles.comment_input__submit_btn}>
+      <div className="mt-2 flex justify-end">
         <Button
           loading={saving}
           onClick={handleSubmit}

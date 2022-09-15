@@ -3,7 +3,7 @@ import React from "react";
 import { getRelativeTime } from "utils/dateHelpers";
 
 const Comment = ({ comment }) => {
-  console.log("\nCOMMENT:", comment);
+  // console.log("\nCOMMENT:", comment);
   return (
     <div className="px-2 py-4 rounded-lg bg-faint">
       <div className="flex items-end mb-3">
