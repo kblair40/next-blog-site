@@ -2,10 +2,9 @@ import React, { useRef, useState } from "react";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 
 import md from "utils/md";
+import { markers } from "utils/constants";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
-import { markers } from "utils/constants";
-import styles from "./Editor.module.scss";
 
 const Editor = ({ onSubmit, loading }) => {
   const [postTitle, setPostTitle] = useState("");
@@ -15,10 +14,8 @@ const Editor = ({ onSubmit, loading }) => {
 
   const showPreview = () => {
     const value = textareaRef.current.state.value;
-    console.log("\nVALUE:", value);
 
     const mdHtml = md.render(value);
-    console.log("\nHTML:", mdHtml);
     setHtmlPreview(mdHtml);
   };
 
@@ -29,29 +26,18 @@ const Editor = ({ onSubmit, loading }) => {
 
   return (
     <React.Fragment>
-      <div className={styles.container}>
-        <div className={styles.container__title_input}>
-          <p className={styles.container__title_input__label}>Post Title:</p>
+      <div className="w-full pt-4">
+        <div className="flex items-center mb-4">
+          <p className="mr-2 font-medium">Post Title:</p>
           <Input onChange={(val) => setPostTitle(val)} />
         </div>
 
-        <TextareaMarkdownEditor
-          ref={textareaRef}
-          className={styles.container__editor}
-          rows={20}
-          markers={markers}
-        />
+        <TextareaMarkdownEditor ref={textareaRef} rows={20} markers={markers} />
 
-        <div className={styles.container__buttons}>
-          <Button onClick={showPreview} styles={{ width: "50%" }}>
-            Preview
-          </Button>
+        <div className="mt-4 flex space-x-4 justify-end">
+          <Button onClick={showPreview}>Preview</Button>
 
-          <Button
-            onClick={handleSubmit}
-            styles={{ width: "50%", marginLeft: "1rem" }}
-            loading={loading}
-          >
+          <Button onClick={handleSubmit} loading={loading} colorScheme="slate">
             Submit
           </Button>
         </div>
@@ -59,7 +45,7 @@ const Editor = ({ onSubmit, loading }) => {
 
       {htmlPreview && (
         <div
-          className={styles.preview}
+          className="mt-8"
           dangerouslySetInnerHTML={{ __html: htmlPreview }}
         />
       )}

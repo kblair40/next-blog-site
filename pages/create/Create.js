@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import Editor from "./Editor";
-import styles from "./Create.module.scss";
 import api from "utils/api";
 
 const Create = () => {
@@ -24,8 +23,8 @@ const Create = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.container__content}>
+    <div className="pt-4 flex flex-col items-center justify-center">
+      <div className="w-[80vw]">
         <Editor onSubmit={handleSubmit} loading={loading} />
       </div>
     </div>

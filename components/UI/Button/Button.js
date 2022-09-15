@@ -3,7 +3,23 @@ import classNames from "classnames";
 
 import Loading from "components/UI/Loading";
 
-const Button = ({ onClick, isDisabled, loading, children, classes = [] }) => {
+const Button = ({
+  onClick,
+  isDisabled,
+  loading,
+  children,
+  colorScheme = "emerald",
+  classes = [],
+}) => {
+  const colorClasses = {
+    slate: ["bg-slate-600", "hover:bg-slate-700", "active:bg-slate-800"],
+    emerald: [
+      "bg-emerald-600",
+      "hover:bg-emerald-700",
+      "active:bg-emerald-800",
+    ],
+  };
+
   const baseClasses = [
     "duration-200",
     "rounded-lg",
@@ -14,11 +30,11 @@ const Button = ({ onClick, isDisabled, loading, children, classes = [] }) => {
     "flex",
     "items-center",
     "justify-center",
-    "bg-emerald-600",
-    "hover:bg-emerald-700",
-    "active:bg-emerald-800",
+    ...colorClasses[colorScheme],
     ...classes,
   ];
+
+  console.log("\n\nBASE CLASSES:", baseClasses);
 
   return (
     <button
@@ -28,7 +44,7 @@ const Button = ({ onClick, isDisabled, loading, children, classes = [] }) => {
     >
       {loading ? (
         <div className="scale-50">
-          <Loading scheme="sky" />
+          <Loading />
         </div>
       ) : (
         children
