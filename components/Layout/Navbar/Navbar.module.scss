@@ -66,15 +66,6 @@ $color-gradient-end: lighten(abs.$color-alt-3, 19%);
   }
 }
 
-.nav_container {
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  z-index: 10000;
-  height: 64px;
-  width: 100vw;
-}
-
 .nav_container .bottom_border {
   height: 1px;
   background-color: #dadada;
