@@ -1,7 +1,13 @@
 import React, { useState, forwardRef } from "react";
 import classNames from "classnames";
 
-import classes from "./Input.module.scss";
+const sizeClasses = {
+  xs: "h-6",
+  sm: "h-8",
+  md: "h-10",
+  lg: "h-12",
+  xl: "h-14",
+};
 
 const Input = forwardRef(
   ({ placeholder, styles, onChange, size = "md" }, ref) => {
@@ -14,15 +20,19 @@ const Input = forwardRef(
       if (onChange) onChange(value);
     };
 
-    const inputClasses = classNames({
-      [classes.input]: true,
-      [classes.input_xs]: size === "xs",
-      [classes.input_sm]: size === "sm",
-      [classes.input_md]: size === "md",
-      [classes.input_lg]: size === "lg",
-      [classes.input_xl]: size === "xl",
-    });
-    console.log("\n\nINPUT CLASSES:", inputClasses, "\n\n");
+    const inputClasses = [
+      "block",
+      "rounded-lg",
+      "px-2",
+      "py-1.5",
+      "focus-visible:outline-0",
+      "border",
+      "border-slate-300",
+      "hover:border-slate-400",
+      "focus:border-slate-500",
+      "duration-300",
+      sizeClasses[size],
+    ];
 
     return (
       <input
@@ -30,7 +40,7 @@ const Input = forwardRef(
         value={value}
         onChange={handleChange}
         ref={ref}
-        className={inputClasses}
+        className={classNames(inputClasses)}
         style={styles ? styles : undefined}
       />
     );

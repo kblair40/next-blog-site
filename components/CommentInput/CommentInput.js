@@ -58,11 +58,12 @@ const CommentInput = () => {
     "rounded-lg",
     "w-full",
     "mt-4",
-    "p-2",
+    "px-2",
+    "py-1.5",
     "border-slate-300",
     "hover:border-slate-400",
-    "focus-visible:outline-0",
     "focus:border-slate-500",
+    "focus-visible:outline-0",
     "duration-300",
   ]);
 
