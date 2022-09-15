@@ -5,7 +5,6 @@ import Comment from "./Comment";
 import api from "utils/api";
 import Loading from "components/UI/Loading";
 import Stack from "components/UI/Stack";
-import styles from "./Comments.module.scss";
 
 const Comments = ({ postId }) => {
   const [loading, setLoading] = useState(true);
@@ -38,18 +37,20 @@ const Comments = ({ postId }) => {
   }
 
   return (
-    <div className={styles.comments}>
-      <h3>Comments</h3>
+    <div className="pt-8 pb-4">
+      <h1 className="text-2xl font-semibold">Comments</h1>
       {loading ? (
         <CommentsLoading />
       ) : !loading && !comments.length ? (
         <NoComments />
       ) : (
-        <Stack direction="column">
-          {comments.map((cmt, i) => {
-            return <Comment key={i} comment={cmt} />;
-          })}
-        </Stack>
+        <div className="pt-4">
+          <Stack direction="column">
+            {comments.map((cmt, i) => {
+              return <Comment key={i} comment={cmt} />;
+            })}
+          </Stack>
+        </div>
       )}
     </div>
   );
@@ -59,7 +60,7 @@ export default Comments;
 
 const CommentsLoading = () => {
   return (
-    <div className={styles.comments__loading}>
+    <div className="flex justify-center items-center h-24 mb-4">
       <Loading stroke="#000" />
     </div>
   );
@@ -67,7 +68,7 @@ const CommentsLoading = () => {
 
 const NoComments = () => {
   return (
-    <div className={styles.comments__none}>
+    <div className="flex justify-center items-center h-24 mb-4">
       <p>No Comments Yet</p>
     </div>
   );

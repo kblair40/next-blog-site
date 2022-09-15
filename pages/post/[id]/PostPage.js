@@ -46,7 +46,7 @@ const PostPage = () => {
   return (
     <div className="px-4 overflow-x-hidden overflow-y-auto flex flex-col items-center max-w-screen">
       {/* max-w = 896px;  min-h = 300px; */}
-      <div className="w-full mt-4 max-w-4xl min-h-75 border">
+      <div className="w-full mt-4 max-w-4xl min-h-75">
         <GoBack route="/" label="Back to all posts" />
 
         <h1 className="mb-4 text-3xl font-semibold">{postTitle}</h1>

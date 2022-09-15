@@ -1,20 +1,20 @@
 import React from "react";
 
-import styles from "./Comment.module.scss";
 import { getRelativeTime } from "utils/dateHelpers";
 
 const Comment = ({ comment }) => {
   console.log("\nCOMMENT:", comment);
   return (
-    <div className={styles.comment}>
-      <div className={styles.comment__name_and_time}>
-        <p className={styles.comment__name}>{comment.name}</p>
-        <p className={styles.comment__time}>
+    <div className="px-2 py-4 rounded-lg bg-faint">
+      <div className="flex items-end mb-3">
+        <p className="text-lg font-medium mr-2 leading-none">{comment.name}</p>
+
+        <p className="text-slate-500 text-sm leading-none">
           {getRelativeTime(new Date(comment.createdAt).getTime() / 1000)}
         </p>
       </div>
 
-      <p className={styles.comment__text}>{comment.comment}</p>
+      <p className="pl-4">{comment.comment}</p>
     </div>
   );
 };
