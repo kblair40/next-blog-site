@@ -81,14 +81,8 @@ const CommentInput = () => {
         rows={2}
       />
 
-      <div className="mt-2 flex justify-end">
-        <Button
-          loading={saving}
-          onClick={handleSubmit}
-          styles={{
-            width: "fit-content",
-          }}
-        >
+      <div className="mt-4 flex justify-end">
+        <Button loading={saving} onClick={handleSubmit}>
           Submit
         </Button>
       </div>

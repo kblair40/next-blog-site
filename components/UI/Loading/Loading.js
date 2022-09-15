@@ -1,21 +1,27 @@
 import React from "react";
+import classNames from "classnames";
 
-const Loading = () => {
+const Loading = ({ scheme }) => {
+  const baseClasses = [
+    "animate-spin",
+    scheme ? "fill-slate-50" : "fill-slate-900",
+    scheme ? "stroke-slate-500" : "stroke-slate-300",
+  ];
+
   return (
     <svg
       width="48"
       height="48"
       viewBox="0 0 48 48"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="animate-spin stroke-red-400"
+      className={classNames(baseClasses)}
     >
       <circle
         cx="24"
         cy="24"
         r="22"
         fill="none"
-        stroke="black"
+        className={scheme ? "stroke-slate-200" : "stroke-slate-900"}
         stroke-width="4"
       />
       <path
