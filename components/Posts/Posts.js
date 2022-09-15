@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 import Hero from "components/Hero";
 import PostPreview from "./PostPreview";
-// import bgImage from "public/assets/images/posts-bg.jpg";
-import bgImage from "public/assets/images/money.jpg";
-import styles from "./Posts.module.scss";
 import api from "utils/api";
 import md from "utils/md";
 
@@ -53,25 +50,47 @@ const Posts = () => {
     );
   }
 
+  const getPosts = () => {
+    if (!allPosts) return [];
+
+    let combinedPosts = [];
+    for (let i = 0; i < allPosts.length; i += 2) {
+      let post1 = allPosts[i];
+      let post2 = allPosts[i + 1];
+
+      post1 = (
+        <PostPreview key={i} title={post1.title} postId={post1._id}>
+          <div dangerouslySetInnerHTML={{ __html: md.render(post1.content) }} />
+        </PostPreview>
+      );
+
+      let posts = [post1];
+
+      if (post2) {
+        posts.push(
+          <PostPreview key={i + 1} title={post2.title} postId={post2._id}>
+            <div
+              dangerouslySetInnerHTML={{ __html: md.render(post2.content) }}
+            />
+          </PostPreview>
+        );
+      }
+
+      combinedPosts.push(posts);
+    }
+
+    return combinedPosts;
+  };
+
   return (
     <div className="border z-0">
-      {/* <Hero /> */}
+      <Hero />
 
       <div className="px-4 flex flex-wrap">
-        {allPosts.map((post, i) => {
-          console.log("POST CONTENT:", md.render(post.content));
+        {getPosts().map((posts, i) => {
           return (
-            <div
-              key={i}
-              className={`${styles.posts_container__posts__card} ${
-                i % 2 ? styles.mr : ""
-              }`}
-            >
-              <PostPreview title={post.title} postId={post._id}>
-                <div
-                  dangerouslySetInnerHTML={{ __html: md.render(post.content) }}
-                />
-              </PostPreview>
+            <div key={i} className="flex space-x-4 mb-4">
+              {posts}
             </div>
           );
         })}
@@ -83,21 +102,14 @@ const Posts = () => {
 export default Posts;
 
 // return (
-//   <div
-//   // className="border-4"
-//   >
-//     {/* <Hero /> */}
+//   <div className="border z-0">
+//     <Hero />
 
 //     <div className="px-4 flex flex-wrap">
 //       {allPosts.map((post, i) => {
 //         console.log("POST CONTENT:", md.render(post.content));
 //         return (
-//           <div
-//             key={i}
-//             className={`${styles.posts_container__posts__card} ${
-//               i % 2 ? styles.mr : ""
-//             }`}
-//           >
+//           <div key={i} className={`${styles.card} ${i % 2 ? styles.mr : ""}`}>
 //             <PostPreview title={post.title} postId={post._id}>
 //               <div
 //                 dangerouslySetInnerHTML={{ __html: md.render(post.content) }}
