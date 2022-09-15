@@ -4,7 +4,7 @@ import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import md from "utils/md";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
-import markers from "./markers";
+import { markers } from "utils/constants";
 import styles from "./Editor.module.scss";
 
 const Editor = ({ onSubmit, loading }) => {

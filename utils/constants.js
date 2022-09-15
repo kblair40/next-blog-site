@@ -6,7 +6,7 @@ import linkIcon from "public/assets/icons/link.svg";
 
 const hStyle = { margin: "0 0.5rem" };
 
-const markers = [
+export const markers = [
   {
     key: "header",
     markers: [
@@ -139,5 +139,3 @@ const markers = [
     ],
   },
 ];
-
-export default markers;
