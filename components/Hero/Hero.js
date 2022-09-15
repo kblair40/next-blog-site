@@ -2,15 +2,17 @@ import React from "react";
 import Image from "next/image";
 
 import heroBG from "public/assets/shapes/hero-bg.svg";
-import styles from "./Hero.module.scss";
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
+    <div className="flex items-end justify-center h-80 border">
       <Image
         src={heroBG}
-        alt="background svg"
-        className={styles.hero__bg_image}
+        alt="background image"
+        layout="fixed"
+        objectFit="cover"
+        height={185}
+        priority
       />
     </div>
   );

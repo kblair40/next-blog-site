@@ -86,7 +86,7 @@ const Posts = () => {
     <div className="border z-0">
       <Hero />
 
-      <div className="px-4 flex flex-wrap">
+      <div className="mt-4 px-4 flex flex-wrap">
         {getPosts().map((posts, i) => {
           return (
             <div key={i} className="flex space-x-4 mb-4">
