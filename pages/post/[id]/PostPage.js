@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 import api from "utils/api";
 import md from "utils/md";
-import styles from "./PostPage.module.scss";
 import Comments from "components/Comments";
 import CommentInput from "components/CommentInput";
 import GoBack from "components/GoBack";
@@ -45,11 +44,13 @@ const PostPage = () => {
   }
 
   return (
-    <div className={styles.post_page}>
-      <div className={styles.post_page__content_container}>
+    <div className="px-4 overflow-x-hidden overflow-y-auto flex flex-col items-center max-w-screen">
+      {/* max-w = 896px;  min-h = 300px; */}
+      <div className="w-full mt-4 max-w-4xl min-h-75 border">
         <GoBack route="/" label="Back to all posts" />
 
-        <h1 className={styles.post_page__title}>{postTitle}</h1>
+        <h1 className="mb-4">{postTitle}</h1>
+
         <div dangerouslySetInnerHTML={{ __html: md.render(postContent) }} />
 
         <CommentInput />
@@ -60,3 +61,17 @@ const PostPage = () => {
 };
 
 export default PostPage;
+
+// return (
+//   <div className={styles.post_page}>
+//     <div className={styles.post_page__content_container}>
+//       <GoBack route="/" label="Back to all posts" />
+
+//       <h1 className={styles.post_page__title}>{postTitle}</h1>
+//       <div dangerouslySetInnerHTML={{ __html: md.render(postContent) }} />
+
+//       <CommentInput />
+//       <Comments postId={router.query.id} />
+//     </div>
+//   </div>
+// );
