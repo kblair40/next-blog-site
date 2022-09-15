@@ -13,6 +13,7 @@ const Button = ({ onClick, isDisabled, loading, children, classes = [] }) => {
     "font-medium",
     "flex",
     "items-center",
+    "justify-center",
     "bg-emerald-600",
     "hover:bg-emerald-700",
     "active:bg-emerald-800",
