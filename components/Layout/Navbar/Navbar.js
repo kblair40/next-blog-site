@@ -29,13 +29,13 @@ const Navbar = () => {
       />
 
       <nav className="flex justify-between items-center px-4 pt-5 pb-3">
-        <div>
+        <HamburgerIcon />
+
+        <div className="hidden sm:block">
           <Logo />
         </div>
 
-        <HamburgerIcon />
-
-        <div className="flex items-center space-x-6">
+        <div className="hidden sm:flex items-center space-x-6">
           {navLinks.map((navLink, i) => {
             return (
               <NavLink
