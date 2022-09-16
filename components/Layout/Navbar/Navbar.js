@@ -24,37 +24,46 @@ const Navbar = () => {
 
   return (
     <React.Fragment>
-      <SubscribeModal
-        isOpen={subscribeModalOpen}
-        onClose={() => setSubscribeModalOpen(false)}
-        onSubscribe={handleSubscribe}
-      />
+      {/* Mobile Menu open: "block", Menu closed: "hidden" */}
+      <div className="bg-white z-50">
+        <Drawer
+          pathname={pathname}
+          isOpen={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+        />
+      </div>
 
-      <nav className="h-14">
-        <div className="h-full px-6 flex justify-between items-center">
-          <Logo />
+      <div className="fixed flex flex-col">
+        <SubscribeModal
+          isOpen={subscribeModalOpen}
+          onClose={() => setSubscribeModalOpen(false)}
+          onSubscribe={handleSubscribe}
+        />
 
-          {/* Mobile menu button */}
-          <HamburgerButton onClick={() => setDrawerOpen(!drawerOpen)} />
+        <nav className="h-14">
+          <div className="h-full px-6 flex justify-between items-center">
+            <Logo />
 
-          {/* Mobile Menu open: "block", Menu closed: "hidden" */}
-          <Drawer pathname={pathname} isOpen={drawerOpen} />
-          <div className="hidden items-start w-fit md:flex md:flex-row">
-            {navLinks.map((navLink, i) => {
-              return (
-                <NavLink
-                  key={i}
-                  active={pathname === navLink.route}
-                  label={navLink.label}
-                  route={navLink.route}
-                />
-              );
-            })}
+            {/* Mobile menu button */}
+            <HamburgerButton onClick={() => setDrawerOpen(!drawerOpen)} />
+
+            <div className="hidden items-start w-fit md:flex md:flex-row">
+              {navLinks.map((navLink, i) => {
+                return (
+                  <NavLink
+                    key={i}
+                    active={pathname === navLink.route}
+                    label={navLink.label}
+                    route={navLink.route}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      <hr className="bg-slate-50" />
+        <hr className="bg-slate-50 w-screen" />
+      </div>
     </React.Fragment>
   );
 };

@@ -81,16 +81,14 @@ const Posts = () => {
   };
 
   return (
-    <div className="z-0">
-      <div className="mt-4 px-4 flex flex-wrap">
-        {getPosts().map((posts, i) => {
-          return (
-            <div key={i} className="flex space-x-4 mb-4">
-              {posts}
-            </div>
-          );
-        })}
-      </div>
+    <div className="mt-4 px-4 flex flex-wrap">
+      {getPosts().map((posts, i) => {
+        return (
+          <div key={i} className="flex space-x-4 mb-4">
+            {posts}
+          </div>
+        );
+      })}
     </div>
   );
 };

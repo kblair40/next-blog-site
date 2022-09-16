@@ -1,6 +1,5 @@
 import Head from "next/head";
 
-import Posts from "components/Posts";
 import Hero from "components/Hero";
 
 export default function Home() {
@@ -14,8 +13,6 @@ export default function Home() {
 
       <div className="pt-4">
         <Hero />
-
-        {/* <Posts /> */}
       </div>
     </div>
   );

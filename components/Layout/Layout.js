@@ -9,8 +9,8 @@ const layout = ({ children }) => {
       <Navbar />
       <ToastContainer />
 
-      {/* 16 * 4 = 64px === exact navbar height */}
-      <div className="pt-16">{children}</div>
+      {/* 14 * 4 = 56px === exact navbar height */}
+      <div className="pt-14">{children}</div>
     </div>
   );
 };
