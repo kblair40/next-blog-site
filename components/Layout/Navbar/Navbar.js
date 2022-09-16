@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import classNames from "classnames";
 
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
@@ -56,9 +57,10 @@ const Navbar = () => {
 export default Navbar;
 
 const NavLink = ({ label, route, active }) => {
+  const baseClasses = ["py-1 px-3"];
+
   return (
     <Link href={route}>
-      {/* <a className={active ? styles.active : undefined}>{label}</a> */}
       <a className="py-1 px-3">{label}</a>
     </Link>
   );

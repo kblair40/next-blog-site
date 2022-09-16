@@ -8,8 +8,8 @@ const navLinks = [
     route: "/page1",
   },
   {
-    label: "Page 2",
-    route: "/page2",
+    label: "All Posts",
+    route: "/all-posts",
   },
 ];
 
