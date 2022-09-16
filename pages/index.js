@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
 
       <div className="mt-8 px-4 flex justify-center">
-        <div className="grid grid-cols-none md:grid-cols-2 gap-x-6">
+        <div className="grid grid-cols-none md:grid-cols-2 gap-x-12 px-4">
           <FeaturedPost />
 
           <MostRecentPosts />
