@@ -4,7 +4,7 @@ const navLinks = [
     route: "/",
   },
   {
-    label: "Page 1",
+    label: "About",
     route: "/page1",
   },
   {

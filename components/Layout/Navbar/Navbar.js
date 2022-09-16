@@ -28,22 +28,25 @@ const Navbar = () => {
         onSubscribe={handleSubscribe}
       />
 
-      <nav className="flex items-center px-4 pt-5 pb-3">
+      <nav className="flex justify-between items-center px-4 pt-5 pb-3">
         <Logo />
-        {navLinks.map((navLink, i) => {
-          return (
-            <NavLink
-              key={i}
-              active={pathname === navLink.route}
-              label={navLink.label}
-              route={navLink.route}
-            />
-          );
-        })}
+
+        <div className="flex items-center space-x-6">
+          {navLinks.map((navLink, i) => {
+            return (
+              <NavLink
+                key={i}
+                active={pathname === navLink.route}
+                label={navLink.label}
+                route={navLink.route}
+              />
+            );
+          })}
+        </div>
 
         <button
           onClick={() => setSubscribeModalOpen(true)}
-          className="py-1 px-3"
+          className="py-1 px-3 duration-300 hover:text-slate-900"
         >
           Subscribe
         </button>
@@ -57,15 +60,35 @@ const Navbar = () => {
 export default Navbar;
 
 const NavLink = ({ label, route, active }) => {
-  const baseClasses = ["py-1 px-3"];
+  const baseClasses = [
+    "group font-medium whitespace-nowrap",
+    "duration-200 hover:text-slate-900",
+    "flex flex-col items-center",
+  ];
+
+  if (active) baseClasses.push("text-slate-900");
+
+  let borderClasses = ["w-8", "h-px", "duration-300"];
+  const borderInactive = ["group-hover:bg-slate-700"];
+  const borderActive = ["bg-slate-700"];
+
+  if (active) {
+    borderClasses = borderClasses.concat(borderActive);
+  } else {
+    borderClasses = borderClasses.concat(borderInactive);
+  }
 
   return (
     <Link href={route}>
-      <a className="py-1 px-3">{label}</a>
+      <a className={classNames(baseClasses)}>
+        {label}
+
+        <div className={classNames(borderClasses)} />
+      </a>
     </Link>
   );
 };
 
 const Logo = () => {
-  return <h2 className="mr-8">LogoHere</h2>;
+  return <h2 className="text-xl">LogoHere</h2>;
 };

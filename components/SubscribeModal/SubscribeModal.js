@@ -7,7 +7,7 @@ import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import api from "utils/api";
 
-Modal.setAppElement("#layout");
+// Modal.setAppElement("#layout");
 
 const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
   const [loading, setLoading] = useState(false);
