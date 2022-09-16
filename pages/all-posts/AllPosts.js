@@ -5,9 +5,7 @@ import Posts from "components/Posts";
 const AllPosts = () => {
   return (
     <div>
-      <div className="">
-        <Posts />
-      </div>
+      <Posts />
     </div>
   );
 };
