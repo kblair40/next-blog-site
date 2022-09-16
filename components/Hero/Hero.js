@@ -9,12 +9,9 @@ import heroBG from "public/assets/shapes/hero-bg.svg";
 
 const Hero = () => {
   const baseClasses = [
-    "relative",
-    // "mt-4",
-    // "border border-red-400",
-    "flex items-end justify-center",
-    "h-100",
-    "sm:h-80", // height: 360px
+    "relative w-screen top-4",
+    "flex justify-center items-center",
+    "h-88 sm:h-72 md:h-60", // height: 400px, sm-height: 360px
   ];
   return (
     <div className={classNames(baseClasses)}>
@@ -23,8 +20,7 @@ const Hero = () => {
         alt="background image"
         layout="fixed"
         objectFit="cover"
-        // height="100%"
-        height={185}
+        // height={185}
         priority
       />
 
@@ -37,47 +33,42 @@ export default Hero;
 
 const Content = () => {
   const centerClasses = ["absolute", "flex items-center justify-center"];
-  // const centerClasses = ["flex items-center justify-center"];
 
-  const wrapperClasses = [...centerClasses, "text-slate-600 body-font h-full"];
-
-  const innerClasses = [
-    "container",
-    "px-5",
-    "min-w-base",
-    "border border-red-700",
-    //
-    //
+  const wrapperClasses = [
+    ...centerClasses,
+    "w-full",
+    // "border border-emerald-700",
+    "h-88",
   ];
 
   const subscribeFormClasses = [
     "flex w-full",
     "flex-col space-y-4",
-    "sm:flex-row sm:space-x-4 sm:space-y-0 sm:space-x-4",
-    "border",
+    "sm:flex-row sm:space-x-2 sm:space-y-0 sm:space-x-4",
   ];
+
+  const innerClasses = ["min-w-base max-w-3xl w-full", "px-4 sm:px-3"];
 
   return (
     <section className={classNames(wrapperClasses)}>
       <div className={classNames(innerClasses)}>
-        <div className="flex flex-col text-center w-full mb-6 sm: mb-12">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 asm:mb-4 text-gray-900">
+        <div className="flex flex-col text-center w-fit mb-6 sm:mb-12">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 sm:mb-4">
             Lorem Ipsum Dolor Sit Amet
           </h1>
-          <p className="leading-relaxed text-base">
+          <p className="leading-normal sm:leading-relaxed text-base">
             Dolore Lorem Lorem ad in commodo ex. &nbsp;Irure minim duis commodo
             dolore elit commodo incididunt laboris incididunt sint ut officia
             exercitation.
           </p>
         </div>
 
-        {/* <div class="flex border lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end"> */}
         <div className={classNames(subscribeFormClasses)}>
-          <Input classes={["w-"]} placeholder="First Name" />
+          <Input classes={["sm:w-2/5"]} placeholder="First Name" />
 
-          <Input classes={["w-"]} placeholder="Email" />
+          <Input classes={["sm:w-2/5"]} placeholder="Email" />
 
-          <Button>Submit</Button>
+          <Button classes={["sm:w-1/5"]}>Subscribe</Button>
         </div>
       </div>
     </section>
