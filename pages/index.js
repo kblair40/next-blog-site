@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Hero from "components/Hero";
+import FeaturedPost from "components/FeaturedPost";
 
 export default function Home() {
   return (
@@ -13,17 +14,9 @@ export default function Home() {
 
       <Hero />
 
-      {/*  */}
-
-      {/* <div>
-        <div className="h-20 w-full border" />
-        <div className="h-20 w-full border" />
-        <div className="h-20 w-full border" />
-        <div className="h-20 w-full border" />
-        <div className="h-20 w-full border" />
-        <div className="h-20 w-full border" />
-        <div className="h-20 w-full border" />
-      </div> */}
+      <div className="mt-8 px-4 flex justify-center">
+        <FeaturedPost />
+      </div>
     </div>
   );
 }
