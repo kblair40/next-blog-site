@@ -29,7 +29,11 @@ const Navbar = () => {
       />
 
       <nav className="flex justify-between items-center px-4 pt-5 pb-3">
-        <Logo />
+        <div>
+          <Logo />
+        </div>
+
+        <HamburgerIcon />
 
         <div className="flex items-center space-x-6">
           {navLinks.map((navLink, i) => {
@@ -91,4 +95,22 @@ const NavLink = ({ label, route, active }) => {
 
 const Logo = () => {
   return <h2 className="text-xl">LogoHere</h2>;
+};
+
+const HamburgerIcon = () => {
+  const btnClasses = [
+    "flex sm:hidden",
+    "flex-col space-y-1 w-fit",
+    "bg-white hover:bg-slate-100 duration-500",
+    "h-10 w-10 flex items-center justify-center",
+    "p-2 rounded-full",
+  ];
+
+  return (
+    <button className={classNames(btnClasses)}>
+      <span className="h-0.5 w-5 bg-slate-700" />
+      <span className="h-0.5 w-5 bg-slate-700" />
+      <span className="h-0.5 w-5 bg-slate-700" />
+    </button>
+  );
 };
