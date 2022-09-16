@@ -86,6 +86,7 @@ const Content = () => {
       toast.success("Successfully subscribed!", {
         position: toast.POSITION.BOTTOM_CENTER,
         pauseOnHover: false,
+        pauseOnFocusLoss: false,
       });
 
       setSubmitted(true);

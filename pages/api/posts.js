@@ -10,9 +10,9 @@ const getPostById = async (id) => {
   }
 };
 
-const getAllPosts = async () => {
+const getAllPosts = async (limit) => {
   try {
-    const posts = await Post.find({}); /* gets all posts in db */
+    const posts = await Post.find({}).limit(limit); /* gets all posts in db */
     return posts;
   } catch (error) {
     res.status(400).json({ success: false });
@@ -39,7 +39,12 @@ export default async function handler(req, res) {
         data = await getPostById(query.id);
         return res.status(200).json({ success: true, post: data });
       } else {
-        data = await getAllPosts();
+        let limit;
+        if (query && query.limit) {
+          limit = query.limit;
+        }
+
+        data = await getAllPosts(limit);
         return res.status(200).json({ success: true, posts: data });
       }
     case "POST":

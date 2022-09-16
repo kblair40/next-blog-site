@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Hero from "components/Hero";
 import FeaturedPost from "components/FeaturedPost";
+import MostRecentPosts from "components/MostRecentPosts";
 
 export default function Home() {
   return (
@@ -15,8 +16,11 @@ export default function Home() {
       <Hero />
 
       <div className="mt-8 px-4 flex justify-center">
-        <FeaturedPost />
-        {/* do most recent to the right or below featured post, depending on screen size */}
+        <div className="grid grid-cols-none md:grid-cols-2 gap-x-6">
+          <FeaturedPost />
+
+          <MostRecentPosts />
+        </div>
       </div>
     </div>
   );
