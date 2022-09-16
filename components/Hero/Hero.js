@@ -8,13 +8,10 @@ import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import heroBG from "public/assets/shapes/hero-bg.svg";
 import api from "utils/api";
+import { validateEmail } from "utils/validators";
 
 const Hero = () => {
-  const baseClasses = [
-    "relative w-screen flex justify-center",
-    "pt-6 sm:pt-8",
-    // "border border-red-400 top-px",
-  ];
+  const baseClasses = ["relative w-screen flex justify-center", "pt-6 sm:pt-8"];
 
   return (
     <div className={classNames(baseClasses)}>
@@ -36,42 +33,45 @@ const Hero = () => {
 
 export default Hero;
 
-const wrapperClasses = [
-  "min-w-base max-w-3xl w-full",
-  "px-4 sm:px-3",
-  // "border border-green-400",
-];
+const wrapperClasses = ["min-w-base max-w-3xl w-full", "px-4 sm:px-3"];
 
-const innerClasses = [
-  "flex flex-col",
-  "text-center",
-  "w-fit",
-  "mb-6 sm:mb-12",
-  // "border border-orange-700",
-];
+const innerClasses = ["flex flex-col", "text-center", "w-fit", "mb-6 sm:mb-12"];
 
 const subscribeFormClasses = [
   "flex w-full",
   "flex-col space-y-4",
   "sm:flex-row sm:space-x-2 sm:space-y-0 sm:space-x-4",
   "relative bottom-4 sm:px-1",
-  // "border border-blue-700",
 ];
 
 const Content = () => {
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const nameRef = useRef();
   const emailRef = useRef();
 
   const handleSubmit = async () => {
-    const name = nameRef.current?.value;
+    const name = nameRef.current?.value || "none";
     const email = emailRef.current?.value;
-    // console.log("\n\nVALUES:", { name, email }, "\n\n");
 
-    if (!name || !email) {
-      // Todo: Show error message in toast
-      console.error("\n\nMISSING VALUE:", { name, email });
+    const invalidToastId = "invalid-id";
+
+    if (!email || !validateEmail(email)) {
+      // console.error("\n\nMISSING EMAIL:", email);
+
+      let errorMsg = email
+        ? "Hmmm that doesn't appear to be a valid email address"
+        : "An email address is required";
+
+      toast.error(errorMsg, {
+        position: toast.POSITION.BOTTOM_CENTER,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        autoClose: 1000,
+        toastId: invalidToastId,
+      });
+
       return;
     }
 
@@ -79,8 +79,6 @@ const Content = () => {
 
     try {
       await api.post("/subscribe", { name, email });
-      // const response = await api.post("/subscribe", { name, email });
-      // console.log("API RESPONSE:", response);
 
       setLoading(false);
       nameRef.current.value = "";
@@ -91,7 +89,11 @@ const Content = () => {
         pauseOnHover: false,
       });
 
-      // Todo: show toast
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 1000);
     } catch (e) {
       console.error("FAILED TO SUBSCRIBE:", e);
     }
@@ -111,9 +113,19 @@ const Content = () => {
       </div>
 
       <div className={classNames(subscribeFormClasses)}>
-        <Input ref={nameRef} classes={["sm:w-2/5"]} placeholder="First Name" />
+        <Input
+          submitted={submitted}
+          ref={nameRef}
+          classes={["sm:w-2/5"]}
+          placeholder="First Name"
+        />
 
-        <Input ref={emailRef} classes={["sm:w-2/5"]} placeholder="Email" />
+        <Input
+          submitted={submitted}
+          ref={emailRef}
+          classes={["sm:w-2/5"]}
+          placeholder="Email"
+        />
 
         <Button loading={loading} onClick={handleSubmit} classes={["sm:w-1/5"]}>
           Subscribe

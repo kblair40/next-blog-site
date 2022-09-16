@@ -16,6 +16,7 @@ export default function Home() {
 
       <div className="mt-8 px-4 flex justify-center">
         <FeaturedPost />
+        {/* do most recent to the right or below featured post, depending on screen size */}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useEffect } from "react";
 import classNames from "classnames";
 
 const sizeClasses = {
@@ -10,7 +10,7 @@ const sizeClasses = {
 };
 
 const Input = forwardRef(
-  ({ placeholder, onChange, classes = [], size = "md" }, ref) => {
+  ({ placeholder, onChange, submitted, classes = [], size = "md" }, ref) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -19,6 +19,12 @@ const Input = forwardRef(
 
       if (onChange) onChange(value);
     };
+
+    useEffect(() => {
+      if (submitted) {
+        setValue("");
+      }
+    }, [submitted]);
 
     const inputClasses = [
       "block",
