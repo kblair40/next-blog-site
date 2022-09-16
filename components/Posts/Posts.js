@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import Image from "next/image";
 
-import Hero from "components/Hero";
 import PostPreview from "./PostPreview";
 import api from "utils/api";
 import md from "utils/md";
@@ -84,8 +82,6 @@ const Posts = () => {
 
   return (
     <div className="z-0">
-      {/* <Hero /> */}
-
       <div className="mt-4 px-4 flex flex-wrap">
         {getPosts().map((posts, i) => {
           return (
