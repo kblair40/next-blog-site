@@ -27,6 +27,7 @@ module.exports = {
         50: "200px",
         75: "300px",
         100: "400px",
+        "screen-nav": "calc(100vh - 56px)",
       },
       width: {
         "screen-1/2": "50vw",

@@ -12,7 +12,17 @@ export default function Home() {
       </Head>
 
       <Hero />
-      {/* <div className="pt-4">
+
+      {/*  */}
+
+      {/* <div>
+        <div className="h-20 w-full border" />
+        <div className="h-20 w-full border" />
+        <div className="h-20 w-full border" />
+        <div className="h-20 w-full border" />
+        <div className="h-20 w-full border" />
+        <div className="h-20 w-full border" />
+        <div className="h-20 w-full border" />
       </div> */}
     </div>
   );

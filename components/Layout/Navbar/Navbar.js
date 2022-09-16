@@ -33,7 +33,7 @@ const Navbar = () => {
         />
       </div>
 
-      <div className="fixed flex flex-col">
+      <div className="fixed flex flex-col bg-white z-50">
         <SubscribeModal
           isOpen={subscribeModalOpen}
           onClose={() => setSubscribeModalOpen(false)}

@@ -10,7 +10,8 @@ const layout = ({ children }) => {
       <ToastContainer />
 
       {/* 14 * 4 = 56px === exact navbar height */}
-      <div className="mt-14">{children}</div>
+      {/* <div className="mt-14">{children}</div> */}
+      <div className="relative top-14 min-h-screen-nav">{children}</div>
     </div>
   );
 };
