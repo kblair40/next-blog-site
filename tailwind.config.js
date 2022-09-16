@@ -11,12 +11,6 @@ module.exports = {
       lg: "980px",
       xl: "1200px",
     },
-    minHeight: {
-      25: "100px",
-      50: "200px",
-      75: "300px",
-      100: "400px",
-    },
 
     extend: {
       fontFamily: {
@@ -25,9 +19,20 @@ module.exports = {
       height: {
         "screen-nav": "calc(100vh - 56px)",
         "screen-1/2": "50vh",
+        100: "400px",
+      },
+      minHeight: {
+        25: "100px",
+        50: "200px",
+        75: "300px",
+        100: "400px",
       },
       width: {
         "screen-1/2": "50vw",
+      },
+      minWidth: {
+        base: "320px",
+        sm: "560px",
       },
     },
   },

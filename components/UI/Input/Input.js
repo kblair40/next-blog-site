@@ -42,7 +42,6 @@ const Input = forwardRef(
         onChange={handleChange}
         ref={ref}
         className={classNames(inputClasses)}
-        // style={styles ? styles : undefined}
       />
     );
   }
