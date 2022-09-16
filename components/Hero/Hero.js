@@ -11,22 +11,28 @@ import api from "utils/api";
 import { validateEmail } from "utils/validators";
 
 const Hero = () => {
-  const baseClasses = ["relative w-screen flex justify-center", "pt-6 sm:pt-8"];
+  const baseClasses = [
+    "relative w-screen flex justify-center pt-6",
+    "sm:pt-8 sm:px-8 sm:max-w-lg",
+    "md:max-w-2xl lg:max-w-3xl xl:max-w-5xl",
+  ];
 
   return (
-    <div className={classNames(baseClasses)}>
-      <div className="absolute -z-50">
-        <Image
-          src={heroBG}
-          alt="background image"
-          layout="fixed"
-          objectFit="cover"
-          // height={185}
-          priority
-        />
-      </div>
+    <div className="flex justify-center w-screen">
+      <div className={classNames(baseClasses)}>
+        <div className="absolute -z-50">
+          <Image
+            src={heroBG}
+            alt="background image"
+            layout="fixed"
+            objectFit="cover"
+            // height={185}
+            priority
+          />
+        </div>
 
-      <Content />
+        <Content />
+      </div>
     </div>
   );
 };
@@ -36,13 +42,6 @@ export default Hero;
 const wrapperClasses = ["min-w-base max-w-3xl w-full", "px-4 sm:px-3"];
 
 const innerClasses = ["flex flex-col", "text-center", "w-fit", "mb-6 sm:mb-12"];
-
-const subscribeFormClasses = [
-  "flex w-full",
-  "flex-col space-y-4",
-  "sm:flex-row sm:space-x-2 sm:space-y-0 sm:space-x-4",
-  "relative bottom-4 sm:px-1",
-];
 
 const Content = () => {
   const [loading, setLoading] = useState(false);
@@ -99,6 +98,16 @@ const Content = () => {
     }
   };
 
+  const subscribeFormClasses = [
+    "flex w-full",
+    "flex-col space-y-4",
+    "md:flex-row smdmmd:space-x-2 md:space-y-0 md:space-x-4",
+    "relative bottom-4 md:px-1",
+    // "sm:px-8",
+    // "sm:flex-row sm:space-x-2 sm:space-y-0 sm:space-x-4",
+    // "relative bottom-4 sm:px-1",
+  ];
+
   return (
     <section className={classNames(wrapperClasses)}>
       <div className={classNames(innerClasses)}>
@@ -116,18 +125,18 @@ const Content = () => {
         <Input
           submitted={submitted}
           ref={nameRef}
-          classes={["sm:w-2/5"]}
+          classes={["md:w-2/5"]}
           placeholder="First Name"
         />
 
         <Input
           submitted={submitted}
           ref={emailRef}
-          classes={["sm:w-2/5"]}
+          classes={["md:w-2/5"]}
           placeholder="Email"
         />
 
-        <Button loading={loading} onClick={handleSubmit} classes={["sm:w-1/5"]}>
+        <Button loading={loading} onClick={handleSubmit} classes={["md:w-1/5"]}>
           Subscribe
         </Button>
       </div>
