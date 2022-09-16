@@ -42,7 +42,7 @@ const CommentInput = () => {
         ...data,
       });
 
-      console.log("RESPONSE:", response);
+      // console.log("RESPONSE:", response);
     } catch (e) {
       console.error("FAILED TO POST COMMENT:", e);
     }
