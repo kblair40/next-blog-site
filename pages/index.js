@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import Posts from "components/Posts";
+import Hero from "components/Hero";
 
 export default function Home() {
   return (
@@ -12,7 +13,9 @@ export default function Home() {
       </Head>
 
       <div className="pt-4">
-        <Posts />
+        <Hero />
+
+        {/* <Posts /> */}
       </div>
     </div>
   );

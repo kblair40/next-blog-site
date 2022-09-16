@@ -84,7 +84,7 @@ const Posts = () => {
 
   return (
     <div className="z-0">
-      <Hero />
+      {/* <Hero /> */}
 
       <div className="mt-4 px-4 flex flex-wrap">
         {getPosts().map((posts, i) => {
