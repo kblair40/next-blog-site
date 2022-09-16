@@ -17,10 +17,19 @@ module.exports = {
       75: "300px",
       100: "400px",
     },
-    fontFamily: {
-      cursive: ["cursive"],
+
+    extend: {
+      fontFamily: {
+        cursive: ["cursive"],
+      },
+      height: {
+        "screen-nav": "calc(100vh - 56px)",
+        "screen-1/2": "50vh",
+      },
+      width: {
+        "screen-1/2": "50vw",
+      },
     },
-    extend: {},
   },
   plugins: [
     require("@tailwindcss/line-clamp"),
