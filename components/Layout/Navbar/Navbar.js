@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import classNames from "classnames";
 
+import logo from "public/assets/images/high-low.png";
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
 import Drawer from "./Drawer";
@@ -103,7 +105,8 @@ const NavLink = ({ label, route, active }) => {
 };
 
 const Logo = () => {
-  return <h2 className="text-xl">LogoHere</h2>;
+  const boxSize = 60;
+  return <Image alt="logo" src={logo} height={boxSize} width={boxSize} />;
 };
 
 const HamburgerButton = ({ onClick }) => {
