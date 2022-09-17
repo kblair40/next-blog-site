@@ -1,8 +1,7 @@
 import React from "react";
-import classNames from "classnames";
 
-import Loading from "components/UI/Loading";
 import SolidButton from "./SolidButton";
+import GhostButton from "./GhostButton";
 
 const Button = ({
   onClick,
@@ -28,6 +27,20 @@ const Button = ({
       >
         {children}
       </SolidButton>
+    );
+  } else if (variant === "ghost") {
+    return (
+      <GhostButton
+        onClick={onClick}
+        loading={loading}
+        iconLeft={iconLeft}
+        iconRight={iconRight}
+        isDisabled={isDisabled}
+        colorScheme={colorScheme}
+        classes={classes}
+      >
+        {children}
+      </GhostButton>
     );
   }
 };
