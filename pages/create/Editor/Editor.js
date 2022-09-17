@@ -38,7 +38,7 @@ const Editor = ({ onSubmit, loading }) => {
     }
 
     const content = md.render(textareaRef.current.state.value);
-    onSubmit({ title: postTitle, content });
+    onSubmit({ title: postTitle, content, imageUrl: postImageUrl });
   };
 
   const handleChangeTitle = (val) => {
@@ -56,16 +56,20 @@ const Editor = ({ onSubmit, loading }) => {
     setPostImageUrl(val);
   };
 
-  // const handleChangeImage = (imgUrl) => {
-  //   postImageUrlRef.current = imgUrl;
-  // };
-
   return (
     <React.Fragment>
       <div className="w-full pt-4">
-        <div className="flex items-center mb-4">
-          <Input placeholder="Post Title" onChange={handleChangeTitle} />
-          <Input placeholder="Post Image URL" onChange={handleChangeImageUrl} />
+        <div className="flex items-center mb-4 space-x-6">
+          <Input
+            classes={["w-1/2"]}
+            placeholder="Post Title"
+            onChange={handleChangeTitle}
+          />
+          <Input
+            classes={["w-1/2"]}
+            placeholder="Post Image URL"
+            onChange={handleChangeImageUrl}
+          />
 
           {/* <FileInput placeholder="Upload Image" onChange={handleChangeImage} /> */}
         </div>
@@ -97,7 +101,7 @@ const Editor = ({ onSubmit, loading }) => {
             dangerouslySetInnerHTML={{ __html: htmlPreview }}
           />
 
-          <Image height={200} width={200} src={postImageUrl} />
+          <Image height={150} width={150} src={postImageUrl} />
         </>
       )}
     </React.Fragment>

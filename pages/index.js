@@ -1,8 +1,9 @@
 import Head from "next/head";
 
 import Hero from "components/Hero";
-import FeaturedPost from "components/FeaturedPost";
+import PostPreview from "components/PostPreview";
 import MostRecentPosts from "components/MostRecentPosts";
+import FeaturedPosts from "components/FeaturedPosts";
 
 export default function Home() {
   return (
@@ -13,14 +14,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero />
+      <div className="border px-4 pt-8">
+        <FeaturedPosts />
+      </div>
 
+      {/* <Hero /> */}
       <div className="mt-8 px-4 flex justify-center">
-        <div className="grid grid-cols-none md:grid-cols-2 gap-x-12 px-4">
-          <FeaturedPost />
+        {/* <div className="grid grid-cols-none md:grid-cols-2 gap-x-12 px-4">
+          <PostPreview variant="featured" />
 
           <MostRecentPosts />
-        </div>
+        </div> */}
       </div>
     </div>
   );

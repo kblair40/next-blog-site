@@ -2,16 +2,18 @@ import React from "react";
 import Link from "next/link";
 // import Image from "next/image";
 
-const FeaturedPost = () => {
+const PostPreview = ({ variant, postData }) => {
   return (
     <div className="group max-w-md h-full border-2 border-slate-200 border-opacity-60 rounded-lg overflow-hidden">
       {/* placeholder for image */}
       <div className="bg-slate-200 h-40 w-full" />
 
       <div className="p-4">
-        <h2 className="tracking-wider text-xs title-font font-semibold text-slate-500 mb-1">
-          FEATURED POST
-        </h2>
+        {variant === "featured" && (
+          <h2 className="tracking-wider text-xs title-font font-semibold text-slate-500 mb-1">
+            FEATURED POST
+          </h2>
+        )}
 
         <h1 className="text-lg font-medium text-slate-800 mb-3">Post Title</h1>
 
@@ -42,4 +44,4 @@ const FeaturedPost = () => {
   );
 };
 
-export default FeaturedPost;
+export default PostPreview;

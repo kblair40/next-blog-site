@@ -7,12 +7,17 @@ import api from "utils/api";
 const Create = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async ({ title, content }) => {
+  const handleSubmit = async ({ title, content, imageUrl, status = 2 }) => {
     setLoading(true);
-    console.log("HANDLE SUBMIT RCVD:", { title, content });
+    console.log("HANDLE SUBMIT RCVD:", { title, content, image_url: imageUrl });
 
     try {
-      const res = await api.post("/posts", { title, content });
+      const res = await api.post("/posts", {
+        title,
+        content,
+        status,
+        image_url: imageUrl,
+      });
       // console.log("RESPONSE:", res);
     } catch (err) {
       console.error("FAILED TO POST:", err);
