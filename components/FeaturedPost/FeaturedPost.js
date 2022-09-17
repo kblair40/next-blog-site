@@ -24,7 +24,7 @@ const FeaturedPost = () => {
           <a className="text-primary-600 inline-flex items-center md:mb-2 lg:mb-0">
             Read
             <svg
-              className="w-4 h-4 ml-2 group-hover:animate-bounce"
+              className="w-4 h-4 ml-2 group-hover:animate-point-right"
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth="2"
