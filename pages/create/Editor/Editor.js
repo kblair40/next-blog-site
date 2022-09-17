@@ -4,10 +4,12 @@ import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import md from "utils/md";
 import { markers } from "utils/constants";
 import Input from "components/UI/Input";
+import FileInput from "components/UI/Input/FileInput";
 import Button from "components/UI/Button";
 
 const Editor = ({ onSubmit, loading }) => {
   const [postTitle, setPostTitle] = useState("");
+  const [postImage, setPostImage] = useState("");
   const [htmlPreview, setHtmlPreview] = useState("");
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
@@ -29,6 +31,7 @@ const Editor = ({ onSubmit, loading }) => {
       !textareaRef.current.state ||
       !textareaRef.current.state.value
     ) {
+      console.log("\nNO CONTENT!");
       return;
     }
 
@@ -40,30 +43,28 @@ const Editor = ({ onSubmit, loading }) => {
     console.log("NEW VALUE:", val);
     setPostTitle(val);
 
-    if (
-      !textareaRef ||
-      !textareaRef.current ||
-      !textareaRef.current.state ||
-      !textareaRef.current.state.value
-    ) {
-      setSubmitDisabled(true);
-    } else if (val) {
+    if (val && submitDisabled) {
       setSubmitDisabled(false);
+    } else if (!val && !submitDisabled) {
+      setSubmitDisabled(true);
     }
   };
+
+  const handleChangeImage = (img) => {};
 
   return (
     <React.Fragment>
       <div className="w-full pt-4">
         <div className="flex items-center mb-4">
-          <p className="mr-2 font-medium">Post Title:</p>
-          <Input onChange={handleChangeTitle} />
+          <Input placeholder="Post Title" onChange={handleChangeTitle} />
+
+          <FileInput placeholder="Upload Image" onChange={handleChangeImage} />
         </div>
 
         <TextareaMarkdownEditor ref={textareaRef} rows={18} markers={markers} />
 
         <div className="mt-4 flex space-x-4 justify-end">
-          <Button onClick={showPreview} colorScheme="slate">
+          <Button onClick={showPreview} colorScheme="primary">
             Preview
           </Button>
 
@@ -71,6 +72,7 @@ const Editor = ({ onSubmit, loading }) => {
             isDisabled={submitDisabled}
             onClick={handleSubmit}
             loading={loading}
+            colorScheme="primary"
           >
             Submit
           </Button>

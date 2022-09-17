@@ -38,7 +38,7 @@ const SolidButton = ({
     "items-center",
     "justify-center",
     ...colorClasses[colorScheme].map((color) => {
-      return isDisabled ? `${color}/50` : color;
+      return isDisabled ? `${color} opacity-50` : color;
     }),
     ...classes,
   ];
