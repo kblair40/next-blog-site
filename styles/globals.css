@@ -46,7 +46,17 @@
 }
 
 /* MARKDOWN PREVIEW STYLE OVERRIDES */
-
 .post-preview :is(h1, h2, h3, h4, h5, h6, p, ul, ol, li, blockquote) {
     margin: .75rem 0;
 }
+
+/* FLICKETY OVERRIDES */
+.flickity-enabled:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.flickity-button:focus-visible {
+    outline: none;
+    box-shadow: none !important;
+  }
