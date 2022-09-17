@@ -14,7 +14,15 @@ const PostSchema = new mongoose.Schema(
     image_url: {
       type: String,
     },
-    // comments: [Comment] /* create separate model for Comment */
+    status: {
+      type: Number,
+      enum: [1, 2, 3, 4],
+      default: 1,
+      // 1 - active
+      // 2 - do not show
+      // 3 - deleted
+      // 4 - idk, might think of something
+    },
   },
   { timestamps: true }
 );
