@@ -34,7 +34,8 @@ const FeaturedPosts = () => {
       postsArray.push(
         <div
           key={i}
-          className="duration-700 ease-in-out flex justify-center w-screen"
+          // className="duration-700 ease-in-out flex justify-center w-screen"
+          className="duration-700 ease-in-out flex justify-center mr-16"
         >
           <PostPreview variant="featured" postData={post} />
         </div>
@@ -53,7 +54,8 @@ const FeaturedPosts = () => {
   }
 
   return (
-    <div className="overflow-hidden border border-red-200 w-screen">
+    // <div className="overflow-hidden w-screen flex justify-center">
+    <div className="overflow-hidden flex justify-center">
       {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
       {/* <PostPreview variant="featured" /> */}
     </div>

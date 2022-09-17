@@ -17,7 +17,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="border px-4 pt-8 -mx-4">
+      <div className="border px-4 pt-8 -mx-4 flex flex-col items-center">
+        <p className="text-3xl mb-4 font-medium">Featured Posts</p>
+
         <FeaturedPosts />
       </div>
 

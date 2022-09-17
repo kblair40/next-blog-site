@@ -20,7 +20,7 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
   return (
     <div className={classNames(baseClasses)}>
       {/* h-256px; w-448px (max) */}
-      <div className="w-full max-w-112 relative h-64 border border-slate-500">
+      <div className="w-full max-w-md relative h-64 border">
         <Image
           src={postData.image_url || defaultImg}
           layout="fill"
@@ -30,11 +30,11 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
       </div>
 
       <div className="p-4">
-        {variant === "featured" && (
+        {/* {variant === "featured" && (
           <h2 className="tracking-wider text-xs title-font font-semibold text-slate-500 mb-1">
             FEATURED POST
           </h2>
-        )}
+        )} */}
 
         <h1 className="text-lg font-medium text-slate-800 mb-3">
           {postData.title || "Post Title"}
