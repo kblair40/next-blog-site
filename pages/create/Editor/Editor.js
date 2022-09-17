@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
+import Image from "next/image";
 
 import md from "utils/md";
 import { markers } from "utils/constants";
@@ -9,6 +10,7 @@ import Button from "components/UI/Button";
 
 const Editor = ({ onSubmit, loading }) => {
   const [postTitle, setPostTitle] = useState("");
+  const [postImageUrl, setPostImageUrl] = useState("");
   const [htmlPreview, setHtmlPreview] = useState("");
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
@@ -50,17 +52,22 @@ const Editor = ({ onSubmit, loading }) => {
     }
   };
 
-  const handleChangeImage = (imgUrl) => {
-    postImageUrlRef.current = imgUrl;
+  const handleChangeImageUrl = (val) => {
+    setPostImageUrl(val);
   };
+
+  // const handleChangeImage = (imgUrl) => {
+  //   postImageUrlRef.current = imgUrl;
+  // };
 
   return (
     <React.Fragment>
       <div className="w-full pt-4">
         <div className="flex items-center mb-4">
           <Input placeholder="Post Title" onChange={handleChangeTitle} />
+          <Input placeholder="Post Image URL" onChange={handleChangeImageUrl} />
 
-          <FileInput placeholder="Upload Image" onChange={handleChangeImage} />
+          {/* <FileInput placeholder="Upload Image" onChange={handleChangeImage} /> */}
         </div>
 
         <TextareaMarkdownEditor ref={textareaRef} rows={18} markers={markers} />
@@ -89,6 +96,8 @@ const Editor = ({ onSubmit, loading }) => {
             className="mt-4 post-preview"
             dangerouslySetInnerHTML={{ __html: htmlPreview }}
           />
+
+          <Image height={200} width={200} src={postImageUrl} />
         </>
       )}
     </React.Fragment>
@@ -96,9 +105,3 @@ const Editor = ({ onSubmit, loading }) => {
 };
 
 export default Editor;
-
-// "<p>fdsaf<br>\ngfsa<br>\ngf<br>\nas</p>\n
-// <p>gfsa</p>\n
-// <h4>gsa</h4>\n
-// <p>gdfsaf</p>\n
-// <p>gfsa</p>\n"

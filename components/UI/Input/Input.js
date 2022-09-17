@@ -10,17 +10,7 @@ const sizeClasses = {
 };
 
 const Input = forwardRef(
-  (
-    {
-      placeholder,
-      onChange,
-      submitted,
-      type = "text",
-      classes = [],
-      size = "md",
-    },
-    ref
-  ) => {
+  ({ placeholder, onChange, submitted, classes = [], size = "md" }, ref) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
