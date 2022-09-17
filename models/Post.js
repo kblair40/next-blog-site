@@ -11,6 +11,9 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: [true, "Did not receive a title for the post"],
     },
+    image_url: {
+      type: String,
+    },
     // comments: [Comment] /* create separate model for Comment */
   },
   { timestamps: true }
