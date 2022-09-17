@@ -1,5 +1,6 @@
 import React from "react";
 
+import { getSizeClasses } from "utils/classes";
 import SolidButton from "./SolidButton";
 import GhostButton from "./GhostButton";
 
@@ -10,10 +11,14 @@ const Button = ({
   children,
   iconLeft,
   iconRight,
+  size = "md",
   colorScheme = "primary",
   variant = "solid",
   classes = [],
 }) => {
+  const sizeClasses = getSizeClasses("button", size);
+  console.log("\n\nsizeClasses:", sizeClasses, "\n\n");
+
   if (variant === "solid") {
     return (
       <SolidButton
@@ -23,7 +28,8 @@ const Button = ({
         iconRight={iconRight}
         isDisabled={isDisabled}
         colorScheme={colorScheme}
-        classes={classes}
+        classes={[...classes, ...sizeClasses]}
+        size={size}
       >
         {children}
       </SolidButton>
@@ -37,7 +43,8 @@ const Button = ({
         iconRight={iconRight}
         isDisabled={isDisabled}
         colorScheme={colorScheme}
-        classes={classes}
+        classes={[...classes, ...sizeClasses]}
+        size={size}
       >
         {children}
       </GhostButton>

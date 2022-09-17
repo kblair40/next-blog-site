@@ -62,9 +62,11 @@ const RecentPost = ({ post }) => {
         <h2 className="text-lg font-medium">{post.title}</h2>
 
         <Button
+          size="sm"
+          variant="ghost"
           iconRight={
             <svg
-              className="w-4 h-4 fill-slate-200 rotate-180 ml-2"
+              className="w-3 h-3 fill-slate-800 rotate-180 ml-2"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -74,11 +76,6 @@ const RecentPost = ({ post }) => {
         >
           Read
         </Button>
-
-        {/* <div className="flex space-x-2 items-center border-b border-transparent duration-200 hover:border-slate-400 leading-none">
-          <button className="py-1 font-medium duration-200">Read</button>
-          <p>-&gt;</p>
-        </div> */}
       </div>
 
       <div

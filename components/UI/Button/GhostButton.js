@@ -14,17 +14,9 @@ const GhostButton = ({
   classes = [],
 }) => {
   const colorClasses = {
-    slate: ["bg-slate-600", "hover:bg-slate-700", "active:bg-slate-800"],
-    emerald: [
-      "bg-emerald-600",
-      "hover:bg-emerald-700",
-      "active:bg-emerald-800",
-    ],
-    primary: [
-      "bg-primary-600",
-      "hover:bg-primary-700",
-      "active:bg-primary-800",
-    ],
+    slate: ["bg-transparent", "hover:bg-slate-50", "active:bg-slate-100"],
+    emerald: ["bg-transparent", "hover:bg-emerald-50", "active:bg-emerald-100"],
+    primary: ["bg-transparent", "hover:bg-primary-50", "active:bg-primary-100"],
   };
 
   const baseClasses = [
@@ -32,7 +24,6 @@ const GhostButton = ({
     "rounded-lg",
     "px-3",
     "h-10",
-    "text-white",
     "font-medium",
     "flex",
     "items-center",
