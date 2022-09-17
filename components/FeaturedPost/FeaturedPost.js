@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 // import Image from "next/image";
-// import classNames from "classnames";
 
 const FeaturedPost = () => {
   return (
@@ -22,7 +21,7 @@ const FeaturedPost = () => {
         </p>
 
         <Link href="/all-posts">
-          <a className="text-emerald-600 inline-flex items-center md:mb-2 lg:mb-0">
+          <a className="text-primary-600 inline-flex items-center md:mb-2 lg:mb-0">
             Read
             <svg
               className="w-4 h-4 ml-2 group-hover:animate-bounce"
