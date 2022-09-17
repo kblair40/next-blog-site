@@ -9,11 +9,11 @@ import Button from "components/UI/Button";
 
 const Editor = ({ onSubmit, loading }) => {
   const [postTitle, setPostTitle] = useState("");
-  const [postImage, setPostImage] = useState("");
   const [htmlPreview, setHtmlPreview] = useState("");
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
   const textareaRef = useRef();
+  const postImageUrlRef = useRef();
 
   const showPreview = () => {
     const value = textareaRef.current.state.value;
@@ -50,7 +50,9 @@ const Editor = ({ onSubmit, loading }) => {
     }
   };
 
-  const handleChangeImage = (img) => {};
+  const handleChangeImage = (imgUrl) => {
+    postImageUrlRef.current = imgUrl;
+  };
 
   return (
     <React.Fragment>
