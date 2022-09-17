@@ -82,13 +82,23 @@ const Editor = ({ onSubmit, loading }) => {
       </div>
 
       {htmlPreview && (
-        <div
-          className="mt-8"
-          dangerouslySetInnerHTML={{ __html: htmlPreview }}
-        />
+        <>
+          <h1 className="text-xl font-semibold mt-4">{postTitle}</h1>
+
+          <div
+            className="mt-4 post-preview"
+            dangerouslySetInnerHTML={{ __html: htmlPreview }}
+          />
+        </>
       )}
     </React.Fragment>
   );
 };
 
 export default Editor;
+
+// "<p>fdsaf<br>\ngfsa<br>\ngf<br>\nas</p>\n
+// <p>gfsa</p>\n
+// <h4>gsa</h4>\n
+// <p>gdfsaf</p>\n
+// <p>gfsa</p>\n"
