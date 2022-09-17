@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Loading from "components/UI/Loading";
 import PostPreview from "components/PostPreview";
+import Carousel from "./Carousel";
 import api from "utils/api";
 
 const FeaturedPosts = () => {
@@ -27,6 +28,22 @@ const FeaturedPosts = () => {
     fetchFeaturedPosts();
   }, []);
 
+  const makePostsArray = () => {
+    let postsArray = [];
+    featuredPosts.forEach((post, i) => {
+      postsArray.push(
+        <div
+          key={i}
+          className="duration-700 ease-in-out flex justify-center w-screen"
+        >
+          <PostPreview variant="featured" postData={post} />
+        </div>
+      );
+    });
+
+    return postsArray;
+  };
+
   if (loading) {
     return (
       <div className="h-screen-nav w-screen flex justify-center items-center">
@@ -36,8 +53,9 @@ const FeaturedPosts = () => {
   }
 
   return (
-    <div className="overflow-hidden">
-      <PostPreview variant="featured" />
+    <div className="overflow-hidden border border-red-200 w-screen">
+      {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
+      {/* <PostPreview variant="featured" /> */}
     </div>
   );
 };

@@ -1,12 +1,33 @@
 import React from "react";
 import Link from "next/link";
-// import Image from "next/image";
+import classNames from "classnames";
+import Image from "next/image";
 
-const PostPreview = ({ variant, postData }) => {
+const PostPreview = ({ variant, postData, classes = [] }) => {
+  const baseClasses = [
+    "max-w-md", // prev included
+    // "w-112",
+    "group h-full border-2 border-slate-200 border-opacity-60 rounded-lg overflow-hidden",
+    ...classes,
+  ];
+
+  const defaultImg =
+    "https://res.cloudinary.com/erinsblog/image/upload/v1663447171/ahtziri-lagarde-h_1g1ofwXqk-unsplash_o1bfsb.jpg";
+
+  // const defaultImg =
+  //   "https://res.cloudinary.com/erinsblog/image/upload/v1663449242/allen-taylor-lLk1oJA7Wkg-unsplash_ndbdvy.jpg";
+
   return (
-    <div className="group max-w-md h-full border-2 border-slate-200 border-opacity-60 rounded-lg overflow-hidden">
-      {/* placeholder for image */}
-      <div className="bg-slate-200 h-40 w-full" />
+    <div className={classNames(baseClasses)}>
+      {/* h-256px; w-448px (max) */}
+      <div className="w-full max-w-112 relative h-64 border border-slate-500">
+        <Image
+          src={postData.image_url || defaultImg}
+          layout="fill"
+          objectFit="cover"
+          alt="featured post image"
+        />
+      </div>
 
       <div className="p-4">
         {variant === "featured" && (
@@ -15,7 +36,9 @@ const PostPreview = ({ variant, postData }) => {
           </h2>
         )}
 
-        <h1 className="text-lg font-medium text-slate-800 mb-3">Post Title</h1>
+        <h1 className="text-lg font-medium text-slate-800 mb-3">
+          {postData.title || "Post Title"}
+        </h1>
 
         <p className="mb-3">
           Elit non Lorem in nostrud eu dolor do id irure anim in nostrued eu

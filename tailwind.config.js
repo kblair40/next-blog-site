@@ -31,6 +31,8 @@ module.exports = {
       },
       width: {
         "screen-1/2": "50vw",
+        112: "28rem",
+        128: "32rem",
       },
       minWidth: {
         base: "320px",
