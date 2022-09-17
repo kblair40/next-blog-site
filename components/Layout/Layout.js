@@ -16,3 +16,7 @@ const layout = ({ children }) => {
 };
 
 export default layout;
+
+{
+  /* <Image publicId="sample" width="50" /> */
+}
