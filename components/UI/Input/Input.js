@@ -10,7 +10,17 @@ const sizeClasses = {
 };
 
 const Input = forwardRef(
-  ({ placeholder, onChange, submitted, classes = [], size = "md" }, ref) => {
+  (
+    {
+      placeholder,
+      onChange,
+      submitted,
+      type = "text",
+      classes = [],
+      size = "md",
+    },
+    ref
+  ) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -41,14 +51,23 @@ const Input = forwardRef(
       ...classes,
     ];
 
+    if (type !== "radio") {
+      return (
+        <input
+          placeholder={placeholder}
+          type={type}
+          value={value}
+          onChange={handleChange}
+          ref={ref}
+          className={classNames(inputClasses)}
+        />
+      );
+    }
+
+    const radioClasses = ["my-2"];
+
     return (
-      <input
-        placeholder={placeholder}
-        value={value}
-        onChange={handleChange}
-        ref={ref}
-        className={classNames(inputClasses)}
-      />
+      <input type="radio" value="hi" className={classNames(radioClasses)} />
     );
   }
 );

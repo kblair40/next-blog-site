@@ -9,6 +9,7 @@ const Resources = () => {
         resource={{
           name: "Time Currency Calculator",
           description: "Calculate how long you'll need to save for a purchase",
+          href: "/resource/time-currency-calc",
         }}
       />
     </div>

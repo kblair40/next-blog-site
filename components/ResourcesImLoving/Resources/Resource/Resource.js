@@ -1,16 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
+import { useRouter } from "next/router";
 
-import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 
 const Resource = ({ resource }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    //
+    router.push(resource.href);
+  };
+
   return (
     <div>
       <div className="flex justify-between">
         <h2 className="text-lg font-medium">{resource.name}</h2>
 
         <Button
+          onClick={handleClick}
           size="sm"
           variant="ghost"
           iconRight={
