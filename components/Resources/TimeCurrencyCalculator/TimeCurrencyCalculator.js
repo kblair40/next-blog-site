@@ -102,6 +102,7 @@ const TimeCurrencyCalculator = () => {
             Bringing in ${takeHomePay}, {payFrequency.toLowerCase()}, you will
             be able to afford your purchase in...
           </p>
+
           <p className="text-4xl font-semibold">
             {hoursToWork.toFixed(2)} Hours
           </p>
