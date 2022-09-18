@@ -7,6 +7,7 @@ const FormControl = ({
   label,
   placeholder,
   onChange,
+  checked,
   size = "md",
   inputType = "text",
   wrapperClasses = [],
@@ -22,7 +23,7 @@ const FormControl = ({
     <div className={classNames(wrapperClasses)}>
       {inputType !== "radio" ? (
         <React.Fragment>
-          <label class={classNames(labelClasses)}>{label}</label>
+          <label className={classNames(labelClasses)}>{label}</label>
           <Input
             onChange={onChange ? onChange : undefined}
             size={size}
@@ -33,7 +34,12 @@ const FormControl = ({
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Input size={size} placeholder={placeholder} type={inputType} />
+          <Input
+            size={size}
+            placeholder={placeholder}
+            type={inputType}
+            checked={checked}
+          />
           <label class={classNames(labelClasses)}>{label}</label>
         </React.Fragment>
       )}

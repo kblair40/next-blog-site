@@ -15,6 +15,7 @@ const Input = forwardRef(
       placeholder,
       onChange,
       submitted,
+      checked,
       type = "text",
       classes = [],
       size = "md",
@@ -67,7 +68,12 @@ const Input = forwardRef(
     const radioClasses = ["my-2"];
 
     return (
-      <input type="radio" value="hi" className={classNames(radioClasses)} />
+      <input
+        type="radio"
+        value="hi"
+        className={classNames(radioClasses)}
+        checked={checked}
+      />
     );
   }
 );

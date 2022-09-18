@@ -7,7 +7,15 @@ import Button from "components/UI/Button";
 const TimeCurrencyCalculator = () => {
   const [takeHomePay, setTakeHomePay] = useState("");
   const [purchaseCost, setPurchaseCost] = useState("");
+  const [payFrequency, setPayFrequency] = useState("bi-weekly");
   const radioClasses = ["flex space-x-2 items-center sm:space-x-4"];
+
+  const handleChangeTakeHomePay = (val) => {
+    setTakeHomePay(val);
+  };
+  const handleChangePurchaseCost = (val) => {
+    setPurchaseCost(val);
+  };
 
   return (
     <div className="w-fit">
@@ -28,31 +36,13 @@ const TimeCurrencyCalculator = () => {
             inputClasses={["mt-1 w-full"]}
             inputType="number"
             label="Take Home Pay (after tax)"
+            onChange={handleChangeTakeHomePay}
           />
 
           <div>
             <p className="font-medium">Pay Frequency</p>
-            <div className="flex flex-col w-fit sm:flex-row sm:space-x-4">
-              <FormControl
-                inputType="radio"
-                label="Weekly"
-                wrapperClasses={radioClasses}
-              />
-              <FormControl
-                inputType="radio"
-                label="Bi-Weekly"
-                wrapperClasses={radioClasses}
-              />
-              <FormControl
-                inputType="radio"
-                label="Bi-Monthly"
-                wrapperClasses={radioClasses}
-              />
-              <FormControl
-                inputType="radio"
-                label="Monthly"
-                wrapperClasses={radioClasses}
-              />
+            <div className="pt-1 flex space-y-1 flex-col w-fit sm:flex-row sm:space-x-4 sm:space-y-0">
+              <PayFrequency />
             </div>
           </div>
 
@@ -60,6 +50,7 @@ const TimeCurrencyCalculator = () => {
             inputClasses={["mt-1 w-full"]}
             inputType="number"
             label="Purchase Cost"
+            onChange={handleChangePurchaseCost}
           />
 
           <div className="pt-4">
@@ -72,3 +63,39 @@ const TimeCurrencyCalculator = () => {
 };
 
 export default TimeCurrencyCalculator;
+
+const PayFrequency = () => {
+  return (
+    <React.Fragment>
+      <div className="flex items-center space-x-2">
+        <input type="radio" id="weekly" name="payfrequency" value="weekly" />
+        <label for="weekly">Weekly</label>
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <input
+          type="radio"
+          id="bi-weekly"
+          name="payfrequency"
+          value="bi-weekly"
+        />
+        <label for="bi-weekly">Bi-Weekly</label>
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <input
+          type="radio"
+          id="bi-monthly"
+          name="payfrequency"
+          value="bi-monthly"
+        />
+        <label for="bi-monthly">Bi-Monthly</label>
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <input type="radio" id="monthly" name="payfrequency" value="monthly" />
+        <label for="monthly">Monthly</label>
+      </div>
+    </React.Fragment>
+  );
+};
