@@ -60,3 +60,26 @@
     outline: none;
     box-shadow: none !important;
   }
+
+.flickity-button {
+    position: absolute !important;
+}
+
+.flickity-prev-next-button {
+    width: 60px;
+    height: 60px;
+  }
+  /* icon color */
+  .flickity-button-icon {
+    fill: #424242;
+  }
+  /* hide disabled button */
+  .flickity-button:disabled {
+    display: none;
+  }
+
+.is-selected {
+    /* border: 1px solid red !important; */
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08)) !important;
+    /* filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)) !important; */
+}

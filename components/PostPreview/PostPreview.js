@@ -20,7 +20,7 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
   return (
     <div className={classNames(baseClasses)}>
       {/* h-256px; w-448px (max) */}
-      <div className="w-full max-w-md relative h-64 border">
+      <div className="w-full max-w-md relative h-64">
         <Image
           src={postData.image_url || defaultImg}
           layout="fill"

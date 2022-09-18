@@ -34,6 +34,8 @@ const FeaturedPosts = () => {
       postsArray.push(
         <div
           key={i}
+          // prevent scroll forward if clicking on card
+          onClick={(e) => e.stopPropagation()}
           // className="duration-700 ease-in-out flex justify-center w-screen"
           className="duration-700 ease-in-out flex justify-center mr-16"
         >
@@ -54,8 +56,7 @@ const FeaturedPosts = () => {
   }
 
   return (
-    // <div className="overflow-hidden flex justify-center">
-    <div className="overflow-hidden">
+    <div className="flex justify-center h-full">
       {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
       {/* <PostPreview variant="featured" /> */}
     </div>
