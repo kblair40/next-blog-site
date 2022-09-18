@@ -54,8 +54,8 @@ const FeaturedPosts = () => {
   }
 
   return (
-    // <div className="overflow-hidden w-screen flex justify-center">
-    <div className="overflow-hidden flex justify-center">
+    // <div className="overflow-hidden flex justify-center">
+    <div className="overflow-hidden">
       {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
       {/* <PostPreview variant="featured" /> */}
     </div>

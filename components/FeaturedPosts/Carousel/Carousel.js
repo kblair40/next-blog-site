@@ -4,13 +4,20 @@ import React from "react";
 import Flickity from "react-flickity-component";
 
 const Carousel = ({ postsArray }) => {
+  const windowWidth = window.innerWidth;
+
   const flickityOptions = {
     initialIndex: 0,
+    cellAlign: windowWidth > 768 ? "left" : "center",
+    prevNextButtons: false, // not showing up anyways, which is fine
+    pageDots: false,
   };
 
   return (
     <Flickity
-      className={"carousel w-screen border-transparent"} // default ''
+      className={
+        "sm:pl-[5vw] md:pl-[10vw] carousel w-screen border-transparent"
+      } // default ''
       elementType={"div"} // default 'div'
       options={flickityOptions} // takes flickity options {}
       disableImagesLoaded={false} // default false
@@ -18,9 +25,6 @@ const Carousel = ({ postsArray }) => {
       static // default false
     >
       {postsArray}
-      {/* <img src="/images/placeholder.png"/>
-      <img src="/images/placeholder.png"/>
-      <img src="/images/placeholder.png"/> */}
     </Flickity>
   );
 };
