@@ -24,23 +24,17 @@ export default function Home() {
         <FeaturedPosts />
       </div>
 
-      <div className="flex space-x-6 px-8 mt-8">
-        <div className="w-full sm: w-1/2">
-          <MostRecentPosts />
-        </div>
-
-        <div className="w-full sm: w-1/2">
+      <div className="flex flex-col space-y-8 sm:flex-row  sm:space-x-6 md:space-x-8 sm:space-y-0 px-4 sm:px-6 md:px-8 mt-8">
+        <div className="w-full sm:w-1/2">
           <ResourcesImLoving />
         </div>
-      </div>
-      {/* <Hero /> */}
-      <div className="mt-8 px-4 flex justify-center">
-        {/* <div className="grid grid-cols-none md:grid-cols-2 gap-x-12 px-4">
-          <PostPreview variant="featured" />
 
+        <div className="w-full sm:w-1/2">
           <MostRecentPosts />
-        </div> */}
+        </div>
       </div>
+
+      {/* <Hero /> */}
     </div>
   );
 }
