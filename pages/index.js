@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-// import Hero from "components/Hero";
+import Hero from "components/Hero";
 // import PostPreview from "components/PostPreview";
 import ResourcesImLoving from "components/ResourcesImLoving";
 import MostRecentPosts from "components/MostRecentPosts";
@@ -9,7 +9,7 @@ import FeaturedPosts from "components/FeaturedPosts";
 export default function Home() {
   return (
     <div
-    // className="h-screen-nav"
+    // className="mb-8"
     //
     >
       <Head>
@@ -25,11 +25,11 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col space-y-8 sm:flex-row  sm:space-x-6 md:space-x-8 sm:space-y-0 px-4 sm:px-6 md:px-8 mt-8">
-        <div className="w-full sm:w-1/2">
+        <div className="w-full sm:w-3/5">
           <ResourcesImLoving />
         </div>
 
-        <div className="w-full sm:w-1/2">
+        <div className="w-full sm:w-2/5">
           <MostRecentPosts />
         </div>
       </div>
