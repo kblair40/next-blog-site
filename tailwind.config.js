@@ -31,6 +31,8 @@ module.exports = {
       },
       width: {
         "screen-1/2": "50vw",
+        "screen-3/4": "75vw",
+        "screen-80": "80vw",
         112: "28rem",
         128: "32rem",
       },
