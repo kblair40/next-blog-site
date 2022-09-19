@@ -21,13 +21,13 @@ export default async function handler(req, res) {
       try {
         const foundPost = await Post.findById(postId);
         if (foundPost) {
-          console.log("\n\nFOUND POST:", foundPost, "\n\n");
+          // console.log("\n\nFOUND POST:", foundPost, "\n\n");
 
           foundPost.title = body.title;
           foundPost.status = parseInt(body.status);
 
           const savedPost = await foundPost.save();
-          console.log("\n\n\n\nSAVED POST:", savedPost);
+          // console.log("\n\nSAVED POST:", savedPost);
 
           res.status(200).json(savedPost);
         }

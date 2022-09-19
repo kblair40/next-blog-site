@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import { toast } from "react-toastify";
 
 import Loading from "components/UI/Loading";
 import Button from "components/UI/Button";
@@ -56,9 +57,7 @@ const AllPosts = () => {
     let post = postDataCopy.find((obj) => Object.keys(obj)[0] === _id);
 
     if (post) {
-      console.log("POST:", post);
       let postObject = Object.values(post)[0];
-      console.log("POST VALUE:", postObject);
 
       try {
         const response = await api.patch(`/posts/${postObject._id}`, {
@@ -66,7 +65,11 @@ const AllPosts = () => {
           status: postObject["status"],
         });
 
-        console.log("\n\nPATCH RESPONSE:", response, "\n\n");
+        const config = {
+          position: toast.POSITION.BOTTOM_CENTER,
+          pauseOnHover: false,
+        };
+        toast.success("Changes saved!", config);
       } catch (e) {
         console.log("FAILED PATCHING POST" + postObject, "   ", e);
       }
