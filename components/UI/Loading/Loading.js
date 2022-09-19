@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-const Loading = ({ scheme, size = "md" }) => {
+const Loading = ({ scheme, fullScreen = false, size = "md" }) => {
   const sizeClasses = {
     sm: "w-4 h-4",
     md: "w-8 h-8",
@@ -15,7 +15,15 @@ const Loading = ({ scheme, size = "md" }) => {
     sizeClasses[size],
   ];
 
-  return <div className={classNames(baseClasses)} />;
+  return (
+    <div
+      className={
+        fullScreen ? "h-screen flex justify-center items-center" : undefined
+      }
+    >
+      <div className={classNames(baseClasses)} />
+    </div>
+  );
 };
 
 export default Loading;
