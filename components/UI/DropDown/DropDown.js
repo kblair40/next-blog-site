@@ -37,11 +37,6 @@ const DropDown = () => {
     "bg-clip-padding",
   ]);
 
-  const itemClasses = classNames([
-    "dropdown-item text-sm py-2 px-4 block w-full whitespace-nowrap",
-    "bg-transparent text-slate-700 hover:bg-slate-100",
-  ]);
-
   const menuClasses = classNames({
     "duration-200": true,
     "opacity-0 -top-2": !isOpen,
@@ -65,22 +60,6 @@ const DropDown = () => {
               {options.map((option, i) => {
                 return <Option option={option} key={i} />;
               })}
-
-              <li>
-                <a className={itemClasses} href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a className={itemClasses} href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a className={itemClasses} href="#">
-                  Something else here
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -92,6 +71,11 @@ const DropDown = () => {
 export default DropDown;
 
 const Option = ({ option }) => {
+  const itemClasses = classNames([
+    "dropdown-item text-sm py-2 px-4 block w-full whitespace-nowrap",
+    "bg-transparent text-slate-700 hover:bg-slate-100",
+  ]);
+
   return (
     <li>
       <Link href={option.href}>
