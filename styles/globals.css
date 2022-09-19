@@ -83,3 +83,66 @@
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08)) !important;
     /* filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)) !important; */
 }
+
+
+/* REACT DROPDOWN OVERRIDES */
+
+/* MAIN */
+.react-dropdown {
+    width: 140px !important;
+    /* border: 1px solid green; */
+}
+
+/* CONTROL */
+.react-dropdown-control {
+    cursor: pointer !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.react-dropdown-control:hover {
+    box-shadow: none !important;
+}
+
+/* PLACEHOLDER */
+.react-dropdown-placeholder {
+    /* border: 1px solid red; */
+    white-space: nowrap;
+    margin-right: .75rem;
+    color: #1e293b !important;
+    font-weight: 500 !important;
+}
+
+/* MENU */
+.react-dropdown-menu {
+    /* border: 1px solid green !important; */
+    border-radius: 6px;
+    height: min-content !important;
+    max-height: none !important;
+    width: 115% !important;
+}
+
+/* ARROW */
+.react-dropdown-arrow {
+    position: static !important;
+}
+
+/* OVERRIDE */
+.Dropdown-arrow-wrapper {
+    /* border: 1px solid blue; */
+}
+
+.Dropdown-option {
+    white-space: nowrap;
+    width: 160px !important;
+}
+
+.Dropdown-option:hover {
+    background-color: #f1f5f9 !important;
+}
+
+.react-dropdown .is-selected {
+    box-shadow: none !important;
+}
+

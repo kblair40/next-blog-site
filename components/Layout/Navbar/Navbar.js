@@ -4,11 +4,21 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import classNames from "classnames";
+import dynamic from "next/dynamic";
 
 import logo from "public/assets/images/high-low.png";
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
+import DropDown from "components/UI/DropDown";
 import Drawer from "./Drawer";
+
+// const baseClasses = [
+//   "group font-medium whitespace-nowrap",
+//   "text-slate-700 transition-colors duration-300 hover:text-slate-900",
+//   "flex flex-col items-center",
+//   "p-2 rounded-md",
+//   "md:mx-2",
+// ];
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -43,13 +53,15 @@ const Navbar = () => {
         />
 
         <nav className="h-14">
-          <div className="h-full px-6 flex justify-between items-center">
+          <div className="relative h-full px-6 flex justify-between items-center">
             <Logo />
 
             {/* Mobile menu button */}
             <HamburgerButton onClick={() => setDrawerOpen(!drawerOpen)} />
 
             <div className="hidden items-start w-fit md:flex md:flex-row">
+              <DropDown />
+
               {navLinks.map((navLink, i) => {
                 return (
                   <NavLink

@@ -104,7 +104,7 @@ const TimeCurrencyCalculator = () => {
           </p>
 
           <p className="text-4xl font-semibold">
-            {hoursToWork.toFixed(2)} Hours
+            {hoursToWork ? hoursToWork.toFixed(2) : null} Hours
           </p>
 
           <p className="absolute bottom-0 text-xs">

@@ -7,10 +7,6 @@ const navLinks = [
     label: "About",
     route: "/page1",
   },
-  {
-    label: "All Posts",
-    route: "/all-posts",
-  },
 ];
 
 export default navLinks;
