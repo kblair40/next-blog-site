@@ -38,11 +38,13 @@ const Navbar = () => {
       </div>
 
       <div className="fixed flex flex-col bg-white z-50">
-        <SubscribeModal
-          isOpen={subscribeModalOpen}
-          onClose={() => setSubscribeModalOpen(false)}
-          onSubscribe={handleSubscribe}
-        />
+        {subscribeModalOpen && (
+          <SubscribeModal
+            isOpen={subscribeModalOpen}
+            onClose={() => setSubscribeModalOpen(false)}
+            onSubscribe={handleSubscribe}
+          />
+        )}
 
         <nav className="h-14">
           <div className="relative h-full px-6 flex justify-between items-center">

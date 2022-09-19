@@ -9,6 +9,7 @@ const Modal = ({
   onClose,
   children,
   centerContent,
+  shouldCloseOnOverlayClick = true,
   closable = true,
   widthClasses = "w-5/6 sm:w-80 md:w-96",
 }) => {
@@ -26,6 +27,8 @@ const Modal = ({
   return (
     <ReactModal
       className={classNames(baseClasses)}
+      shouldCloseOnOverlayClick={shouldCloseOnOverlayClick}
+      shouldCloseOnEsc={shouldCloseOnOverlayClick}
       isOpen={isOpen}
       onRequestClose={onClose}
     >

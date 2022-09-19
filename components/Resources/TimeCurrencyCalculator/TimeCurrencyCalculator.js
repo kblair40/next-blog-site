@@ -92,26 +92,28 @@ const TimeCurrencyCalculator = () => {
         </div>
       </div>
 
-      <Modal
-        centerContent={true}
-        isOpen={showResults}
-        onClose={() => setShowResults(false)}
-      >
-        <div className="flex flex-col justify-center items-center">
-          <p className="text-center mb-2">
-            Bringing in ${takeHomePay}, {payFrequency.toLowerCase()}, you will
-            be able to afford your purchase in...
-          </p>
+      {showResults && (
+        <Modal
+          centerContent={true}
+          isOpen={showResults}
+          onClose={() => setShowResults(false)}
+        >
+          <div className="flex flex-col justify-center items-center">
+            <p className="text-center mb-2">
+              Bringing in ${takeHomePay}, {payFrequency.toLowerCase()}, you will
+              be able to afford your purchase in...
+            </p>
 
-          <p className="text-4xl font-semibold">
-            {hoursToWork ? hoursToWork.toFixed(2) : null} Hours
-          </p>
+            <p className="text-4xl font-semibold">
+              {hoursToWork ? hoursToWork.toFixed(2) : null} Hours
+            </p>
 
-          <p className="absolute bottom-0 text-xs">
-            Probably not what you want. Let me know
-          </p>
-        </div>
-      </Modal>
+            <p className="absolute bottom-0 text-xs">
+              Probably not what you want. Let me know
+            </p>
+          </div>
+        </Modal>
+      )}
     </React.Fragment>
   );
 };

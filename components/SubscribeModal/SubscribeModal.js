@@ -55,6 +55,10 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
     "w-5/6 sm:w-80 md:w-96",
   ];
 
+  if (!modalOpen) {
+    return <div />;
+  }
+
   return (
     <Modal
       className={classNames(baseClasses)}
