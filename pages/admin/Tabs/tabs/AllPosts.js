@@ -51,6 +51,20 @@ const AllPosts = () => {
     postDataCopy[objectIndex][_id][fieldName] = value;
   };
 
+  const handleSubmit = async (_id) => {
+    let postDataCopy = [...allPostData];
+    let post = postDataCopy.find((obj) => Object.keys(obj)[0] === _id);
+
+    if (post) {
+      console.log("POST:", post);
+      console.log("POST VALUE:", Object.values(post)[0]);
+    } else {
+      console.error("COULD NOT FIND POST");
+    }
+
+    const response = await api.patch("/po");
+  };
+
   if (loading) {
     return <Loading fullScreen />;
   }
