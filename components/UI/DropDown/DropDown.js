@@ -36,7 +36,7 @@ const DropDown = () => {
   ];
 
   const triggerClasses = classNames([
-    "dropdown-toggle px-2 py-2.5 bg-transparent text-slate-700 font-medium",
+    "dropdown-toggle px-4 py-2.5 bg-transparent text-slate-700 font-medium",
     "leading-tight rounded cursor-pointer group w-full border-none",
     "transition duration-150 ease-in-out flex flex-col items-center justify-center whitespace-nowrap",
   ]);
@@ -53,6 +53,11 @@ const DropDown = () => {
     "opacity-100 top-2": isOpen,
   });
 
+  const arrowClasses = classNames({
+    "duration-200 w-2.5 h-2.5": true,
+    "rotate-180": isOpen,
+  });
+
   return (
     <div className="flex justify-center">
       <div>
@@ -61,7 +66,22 @@ const DropDown = () => {
             onClick={() => setIsOpen((prev) => !prev)}
             className={triggerClasses}
           >
-            Posts
+            <div className="flex items-center space-x-2">
+              <p>Posts</p>
+
+              <svg
+                className={arrowClasses}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.2045 17.8817L2.09466 8.77181C1.6553 8.33245 1.6553 7.62014 2.09466 7.18083L3.15717 6.11831C3.59578 5.6797 4.30664 5.67886 4.74628 6.11644L12 13.3362L19.2537 6.11644C19.6933 5.67886 20.4042 5.6797 20.8428 6.11831L21.9053 7.18083C22.3447 7.62019 22.3447 8.3325 21.9053 8.77181L12.7955 17.8817C12.3562 18.321 11.6438 18.321 11.2045 17.8817Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+
             <div className={classNames(borderClasses)} />
           </div>
 
