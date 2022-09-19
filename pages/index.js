@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Hero from "components/Hero";
+// import Hero from "components/Hero";
 // import PostPreview from "components/PostPreview";
 import ResourcesImLoving from "components/ResourcesImLoving";
 import MostRecentPosts from "components/MostRecentPosts";

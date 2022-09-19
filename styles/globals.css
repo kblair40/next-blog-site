@@ -83,3 +83,9 @@
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08)) !important;
     /* filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15)) !important; */
 }
+
+.custom-cursor {
+    /* border: 1px solid #868686; */
+    cursor: url("../public/assets/images/scroll-cursor.png"), default;
+    /* z-index: 0; */
+}

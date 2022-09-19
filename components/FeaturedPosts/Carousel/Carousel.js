@@ -1,18 +1,31 @@
-import React, {
-  useRef,
-  // useEffect
-} from "react";
-
+import React, { useRef, useEffect, useState } from "react";
+import classNames from "classnames";
 import Flickity from "react-flickity-component";
 
-const Carousel = ({ postsArray }) => {
+const Carousel = ({ postsArray, onChange }) => {
+  // const [curIndex, setCurIndex] = useState(0);
+
   const windowWidth = window.innerWidth;
 
   const carouselRef = useRef();
+  const curIndex = useRef(0);
 
-  // useEffect(() => {
-  //   //
-  // }, [carouselRef]);
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.on("change", function (slideIdx) {
+        console.log("\nSLIDE CHANGED TO:", { slideIdx });
+        curIndex.current = slideIdx;
+        // setCurIndex(slideIdx);
+        // onChange(slideIdx);
+
+        // if (slideIdx === postsArray.length - 1) {
+        //   onEndReached(true);
+        // } else {
+        //   onEndReached(false);
+        // }
+      });
+    }
+  }, []);
 
   const flickityOptions = {
     initialIndex: 0,
@@ -25,12 +38,27 @@ const Carousel = ({ postsArray }) => {
     carouselRef.current.next();
   };
 
+  // const classes = classNames({
+  //   "sm:pl-[5vw] md:pl-[10vw] carousel w-screen border-transparent relative": true,
+  //   "custom-cursor": curIndex < postsArray.length - 1,
+  // });
+
+  console.log(
+    "\n\n\nSHOULD PREVENT CURSOR:",
+    curIndex.current < postsArray.length - 1,
+    "\n\n\n"
+  );
+
   return (
     <div className="w-full h-fit" onClick={handleClickNext}>
       <Flickity
-        className={
-          "sm:pl-[5vw] md:pl-[10vw] carousel w-screen border-transparent relative"
-        } // default ''
+        className={classNames({
+          "sm:pl-[5vw] md:pl-[10vw] carousel w-screen border-transparent relative": true,
+          "custom-cursor": curIndex.current < postsArray.length - 1,
+        })}
+        // className={
+        //   "sm:pl-[5vw] md:pl-[10vw] carousel w-screen border-transparent relative custom-cursor"
+        // } // default ''
         elementType={"div"} // default 'div'
         options={flickityOptions} // takes flickity options {}
         disableImagesLoaded={false} // default false
@@ -45,3 +73,7 @@ const Carousel = ({ postsArray }) => {
 };
 
 export default Carousel;
+// export default React.memo(Carousel);
+// export default React.memo(Carousel, (prev, next) => {
+//   return prev.postsArray !== next.postsArray;
+// });

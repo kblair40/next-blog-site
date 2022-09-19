@@ -1,3 +1,12 @@
-1. Add FormControl component
-    - Add error showing to it
-2. Add context for erin
+1. Add context for erin
+2. Custom cursor when hovering over carousel, but not directly on post card
+3. Refresh should not occur if user clicks nav link for the page they are already on
+4. Swap out current logo for new logo
+5. Figure out how to add box-shadow to top-level card in "Featured Posts".
+6. Figure out uploading/rendering google docs
+7. Admin
+    - All Posts
+        - Change status functionality to hide/show/delete
+    - All Comments
+        - Change status functionality to hide/show/delete
+    - Central location for uploading google doc + picture + category/tags/notes
