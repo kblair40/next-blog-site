@@ -51,17 +51,24 @@ const DropDown = () => {
             onClick={() => setIsOpen((prev) => !prev)}
             className={triggerClasses}
           >
-            Money And...
+            Posts
             <div className={classNames(borderClasses)} />
           </div>
 
-          <div className={menuClasses}>
-            <ul className={listClasses}>
-              {options.map((option, i) => {
-                return <Option option={option} key={i} />;
-              })}
-            </ul>
-          </div>
+          {isOpen && (
+            <div className={menuClasses}>
+              <div
+                onClick={() => setIsOpen(false)}
+                className="fixed top-0 bottom-0 left-0 right-0 bg-transparent"
+              />
+
+              <ul className={listClasses}>
+                {options.map((option, i) => {
+                  return <Option option={option} key={i} />;
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
