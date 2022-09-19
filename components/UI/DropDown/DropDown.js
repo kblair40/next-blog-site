@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import classNames from "classnames";
 
 const options = [
@@ -26,8 +27,7 @@ const DropDown = () => {
 
   const triggerClasses = classNames([
     "dropdown-toggle px-2 py-2.5 bg-transparent text-slate-700 font-medium",
-    "leading-tight rounded cursor-pointer",
-    "group border w-full",
+    "leading-tight rounded cursor-pointer group w-full border-none",
     "transition duration-150 ease-in-out flex flex-col items-center justify-center whitespace-nowrap",
   ]);
 
@@ -62,6 +62,10 @@ const DropDown = () => {
 
           <div className={menuClasses}>
             <ul className={listClasses}>
+              {options.map((option, i) => {
+                return <Option option={option} key={i} />;
+              })}
+
               <li>
                 <a className={itemClasses} href="#">
                   Action
@@ -88,5 +92,13 @@ const DropDown = () => {
 export default DropDown;
 
 const Option = ({ option }) => {
-  return null;
+  return (
+    <li>
+      <Link href={option.href}>
+        <a className={itemClasses} href="#">
+          {option.label}
+        </a>
+      </Link>
+    </li>
+  );
 };
