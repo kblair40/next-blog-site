@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import classNames from "classnames";
 
 const options = [
@@ -14,11 +15,20 @@ const options = [
 const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const bodyRef = useRef();
+  const router = useRouter();
+
+  const currentPath = useRef();
 
   useEffect(() => {
-    bodyRef.current = document.getElementById("layout");
-  }, []);
+    // closes menu if user navigates to a different page while the menu is still open
+    if (router.pathname !== currentPath.current) {
+      setIsOpen(false);
+
+      currentPath.current = router.pathname;
+    }
+  }, [router.pathname]);
+
+  useEffect(() => {}, [router.pathname]);
 
   const borderClasses = [
     "w-8 h-px relative top-px",
@@ -33,7 +43,7 @@ const DropDown = () => {
 
   const listClasses = classNames([
     "min-w-max absolute bg-white text-base z-50 float-left py-2",
-    "list-none text-left rounded-lg shadow-lg mt-1 m-0 border-none",
+    "list-none text-left rounded-lg shadow-lg mt-1.5 border-none",
     "bg-clip-padding",
   ]);
 
@@ -59,7 +69,7 @@ const DropDown = () => {
             <div className={menuClasses}>
               <div
                 onClick={() => setIsOpen(false)}
-                className="fixed top-0 bottom-0 left-0 right-0 bg-transparent"
+                className="fixed top-14 bottom-0 left-0 right-0 bg-transparent"
               />
 
               <ul className={listClasses}>
@@ -79,7 +89,7 @@ export default DropDown;
 
 const Option = ({ option }) => {
   const itemClasses = classNames([
-    "dropdown-item text-sm py-2 px-4 block w-full whitespace-nowrap",
+    "dropdown-item text-sm text-right py-2 px-4 block w-full whitespace-nowrap",
     "bg-transparent text-slate-700 hover:bg-slate-100",
   ]);
 
