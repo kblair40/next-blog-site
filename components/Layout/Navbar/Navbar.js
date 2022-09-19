@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import classNames from "classnames";
 
-import logo from "public/assets/images/high-low.png";
+// import logo from "public/assets/images/high-low.png";
+import logo from "public/assets/images/money-and-other-things.webp";
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
 import DropDown from "components/UI/DropDown";
@@ -59,7 +60,8 @@ const Navbar = () => {
                     key={i}
                     active={pathname === navLink.route}
                     label={navLink.label}
-                    route={navLink.route}
+                    // route={navLink.route}
+                    route={pathname === navLink.route ? "#" : navLink.route}
                   />
                 );
               })}
@@ -108,7 +110,7 @@ const NavLink = ({ label, route, active }) => {
 };
 
 const Logo = () => {
-  const boxSize = 60;
+  const boxSize = 64;
   return <Image alt="logo" src={logo} height={boxSize} width={boxSize} />;
 };
 
