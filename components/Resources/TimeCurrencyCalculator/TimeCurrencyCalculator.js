@@ -131,7 +131,7 @@ const PayFrequency = ({ onChange }) => {
           name="payfrequency"
           value="weekly"
         />
-        <label for="weekly">Weekly</label>
+        <label htmlFor="weekly">Weekly</label>
       </div>
 
       <div className="flex items-center space-x-2">
@@ -142,7 +142,7 @@ const PayFrequency = ({ onChange }) => {
           name="payfrequency"
           value="bi-weekly"
         />
-        <label for="bi-weekly">Bi-Weekly</label>
+        <label htmlFor="bi-weekly">Bi-Weekly</label>
       </div>
 
       <div className="flex items-center space-x-2">
@@ -153,7 +153,7 @@ const PayFrequency = ({ onChange }) => {
           name="payfrequency"
           value="bi-monthly"
         />
-        <label for="bi-monthly">Bi-Monthly</label>
+        <label htmlFor="bi-monthly">Bi-Monthly</label>
       </div>
 
       <div className="flex items-center space-x-2">
@@ -164,7 +164,7 @@ const PayFrequency = ({ onChange }) => {
           name="payfrequency"
           value="monthly"
         />
-        <label for="monthly">Monthly</label>
+        <label htmlFor="monthly">Monthly</label>
       </div>
     </React.Fragment>
   );

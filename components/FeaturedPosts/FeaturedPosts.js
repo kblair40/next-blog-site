@@ -15,7 +15,7 @@ const FeaturedPosts = () => {
         const response = await api.get("/posts", {
           params: { limit: 3 },
         });
-        console.log("RESPONSE:", response);
+        // console.log("RESPONSE:", response);
 
         setFeaturedPosts(response.data.posts);
       } catch (e) {

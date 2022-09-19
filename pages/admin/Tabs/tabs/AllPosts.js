@@ -15,7 +15,7 @@ const AllPosts = () => {
     const fetchPosts = async () => {
       try {
         const response = await api.get("/posts");
-        console.log("RESPONSE:", response.data);
+        // console.log("RESPONSE:", response.data);
 
         setAllPostData(
           response.data.posts.map((post, i) => {
@@ -60,7 +60,11 @@ const AllPosts = () => {
       let postObject = Object.values(post)[0];
 
       try {
-        const response = await api.patch(`/posts/${postObject._id}`, {
+        // const response = await api.patch(`/posts/${postObject._id}`, {
+        //   title: postObject["title"],
+        //   status: postObject["status"],
+        // });
+        await api.patch(`/posts/${postObject._id}`, {
           title: postObject["title"],
           status: postObject["status"],
         });

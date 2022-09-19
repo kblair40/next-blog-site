@@ -5,7 +5,7 @@ import TimeCurrencyCalculator from "components/Resources/TimeCurrencyCalculator"
 
 const ResourcePage = () => {
   const router = useRouter();
-  console.log("ROUTER:", router);
+  // console.log("ROUTER:", router);
 
   const getMainComponent = () => {};
 

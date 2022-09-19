@@ -15,7 +15,7 @@ const MostRecentPosts = () => {
         const response = await api.get("/posts", {
           params: { limit: 3 },
         });
-        console.log("RESPONSE:", response);
+        // console.log("RESPONSE:", response);
 
         setRecentPosts(response.data.posts);
       } catch (err) {
