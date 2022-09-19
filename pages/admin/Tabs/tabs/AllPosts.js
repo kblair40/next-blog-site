@@ -57,12 +57,22 @@ const AllPosts = () => {
 
     if (post) {
       console.log("POST:", post);
-      console.log("POST VALUE:", Object.values(post)[0]);
+      let postObject = Object.values(post)[0];
+      console.log("POST VALUE:", postObject);
+
+      try {
+        const response = await api.patch(`/posts/${postObject._id}`, {
+          title: postObject["title"],
+          status: postObject["status"],
+        });
+
+        console.log("\n\nPATCH RESPONSE:", response, "\n\n");
+      } catch (e) {
+        console.log("FAILED PATCHING POST" + postObject, "   ", e);
+      }
     } else {
       console.error("COULD NOT FIND POST");
     }
-
-    const response = await api.patch("/po");
   };
 
   if (loading) {
