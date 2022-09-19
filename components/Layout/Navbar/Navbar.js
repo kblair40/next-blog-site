@@ -89,7 +89,7 @@ const NavLink = ({ label, route, active }) => {
     "group font-medium whitespace-nowrap",
     "text-slate-700 transition-colors duration-300 hover:text-slate-900",
     "flex flex-col items-center",
-    "p-2 rounded-md",
+    "py-2 px-3 rounded-md",
     "md:mx-2",
   ];
 

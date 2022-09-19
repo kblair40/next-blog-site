@@ -88,10 +88,16 @@ const DropDown = () => {
 export default DropDown;
 
 const Option = ({ option }) => {
-  const itemClasses = classNames([
+  let itemClasses = [
     "dropdown-item text-sm text-right py-2 px-4 block w-full whitespace-nowrap",
     "bg-transparent text-slate-700 hover:bg-slate-100",
-  ]);
+  ];
+
+  if (!option.isLink) {
+    itemClasses.push("");
+  }
+
+  itemClasses = classNames(itemClasses);
 
   return (
     <li>
