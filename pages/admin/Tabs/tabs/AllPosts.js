@@ -39,11 +39,16 @@ const AllPosts = () => {
   }, []);
 
   const handleChangePostData = (_id, fieldName, value) => {
-    let postDataCopy = { ...allPostData };
+    console.log("HANDLE CHANGE RCVD:", { _id, fieldName, value });
+    let postDataCopy = [...allPostData];
+    console.log("postDataCopy:", postDataCopy);
 
-    postDataCopy[_id][fieldName] = value;
+    let objectIndex = postDataCopy.findIndex(
+      (obj) => Object.keys(obj)[0] === _id
+    );
 
-    setAllPostData(postDataCopy);
+    console.log("FOUND OBJECT:", postDataCopy[objectIndex]);
+    postDataCopy[objectIndex][_id][fieldName] = value;
   };
 
   if (loading) {
@@ -57,73 +62,79 @@ const AllPosts = () => {
   const textClasses = classNames(["font-semibold w-16 text-sm"]);
 
   return (
-    <div className="flex flex-col space-y-2">
-      {allPostData && allPostData.length
-        ? allPostData.map((post, i) => {
-            console.log("\n\nPOST:", post, "\n\n");
-            const postVal = Object.values(post)[0];
-            console.log("POST VAL:", postVal);
-            return (
-              <div key={i}>
-                <div className="flex space-x-8">
-                  <div className="p-4 rounded-md border border-slate-100 space-y-2">
-                    <div className="flex space-x-2 items-center">
-                      <p className={textClasses}>Title:</p>
-                      <LocalInput
-                        defaultValue={postVal.title}
-                        onChange={(e) =>
-                          handleChangePostData(
-                            postVal._id,
-                            title,
-                            e.target.value
-                          )
-                        }
-                      />
-                    </div>
+    <div>
+      <div className="flex flex-col mb-4">
+        <p className="font-semibold text-lg">NOTE: </p>
+        <p>Status = 1: Post will be shown on main site</p>
+        <p>Status = 2: Post will be hidden from main site</p>
+      </div>
+      <div className="flex flex-col space-y-2">
+        {allPostData && allPostData.length
+          ? allPostData.map((post, i) => {
+              // console.log("\n\nPOST:", post, "\n\n");
+              const postVal = Object.values(post)[0];
+              return (
+                <div key={i}>
+                  <div className="flex space-x-8">
+                    <div className="p-4 rounded-md border border-slate-100 space-y-2">
+                      <div className="flex space-x-2 items-center">
+                        <p className={textClasses}>Title:</p>
+                        <LocalInput
+                          defaultValue={postVal.title}
+                          onChange={(e) =>
+                            handleChangePostData(
+                              postVal._id,
+                              "title",
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
 
-                    <div className="flex space-x-2 items-center">
-                      <p className={textClasses}>Status:</p>
-                      <LocalInput
-                        defaultValue={postVal.status}
-                        onChange={(e) =>
-                          handleChangePostData(
-                            postVal._id,
-                            status,
-                            e.target.value
-                          )
-                        }
-                      />
-                    </div>
+                      <div className="flex space-x-2 items-center">
+                        <p className={textClasses}>Status:</p>
+                        <LocalInput
+                          defaultValue={postVal.status}
+                          onChange={(e) =>
+                            handleChangePostData(
+                              postVal._id,
+                              "status",
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
 
-                    <div className="flex space-x-2 items-center pt-1">
-                      <p className={textClasses}>Created:</p>
-                      <p className="text-sm">{formatDate(postVal.created)}</p>
-                    </div>
+                      <div className="flex space-x-2 items-center pt-1">
+                        <p className={textClasses}>Created:</p>
+                        <p className="text-sm">{formatDate(postVal.created)}</p>
+                      </div>
 
-                    <div className="flex space-x-2 items-center pt-1 pb-4">
-                      <p className="text-xs text-slate-400">_id:</p>
-                      <p className="text-xs text-slate-400">{postVal._id}</p>
-                      <p className="text-xs text-slate-400">
-                        (don't worry about this)
-                      </p>
-                    </div>
+                      <div className="flex space-x-2 items-center pt-1 pb-4">
+                        <p className="text-xs text-slate-400">_id:</p>
+                        <p className="text-xs text-slate-400">{postVal._id}</p>
+                        <p className="text-xs text-slate-400">
+                          (don't worry about this)
+                        </p>
+                      </div>
 
-                    <Button onClick={() => handleSubmit(postVal._id)}>
-                      Save Changes
-                    </Button>
+                      <Button onClick={() => handleSubmit(postVal._id)}>
+                        Save Changes
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })
-        : null}
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };
 
 export default AllPosts;
 
-const LocalInput = ({ defaultValue, type = "text" }) => {
+const LocalInput = ({ defaultValue, onChange, type = "text" }) => {
   const inputClasses = ["rounded-md h-10 border border-slate-200 px-2 text-sm"];
 
   return (
@@ -131,6 +142,7 @@ const LocalInput = ({ defaultValue, type = "text" }) => {
       type={type}
       className={classNames(inputClasses)}
       defaultValue={defaultValue}
+      onChange={onChange}
     />
   );
 };
