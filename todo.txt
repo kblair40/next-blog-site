@@ -1,4 +1,4 @@
-1. Add context for erin
+1. Add admin context for erin
 2. Figure out uploading/rendering google docs
 3. Category page routes
 4. heavier font-weight/general style changes to dropdown menu
@@ -8,3 +8,4 @@
     - All Comments
         - Change status functionality to hide/show/delete
     - Central location for uploading google doc + picture + category/tags/notes
+6. Test, test, and more tests for the carousel.

@@ -36,12 +36,19 @@ const AllComments = () => {
     return <Loading fullScreen />;
   }
 
-  return <div>AllComments</div>;
+  return (
+    <div>
+      {allComments.map((cmt, i) => {
+        return <CommentCard comment={cmt} key={i} />;
+      })}
+    </div>
+  );
 };
 
 export default AllComments;
 
 const CommentCard = ({ comment }) => {
+  console.log("CMT RCVD:", comment);
   return (
     <div className="flex flex space-x-1">
       <p>attribute</p>

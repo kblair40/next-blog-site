@@ -7,7 +7,7 @@ import CommentsTab from "./tabs/CommentsTab";
 
 const Tabs = () => {
   return (
-    <ReactTabs defaultActiveKey="1">
+    <ReactTabs defaultIndex={0}>
       <TabList>
         <Tab>All Posts</Tab>
         <Tab>Comments</Tab>
