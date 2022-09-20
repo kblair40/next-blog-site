@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import api from "utils/api";
+import { formatDateToLocale } from "utils/dateHelpers";
 // import Comments from "components/Comments";
 // import Input from "components/UI/Input";
 // import Button from "components/UI/Button";
@@ -24,7 +25,7 @@ const AllComments = () => {
     };
 
     fetchAllComments();
-  });
+  }, []);
 
   if (!loading && !allComments.length) {
     return (
@@ -37,7 +38,7 @@ const AllComments = () => {
   }
 
   return (
-    <div>
+    <div className="space-y-2">
       {allComments.map((cmt, i) => {
         return <CommentCard comment={cmt} key={i} />;
       })}
@@ -50,9 +51,16 @@ export default AllComments;
 const CommentCard = ({ comment }) => {
   console.log("CMT RCVD:", comment);
   return (
-    <div className="flex flex space-x-1">
-      <p>attribute</p>
-      <p>value</p>
+    <div className="px-4 py-2 rounded-md border border-slate-300">
+      <div className="flex flex space-x-1">
+        <p>Created At</p>
+        <p>{formatDateToLocale(comment.createdAt)}</p>
+      </div>
+
+      <div className="flex flex space-x-1">
+        <p>Created At</p>
+        <p>{formatDateToLocale(comment.createdAt)}</p>
+      </div>
     </div>
   );
 };
