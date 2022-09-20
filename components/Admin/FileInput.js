@@ -20,7 +20,7 @@ const FileInput = ({ onChange }) => {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-2">
       <input
         ref={inputRef}
         onChange={handleChange}

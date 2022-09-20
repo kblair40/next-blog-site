@@ -10,6 +10,7 @@ const CreatePost = () => {
   const [postTitle, setPostTitle] = useState("");
   const [postImageUrl, setPostImageUrl] = useState("");
   const [status, setStatus] = useState("2");
+  const [postFile, setPostFile] = useState(null);
 
   const labelClasses = classNames([
     "font-medium whitespace-nowrap w-24 text-right",
@@ -45,7 +46,13 @@ const CreatePost = () => {
         </div>
 
         <div>
-          <FileInput />
+          <FileInput onChange={(file) => setPostFile(file)} />
+          {postFile ? (
+            <div className="flex space-x-2 mt-1">
+              <p className="font-medium">File Name:</p>
+              <p>{postFile}</p>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
