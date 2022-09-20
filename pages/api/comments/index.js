@@ -13,6 +13,16 @@ export default async function handler(req, res) {
   }
 
   switch (method) {
+    case "GET":
+      try {
+        const response = await Comment.find({});
+        console.log("ALL COMMENTS RESPONSE:", response);
+        return res.status(200).json({ success: true, data: response });
+      } catch (e) {
+        console.error("FAILED TO FIND COMMENTS:", e);
+        res.status(404).json({ success: false, data: e });
+      }
+      break;
     case "POST":
       try {
         console.log("\n\n\nPOST BODY:", req.body, "\n\n\n");

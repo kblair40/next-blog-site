@@ -2,7 +2,8 @@ import React from "react";
 import { Tab, TabList, TabPanel, Tabs as ReactTabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-import AllPosts from "./tabs/AllPosts";
+import PostsTab from "./tabs/PostsTab";
+import CommentsTab from "./tabs/CommentsTab";
 
 const Tabs = () => {
   return (
@@ -14,10 +15,12 @@ const Tabs = () => {
       </TabList>
 
       <TabPanel className="px-4 pt-4">
-        <AllPosts />
+        <PostsTab />
       </TabPanel>
 
-      <TabPanel className="px-4 pt-4">Probably comments here</TabPanel>
+      <TabPanel className="px-4 pt-4">
+        <CommentsTab />
+      </TabPanel>
 
       <TabPanel className="px-4 pt-4">
         Not sure yet. Might delete this tab
