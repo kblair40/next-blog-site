@@ -7,11 +7,11 @@ import CommentsTab from "./tabs/CommentsTab";
 
 const Tabs = () => {
   return (
-    <ReactTabs defaultIndex={0}>
+    <ReactTabs defaultIndex={1}>
       <TabList>
         <Tab>All Posts</Tab>
         <Tab>Comments</Tab>
-        <Tab>Tab #3</Tab>
+        <Tab>Add Post</Tab>
       </TabList>
 
       <TabPanel className="px-4 pt-4">

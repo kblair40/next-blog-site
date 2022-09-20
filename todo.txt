@@ -10,3 +10,4 @@
         - Add Post Title to comment cards
     - Central location for uploading google doc + picture + category/tags/notes
 6. Tests, tests, and more tests for the carousel.
+7. Figure out why 'populate' isn't working for comments endpoint

@@ -12,7 +12,7 @@ import Loading from "components/UI/Loading";
 
 const AllComments = () => {
   const [allComments, setAllComments] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const AllComments = () => {
       try {
         const response = await api.get("/comments");
         console.log("ALL COMMENTS (CLIENT):", response);
-        if (!response.success) {
+        if (!response.data.success) {
           setError(true);
           setLoading(false);
           return;
@@ -46,7 +46,7 @@ const AllComments = () => {
   } else if (!loading && error) {
     return (
       <div className="flex justify-center">
-        <p className="text-red-500 font-medium text-lg">
+        <p className="text-red-600 font-medium text-lg">
           Error fetching comments
         </p>
       </div>
@@ -96,6 +96,11 @@ const CommentCard = ({ comment, handleSubmit }) => {
       </div>
 
       <div className={rowClasses}>
+        <p className={labelClasses}>Post Title:</p>
+        <p>{comment.postId.title}</p>
+      </div>
+
+      <div className={rowClasses}>
         <p className={labelClasses}>Email:</p>
         <p>{comment.email}</p>
       </div>
@@ -103,7 +108,6 @@ const CommentCard = ({ comment, handleSubmit }) => {
       <div className={rowClasses}>
         <p className={labelClasses}>Status:</p>
         <LocalInput defaultValue={comment.status} type="number" />
-        {/* <p>{comment.status}</p> */}
       </div>
 
       <div className={classNames(["flex space-x-2 pb-4"])}>
