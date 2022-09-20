@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import classNames from "classnames";
+import { toast } from "react-toastify";
 
 import api from "utils/api";
 import LocalInput from "components/Admin/LocalInput";
@@ -80,8 +81,40 @@ const AllComments = () => {
 
 export default AllComments;
 
-const CommentCard = ({ comment, handleSubmit }) => {
+const CommentCard = ({ comment }) => {
+  const [status, setStatus] = useState(comment ? comment.status : undefined);
+  const [saving, setSaving] = useState(false);
   // console.log("CMT RCVD:", comment);
+
+  // compare with value of status (state) and only allow patch if they are different
+  const initialStatus = useRef(comment.status);
+
+  const handleSubmit = async () => {
+    const toastConfig = {
+      position: toast.POSITION.BOTTOM_CENTER,
+      pauseOnHover: false,
+      autoClose: 8000,
+    };
+
+    if (initialStatus.current == status) {
+      let msg =
+        "No changes found, so not updating.  Let me know if you did actually change the status, because you shouldn't be seeing this if you did.";
+      toast.error(msg, toastConfig);
+      return;
+    }
+    try {
+      const response = await api.patch("/comments", {
+        status,
+        commentId: comment._id,
+      });
+
+      toast.success("Updated status!", toastConfig);
+      console.log("\n\nPATCH RESPONSE:", response.data);
+    } catch (e) {
+      console.error("FAILED PATCHING COMMENT" + comment._id + ":", e);
+    }
+  };
+
   const labelClasses = classNames([
     "font-semibold w-20 text-sm whitespace-nowrap",
   ]);
@@ -107,7 +140,11 @@ const CommentCard = ({ comment, handleSubmit }) => {
 
       <div className={rowClasses}>
         <p className={labelClasses}>Status:</p>
-        <LocalInput defaultValue={comment.status} type="number" />
+        <LocalInput
+          onChange={(e) => setStatus(e.target.value)}
+          defaultValue={status}
+          type="number"
+        />
       </div>
 
       <div className={classNames(["flex space-x-2 pb-4"])}>
@@ -119,7 +156,7 @@ const CommentCard = ({ comment, handleSubmit }) => {
         </p>
       </div>
 
-      <Button onClick={() => handleSubmit(postVal._id)}>Save Changes</Button>
+      <Button onClick={handleSubmit}>Save Changes</Button>
     </div>
   );
 };

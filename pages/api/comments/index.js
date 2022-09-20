@@ -20,19 +20,8 @@ export default async function handler(req, res) {
           path: "postId",
           select: "title",
         });
-        // let allComments = await Comment.find({});
-        allComments = await allComments.map((cmt) => {
-          console.log("\nCOMMENT:", cmt);
-          return cmt;
-        });
 
-        // allComments.forEach(async (cmt) => {
-        //   console.log("\n\nPOST ID TYPE:", cmt.postId, typeof cmt.postId);
-        //   const post = await Post.findById(cmt.postId.toString());
-        //   console.log("FOUND POST:", post, "\n");
-        // });
-
-        console.log("\n\n\nALL COMMENTS RESPONSE:", allComments);
+        // console.log("\n\n\nALL COMMENTS RESPONSE:", allComments);
         return res.status(200).json({ success: true, data: allComments });
       } catch (e) {
         console.error("FAILED TO FIND COMMENTS:", e);
@@ -51,5 +40,19 @@ export default async function handler(req, res) {
     default:
       res.status(400).json({ success: false });
       break;
+    case "PATCH":
+      try {
+        const { commentId, status } = req.body;
+        const comment = await Comment.findById(commentId);
+
+        comment.status = status;
+        const savedComment = await comment.save();
+        console.log("\nSAVED COMMENT:", savedComment, "\n");
+
+        return res.status(200).json({ success: true, data: savedComment });
+      } catch (e) {
+        console.log("\n\nFAILED TO FIND COMMENT:", e, "\n\n");
+        return res.status(404).json({ success: false, data: e });
+      }
   }
 }
