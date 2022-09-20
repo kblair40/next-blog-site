@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
 import LocalInput from "components/Admin/LocalInput";
@@ -12,6 +12,9 @@ const CreatePost = () => {
   const [postImageUrl, setPostImageUrl] = useState("");
   const [status, setStatus] = useState("2");
   const [postFile, setPostFile] = useState(null);
+  const [file, setFile] = useState(null);
+
+  const inputRef = useRef();
 
   const labelClasses = classNames([
     "font-medium whitespace-nowrap w-24 text-right",
@@ -25,18 +28,24 @@ const CreatePost = () => {
     formData.append("filename", file.name);
     formData.append("file", file);
 
-    // for (let entry of formData.entries()) {
-    //   console.log("ENTRY:", entry);
-    // }
-
     try {
-      const response = await api.post("/create-post", {
-        formData,
-      });
+      const response = await api.post("/create-post", formData);
 
       console.log("\n\nCREATE POST RESPONSE:", response, "\n\n");
     } catch (e) {
       console.error("FAILED UPLOADING POST:", e);
+    }
+  };
+
+  const handleChange = (e) => {
+    const file = e.target.files[0];
+    onChange(file);
+    setFile(file);
+  };
+
+  const handleClick = () => {
+    if (inputRef && inputRef.current) {
+      inputRef.current.click();
     }
   };
 
@@ -72,6 +81,23 @@ const CreatePost = () => {
 
           <div>
             <FileInput onChange={(file) => handleChangeFile(file)} />
+
+            {/* <form
+              method="post"
+              action="/api/create-post"
+              encType="multipart/form-data"
+            >
+              <div className="mt-2 flex flex-col items-center">
+                <input
+                  ref={inputRef}
+                  onChange={handleChange}
+                  type="file"
+                  accept="application/pdf,text/html"
+                  hidden
+                />
+                <Button onClick={handleClick}>Upload Post File</Button>
+              </div>
+            </form> */}
 
             {postFile ? (
               <div className="flex space-x-2 mt-1">
