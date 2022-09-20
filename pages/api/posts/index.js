@@ -1,5 +1,5 @@
 import dbConnect from "utils/dbConnect";
-import Post from "models/Post";
+import Post from "server/models/Post";
 
 const getPostById = async (id) => {
   try {

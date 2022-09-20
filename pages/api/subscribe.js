@@ -1,5 +1,5 @@
 import dbConnect from "utils/dbConnect";
-import Subscriber from "models/Subscriber";
+import Subscriber from "server/models/Subscriber";
 
 // const getAllSubscribers = async (id) => {
 //   try {

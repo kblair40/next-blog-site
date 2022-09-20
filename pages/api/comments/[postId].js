@@ -1,5 +1,5 @@
 import dbConnect from "utils/dbConnect";
-import Comment from "models/Comment";
+import Comment from "server/models/Comment";
 
 const getAllCommentsForPost = async (id) => {
   try {
