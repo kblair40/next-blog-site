@@ -2,7 +2,9 @@ import React from "react";
 import classNames from "classnames";
 
 const LocalInput = ({ defaultValue, onChange, type = "text" }) => {
-  const inputClasses = ["rounded-md h-8 border border-slate-200 px-2 text-sm"];
+  const inputClasses = [
+    "rounded-md h-8 border border-slate-200 px-2 text-sm w-20 block",
+  ];
   if (type === "text") {
     return (
       <input

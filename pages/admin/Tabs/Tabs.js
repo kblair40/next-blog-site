@@ -4,10 +4,11 @@ import "react-tabs/style/react-tabs.css";
 
 import PostsTab from "./tabs/PostsTab";
 import CommentsTab from "./tabs/CommentsTab";
+import CreatePostTab from "./tabs/CreatePostTab";
 
 const Tabs = () => {
   return (
-    <ReactTabs defaultIndex={1}>
+    <ReactTabs defaultIndex={2}>
       <TabList>
         <Tab>All Posts</Tab>
         <Tab>Comments</Tab>
@@ -23,7 +24,7 @@ const Tabs = () => {
       </TabPanel>
 
       <TabPanel className="px-4 pt-4">
-        Not sure yet. Might delete this tab
+        <CreatePostTab />
       </TabPanel>
     </ReactTabs>
   );
