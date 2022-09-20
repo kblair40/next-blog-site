@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { toast } from "react-toastify";
 
+import LocalInput from "components/Admin/LocalInput";
 import Loading from "components/UI/Loading";
 import Button from "components/UI/Button";
 import api from "utils/api";
@@ -164,15 +165,15 @@ const AllPosts = () => {
 
 export default AllPosts;
 
-const LocalInput = ({ defaultValue, onChange, type = "text" }) => {
-  const inputClasses = ["rounded-md h-10 border border-slate-200 px-2 text-sm"];
+// const LocalInput = ({ defaultValue, onChange, type = "text" }) => {
+//   const inputClasses = ["rounded-md h-10 border border-slate-200 px-2 text-sm"];
 
-  return (
-    <input
-      type={type}
-      className={classNames(inputClasses)}
-      defaultValue={defaultValue}
-      onChange={onChange}
-    />
-  );
-};
+//   return (
+//     <input
+//       type={type}
+//       className={classNames(inputClasses)}
+//       defaultValue={defaultValue}
+//       onChange={onChange}
+//     />
+//   );
+// };
