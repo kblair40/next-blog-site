@@ -20,12 +20,12 @@ const FileInput = ({ onChange }) => {
   };
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 flex flex-col items-center">
       <input
         ref={inputRef}
         onChange={handleChange}
         type="file"
-        accept=""
+        accept="application/pdf,text/html"
         hidden
       />
       <Button onClick={handleClick}>Upload Post File</Button>

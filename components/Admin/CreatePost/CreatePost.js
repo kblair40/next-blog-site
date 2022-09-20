@@ -5,7 +5,7 @@ import LocalInput from "components/Admin/LocalInput";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import FileInput from "components/Admin/FileInput";
-import GoogleTest from "components/Admin/GoogleTest";
+import api from "utils/api";
 
 const CreatePost = () => {
   const [postTitle, setPostTitle] = useState("");
@@ -16,6 +16,29 @@ const CreatePost = () => {
   const labelClasses = classNames([
     "font-medium whitespace-nowrap w-24 text-right",
   ]);
+
+  const handleChangeFile = async (file) => {
+    setPostFile(file);
+
+    let formData = new FormData();
+    console.log("file:", file);
+    formData.append("filename", file.name);
+    formData.append("file", file);
+
+    // for (let entry of formData.entries()) {
+    //   console.log("ENTRY:", entry);
+    // }
+
+    try {
+      const response = await api.post("/create-post", {
+        formData,
+      });
+
+      console.log("\n\nCREATE POST RESPONSE:", response, "\n\n");
+    } catch (e) {
+      console.error("FAILED UPLOADING POST:", e);
+    }
+  };
 
   return (
     <React.Fragment>
@@ -48,20 +71,15 @@ const CreatePost = () => {
           </div>
 
           <div>
-            <FileInput onChange={(file) => setPostFile(file)} />
+            <FileInput onChange={(file) => handleChangeFile(file)} />
+
             {postFile ? (
               <div className="flex space-x-2 mt-1">
                 <p className="font-medium">File Name:</p>
-                <p>{postFile}</p>
+                <p>{postFile.name}</p>
               </div>
             ) : null}
           </div>
-        </div>
-      </div>
-
-      <div className="mt-12 flex justify-center">
-        <div className="max-w-3xl">
-          <GoogleTest />
         </div>
       </div>
     </React.Fragment>
