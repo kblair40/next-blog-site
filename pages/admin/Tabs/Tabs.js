@@ -10,7 +10,7 @@ const Tabs = () => {
     <ReactTabs defaultActiveKey="1">
       <TabList>
         <Tab>All Posts</Tab>
-        <Tab>Tab #2</Tab>
+        <Tab>Comments</Tab>
         <Tab>Tab #3</Tab>
       </TabList>
 
