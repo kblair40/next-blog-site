@@ -163,3 +163,11 @@ export const getRelativeTime = function (unixTimestamp, granularFlag) {
 
   return startsIn;
 };
+
+export const formatDateToLocale = (date, fmt = "full") => {
+  date = new Date(date);
+
+  return (fmt = "full"
+    ? date.toLocaleString()
+    : (fmt = "date" ? date.toLocaleDateString() : date.toLocaleTimeString()));
+};
