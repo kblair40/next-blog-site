@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
-import { elementOptions, classOptions } from "utils/constants";
+import { elementOptions, classOptions, defaultClasses } from "utils/constants";
 
 const ContentOptions = ({
   selectedEl,
   onChangeEl,
-  // selectedClasses,
+  selectedClasses,
   onChangeClasses,
 }) => {
   const [classes, setClasses] = useState();
@@ -14,6 +14,8 @@ const ContentOptions = ({
   useEffect(() => {
     if (selectedEl) {
       setClasses(classOptions[selectedEl.value]);
+      console.log("DEFAULT CLASSES:", defaultClasses[selectedEl.value]);
+      onChangeClasses(defaultClasses[selectedEl.value]);
     }
   }, [selectedEl]);
 
@@ -24,12 +26,14 @@ const ContentOptions = ({
         options={elementOptions}
         onChange={(val) => onChangeEl(val)}
       />
+
       <Select
         className="flex-1"
         placeholder="Classes"
         options={classes}
         isMulti={true}
         isDisabled={!Boolean(selectedEl)}
+        value={selectedClasses}
         onChange={(val) => onChangeClasses(val)}
       />
     </div>
