@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import classNames from "classnames";
 import { toast } from "react-toastify";
 
+import Statuses from "components/Admin/Statuses";
 import LocalInput from "components/Admin/LocalInput";
 import Button from "components/UI/Button";
 import Loading from "components/UI/Loading";
@@ -35,7 +36,16 @@ const AllSubscribers = () => {
   }
 
   return (
-    <div>
+    <div className="-mt-4">
+      <div className="mb-4">
+        <Statuses
+          statusOptions={[1, 2]}
+          onChange={(statuses) => {
+            console.log("NEW STATUSES:", statuses);
+          }}
+        />
+      </div>
+
       <div className="flex flex-col mb-4">
         <p className="font-semibold text-lg">NOTE: </p>
         <p>Status = 1: Subscribed</p>
