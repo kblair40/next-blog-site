@@ -15,7 +15,7 @@ import Subscriber from "server/models/Subscriber";
 // };
 
 export default async function handler(req, res) {
-  console.log("\n\nSUB REQ RECEIVED:", req, "\n\n");
+  // console.log("\n\nSUB REQ RECEIVED:", req, "\n\n");
   const { method } = req;
 
   try {
@@ -27,9 +27,35 @@ export default async function handler(req, res) {
 
   switch (method) {
     case "GET":
+      console.log("\n\n\n\n\nNEW");
       try {
-        const subscribers = await Subscriber.find({});
-        console.log("\n\nFOUND SUBSCRIBERS:", subscribers);
+        let valid;
+        if (req.query) {
+          console.log("QUERY:", req.query);
+          valid = req.query["statuses[]"];
+          console.log("VALID STATUSES:", valid, "\n\n");
+
+          if (!valid) {
+            return res.status(200).json({ success: true, data: [] });
+          }
+        }
+
+        let statusQuery;
+        if (Array.isArray(valid)) {
+          console.log("array");
+          let query = valid.map((val) => {
+            return { status: parseInt(val) };
+          });
+          statusQuery = { $or: query };
+        } else {
+          statusQuery = { status: parseInt(valid) };
+          // statusQuery = [{ status: parseInt(valid) }];
+        }
+        console.log("STATUS QUERY:", statusQuery);
+
+        // const subscribers = await Subscriber.find({ $or: statusQuery });
+        const subscribers = await Subscriber.find(statusQuery);
+        console.log("\nFOUND SUBSCRIBERS:", subscribers);
 
         return res.status(201).json({ success: true, data: subscribers });
       } catch (e) {
