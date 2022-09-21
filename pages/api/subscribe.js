@@ -35,6 +35,26 @@ export default async function handler(req, res) {
       } catch (e) {
         return res.status(400).json({ success: false });
       }
+    case "PATCH":
+      try {
+        const id = req.body.subscriberId;
+        const subscriber = await Subscriber.findById(id);
+
+        if (subscriber) {
+          subscriber.status = req.body.status;
+          const updatedSubscriber = await subscriber.save();
+          console.log("\n\nUPDATED SUBSCRIBER:", updatedSubscriber, "\n\n");
+
+          return res
+            .status(201)
+            .json({ success: true, data: updatedSubscriber });
+        } else {
+          return res.status(400).json({ success: false });
+        }
+      } catch (e) {
+        return res.status(400).json({ success: false });
+      }
+      break;
     case "POST":
       console.log("\n\nREQ.BODY:", req.body);
       // return res.status(200).send({ success: true });
