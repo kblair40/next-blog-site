@@ -57,8 +57,8 @@ const AllComments = () => {
   }
 
   return (
-    <div>
-      <div className="flex flex-col mb-4 -mt-4">
+    <React.Fragment>
+      <div className="flex flex-col mb-4">
         <p className="font-semibold text-lg">NOTE: </p>
         <p>Status = 1: Approved (will be shown on post page)</p>
         <p>
@@ -75,7 +75,7 @@ const AllComments = () => {
           return <CommentCard comment={cmt} key={i} />;
         })}
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
@@ -156,7 +156,9 @@ const CommentCard = ({ comment }) => {
         </p>
       </div>
 
-      <Button onClick={handleSubmit}>Save Changes</Button>
+      <Button size="sm" onClick={handleSubmit}>
+        Save Changes
+      </Button>
     </div>
   );
 };

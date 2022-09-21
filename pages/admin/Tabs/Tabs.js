@@ -17,19 +17,19 @@ const Tabs = () => {
         <Tab>Subscribers</Tab>
       </TabList>
 
-      <TabPanel className="px-4 pt-4">
+      <TabPanel className="px-4 pt-2">
         <PostsTab />
       </TabPanel>
 
-      <TabPanel className="px-4 pt-4">
+      <TabPanel className="px-4 pt-2">
         <CommentsTab />
       </TabPanel>
 
-      <TabPanel className="px-4 pt-4">
+      <TabPanel className="px-4 pt-2">
         <CreatePostTab />
       </TabPanel>
 
-      <TabPanel className="px-4 pt-4">
+      <TabPanel className="px-4 pt-2">
         <SubscriberTab />
       </TabPanel>
     </ReactTabs>

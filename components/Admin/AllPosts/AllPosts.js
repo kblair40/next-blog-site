@@ -149,7 +149,10 @@ const AllPosts = () => {
                         </p>
                       </div>
 
-                      <Button onClick={() => handleSubmit(postVal._id)}>
+                      <Button
+                        size="sm"
+                        onClick={() => handleSubmit(postVal._id)}
+                      >
                         Save Changes
                       </Button>
                     </div>
