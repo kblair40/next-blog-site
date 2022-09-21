@@ -5,14 +5,19 @@ import BlogPost from "components/BlogPost";
 
 const CreatePreview = ({ content }) => {
   return (
-    <div>
+    <BlogPost>
       {Array.isArray(content) && content.length
         ? content.map((elObj, i) => {
-            return createElement(
+            console.log("\nELEMENT CLASSES:", elObj.classes.split(" "), "\n\n");
+            const newElement = createElement(
               elObj.el.value,
-              { className: classNames(elObj.classes), key: i },
+              // { className: classNames(elObj.classes), key: i },
+              { className: String(elObj.classes.split(" ")), key: i },
+              // { className: "font-bold", key: i },
               elObj.text
             );
+
+            return newElement;
           })
         : null}
 
@@ -22,7 +27,7 @@ const CreatePreview = ({ content }) => {
         return <El key={i} />;
       })} */}
       {/* <h1 ref={otherRef}>TEST ELEMENT</h1> */}
-    </div>
+    </BlogPost>
   );
 };
 
