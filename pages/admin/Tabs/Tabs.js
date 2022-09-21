@@ -9,7 +9,7 @@ import SubscriberTab from "./tabs/SubscriberTab";
 
 const Tabs = () => {
   return (
-    <ReactTabs defaultIndex={0}>
+    <ReactTabs defaultIndex={2}>
       <TabList>
         <Tab>All Posts</Tab>
         <Tab>Comments</Tab>

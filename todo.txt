@@ -1,4 +1,3 @@
-1. Add admin context for erin
 2. Figure out uploading/rendering google docs
 3. Category page routes
 4. heavier font-weight/general style changes to dropdown menu
