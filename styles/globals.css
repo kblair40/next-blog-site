@@ -4,12 +4,12 @@
 @layer base {
     body { @apply text-slate-700; }
     p { @apply text-slate-700; }
-    h1 { @apply text-slate-700; @apply text-6xl; }
-    h2 { @apply text-slate-700; @apply text-5xl; }
-    h3 { @apply text-slate-700; }
-    h4 {  @apply text-slate-700; }
-    h5 { @apply text-slate-700; }
-    h6 { @apply text-slate-700; }
+    h1 { @apply text-slate-700; @apply text-6xl; @apply font-bold; }
+    h2 { @apply text-slate-700; @apply text-5xl; @apply font-bold; }
+    h3 { @apply text-slate-700; @apply text-4xl; @apply font-bold; }
+    h4 {  @apply text-slate-700; @apply text-3xl; @apply font-bold; }
+    h5 { @apply text-slate-700; @apply text-2xl; @apply font-bold; }
+    h6 { @apply text-slate-700; @apply text-xl; @apply font-bold; }
 }
 
 @tailwind components;

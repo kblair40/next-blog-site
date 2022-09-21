@@ -19,6 +19,7 @@ const fontColorGroup = {
   options: fontColorOptions,
 };
 
+// TODO: MAKE CERTAIN OPTIONS "FIXED" VIA REACT-SELECT
 const fontSizeOptions = [
   { label: "xs", value: "text-xs" }, // 12px
   { label: "sm", value: "text-sm" }, // 14px
@@ -59,7 +60,7 @@ export const classOptions = {
   h5: headingOptions,
   h6: headingOptions,
   p: headingOptions, // TODO: Change this to actual p tag classes
-  space: [
+  div: [
     { label: "xs (4px)", value: "h-1" },
     { label: "sm (8px)", value: "h-2" },
     { label: "md (12px)", value: "h-3" },
@@ -77,7 +78,7 @@ export const defaultClasses = {
   h5: [...defaultHeadingClasses, { label: "2xl", value: "text-2xl" }],
   h6: [...defaultHeadingClasses, { label: "xl", value: "text-xl" }],
   p: [],
-  space: [{ label: "xs (4px)", value: "h-1" }],
+  div: [{ label: "xs (4px)", value: "h-1" }],
 };
 
 //
