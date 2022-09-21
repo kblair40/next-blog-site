@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
 import ContentInput from "./ContentInput";
+import ContentOptions from "./ContentOptions";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 
@@ -17,6 +18,10 @@ const CreatePostNew = () => {
     console.log("CONTENT VALUE:", contentRef.current.value);
   };
 
+  const handleChangeClasses = (e) => {
+    // use multi-select
+  };
+
   return (
     <React.Fragment>
       <div className="flex justify-center w-screen">
@@ -28,7 +33,13 @@ const CreatePostNew = () => {
 
           <ContentInput ref={contentRef} />
 
-          <div className="w-full">
+          <div className="w-full flex items-center justify-between flex-wrap space-x-4">
+            <ContentOptions
+              selectedEl={selectedEl}
+              onChangeEl={(el) => setSelectedEl(el)}
+              selectedClasses={selectedClasses}
+              onChangeClasses={handleChangeClasses}
+            />
             <Button onClick={handleSubmit}>Add Content</Button>
           </div>
         </div>
