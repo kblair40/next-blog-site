@@ -15,6 +15,10 @@ const SubscriberSchema = new mongoose.Schema(
       // 2 = subscribed, but later cancelled
       // 3 = idk yet, might think of something
     },
+    cancelled_timestamp: {
+      type: Date,
+      default: Date.now,
+    },
   },
   { timestamps: true }
 );
