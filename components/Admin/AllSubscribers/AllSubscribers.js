@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import classNames from "classnames";
+import { toast } from "react-toastify";
 
 import LocalInput from "components/Admin/LocalInput";
 import Button from "components/UI/Button";
@@ -56,6 +57,7 @@ export default AllSubscribers;
 
 const SubscriberCard = ({ sub }) => {
   const [status, setStatus] = useState(sub.status || 1);
+  const [loading, setLoading] = useState(false);
 
   const rowClasses = classNames(["flex items-center space-x-2"]);
   const labelClasses = classNames([
@@ -63,15 +65,42 @@ const SubscriberCard = ({ sub }) => {
   ]);
   const valueClasses = classNames(["text-sm"]);
 
+  const initialStatus = useRef(sub.status);
+
+  const toastConfig = {
+    position: toast.POSITION.BOTTOM_CENTER,
+    pauseOnHover: false,
+    pauseOnFocusLoss: false,
+    autoClose: 8000,
+  };
+
   const handleSubmit = async () => {
+    if (initialStatus.current == status) {
+      let msg =
+        "No changes found, so not updating.  Let me know if you did actually change the status, because you shouldn't be seeing this if you did.";
+      return toast.error(msg, toastConfig);
+    }
+
+    if (!["1", "2"].includes(status)) {
+      let msg = "Status needs to be 1 or 2";
+      return toast.error(msg, toastConfig);
+    }
+
     try {
+      setLoading(true);
+
       const response = await api.patch("/subscribe", {
         subscriberId: sub._id,
         status: status,
       });
+      console.log("PATCH RESPONSE:", response.data);
+
+      toast.success("Updated status!", toastConfig);
     } catch (e) {
       console.error("FAILED TO UPDATE STATUS:", e);
     }
+
+    setLoading(false);
   };
 
   return (
@@ -102,7 +131,7 @@ const SubscriberCard = ({ sub }) => {
       </div>
 
       <div className="pt-2">
-        <Button size="sm" onClick={handleSubmit}>
+        <Button loading={loading} size="sm" onClick={handleSubmit}>
           Save Changes
         </Button>
       </div>
