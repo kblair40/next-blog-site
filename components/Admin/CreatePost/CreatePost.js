@@ -24,9 +24,12 @@ const CreatePost = () => {
     setPostFile(file);
 
     let formData = new FormData();
-    console.log("file:", file);
+
     formData.append("filename", file.name);
     formData.append("file", file);
+    formData.append("title", postTitle);
+    if (postImageUrl) formData.append("image_url", postImageUrl);
+    if (status) formData.append("status", status);
 
     try {
       const response = await api.post("/create-post", formData);

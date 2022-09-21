@@ -5,6 +5,7 @@ import "react-tabs/style/react-tabs.css";
 import PostsTab from "./tabs/PostsTab";
 import CommentsTab from "./tabs/CommentsTab";
 import CreatePostTab from "./tabs/CreatePostTab";
+import SubscriberTab from "./tabs/SubscriberTab";
 
 const Tabs = () => {
   return (
@@ -13,6 +14,7 @@ const Tabs = () => {
         <Tab>All Posts</Tab>
         <Tab>Comments</Tab>
         <Tab>Add Post</Tab>
+        <Tab>Subscribers</Tab>
       </TabList>
 
       <TabPanel className="px-4 pt-4">
@@ -25,6 +27,10 @@ const Tabs = () => {
 
       <TabPanel className="px-4 pt-4">
         <CreatePostTab />
+      </TabPanel>
+
+      <TabPanel className="px-4 pt-4">
+        <SubscriberTab />
       </TabPanel>
     </ReactTabs>
   );
