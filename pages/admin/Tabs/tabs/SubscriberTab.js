@@ -1,7 +1,13 @@
 import React from "react";
 
+import AllSubscribers from "components/Admin/AllSubscribers";
+
 const SubscriberTab = () => {
-  return <div>SubscriberTab</div>;
+  return (
+    <div>
+      <AllSubscribers />
+    </div>
+  );
 };
 
 export default SubscriberTab;
