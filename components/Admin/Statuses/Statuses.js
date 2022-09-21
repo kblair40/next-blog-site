@@ -3,7 +3,6 @@ import classNames from "classnames";
 
 const Statuses = ({ statusOptions, onChange }) => {
   const [statuses, setStatuses] = useState();
-  // ex: [1, 2 3];
 
   const inited = useRef(false);
   useEffect(() => {
@@ -27,9 +26,6 @@ const Statuses = ({ statusOptions, onChange }) => {
   const handleChange = (e) => {
     let { value, checked } = e.target;
     value = parseInt(value);
-
-    // console.log("\n\nVALUE:", value);
-    // console.log("CHECKED:", checked);
 
     let statusesCopy = [...statuses];
     let statusIndex = statusesCopy.findIndex((statusObj) => {

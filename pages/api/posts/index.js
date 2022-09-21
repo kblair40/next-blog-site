@@ -20,10 +20,7 @@ const getAllPosts = async (limit) => {
 };
 
 export default async function handler(req, res) {
-  // console.log("\n\nREQ RECEIVED:", req, "\n\n");
   const { method, query } = req;
-
-  console.log("\n\n\nREQ QUERY:", req.query, "\n\n\n");
 
   try {
     await dbConnect();
@@ -38,14 +35,38 @@ export default async function handler(req, res) {
       if (query && query.id) {
         data = await getPostById(query.id);
         return res.status(200).json({ success: true, post: data });
-      } else {
-        let limit;
-        if (query && query.limit) {
-          limit = query.limit;
-        }
+      } else if (query && query.limit) {
+        let limit = query.limit;
 
         data = await getAllPosts(limit);
         return res.status(200).json({ success: true, posts: data });
+      } else {
+        try {
+          let valid;
+          if (req.query) {
+            valid = req.query["statuses[]"];
+
+            if (!valid) {
+              return res.status(200).json({ success: true, posts: [] });
+            }
+          }
+
+          let statusQuery;
+          if (Array.isArray(valid)) {
+            let query = valid.map((val) => {
+              return { status: parseInt(val) };
+            });
+            statusQuery = { $or: query };
+          } else {
+            statusQuery = { status: parseInt(valid) };
+          }
+
+          const posts = await Post.find(statusQuery);
+
+          return res.status(201).json({ success: true, posts });
+        } catch (e) {
+          return res.status(400).json({ success: false });
+        }
       }
     case "POST":
       try {

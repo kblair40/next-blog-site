@@ -15,8 +15,6 @@ const AllSubscribers = () => {
   const [loading, setLoading] = useState(true);
   const [checkedStatuses, setCheckedStatuses] = useState([1, 2]);
 
-  const initialFetchComplete = useRef(false);
-
   useEffect(() => {
     fetchSubscribers();
   }, []);
@@ -28,7 +26,6 @@ const AllSubscribers = () => {
           statuses: updatedStatuses ? updatedStatuses : checkedStatuses,
         },
       });
-      // console.log("\n\nALL SUBSCRIBERS RESPONSE:", response.data.data);
 
       setAllSubscribers(response.data.data);
     } catch (e) {
@@ -36,9 +33,6 @@ const AllSubscribers = () => {
     }
 
     if (loading) setLoading(false);
-    if (!initialFetchComplete.current) {
-      initialFetchComplete.current = true;
-    }
   };
 
   const handleStatusesChange = async (statuses) => {

@@ -43,10 +43,6 @@ export default async function handler(req, res) {
           path: "postId",
           select: "title",
         });
-        // let allComments = await Comment.find({}).populate({
-        //   path: "postId",
-        //   select: "title",
-        // });
 
         // console.log("\n\n\nALL COMMENTS RESPONSE:", allComments);
         return res.status(200).json({ success: true, data: allComments });
