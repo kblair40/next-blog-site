@@ -31,9 +31,7 @@ export default async function handler(req, res) {
       try {
         let valid;
         if (req.query) {
-          console.log("QUERY:", req.query);
           valid = req.query["statuses[]"];
-          console.log("VALID STATUSES:", valid, "\n\n");
 
           if (!valid) {
             return res.status(200).json({ success: true, data: [] });

@@ -73,14 +73,7 @@ const AllSubscribers = () => {
         <div className="space-y-2">
           {allSubscribers && allSubscribers.length
             ? allSubscribers.map((sub, i) => {
-                return (
-                  <SubscriberCard
-                    key={i}
-                    sub={sub}
-                    setMainLoading={setLoading}
-                    mainLoading={loading}
-                  />
-                );
+                return <SubscriberCard key={i} sub={sub} />;
               })
             : null}
         </div>
@@ -91,7 +84,7 @@ const AllSubscribers = () => {
 
 export default AllSubscribers;
 
-const SubscriberCard = ({ sub, mainLoading, setMainLoading }) => {
+const SubscriberCard = ({ sub }) => {
   const [status, setStatus] = useState(sub.status || 1);
   const [loading, setLoading] = useState(false);
 

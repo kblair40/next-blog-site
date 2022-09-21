@@ -15,11 +15,38 @@ export default async function handler(req, res) {
 
   switch (method) {
     case "GET":
+      console.log("\n\n\n\n\nNEW");
       try {
-        let allComments = await Comment.find({}).populate({
+        let valid;
+        if (req.query) {
+          valid = req.query["statuses[]"];
+
+          if (!valid) {
+            return res.status(200).json({ success: true, data: [] });
+          }
+        }
+
+        let statusQuery;
+        if (Array.isArray(valid)) {
+          console.log("array");
+          let query = valid.map((val) => {
+            return { status: parseInt(val) };
+          });
+          statusQuery = { $or: query };
+        } else {
+          statusQuery = { status: parseInt(valid) };
+          // statusQuery = [{ status: parseInt(valid) }];
+        }
+        console.log("STATUS QUERY:", statusQuery);
+
+        let allComments = await Comment.find(statusQuery).populate({
           path: "postId",
           select: "title",
         });
+        // let allComments = await Comment.find({}).populate({
+        //   path: "postId",
+        //   select: "title",
+        // });
 
         // console.log("\n\n\nALL COMMENTS RESPONSE:", allComments);
         return res.status(200).json({ success: true, data: allComments });

@@ -3,11 +3,11 @@ import React, { useEffect, useState, useRef } from "react";
 import classNames from "classnames";
 import { toast } from "react-toastify";
 
+import Statuses from "components/Admin/Statuses";
+
 import api from "utils/api";
 import LocalInput from "components/Admin/LocalInput";
 import { formatDateToLocale } from "utils/dateHelpers";
-// import Comments from "components/Comments";
-// import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import Loading from "components/UI/Loading";
 
@@ -15,36 +15,50 @@ const AllComments = () => {
   const [allComments, setAllComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [checkedStatuses, setCheckedStatuses] = useState([1, 2, 3]);
 
-  useEffect(() => {
-    const fetchAllComments = async () => {
-      try {
-        const response = await api.get("/comments");
-        console.log("ALL COMMENTS (CLIENT):", response);
-        if (!response.data.success) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
+  const fetchComments = async (updatedStatuses = null) => {
+    try {
+      const response = await api.get("/comments", {
+        params: {
+          statuses: updatedStatuses ? updatedStatuses : checkedStatuses,
+        },
+      });
 
-        setAllComments(response.data.data);
-      } catch (e) {
-        console.error("FAILED TO FETCH COMMENTS:", e);
+      console.log("ALL COMMENTS (CLIENT):", response);
+      if (!response.data.success) {
+        setError(true);
+        setLoading(false);
+        return;
       }
 
-      setLoading(false);
-    };
+      setAllComments(response.data.data);
+    } catch (e) {
+      console.error("FAILED TO FETCH COMMENTS:", e);
+    }
 
-    fetchAllComments();
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchComments();
   }, []);
 
-  if (!loading && !allComments.length && !error) {
-    return (
-      <div className="flex justify-center">
-        <p>No Comments</p>
-      </div>
-    );
-  } else if (!loading && error) {
+  const handleStatusesChange = async (statuses) => {
+    setLoading(true);
+
+    let newStatuses = [];
+    statuses.forEach((status, i) => {
+      const [val, checked] = Object.entries(status)[0];
+      if (checked) newStatuses.push(parseInt(val));
+    });
+
+    setCheckedStatuses(newStatuses);
+    await fetchComments(newStatuses);
+    setLoading(false);
+  };
+
+  if (!loading && error) {
     return (
       <div className="flex justify-center">
         <p className="text-red-600 font-medium text-lg">
@@ -52,12 +66,13 @@ const AllComments = () => {
         </p>
       </div>
     );
-  } else if (loading) {
-    return <Loading fullScreen />;
   }
 
   return (
     <React.Fragment>
+      <div className="mb-4">
+        <Statuses statusOptions={[1, 2, 3]} onChange={handleStatusesChange} />
+      </div>
       <div className="flex flex-col mb-4">
         <p className="font-semibold text-lg">NOTE: </p>
         <p>Status = 1: Approved (will be shown on post page)</p>
@@ -70,11 +85,19 @@ const AllComments = () => {
         </p>
       </div>
 
-      <div className="space-y-2">
-        {allComments.map((cmt, i) => {
-          return <CommentCard comment={cmt} key={i} />;
-        })}
-      </div>
+      {loading ? (
+        <Loading fullScreen />
+      ) : !loading && !allComments.length && !error ? (
+        <div className="flex justify-center">
+          <p>No Comments</p>
+        </div>
+      ) : (
+        <div className="space-y-2">
+          {allComments.map((cmt, i) => {
+            return <CommentCard comment={cmt} key={i} />;
+          })}
+        </div>
+      )}
     </React.Fragment>
   );
 };
@@ -83,8 +106,6 @@ export default AllComments;
 
 const CommentCard = ({ comment }) => {
   const [status, setStatus] = useState(comment ? comment.status : undefined);
-  const [saving, setSaving] = useState(false);
-  // console.log("CMT RCVD:", comment);
 
   // compare with value of status (state) and only allow patch if they are different
   const initialStatus = useRef(comment.status);
