@@ -27,8 +27,14 @@ export default async function handler(req, res) {
 
   switch (method) {
     case "GET":
-      //
-      break;
+      try {
+        const subscribers = await Subscriber.find({});
+        console.log("\n\nFOUND SUBSCRIBERS:", subscribers);
+
+        return res.status(201).json({ success: true, data: subscribers });
+      } catch (e) {
+        return res.status(400).json({ success: false });
+      }
     case "POST":
       console.log("\n\nREQ.BODY:", req.body);
       // return res.status(200).send({ success: true });
