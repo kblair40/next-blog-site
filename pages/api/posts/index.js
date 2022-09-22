@@ -68,8 +68,10 @@ export default async function handler(req, res) {
           return res.status(400).json({ success: false });
         }
       }
+      return res.status(400).json({ success: false, msg: "UNHANDLED ERROR" });
     case "POST":
       try {
+        console.log("REQ BODY:", req.body);
         const post = await Post.create(req.body);
 
         res.status(201).json({ success: true, data: post });

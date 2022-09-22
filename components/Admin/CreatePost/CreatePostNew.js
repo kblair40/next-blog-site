@@ -7,6 +7,7 @@ import CreatePreview from "./CreatePreview";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
 import IconButton from "components/UI/IconButton";
+import api from "utils/api";
 
 const CreatePostNew = () => {
   const [postTitle, setPostTitle] = useState("");
@@ -34,6 +35,18 @@ const CreatePostNew = () => {
 
   const handleSavePost = async () => {
     console.log("\n\nCONTENT ARRAY:", contentArray, "\n\n");
+    const content = JSON.stringify(contentArray);
+    // const content = contentArray;
+    const title = "Temporary Title";
+    const status = 2;
+    const data = { content, status, title };
+
+    try {
+      const response = await api.post("/posts", data);
+      console.log("\n\nSAVE POST RESPONSE:", response.data);
+    } catch (err) {
+      console.error("ERROR SAVING POST:", err);
+    }
   };
 
   const undo = () => {

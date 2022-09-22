@@ -79,7 +79,7 @@ const RecentPost = ({ post }) => {
       </div>
 
       <div
-        className="line-clamp-2"
+        className="line-clamp-2 strip-styles"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </div>

@@ -11,8 +11,8 @@ export const elementOptions = [
 
 const fontColorOptions = [
   { label: "primary", value: "text-slate-800" },
-  { label: "secondary", value: "text-slate-600" },
-  { label: "tertiary", value: "text-slate-500" },
+  { label: "secondary", value: "text-slate-500" },
+  { label: "tertiary", value: "text-slate-400" },
 ];
 const fontColorGroup = {
   label: "Font Colors",
