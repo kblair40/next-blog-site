@@ -12,4 +12,5 @@
 6. Tests, tests, and more tests for the carousel.
 7. Create a way to generate html tags with classes already in them
     - maybe have post uploading be a csv? col-1 for html tag, col-2 for content in tag
+    - TODO: MAKE CERTAIN OPTIONS "FIXED" VIA REACT-SELECT
 8. Emails for unsubscribing

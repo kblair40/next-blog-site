@@ -70,6 +70,17 @@ export const classOptions = {
 
 const defaultHeadingClasses = [{ label: "bold", value: "font-bold" }];
 
+// export const defaultClasses = {
+//   h1: [...defaultHeadingClasses],
+//   h2: [...defaultHeadingClasses],
+//   h3: [...defaultHeadingClasses],
+//   h4: [...defaultHeadingClasses],
+//   h5: [...defaultHeadingClasses],
+//   h6: [...defaultHeadingClasses],
+//   p: [],
+//   div: [{ label: "xs (4px)", value: "h-1" }],
+// };
+
 export const defaultClasses = {
   h1: [...defaultHeadingClasses, { label: "6xl", value: "text-6xl" }],
   h2: [...defaultHeadingClasses, { label: "5xl", value: "text-5xl" }],
