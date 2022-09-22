@@ -61,7 +61,6 @@ export const classOptions = {
   h6: headingOptions,
   p: headingOptions, // TODO: Change this to actual p tag classes
   div: [
-    { label: "xs (4px)", value: "h-1" },
     { label: "sm (8px)", value: "h-2" },
     { label: "md (12px)", value: "h-3" },
     { label: "lg (16px)", value: "h-4" },
@@ -89,7 +88,7 @@ export const defaultClasses = {
   h5: [...defaultHeadingClasses, { label: "2xl", value: "text-2xl" }],
   h6: [...defaultHeadingClasses, { label: "xl", value: "text-xl" }],
   p: [],
-  div: [{ label: "xs (4px)", value: "h-1" }],
+  div: [{ label: "sm (8px)", value: "h-2" }],
 };
 
 //
