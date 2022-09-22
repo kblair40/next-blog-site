@@ -14,7 +14,7 @@ const PostRenderTest = () => {
     const fetchPost = async () => {
       try {
         const response = await api.get("/posts/", {
-          params: { id: "632c3ae3b41655811a865e89" },
+          params: { id: "632cd991d0db8f968b340aab" },
         });
         console.log("RESPONSE:", response.data);
         const post = response.data.post;

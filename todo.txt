@@ -9,10 +9,13 @@
     - Manage Subscribers
     - Central location for uploading google doc + picture + category/tags/notes
 4. Tests, tests, and more tests for the carousel.
-5. Create a way to generate html tags with classes already in them
-    - maybe have post uploading be a csv? col-1 for html tag, col-2 for content in tag
-    - TODO: MAKE CERTAIN OPTIONS "FIXED" VIA REACT-SELECT
+5. POST CREATION
+    - Add button for adding space
+    - Build way to add image
+    - Build method for adding lists (ordered and unordered)
 6. Emails for unsubscribing
+7. Carousel cards should link to actual post.
+8. Carousel cards should pull data from new post creation method
 
 Maybes
 1. Figure out uploading/rendering google docs

@@ -13,6 +13,8 @@ const fontColorOptions = [
   { label: "primary", value: "text-slate-800" },
   { label: "secondary", value: "text-slate-500" },
   { label: "tertiary", value: "text-slate-400" },
+  { label: "red", value: "text-red-700" },
+  { label: "blue", value: "text-blue-700" },
 ];
 const fontColorGroup = {
   label: "Font Colors",
@@ -23,6 +25,7 @@ const fontColorGroup = {
 const fontSizeOptions = [
   { label: "xs", value: "text-xs" }, // 12px
   { label: "sm", value: "text-sm" }, // 14px
+  { label: "sm", value: "text-md" }, // 16px
   { label: "lg", value: "text-lg" }, // 18px
   { label: "xl", value: "text-xl" }, // 18px
   { label: "2xl", value: "text-2xl" }, // 18px
@@ -68,17 +71,6 @@ export const classOptions = {
 };
 
 const defaultHeadingClasses = [{ label: "bold", value: "font-bold" }];
-
-// export const defaultClasses = {
-//   h1: [...defaultHeadingClasses],
-//   h2: [...defaultHeadingClasses],
-//   h3: [...defaultHeadingClasses],
-//   h4: [...defaultHeadingClasses],
-//   h5: [...defaultHeadingClasses],
-//   h6: [...defaultHeadingClasses],
-//   p: [],
-//   div: [{ label: "xs (4px)", value: "h-1" }],
-// };
 
 export const defaultClasses = {
   h1: [...defaultHeadingClasses, { label: "6xl", value: "text-6xl" }],
