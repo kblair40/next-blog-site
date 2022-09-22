@@ -7,6 +7,7 @@ export const elementOptions = [
   { value: "h6", label: "h6" },
   { value: "p", label: "paragraph" },
   { value: "div", label: "space" },
+  { value: "img", label: "image" },
 ];
 
 const fontColorOptions = [
@@ -21,7 +22,7 @@ const fontColorGroup = {
   options: fontColorOptions,
 };
 
-// TODO: MAKE CERTAIN OPTIONS "FIXED" VIA REACT-SELECT
+// TODO: MAKE SIZE OPTIONS "FIXED" VIA REACT-SELECT
 const fontSizeOptions = [
   { label: "xs", value: "text-xs" }, // 12px
   { label: "sm", value: "text-sm" }, // 14px
@@ -53,6 +54,16 @@ const fontWeightGroup = {
   options: fontWeightOptions,
 };
 
+const imageOptions = [
+  { label: "full-width", value: "w-full" },
+  { label: "3/4-width", value: "w-3/4" },
+  { label: "half-width", value: "w-1/2" },
+];
+export const imageGroup = {
+  label: "Image",
+  options: imageOptions,
+};
+
 const headingOptions = [fontSizeGroup, fontWeightGroup, fontColorGroup];
 
 export const classOptions = {
@@ -68,10 +79,10 @@ export const classOptions = {
     { label: "md (12px)", value: "h-3" },
     { label: "lg (16px)", value: "h-4" },
   ],
+  img: imageGroup.options,
 };
 
 const defaultHeadingClasses = [{ label: "bold", value: "font-bold" }];
-
 export const defaultClasses = {
   h1: [...defaultHeadingClasses, { label: "6xl", value: "text-6xl" }],
   h2: [...defaultHeadingClasses, { label: "5xl", value: "text-5xl" }],
@@ -81,6 +92,7 @@ export const defaultClasses = {
   h6: [...defaultHeadingClasses, { label: "xl", value: "text-xl" }],
   p: [],
   div: [{ label: "sm (8px)", value: "h-2" }],
+  img: [],
 };
 
 //

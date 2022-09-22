@@ -5,20 +5,29 @@ import classNames from "classnames";
 
 const CreatePreview = ({ content }) => {
   const makeElement = (el, i) => {
-    const type = el.el.value;
-    const innerText = type === "div" ? null : el.text;
+    const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
+    // content in input at time of submission
+    const innerText = ["div", "img"].includes(type) ? null : el.text;
 
-    // show background color here
+    // show border for spacers (div) while editing
     if (type === "div") el.classes += " border border-slate-200/50";
 
-    // const classes = { className: el.classes, key: i };
-    const classes = { className: classNames(el.classes.split(" ")), key: i };
-    console.log("EL:", el, { type, classes });
+    // convert to array
+    const classes = el.classes.split(" ");
 
-    if (type === "div") {
-      console.log("\n\n\nFOUND DIV\n\n\n");
-    }
-    const newElement = React.createElement(el.el.value, classes, innerText);
+    /* Add classes depending on value of 'type' */
+    // if (type === "img") {
+    //   classes.push("mx-auto");
+    // }
+
+    /* END ADDING CLASSES */
+
+    const props = { className: classNames(classes), key: i };
+    console.log("EL:", el, { type, props });
+
+    if (type === "img") props["src"] = el.text;
+
+    const newElement = React.createElement(el.el.value, props, innerText);
     return newElement;
   };
 
