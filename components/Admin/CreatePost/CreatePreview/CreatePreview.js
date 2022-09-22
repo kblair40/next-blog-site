@@ -6,8 +6,13 @@ import classNames from "classnames";
 const CreatePreview = ({ content }) => {
   const makeElement = (el, i) => {
     const type = el.el.value;
-    const classes = { className: classNames(el.classes.split(" ")), key: i };
     const innerText = type === "div" ? null : el.text;
+
+    // show background color here
+    if (type === "div") el.classes += " border border-slate-200/50";
+
+    const classes = { className: classNames(el.classes.split(" ")), key: i };
+    console.log("EL:", el, { type, classes });
     // console.log("\nEL:", el);
     // console.log("TYPE:", type);
 
