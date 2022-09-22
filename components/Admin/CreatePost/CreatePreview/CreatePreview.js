@@ -14,15 +14,21 @@ const CreatePreview = ({ content }) => {
 
     // convert to array
     const classes = el.classes.split(" ");
+    const extraProps = {};
 
     /* Add classes depending on value of 'type' */
-    // if (type === "img") {
-    //   classes.push("mx-auto");
-    // }
+    if (type === "img") {
+      // classes.push("mx-auto");
+      let style = {};
+      if (el.classes.includes("w-1/4")) style["width"] = "25%";
+      if (el.classes.includes("w-3/4")) style["width"] = "75%";
+
+      extraProps["style"] = style;
+    }
 
     /* END ADDING CLASSES */
 
-    const props = { className: classNames(classes), key: i };
+    const props = { className: classNames(classes), key: i, ...extraProps };
     console.log("EL:", el, { type, props });
 
     if (type === "img") props["src"] = el.text;

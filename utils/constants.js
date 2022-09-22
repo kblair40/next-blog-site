@@ -54,14 +54,18 @@ const fontWeightGroup = {
   options: fontWeightOptions,
 };
 
-const imageOptions = [
+const imageSizeOptions = [
   { label: "full-width", value: "w-full" },
   { label: "3/4-width", value: "w-3/4" },
   { label: "half-width", value: "w-1/2" },
+  { label: "1/4-width", value: "w-1/4" },
+  { label: "full-height", value: "h-full" },
+  { label: "3/4-height", value: "h-3/4" },
+  { label: "half-width", value: "h-1/2" },
 ];
 export const imageGroup = {
-  label: "Image",
-  options: imageOptions,
+  label: "Image Size",
+  options: imageSizeOptions,
 };
 
 const headingOptions = [fontSizeGroup, fontWeightGroup, fontColorGroup];
@@ -79,7 +83,8 @@ export const classOptions = {
     { label: "md (12px)", value: "h-3" },
     { label: "lg (16px)", value: "h-4" },
   ],
-  img: imageGroup.options,
+  img: [imageGroup],
+  // img: imageGroup.options,
 };
 
 const defaultHeadingClasses = [{ label: "bold", value: "font-bold" }];
