@@ -41,9 +41,12 @@ const CreatePostNew = () => {
     <React.Fragment>
       <div className="flex justify-center w-screen">
         <div className="flex flex-col space-y-4 items-center w-4/5">
-          <div className="flex items-center justify-center space-x-2 w-full">
-            <p className="font-medium">Title:</p>
-            <Input onChange={(val) => setPostTitle(val)} />
+          <div className="w-full">
+            <Input
+              placeholder="Post Title"
+              classes={["w-60"]}
+              onChange={(val) => setPostTitle(val)}
+            />
           </div>
 
           <ContentInput ref={contentRef} />
