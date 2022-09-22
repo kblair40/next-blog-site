@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createElement } from "react";
+import classNames from "classnames";
 
 import api from "utils/api";
 import Loading from "components/UI/Loading";
@@ -20,7 +21,7 @@ const PostRenderTest = () => {
         // setPostContent(post.content);
 
         setPostData({
-          content: post.content,
+          content: JSON.parse(post.content),
           title: post.title,
           date: post.createdAt,
           _id: post._id,
@@ -37,7 +38,36 @@ const PostRenderTest = () => {
 
   if (!postData || loading) return <Loading fullScreen />;
 
-  return <div>PostRenderTest</div>;
+  const makeElement = (el, i) => {
+    const type = el.el.value;
+    const innerText = type === "div" ? null : el.text;
+
+    // show background color here
+    if (type === "div") el.classes += " border border-slate-200/50";
+
+    const classes = { className: classNames(el.classes.split(" ")), key: i };
+    console.log("EL:", el, { type, classes });
+
+    if (type === "div") {
+      console.log("\n\n\nFOUND DIV\n\n\n");
+    }
+    const newElement = createElement(el.el.value, classes, innerText);
+    return newElement;
+  };
+
+  const content = postData.content;
+
+  return (
+    <div className="w-full pt-12 sm:pt-20 px-8 blog-post-test flex justify-center">
+      <div className="max-w-md sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+        {Array.isArray(content) && content.length
+          ? content.map((elObj, i) => {
+              return makeElement(elObj, i);
+            })
+          : null}
+      </div>
+    </div>
+  );
 };
 
 export default PostRenderTest;
