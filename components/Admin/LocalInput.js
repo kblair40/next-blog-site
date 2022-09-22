@@ -7,9 +7,11 @@ const LocalInput = ({
   min = "1",
   max = "3",
   type = "text",
+  classes = [],
 }) => {
   const inputClasses = [
-    "rounded-md h-8 border border-slate-200 px-2 text-sm w-20 block",
+    "rounded-md h-8 border border-slate-200 px-2 text-sm block",
+    ...classes,
   ];
   if (type === "text") {
     return (

@@ -123,7 +123,7 @@ const AllPosts = () => {
                 return (
                   <div key={i}>
                     <div className="flex space-x-8">
-                      <div className="p-4 rounded-md border border-slate-300 space-y-2">
+                      <div className="w-full p-4 rounded-md border border-slate-300 space-y-2">
                         <div className="flex space-x-2 items-center">
                           <p className={textClasses}>Title:</p>
                           <LocalInput

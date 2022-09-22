@@ -35,6 +35,7 @@ const ContentOptions = ({
         isDisabled={!Boolean(selectedEl)}
         value={selectedClasses}
         onChange={(val) => onChangeClasses(val)}
+        isClearable={selectedClasses.some((v) => !v.isFixed)}
       />
     </div>
   );
