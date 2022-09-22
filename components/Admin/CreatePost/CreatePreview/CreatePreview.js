@@ -13,8 +13,6 @@ const CreatePreview = ({ content }) => {
 
     const classes = { className: classNames(el.classes.split(" ")), key: i };
     console.log("EL:", el, { type, classes });
-    // console.log("\nEL:", el);
-    // console.log("TYPE:", type);
 
     if (type === "div") {
       console.log("\n\n\nFOUND DIV\n\n\n");
