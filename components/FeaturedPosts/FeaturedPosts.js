@@ -36,7 +36,8 @@ const FeaturedPosts = () => {
           key={i}
           // prevent scroll forward if clicking on card
           onClick={(e) => e.stopPropagation()}
-          className="duration-700 ease-in-out flex justify-center mr-16 cursor-default"
+          // className="duration-700 ease-in-out flex justify-center mr-16 cursor-default"
+          className="duration-700 ease-in-out flex justify-centercursor-default"
         >
           <PostPreview variant="featured" postData={post} />
         </div>
