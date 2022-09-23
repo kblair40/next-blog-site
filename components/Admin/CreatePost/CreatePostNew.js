@@ -19,7 +19,7 @@ const CreatePostNew = () => {
   const contentRef = useRef();
 
   const handleSubmit = async () => {
-    if (!contentRef.current.length) return;
+    if (!contentRef.current.value.length) return;
 
     setContentArray((prev) => [
       ...prev,
