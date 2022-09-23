@@ -36,8 +36,7 @@ const CarouselNew = ({ postsArray }) => {
   const classes = classNames({
     "w-full h-fit": true,
     "max-w-[100vw]": true,
-    "sm:border sm:border-slate-50 rounded-md sm:shadow-inner": true,
-    "pl-4 lg:pr-0 lg:pl-0": true,
+    "rounded-md sm:shadow-inner": true,
     relative: true,
   });
 
