@@ -32,7 +32,7 @@ const DropDown = () => {
 
   const borderClasses = [
     "w-8 h-px relative top-px",
-    "duration-300 md:group-hover:bg-slate-700",
+    "duration-300 md:group-hover:bg-lightgreen",
   ];
 
   const triggerClasses = classNames([
@@ -67,7 +67,7 @@ const DropDown = () => {
             className={triggerClasses}
           >
             <div className="flex items-center space-x-2">
-              <p>Posts</p>
+              <p className="duration-300 hover:text-lightgreen">Posts</p>
 
               <svg
                 className={arrowClasses}
@@ -77,7 +77,7 @@ const DropDown = () => {
               >
                 <path
                   d="M11.2045 17.8817L2.09466 8.77181C1.6553 8.33245 1.6553 7.62014 2.09466 7.18083L3.15717 6.11831C3.59578 5.6797 4.30664 5.67886 4.74628 6.11644L12 13.3362L19.2537 6.11644C19.6933 5.67886 20.4042 5.6797 20.8428 6.11831L21.9053 7.18083C22.3447 7.62019 22.3447 8.3325 21.9053 8.77181L12.7955 17.8817C12.3562 18.321 11.6438 18.321 11.2045 17.8817Z"
-                  fill="black"
+                  fill="#414b3b"
                 />
               </svg>
             </div>

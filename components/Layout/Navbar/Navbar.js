@@ -82,7 +82,7 @@ export default Navbar;
 const NavLink = ({ label, route, active }) => {
   const baseClasses = [
     "group font-medium whitespace-nowrap",
-    "text-slate-700 transition-colors duration-300 hover:text-slate-900",
+    "text-slate-700 transition-colors duration-300 hover:text-lightgreen",
     "flex flex-col items-center",
     "py-2 px-3 rounded-md",
     "md:mx-2",
@@ -91,8 +91,8 @@ const NavLink = ({ label, route, active }) => {
   if (active) baseClasses.push("text-slate-900");
 
   let borderClasses = ["w-8", "h-px", "duration-300"];
-  const borderInactive = ["md:group-hover:bg-slate-700"];
-  const borderActive = ["bg-slate-700"];
+  const borderInactive = ["md:group-hover:bg-darkgreen/50"];
+  const borderActive = ["bg-darkgreen/50"];
 
   if (active) {
     borderClasses = borderClasses.concat(borderActive);
