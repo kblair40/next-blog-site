@@ -97,6 +97,10 @@ const CreatePostNew = () => {
             />
           </div>
 
+          <div className="flex items-center space-x-4 w-full">
+            <Button>8px</Button>
+          </div>
+
           <CreatePreview content={contentArray} />
         </div>
       </div>

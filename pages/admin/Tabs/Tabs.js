@@ -25,7 +25,8 @@ const Tabs = () => {
         <CommentsTab />
       </TabPanel>
 
-      <TabPanel className="px-4 pt-2">
+      {/* <TabPanel className="px-4 pt-2"> */}
+      <TabPanel>
         <CreatePostTab />
       </TabPanel>
 

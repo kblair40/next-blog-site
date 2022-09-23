@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
+
+import Button from "components/UI/Button";
 
 // import BlogPost from "components/BlogPost";
 
 const CreatePreview = ({ content }) => {
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const makeElement = (el, i) => {
     const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
     // content in input at time of submission
@@ -37,8 +40,18 @@ const CreatePreview = ({ content }) => {
     return newElement;
   };
 
+  const classes = classNames({
+    "w-full pt-4": true,
+    "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
+      isFullScreen,
+    border: isFullScreen,
+  });
+
   return (
-    <div className="w-full pt-4">
+    <div className={classes}>
+      <Button onClick={() => setIsFullScreen((prev) => !prev)}>
+        Full Screen
+      </Button>
       {/* <h2 className="text-5xl font-medium">test</h2> */}
       {Array.isArray(content) && content.length
         ? content.map((elObj, i) => {
