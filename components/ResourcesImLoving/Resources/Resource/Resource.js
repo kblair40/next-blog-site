@@ -14,10 +14,11 @@ const Resource = ({ resource }) => {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">{resource.name}</h2>
 
         <Button
+          classes={["py-1"]}
           onClick={handleClick}
           size="sm"
           variant="ghost"
