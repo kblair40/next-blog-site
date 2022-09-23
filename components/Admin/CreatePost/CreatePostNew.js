@@ -50,6 +50,18 @@ const CreatePostNew = () => {
     }
   };
 
+  const handleAddSpace = (heightClass) => {
+    const spacer = {
+      text: "",
+      el: { value: "div" },
+      classes: heightClass,
+    };
+    console.log("HEIGHT CLASS:", heightClass);
+    console.log("SPACER:", spacer);
+
+    setContentArray((prev) => [...prev, spacer]);
+  };
+
   const undo = () => {
     const copy = [...contentArray];
     copy.pop();
@@ -98,11 +110,7 @@ const CreatePostNew = () => {
             />
           </div>
 
-          <Spacers />
-
-          {/* <div className="flex items-center space-x-4 w-full">
-            <Button>8px</Button>
-          </div> */}
+          <Spacers addSpace={handleAddSpace} />
 
           <CreatePreview content={contentArray} />
         </div>
