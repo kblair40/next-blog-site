@@ -27,7 +27,8 @@
     "react-select": "^5.4.0",
     "react-tabs": "^5.1.0",
     "react-textarea-markdown-editor": "^2.3.0",
-    "react-toastify": "^9.0.8"
+    "react-toastify": "^9.0.8",
+    "use-debounce": "^8.0.4"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
