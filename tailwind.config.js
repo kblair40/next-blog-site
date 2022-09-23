@@ -54,6 +54,8 @@ module.exports = {
           100: "#D1DDCC",
           50: "#EAEEE6",
         },
+        darkgreen: "#414b3b",
+        lightgreen: "#8ca87c",
       },
       keyframes: {
         "point-right": {
