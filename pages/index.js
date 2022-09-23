@@ -18,8 +18,8 @@ export default function Home() {
         <FeaturedPosts />
       </div>
 
-      <div className="flex flex-col space-y-8 sm:flex-row  sm:space-x-6 md:space-x-8 sm:space-y-0 px-4 sm:px-6 md:px-8 mt-8">
-        <div className="w-3/5 md:w-full max-w-max">
+      <div className="flex flex-col space-y-8 sm:flex-row  sm:space-x-6 px-4 sm:px-6 md:px-8 mt-8">
+        <div>
           <ResourcesImLoving />
         </div>
         {/* <div className="w-full md:w-3/5">
@@ -29,7 +29,7 @@ export default function Home() {
         {/* <div className="hidden md:block w-full md:w-2/5">
           <MostRecentPosts />
         </div> */}
-        <div className="md:hidden w-2/5">
+        <div className="md:hidden">
           <MostRecentPosts />
         </div>
       </div>
