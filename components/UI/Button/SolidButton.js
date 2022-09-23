@@ -30,8 +30,8 @@ const SolidButton = ({
   const baseClasses = [
     "duration-200",
     "rounded-lg",
-    "px-3",
-    "h-10",
+    // "px-3",
+    // "h-10",
     "text-white",
     "font-medium",
     "flex",
