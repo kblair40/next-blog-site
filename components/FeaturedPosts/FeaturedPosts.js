@@ -56,18 +56,18 @@ const FeaturedPosts = () => {
   }
 
   return (
-    <div className="flex md:space-x-8">
-      <div className="flex flex-col items-start h-full w-fit md:w-3/5 space-y-4">
-        <h2 className="text-3xl md:text-2xl font-semibold text-center sm:mb-0 md:text-left md:border-b md:border-slate-300 w-full">
-          Featured Posts
-        </h2>
-        {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
-      </div>
-
-      <div className="hidden md:block md:w-2/5 md:pr-4">
-        <MostRecentPosts />
-      </div>
+    // <div className="flex md:space-x-8">
+    <div className="flex flex-col items-start h-full w-fit lg:w-3/5 space-y-4">
+      <h2 className="text-3xl md:text-2xl font-semibold text-center sm:mb-0 lg:text-left md:border-b md:border-slate-300 w-full">
+        Featured Posts
+      </h2>
+      {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
     </div>
+
+    //   <div className="hidden md:block md:w-2/5 md:pr-4">
+    //     <MostRecentPosts />
+    //   </div>
+    // </div>
   );
 };
 

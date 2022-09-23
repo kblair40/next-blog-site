@@ -18,19 +18,15 @@ export default function Home() {
         <FeaturedPosts />
       </div>
 
-      <div className="flex flex-col space-y-8 sm:flex-row  sm:space-x-6 px-4 sm:px-6 md:px-8 mt-8">
-        <div>
-          <ResourcesImLoving />
-        </div>
-        {/* <div className="w-full md:w-3/5">
-          <ResourcesImLoving />
-        </div> */}
+      <div className="px-4 md:flex md:flex-row md:justify-center md:space-x-6 mt-12">
+        <div className="max-w-2xl md:max-w-3xl lg:max-w-5xl space-y-12 md:flex md:space-y-0 md:space-x-12">
+          <div className="w-full md:w-1/2">
+            <MostRecentPosts />
+          </div>
 
-        {/* <div className="hidden md:block w-full md:w-2/5">
-          <MostRecentPosts />
-        </div> */}
-        <div className="md:hidden">
-          <MostRecentPosts />
+          <div className="w-full md:w-1/2">
+            <ResourcesImLoving />
+          </div>
         </div>
       </div>
 

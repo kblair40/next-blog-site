@@ -6,7 +6,8 @@ import Resources from "./Resources";
 const ResourcesImLoving = () => {
   return (
     <div className="w-full">
-      <h2 className="text-2xl text-center font-semibold mb-2 border-b border-slate-400">
+      <h2 className="text-2xl text-center font-semibold mb-2 border-b border-slate-300">
+        {/* <h2 className="text-2xl text-center font-semibold mb-2"> */}
         Resources I'm Loving
       </h2>
 
