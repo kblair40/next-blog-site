@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import classNames from "classnames";
 
 import api from "utils/api";
 import Button from "components/UI/Button";
@@ -15,7 +14,6 @@ const MostRecentPosts = () => {
         const response = await api.get("/posts", {
           params: { limit: 3 },
         });
-        // console.log("RESPONSE:", response);
 
         setRecentPosts(response.data.posts);
       } catch (err) {

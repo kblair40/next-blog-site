@@ -1,5 +1,4 @@
-import React from // useState
-"react";
+import React from "react"; // useState
 import classNames from "classnames";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -12,8 +11,8 @@ const CarouselNew = ({ postsArray }) => {
 
   const isSmall = useMediaQuery("(min-width: 480px)");
   console.log("isSmall?", isSmall);
-  // const isMedium = useMediaQuery("(min-width: 768px)");
-  // console.log("isMedium?", isMedium);
+  const isMedium = useMediaQuery("(min-width: 768px)");
+  console.log("isMedium?", isMedium);
   // const isLarge = useMediaQuery("(min-width: 980px)");
   // console.log("isLarge?", isLarge);
 
@@ -56,7 +55,8 @@ const CarouselNew = ({ postsArray }) => {
   const classes = classNames({
     "w-full h-fit": true,
     "max-w-[100vw]": true,
-    "sm:border sm:border-slate-200 rounded-md": true,
+    "sm:border sm:border-slate-50 rounded-md sm:shadow-inner": true,
+    "pl-4 lg:pr-0 lg:pl-0": true,
     // "px-2 sm:px-0": true,
     // "sm:py-2": true,
     relative: true,
@@ -91,7 +91,7 @@ const CarouselNew = ({ postsArray }) => {
                 renderArrowNext={(...args) => renderArrow("right", ...args)}
                 // selectedItem={curSlide}
                 centerMode={isSmall}
-                centerSlidePercentage={80}
+                centerSlidePercentage={isMedium ? 60 : 80}
                 showThumbs={false}
                 // swipeable={!isSmall}
                 swipeable={false}
@@ -112,10 +112,11 @@ const Arrow = ({ dir, onClick }) => {
   const className = classNames({
     // "absolute top-0 bottom-0 z-10 bg-slate-200/25": true,
     "absolute top-0 bottom-0 z-10 bg-lightgreen/10": true,
-    "active:bg-lightgreen/25": true,
+    "active:bg-lightgreen/30": true,
     "right-0": dir === "right",
     "left-0": dir === "left",
     "flex flex-column h-full justify-center items-center w-8": true,
+    "duration-150 cursor-pointer hover:bg-lightgreen/20": true,
   });
 
   const svgClassName = classNames({
