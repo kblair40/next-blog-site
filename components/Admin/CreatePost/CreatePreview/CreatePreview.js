@@ -40,24 +40,38 @@ const CreatePreview = ({ content }) => {
     return newElement;
   };
 
+  const btnClasses = {
+    "fixed bottom-1 left-1": isFullScreen,
+  };
+
   const classes = classNames({
-    "w-full pt-4": true,
+    "w-full pt-1": true,
     "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
       isFullScreen,
-    border: isFullScreen,
+    "border px-12 flex justify-center": isFullScreen,
+  });
+
+  const previewClasses = classNames({
+    "w-full pt-2": true,
+    "max-w-3xl lg:max-w-4xl": isFullScreen,
   });
 
   return (
     <div className={classes}>
-      <Button onClick={() => setIsFullScreen((prev) => !prev)}>
+      <Button
+        classes={[btnClasses]}
+        onClick={() => setIsFullScreen((prev) => !prev)}
+      >
         Full Screen
       </Button>
-      {/* <h2 className="text-5xl font-medium">test</h2> */}
-      {Array.isArray(content) && content.length
-        ? content.map((elObj, i) => {
-            return makeElement(elObj, i);
-          })
-        : null}
+
+      <div className={previewClasses}>
+        {Array.isArray(content) && content.length
+          ? content.map((elObj, i) => {
+              return makeElement(elObj, i);
+            })
+          : null}
+      </div>
     </div>
   );
 };
