@@ -30,6 +30,7 @@ const CarouselNew = ({ postsArray }) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className={classNames({
+          // "featured-post-card": true,
           "min-w-[300px] sm:min-w-[340px]": true,
           "w-fit": true,
           // "mx-auto": true,
@@ -37,6 +38,7 @@ const CarouselNew = ({ postsArray }) => {
           // "border border-red-400": true,
           // "sm:w-4/5": true,
           "px-4 sm:mx-0": true,
+          "my-2": true,
           // "ml-12": true,
         })}
       >
@@ -50,7 +52,7 @@ const CarouselNew = ({ postsArray }) => {
     "max-w-[100vw]": true,
     "sm:border sm:border-slate-200 rounded-md": true,
     "px-2 sm:px-0": true,
-    "sm:py-2": true,
+    // "sm:py-2": true,
     relative: true,
     // "border border-green-500": true,
     // "md:max-w-lg": true,

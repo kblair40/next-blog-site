@@ -5,7 +5,7 @@ import Resources from "./Resources";
 
 const ResourcesImLoving = () => {
   return (
-    <div className="">
+    <div className="w-full">
       <h2 className="text-2xl font-semibold mb-2 border-b border-slate-400">
         Resources I'm Loving
       </h2>
