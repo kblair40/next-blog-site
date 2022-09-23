@@ -78,7 +78,9 @@ const CreatePostNew = () => {
               classes={["w-60"]}
               onChange={(val) => setPostTitle(val)}
             />
-            <Button onClick={handleSavePost}>Finish & Save Post</Button>
+            <Button isDisabled={!contentArray.length} onClick={handleSavePost}>
+              Finish & Save Post
+            </Button>
           </div>
 
           <ContentInput ref={contentRef} />
@@ -91,7 +93,9 @@ const CreatePostNew = () => {
               onChangeClasses={handleChangeClasses}
             />
 
-            <Button onClick={handleSubmit}>Add Content</Button>
+            <Button isDisabled={!selectedEl} onClick={handleSubmit}>
+              Add Content
+            </Button>
             <IconButton
               onClick={undo}
               icon={
