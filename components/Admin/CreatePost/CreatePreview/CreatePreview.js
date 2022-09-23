@@ -61,6 +61,7 @@ const CreatePreview = ({ content }) => {
       <Button
         classes={[btnClasses]}
         onClick={() => setIsFullScreen((prev) => !prev)}
+        isDisabled={!content.length}
       >
         Full Screen
       </Button>
