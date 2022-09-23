@@ -11,6 +11,10 @@ const CarouselNew = ({ postsArray }) => {
 
   const isSmall = useMediaQuery("(min-width: 480px)");
   console.log("isSmall?", isSmall);
+  // const isMedium = useMediaQuery("(min-width: 768px)");
+  // console.log("isMedium?", isMedium);
+  // const isLarge = useMediaQuery("(min-width: 980px)");
+  // console.log("isLarge?", isLarge);
 
   const handleClickNext = () => {
     setCurSlide((cur) => cur + 1);
@@ -30,9 +34,11 @@ const CarouselNew = ({ postsArray }) => {
         // className="ml-12 w-fit"
         className={classNames({
           "min-w-[300px] sm:min-w-[340px]": true,
-          // "w-fit": true,
-          "w-[100%]": true,
+          "w-fit": true,
+          // "mx-auto": true,
+          // "w-[100%]": true,
           // "border border-red-400": true,
+          // "sm:w-4/5": true,
           "px-4 sm:mx-0": true,
           // "ml-12": true,
         })}
@@ -44,42 +50,47 @@ const CarouselNew = ({ postsArray }) => {
 
   const classes = classNames({
     "w-full h-fit": true,
-    "w-screen relative": true,
+    "max-w-[100vw]": true,
+    "sm:border sm:border-slate-200 rounded-md": true,
+    "px-2 sm:px-0": true,
+    "sm:py-2": true,
+    relative: true,
+    // "border border-green-500": true,
+    // "md:max-w-lg": true,
     // "sm:pl-[5vw] md:pl-[10vw] carousel w-screen border-transparent relative": true,
     // "custom-cursor": !endReached,
   });
 
   return (
     <React.Fragment>
-      <div className="flex flex-col items-end">
-        <PrevNextButtons
-          onClickNext={handleClickNext}
-          onClickPrev={handleClickPrev}
-          slideCount={postsArray.length || 0}
-          curSlide={curSlide}
-        />
+      <div className="flex flex-col items-start">
+        <div className="flex flex-col items-center sm:max-w-[100vw] md:max-w-md w-full">
+          <PrevNextButtons
+            onClickNext={handleClickNext}
+            onClickPrev={handleClickPrev}
+            slideCount={postsArray.length || 0}
+            curSlide={curSlide}
+          />
 
-        <div className={classes}>
-          {postsArray && postsArray.length ? (
-            <Carousel
-              // width="90%" // default == 100%
-              renderItem={renderItem}
-              showArrows={false}
-              showStatus={false}
-              showIndicators={false}
-              infiniteLoop={true}
-              selectedItem={curSlide}
-              centerMode={isSmall}
-              centerSlidePercentage={80}
-              // centerMode={true}
-              // centerSlidePercentage={80}
-              showThumbs={false}
-              swipeable={true}
-              // width={isSmall ? "100%" : "96%"}
-            >
-              {postsArray}
-            </Carousel>
-          ) : null}
+          <div className={classes}>
+            {postsArray && postsArray.length ? (
+              <Carousel
+                renderItem={renderItem}
+                showArrows={false}
+                showStatus={false}
+                showIndicators={false}
+                infiniteLoop={true}
+                selectedItem={curSlide}
+                centerMode={isSmall}
+                centerSlidePercentage={80}
+                showThumbs={false}
+                // swipeable={true}
+                swipeable={false}
+              >
+                {postsArray}
+              </Carousel>
+            ) : null}
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -95,7 +106,7 @@ const PrevNextButtons = ({
   curSlide,
 }) => {
   return (
-    <div className="flex justify-between w-screen items-center px-4 sm:px-12 mb-2">
+    <div className="flex justify-between w-full items-center px-4 sm:px-8 md:px-4 mb-2">
       <IconButton
         onClick={onClickPrev}
         disabled={curSlide === 0}
