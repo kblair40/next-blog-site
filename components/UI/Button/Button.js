@@ -17,7 +17,7 @@ const Button = ({
   classes = [],
 }) => {
   const sizeClasses = getSizeClasses("button", size);
-  // console.log("\n\nsizeClasses:", sizeClasses, "\n\n");
+  console.log("\n\nsizeClasses:", sizeClasses, "\n\n");
 
   if (variant === "solid") {
     return (
