@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
+import Spacers from "./Spacers";
 import ContentInput from "./ContentInput";
 import ContentOptions from "./ContentOptions";
 import CreatePreview from "./CreatePreview";
@@ -97,9 +98,11 @@ const CreatePostNew = () => {
             />
           </div>
 
-          <div className="flex items-center space-x-4 w-full">
+          <Spacers />
+
+          {/* <div className="flex items-center space-x-4 w-full">
             <Button>8px</Button>
-          </div>
+          </div> */}
 
           <CreatePreview content={contentArray} />
         </div>
