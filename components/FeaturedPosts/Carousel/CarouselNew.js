@@ -9,8 +9,8 @@ import IconButton from "components/UI/IconButton";
 const CarouselNew = ({ postsArray }) => {
   const [curSlide, setCurSlide] = useState(0);
 
-  const isGreaterThan768 = useMediaQuery("(min-width: 768px)");
-  console.log("IS GREATER THAN 768?", isGreaterThan768);
+  const isSmall = useMediaQuery("(min-width: 480px)");
+  console.log("isSmall?", isSmall);
 
   const handleClickNext = () => {
     setCurSlide((cur) => cur + 1);
@@ -29,13 +29,12 @@ const CarouselNew = ({ postsArray }) => {
         // className="border border-red-300 ml-12 w-fit"
         // className="ml-12 w-fit"
         className={classNames({
-          "min-w-[320px]": true,
+          "min-w-[300px] sm:min-w-[340px]": true,
           // "w-fit": true,
           "w-[100%]": true,
-          "border border-red-400": true,
-          "mx-8": true,
+          // "border border-red-400": true,
+          "px-4 sm:mx-0": true,
           // "ml-12": true,
-          // ""
         })}
       >
         {item}
@@ -70,10 +69,13 @@ const CarouselNew = ({ postsArray }) => {
               showIndicators={false}
               infiniteLoop={true}
               selectedItem={curSlide}
-              centerMode={true}
+              centerMode={isSmall}
               centerSlidePercentage={80}
+              // centerMode={true}
+              // centerSlidePercentage={80}
               showThumbs={false}
               swipeable={true}
+              // width={isSmall ? "100%" : "96%"}
             >
               {postsArray}
             </Carousel>
@@ -93,7 +95,7 @@ const PrevNextButtons = ({
   curSlide,
 }) => {
   return (
-    <div className="flex justify-between w-screen items-center px-12 mb-2">
+    <div className="flex justify-between w-screen items-center px-4 sm:px-12 mb-2">
       <IconButton
         onClick={onClickPrev}
         disabled={curSlide === 0}

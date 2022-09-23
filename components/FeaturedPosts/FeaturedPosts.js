@@ -56,7 +56,9 @@ const FeaturedPosts = () => {
   }
 
   return (
-    <div className="flex justify-center h-full">
+    // <div className="flex justify-center h-full">
+    <div className="flex flex-col items-center h-full">
+      <p className="text-3xl font-medium mb-2 sm:mb-0">Featured Posts</p>
       {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}
     </div>
   );
