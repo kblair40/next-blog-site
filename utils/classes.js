@@ -1,6 +1,7 @@
 const buttonSizes = {
-  sm: "h-8",
-  md: "h-10",
+  xs: "h-6",
+  sm: "h-6 px-1 text-sm",
+  md: "h-10 px-3",
   lg: "h-12",
 };
 
