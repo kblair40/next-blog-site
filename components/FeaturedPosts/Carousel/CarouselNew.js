@@ -3,10 +3,14 @@ import classNames from "classnames";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import useMediaQuery from "utils/hooks/useMediaQuery";
 import IconButton from "components/UI/IconButton";
 
 const CarouselNew = ({ postsArray }) => {
   const [curSlide, setCurSlide] = useState(0);
+
+  const isGreaterThan768 = useMediaQuery("(min-width: 768px)");
+  console.log("IS GREATER THAN 768?", isGreaterThan768);
 
   const handleClickNext = () => {
     setCurSlide((cur) => cur + 1);
@@ -23,12 +27,20 @@ const CarouselNew = ({ postsArray }) => {
         onClick={(e) => e.stopPropagation()}
         // className="border border-red-300 mr-12 w-full"
         // className="border border-red-300 ml-12 w-fit"
-        className="ml-12 w-fit"
+        // className="ml-12 w-fit"
+        className={classNames({
+          "min-w-[320px]": true,
+          // "w-fit": true,
+          "w-[100%]": true,
+          "border border-red-400": true,
+          "mx-8": true,
+          // "ml-12": true,
+          // ""
+        })}
       >
         {item}
       </div>
     );
-    return item;
   };
 
   const classes = classNames({
@@ -51,15 +63,17 @@ const CarouselNew = ({ postsArray }) => {
         <div className={classes}>
           {postsArray && postsArray.length ? (
             <Carousel
+              // width="90%" // default == 100%
               renderItem={renderItem}
-              selectedItem={curSlide}
-              centerMode={true}
-              centerSlidePercentage={60}
+              showArrows={false}
               showStatus={false}
               showIndicators={false}
+              infiniteLoop={true}
+              selectedItem={curSlide}
+              centerMode={true}
+              centerSlidePercentage={80}
               showThumbs={false}
               swipeable={true}
-              showArrows={false}
             >
               {postsArray}
             </Carousel>
