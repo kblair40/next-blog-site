@@ -29,9 +29,6 @@ const CarouselNew = ({ postsArray }) => {
     return (
       <div
         onClick={(e) => e.stopPropagation()}
-        // className="border border-red-300 mr-12 w-full"
-        // className="border border-red-300 ml-12 w-fit"
-        // className="ml-12 w-fit"
         className={classNames({
           "min-w-[300px] sm:min-w-[340px]": true,
           "w-fit": true,
@@ -63,24 +60,26 @@ const CarouselNew = ({ postsArray }) => {
 
   return (
     <React.Fragment>
-      <div className="flex flex-col items-start">
-        <div className="flex flex-col items-center sm:max-w-[100vw] md:max-w-md w-full">
-          <PrevNextButtons
+      <div className="flex flex-col items-start w-full">
+        {/* <div className="flex flex-col items-center sm:max-w-[100vw] md:max-w-md w-full"> */}
+        <div className="w-full flex flex-col items-center sm:max-w-[100vw]">
+          {/* <PrevNextButtons
             onClickNext={handleClickNext}
             onClickPrev={handleClickPrev}
             slideCount={postsArray.length || 0}
             curSlide={curSlide}
-          />
+          /> */}
 
           <div className={classes}>
             {postsArray && postsArray.length ? (
               <Carousel
                 renderItem={renderItem}
-                showArrows={false}
+                // showArrows={false}
+                showArrows={true}
                 showStatus={false}
                 showIndicators={false}
-                infiniteLoop={true}
-                selectedItem={curSlide}
+                // infiniteLoop={true}
+                // selectedItem={curSlide}
                 centerMode={isSmall}
                 centerSlidePercentage={80}
                 showThumbs={false}

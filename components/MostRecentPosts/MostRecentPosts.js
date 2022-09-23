@@ -38,7 +38,7 @@ const MostRecentPosts = () => {
 
   return (
     <div className="">
-      <h2 className="text-xl font-semibold mb-4 border-b border-slate-400">
+      <h2 className="text-2xl font-semibold mb-4 border-b border-slate-300">
         Recent Posts
       </h2>
 

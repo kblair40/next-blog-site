@@ -5,8 +5,6 @@ import api from "utils/api";
 import Loading from "components/UI/Loading";
 
 const PostRenderTest = () => {
-  // const [postContent, setPostContent] = useState("");
-  // const [postTitle, setPostTitle] = useState("");
   const [postData, setPostData] = useState();
   const [loading, setLoading] = useState(true);
 
