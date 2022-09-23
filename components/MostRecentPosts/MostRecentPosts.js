@@ -36,11 +36,11 @@ const MostRecentPosts = () => {
 
   return (
     <div className="">
-      <h2 className="text-2xl text-center font-semibold mb-4 border-b border-slate-300">
+      <h2 className="text-2xl text-center font-semibold border-b border-slate-300">
         Recent Posts
       </h2>
 
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col">
         {recentPosts.length
           ? recentPosts.map((post, i) => {
               return <RecentPost key={i} post={post} />;
@@ -55,8 +55,8 @@ export default MostRecentPosts;
 
 const RecentPost = ({ post }) => {
   return (
-    <div>
-      <div className="flex justify-between">
+    <div className="py-2 px-1 cursor-pointer duration-200 hover:bg-darkgreen/5 active:bg-darkgreen/10">
+      <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">{post.title}</h2>
 
         <Button

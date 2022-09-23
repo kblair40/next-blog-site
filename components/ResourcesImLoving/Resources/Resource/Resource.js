@@ -8,12 +8,11 @@ const Resource = ({ resource }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    //
     router.push(resource.href);
   };
 
   return (
-    <div>
+    <div className="py-2 px-1 cursor-pointer duration-200 hover:bg-darkgreen/5 active:bg-darkgreen/10">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium">{resource.name}</h2>
 
