@@ -54,6 +54,12 @@ const fontWeightGroup = {
   options: fontWeightOptions,
 };
 
+const imagePostionOptions = [{ label: "center", value: "mx-auto" }];
+const imagePositionGroup = {
+  label: "Position",
+  options: imagePostionOptions,
+};
+
 const imageSizeOptions = [
   { label: "full-width", value: "w-full" },
   { label: "3/4-width", value: "w-3/4" },
@@ -83,7 +89,7 @@ export const classOptions = {
     { label: "md (12px)", value: "h-3" },
     { label: "lg (16px)", value: "h-4" },
   ],
-  img: [imageGroup],
+  img: [imageGroup, imagePositionGroup],
   // img: imageGroup.options,
 };
 
