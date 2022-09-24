@@ -8,6 +8,17 @@ import Button from "components/UI/Button";
 const CreatePreview = ({ content }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
+  const makeListItems = (textArray) => {
+    const listItems = [];
+    for (let textItem of textArray) {
+      let li = React.createElement("li", null, textItem);
+      listItems.push(li);
+    }
+
+    console.log("\nLIST ITEMS:", listItems, "\n");
+    return listItems;
+  };
+
   const makeList = (text, type) => {
     console.log("\nLIST VALS:", { text, type });
     // removes all newlines (\n)
@@ -15,8 +26,11 @@ const CreatePreview = ({ content }) => {
     console.log("text after:", { text });
     if (text.startsWith("#")) text = text.slice(1);
     console.log("TEXT DOUBLE AFTER:", { text });
-    const textArr = text.split("#");
+    const textArr = text.split("#").map((t) => t.trim());
     console.log("TEXT ARR:", textArr, "\n\n");
+    const listItems = makeListItems(textArr);
+    const ul = React.createElement("ul", null, listItems);
+    return ul;
   };
 
   const makeElement = (el, i) => {
@@ -26,9 +40,10 @@ const CreatePreview = ({ content }) => {
     const innerText = ["div", "img"].includes(type) ? null : el.text;
 
     if (["ol", "ul"].includes(type)) {
-      const list = makeList(innerText, type);
-      console.log("LIST:", list);
-      return;
+      return makeList(innerText, type);
+      // const list = makeList(innerText, type);
+      // console.log("LIST:", list);
+      // return;
     }
 
     // show border for spacers (div) while editing
