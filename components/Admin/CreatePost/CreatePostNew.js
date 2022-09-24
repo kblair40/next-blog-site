@@ -12,6 +12,7 @@ import api from "utils/api";
 
 const CreatePostNew = () => {
   const [postTitle, setPostTitle] = useState("");
+  const [postImageUrl, setPostImageUrl] = useState("");
   const [selectedEl, setSelectedEl] = useState("");
   const [selectedClasses, setSelectedClasses] = useState([]);
   const [contentArray, setContentArray] = useState([]);
@@ -40,9 +41,9 @@ const CreatePostNew = () => {
     console.log("\n\nCONTENT ARRAY:", contentArray, "\n\n");
     const content = JSON.stringify(contentArray);
     // const content = contentArray;
-    const title = "Temporary Title";
+    const title = postTitle || "Temporary Title";
     const status = 2;
-    const data = { content, status, title };
+    const data = { content, status, title, image_url: postImageUrl };
 
     try {
       const response = await api.post("/posts", data);
@@ -80,7 +81,16 @@ const CreatePostNew = () => {
               classes={["w-60"]}
               onChange={(val) => setPostTitle(val)}
             />
-            <Button isDisabled={!contentArray.length} onClick={handleSavePost}>
+            <Input
+              placeholder="Image URL"
+              classes={["w-60"]}
+              onChange={(val) => setPostImageUrl(val)}
+            />
+            <Button
+              classes={["leading-4"]}
+              isDisabled={!contentArray.length}
+              onClick={handleSavePost}
+            >
               Finish & Save Post
             </Button>
           </div>
