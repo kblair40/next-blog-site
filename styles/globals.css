@@ -114,3 +114,7 @@
 .blog-post-test div {
     border-color: transparent;
 }
+
+.no-border div {
+    border: none !important;
+}

@@ -83,10 +83,11 @@ const CreatePreview = ({ content }) => {
   };
 
   const classes = classNames({
-    "w-full pt-1": true,
+    "w-full": true,
     "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
       isFullScreen,
     "border px-12 flex justify-center": isFullScreen,
+    "no-border pt-4": isFullScreen,
   });
 
   const previewClasses = classNames({
