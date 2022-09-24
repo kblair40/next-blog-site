@@ -8,7 +8,7 @@ const Spacers = ({ addSpace }) => {
     "flex space-x-2 w-full": true,
   });
 
-  const buttonClasses = ["font-sm py-1 px1"];
+  const buttonClasses = ["font-sm py-1 px-1"];
 
   const handleClick = (cls) => {
     addSpace(cls);
