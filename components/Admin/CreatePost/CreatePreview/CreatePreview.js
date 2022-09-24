@@ -7,10 +7,29 @@ import Button from "components/UI/Button";
 
 const CreatePreview = ({ content }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const makeList = (text, type) => {
+    console.log("\nLIST VALS:", { text, type });
+    // removes all newlines (\n)
+    text = text.replace(/\n/g, "");
+    console.log("text after:", { text });
+    if (text.startsWith("#")) text = text.slice(1);
+    console.log("TEXT DOUBLE AFTER:", { text });
+    const textArr = text.split("#");
+    console.log("TEXT ARR:", textArr, "\n\n");
+  };
+
   const makeElement = (el, i) => {
     const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
+    console.log("\n\nEL TYPE:", type, "\n\n");
     // content in input at time of submission
     const innerText = ["div", "img"].includes(type) ? null : el.text;
+
+    if (["ol", "ul"].includes(type)) {
+      const list = makeList(innerText, type);
+      console.log("LIST:", list);
+      return;
+    }
 
     // show border for spacers (div) while editing
     if (type === "div") el.classes += " border border-slate-200/50";
