@@ -4,6 +4,10 @@ const navLinks = [
     route: "/",
   },
   {
+    label: "Posts",
+    route: "/posts",
+  },
+  {
     label: "About",
     route: "/page1",
   },

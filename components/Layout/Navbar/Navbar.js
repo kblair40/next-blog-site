@@ -9,7 +9,7 @@ import classNames from "classnames";
 import logo from "public/assets/images/money-and-other-things.webp";
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
-import DropDown from "components/UI/DropDown";
+// import DropDown from "components/UI/DropDown";
 import Drawer from "./Drawer";
 
 const Navbar = () => {
@@ -54,7 +54,7 @@ const Navbar = () => {
             <HamburgerButton onClick={() => setDrawerOpen(!drawerOpen)} />
 
             <div className="hidden items-start w-fit md:flex md:flex-row">
-              <DropDown />
+              {/* <DropDown /> */}
 
               {navLinks.map((navLink, i) => {
                 return (
