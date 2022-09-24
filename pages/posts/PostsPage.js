@@ -6,8 +6,6 @@ import Categories from "./Categories";
 const PostsPage = () => {
   return (
     <PostsPageWrapper>
-      <div>PostsPage</div>
-
       <Categories />
     </PostsPageWrapper>
   );
