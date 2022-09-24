@@ -4,7 +4,7 @@ import classNames from "classnames";
 const PostsPageWrapper = ({ children }) => {
   const wrapperClasses = classNames({
     // "border border-red-400": true,
-    "w-screen px-6": true,
+    "w-screen px-4 sm:px-6": true,
     "flex justify-center": true,
   });
 
