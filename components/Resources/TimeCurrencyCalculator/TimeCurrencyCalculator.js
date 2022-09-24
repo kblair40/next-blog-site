@@ -47,9 +47,9 @@ const TimeCurrencyCalculator = () => {
     <React.Fragment>
       <div className="w-fit">
         <div className="mb-8">
-          <h2 className="text-2xl text-center font-semibold mb-2">
+          <h1 className="text-3xl text-center font-medium mb-4">
             Time Currency Calculator
-          </h2>
+          </h1>
           <p className="text-center">
             Some kind of description. What it does, maybe also how to use it.
             Or, we can skip this or put it somewhere else
