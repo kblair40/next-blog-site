@@ -1,5 +1,6 @@
 import fontOptions from "./fontOptions";
 import imageOptions from "./imageOptions";
+import listOptions from "./listOptions";
 
 export { default as categories } from "./categories";
 
@@ -23,8 +24,10 @@ export const classOptions = {
   h4: fontOptions,
   h5: fontOptions,
   h6: fontOptions,
-  p: fontOptions, // TODO: Change this to actual p tag classes
+  p: fontOptions,
   img: imageOptions,
+  ul: listOptions,
+  ol: listOptions,
 };
 
 const defaultHeadingClasses = [{ label: "bold", value: "font-bold" }];
@@ -37,4 +40,6 @@ export const defaultClasses = {
   h6: [...defaultHeadingClasses, { label: "xl", value: "text-xl" }],
   p: [],
   img: [],
+  ul: [],
+  ol: [],
 };
