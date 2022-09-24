@@ -54,13 +54,42 @@ const MostRecentPosts = () => {
 export default MostRecentPosts;
 
 const RecentPost = ({ post }) => {
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    if (!post) console.log("EARLY RETURN DUE TO NO POST");
+
+    let content;
+    if (post.content) {
+      content = JSON.parse(post.content);
+    }
+
+    if (!content) {
+      console.log("EARLY RETURN DUE TO NO CONTENT");
+      return;
+    }
+
+    const text = "";
+    for (let textItem of content) {
+      if (text.length < 120) {
+        if (textItem.text && textItem.text.length) {
+          text += textItem.text;
+        }
+      } else {
+        setText(text);
+        return;
+      }
+    }
+
+    setText(text);
+  }, []);
+
   return (
     <div className="py-2 px-2 cursor-pointer duration-200 hover:bg-lightgreen/10 active:bg-lightgreen/20">
       <div className="flex items-center justify-between">
         <h4 className="text-lg font-medium">{post.title}</h4>
 
         <div className="flex items-center space-x-2 group">
-          {/* <p className="group-hover:decoration-solid">Read</p> */}
           <svg
             className="w-3 h-3 fill-slate-800 rotate-180 ml-2"
             viewBox="0 0 20 20"
@@ -71,10 +100,7 @@ const RecentPost = ({ post }) => {
         </div>
       </div>
 
-      <div
-        className="line-clamp-2 strip-styles"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
+      <p className="line-clamp-2">{text}</p>
     </div>
   );
 };

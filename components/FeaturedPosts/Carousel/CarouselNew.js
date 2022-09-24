@@ -12,7 +12,7 @@ const CarouselNew = ({ postsArray }) => {
   // console.log("isMedium?", isMedium);
 
   const renderItem = (item, options) => {
-    console.log("RENDER ITEM - ITEM/OPTIONS:", { item, options });
+    // console.log("RENDER ITEM - ITEM/OPTIONS:", { item, options });
 
     return (
       <div

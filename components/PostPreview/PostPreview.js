@@ -1,28 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import classNames from "classnames";
 
 const PostPreview = ({ variant, postData, classes = [] }) => {
-  const router = useRouter();
-
   const baseClasses = [
     "max-w-md", // prev included
-    // "w-112",
     "group h-full border-2 border-slate-200 border-opacity-60 rounded-lg overflow-hidden",
     ...classes,
   ];
 
   const defaultImg =
     "https://res.cloudinary.com/erinsblog/image/upload/v1663447171/ahtziri-lagarde-h_1g1ofwXqk-unsplash_o1bfsb.jpg";
-
-  // const defaultImg =
-  //   "https://res.cloudinary.com/erinsblog/image/upload/v1663449242/allen-taylor-lLk1oJA7Wkg-unsplash_ndbdvy.jpg";
-
-  // const handleClick = () => {
-  //   router.push(`/post/${postData._id}`)
-  // }
 
   return (
     <div className={classNames(baseClasses)}>
