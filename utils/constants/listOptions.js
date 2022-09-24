@@ -1,38 +1,16 @@
-const listStyleOptions = [{ label: "bullet", value: "" }];
-//
-//
-//
-//
-//
-//
-//
-//
-//
+const listIndentOptions = [
+  { label: "sm (8px)", value: "pl-2" },
+  { label: "md (12px)", value: "pl-3" },
+  { label: "lg (16px)", value: "pl-4" },
+  { label: "xl (20px)", value: "pl-5" },
+  { label: "2xl (24px)", value: "pl-6" },
+];
 
-const listOptions = [];
+const listIndentGroup = {
+  label: "Indentation",
+  options: listIndentOptions,
+};
+
+const listOptions = [listIndentGroup];
 
 export default listOptions;
-
-// const imagePostionOptions = [{ label: "center", value: "mx-auto" }];
-// const imagePositionGroup = {
-//   label: "Position",
-//   options: imagePostionOptions,
-// };
-
-// const imageSizeOptions = [
-//   { label: "full-width", value: "w-full" },
-//   { label: "3/4-width", value: "w-3/4" },
-//   { label: "half-width", value: "w-1/2" },
-//   { label: "1/4-width", value: "w-1/4" },
-//   { label: "full-height", value: "h-full" },
-//   { label: "3/4-height", value: "h-3/4" },
-//   { label: "half-width", value: "h-1/2" },
-// ];
-// const imageSizeGroup = {
-//   label: "Image Size",
-//   options: imageSizeOptions,
-// };
-
-// const imageOptions = [imageSizeGroup, imagePositionGroup];
-
-// export default imageOptions;

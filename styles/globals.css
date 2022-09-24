@@ -4,13 +4,14 @@
 @layer base {
     h1, h2, h3, h4, h5, h6 { 
         font-family: "Bodoni Moda", system-ui;
+        font-weight: 600;
     }
-    h1 { @apply font-heading; @apply tracking-wide }
-    h2 { @apply font-heading; @apply tracking-wide }
-    h3 { @apply font-heading; }
-    h4 { @apply font-heading; }
-    h5 { @apply font-heading; }
-    h6 { @apply font-heading; }
+    h1 { @apply font-heading; @apply tracking-wide; @apply text-5xl; }
+    h2 { @apply font-heading; @apply tracking-wide; @apply text-4xl; }
+    h3 { @apply font-heading; @apply text-3xl; }
+    h4 { @apply font-heading; @apply text-2xl; }
+    h5 { @apply font-heading; @apply text-xl; }
+    h6 { @apply font-heading; @apply text-lg; }
     body { @apply text-slate-700; }
     ul { @apply list-disc; @apply list-inside; }
     ol { @apply list-decimal; @apply list-inside; }

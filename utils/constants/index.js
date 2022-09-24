@@ -31,13 +31,25 @@ export const classOptions = {
 };
 
 const defaultHeadingClasses = [{ label: "bold", value: "font-bold" }];
+// export const defaultClasses = {
+//   h1: [...defaultHeadingClasses, { label: "6xl", value: "text-6xl" }],
+//   h2: [...defaultHeadingClasses, { label: "5xl", value: "text-5xl" }],
+//   h3: [...defaultHeadingClasses, { label: "4xl", value: "text-4xl" }],
+//   h4: [...defaultHeadingClasses, { label: "3xl", value: "text-3xl" }],
+//   h5: [...defaultHeadingClasses, { label: "2xl", value: "text-2xl" }],
+//   h6: [...defaultHeadingClasses, { label: "xl", value: "text-xl" }],
+//   p: [],
+//   img: [],
+//   ul: [],
+//   ol: [],
+// };
 export const defaultClasses = {
-  h1: [...defaultHeadingClasses, { label: "6xl", value: "text-6xl" }],
-  h2: [...defaultHeadingClasses, { label: "5xl", value: "text-5xl" }],
-  h3: [...defaultHeadingClasses, { label: "4xl", value: "text-4xl" }],
-  h4: [...defaultHeadingClasses, { label: "3xl", value: "text-3xl" }],
-  h5: [...defaultHeadingClasses, { label: "2xl", value: "text-2xl" }],
-  h6: [...defaultHeadingClasses, { label: "xl", value: "text-xl" }],
+  h1: [...defaultHeadingClasses],
+  h2: [...defaultHeadingClasses],
+  h3: [...defaultHeadingClasses],
+  h4: [...defaultHeadingClasses],
+  h5: [...defaultHeadingClasses],
+  h6: [...defaultHeadingClasses],
   p: [],
   img: [],
   ul: [],

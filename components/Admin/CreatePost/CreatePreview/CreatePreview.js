@@ -19,17 +19,21 @@ const CreatePreview = ({ content }) => {
     return listItems;
   };
 
-  const makeList = (text, type) => {
-    console.log("\nLIST VALS:", { text, type });
+  const makeList = (text, type, classes = []) => {
+    console.log("\nLIST VALS:", { text, type, classes });
     // removes all newlines (\n)
     text = text.replace(/\n/g, "");
-    console.log("text after:", { text });
+    // console.log("text after:", { text });
     if (text.startsWith("#")) text = text.slice(1);
-    console.log("TEXT DOUBLE AFTER:", { text });
+    // console.log("TEXT DOUBLE AFTER:", { text });
     const textArr = text.split("#").map((t) => t.trim());
-    console.log("TEXT ARR:", textArr, "\n\n");
+    // console.log("TEXT ARR:", textArr, "\n\n");
     const listItems = makeListItems(textArr);
-    const list = React.createElement(type, null, listItems);
+    const list = React.createElement(
+      type,
+      { className: classNames(classes) },
+      listItems
+    );
     return list;
   };
 
@@ -40,7 +44,7 @@ const CreatePreview = ({ content }) => {
     const innerText = ["div", "img"].includes(type) ? null : el.text;
 
     if (["ol", "ul"].includes(type)) {
-      return makeList(innerText, type);
+      return makeList(innerText, type, el.classes.split(" "));
       // const list = makeList(innerText, type);
       // console.log("LIST:", list);
       // return;
