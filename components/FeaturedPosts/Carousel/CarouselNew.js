@@ -82,7 +82,7 @@ const Arrow = ({ dir, onClick }) => {
   });
 
   const svgClasses = classNames({
-    "w-5 h-5 fill-slate-800": true,
+    "w-5 h-5 fill-darkgreen": true,
     "rotate-180": dir === "right",
   });
 
