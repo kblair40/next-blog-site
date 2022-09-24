@@ -29,8 +29,8 @@ const CreatePreview = ({ content }) => {
     const textArr = text.split("#").map((t) => t.trim());
     console.log("TEXT ARR:", textArr, "\n\n");
     const listItems = makeListItems(textArr);
-    const ul = React.createElement("ul", null, listItems);
-    return ul;
+    const list = React.createElement(type, null, listItems);
+    return list;
   };
 
   const makeElement = (el, i) => {
