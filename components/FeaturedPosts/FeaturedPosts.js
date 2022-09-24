@@ -56,7 +56,8 @@ const FeaturedPosts = () => {
 
   return (
     <div className="flex flex-col items-start h-full w-fit lg:w-3/5 space-y-4">
-      <h2 className="text-3xl font-semibold text-center sm:mb-0 w-full">
+      {/* <h2 className="text-3xl font-semibold text-center sm:mb-0 w-full"> */}
+      <h2 className="font-heading text-4xl font-medium text-center sm:mb-0 w-full">
         Featured Posts
       </h2>
       {featuredPosts.length && <Carousel postsArray={makePostsArray()} />}

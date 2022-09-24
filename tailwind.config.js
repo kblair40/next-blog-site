@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -15,6 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         cursive: ["cursive"],
+        heading: ["'Bodoni Moda'", ...defaultTheme.fontFamily.serif],
       },
       height: {
         "screen-nav": "calc(100vh - 56px)",

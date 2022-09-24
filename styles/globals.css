@@ -2,6 +2,15 @@
 @tailwind base;
 
 @layer base {
+    h1, h2, h3, h4, h5, h6 { 
+        font-family: "Bodoni Moda", system-ui;
+    }
+    h1 { @apply font-heading; @apply tracking-wide }
+    h2 { @apply font-heading; @apply tracking-wide }
+    h3 { @apply font-heading; }
+    h4 { @apply font-heading; }
+    h5 { @apply font-heading; }
+    h6 { @apply font-heading; }
     body { @apply text-slate-700; }
     /* p { @apply text-slate-700; }
     h1 { @apply text-slate-700; @apply text-6xl; @apply font-bold; }
