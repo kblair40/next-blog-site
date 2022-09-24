@@ -13,9 +13,11 @@
     - Add button for adding space
     - Build way to add image
     - Build method for adding lists (ordered and unordered)
+    - Hide/show border on spacers toggle button
 6. Emails for unsubscribing
 7. Carousel cards should link to actual post.
 8. Carousel cards should pull data from new post creation method
+
 
 Maybes
 1. Figure out uploading/rendering google docs

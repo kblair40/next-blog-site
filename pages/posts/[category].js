@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
+import PostsPageWrapper from "./PostsPageWrapper";
+
 const PostsCategoryPage = () => {
   const [category, setCategory] = useState("");
 
@@ -11,7 +13,12 @@ const PostsCategoryPage = () => {
     setCategory(selectedCategory);
   }, [router.query.category]);
 
-  return <div>PostsCategoryPage</div>;
+  return (
+    <PostsPageWrapper>
+      <div>PostsCategoryPage</div>
+      <p>{category}</p>
+    </PostsPageWrapper>
+  );
 };
 
 export default PostsCategoryPage;
