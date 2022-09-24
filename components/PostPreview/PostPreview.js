@@ -1,9 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import classNames from "classnames";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import classNames from "classnames";
 
 const PostPreview = ({ variant, postData, classes = [] }) => {
+  const router = useRouter();
+
   const baseClasses = [
     "max-w-md", // prev included
     // "w-112",
@@ -16,6 +19,10 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
 
   // const defaultImg =
   //   "https://res.cloudinary.com/erinsblog/image/upload/v1663449242/allen-taylor-lLk1oJA7Wkg-unsplash_ndbdvy.jpg";
+
+  // const handleClick = () => {
+  //   router.push(`/post/${postData._id}`)
+  // }
 
   return (
     <div className={classNames(baseClasses)}>
@@ -40,7 +47,7 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
           dolor.
         </p>
 
-        <Link href="/all-posts">
+        <Link href={`/post/${postData._id}`}>
           <a className="text-darkgreen flex justify-end font-medium items-center md:mb-2 lg:mb-0">
             Read
             <svg

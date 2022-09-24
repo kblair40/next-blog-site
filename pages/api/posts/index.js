@@ -33,6 +33,7 @@ export default async function handler(req, res) {
     case "GET":
       let data;
       if (query && query.id) {
+        console.log("\n\n\n\n\n\nQUERY:", query, "\n\n\n\n\n\n");
         data = await getPostById(query.id);
         return res.status(200).json({ success: true, post: data });
       } else if (query && query.limit) {

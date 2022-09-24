@@ -5,7 +5,7 @@ import IconButton from "components/UI/IconButton";
 const GoBack = ({ label, route }) => {
   return (
     <Link href={route}>
-      <a className="flex items-center mt-2 mb-8 w-fit">
+      <a className="flex items-center mt-2 w-fit">
         <IconButton
           icon={
             <svg
@@ -18,8 +18,8 @@ const GoBack = ({ label, route }) => {
           }
         />
 
-        <div className="ml-3 h-full">
-          <p className="whitespace-nowrap font-medium text-lg">{label}</p>
+        <div className="ml-1 h-full">
+          <p className="whitespace-nowrap font-medium text-xl">{label}</p>
         </div>
       </a>
     </Link>
