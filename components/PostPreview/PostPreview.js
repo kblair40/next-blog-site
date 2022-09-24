@@ -27,26 +27,21 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
           objectFit="cover"
           alt="featured post image"
         />
+        <CategoryChip />
       </div>
 
-      <div className="p-4">
-        {/* {variant === "featured" && (
-          <h2 className="tracking-wider text-xs title-font font-semibold text-slate-500 mb-1">
-            FEATURED POST
-          </h2>
-        )} */}
-
-        <h1 className="text-lg font-medium text-slate-800 mb-3">
+      <div className="px-4 pt-3 pb-2">
+        <h4 className="text-xl font-medium text-slate-800 mb-2">
           {postData.title || "Post Title"}
-        </h1>
+        </h4>
 
-        <p className="mb-3">
+        <p className="mb-3 text-left leading-snug">
           Elit non Lorem in nostrud eu dolor do id irure anim in nostrued eu
           dolor.
         </p>
 
         <Link href="/all-posts">
-          <a className="text-primary-600 inline-flex font-medium items-center md:mb-2 lg:mb-0">
+          <a className="text-darkgreen flex justify-end font-medium items-center md:mb-2 lg:mb-0">
             Read
             <svg
               className="w-4 h-4 ml-2 group-hover:animate-point-right"
@@ -68,3 +63,13 @@ const PostPreview = ({ variant, postData, classes = [] }) => {
 };
 
 export default PostPreview;
+
+const CategoryChip = ({ category = "Category" }) => {
+  const classes = classNames({
+    "absolute top-2 left-2": true,
+    "py-1 px-2 rounded-xl": true,
+    "text-slate-100 bg-darkgreen": true,
+    "text-sm": true,
+  });
+  return <div className={classes}>{category}</div>;
+};
