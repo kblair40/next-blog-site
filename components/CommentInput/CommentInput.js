@@ -70,8 +70,16 @@ const CommentInput = () => {
   return (
     <div className="mt-10">
       <Stack direction="column">
-        <Input ref={nameRef} placeholder="Name (required)" />
-        <Input ref={emailRef} placeholder="Email (required)" />
+        <Input
+          classes={["w-full"]}
+          ref={nameRef}
+          placeholder="Name (required)"
+        />
+        <Input
+          classes={["w-full"]}
+          ref={emailRef}
+          placeholder="Email (required)"
+        />
       </Stack>
 
       <textarea
