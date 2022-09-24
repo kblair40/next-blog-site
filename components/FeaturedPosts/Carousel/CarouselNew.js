@@ -7,7 +7,7 @@ import useMediaQuery from "utils/hooks/useMediaQuery";
 
 const CarouselNew = ({ postsArray }) => {
   const isSmall = useMediaQuery("(min-width: 480px)");
-  console.log("isSmall?", isSmall);
+  // console.log("isSmall?", isSmall);
   const isMedium = useMediaQuery("(min-width: 768px)");
   // console.log("isMedium?", isMedium);
 
@@ -72,23 +72,24 @@ const CarouselNew = ({ postsArray }) => {
 export default CarouselNew;
 
 const Arrow = ({ dir, onClick }) => {
-  const className = classNames({
-    "absolute top-0 bottom-0 z-10 bg-lightgreen/10": true,
-    "active:bg-lightgreen/30": true,
+  const classes = classNames({
+    "absolute top-0 bottom-0 z-10 duration-300": true,
     "right-0": dir === "right",
     "left-0": dir === "left",
     "flex flex-column h-full justify-center items-center w-8": true,
-    "duration-150 cursor-pointer hover:bg-lightgreen/20": true,
+    "duration-150 cursor-pointer": true,
+    "bg-slate-300/25 hover:bg-slate-300/50 active:bg-slate-300/75": true,
   });
 
-  const svgClassName = classNames({
+  const svgClasses = classNames({
     "w-5 h-5 fill-slate-800": true,
     "rotate-180": dir === "right",
   });
+
   return (
-    <div className={className} onClick={onClick}>
+    <div className={classes} onClick={onClick}>
       <svg
-        className={svgClassName}
+        className={svgClasses}
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
       >
