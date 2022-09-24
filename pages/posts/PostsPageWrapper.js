@@ -12,6 +12,7 @@ const PostsPageWrapper = ({ children }) => {
     // "border border-blue-400": true,
     "w-full": true,
     "max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl": true,
+    "pt-6": true,
   });
 
   return (

@@ -67,7 +67,12 @@ const DropDown = () => {
             className={triggerClasses}
           >
             <div className="flex items-center space-x-2">
-              <p className="duration-300 hover:text-lightgreen">Posts</p>
+              <p
+                className="duration-300 hover:text-lightgreen"
+                // className="font-heading font-semibold duration-300 hover:text-lightgreen"
+              >
+                Posts
+              </p>
 
               <svg
                 className={arrowClasses}

@@ -86,6 +86,7 @@ const NavLink = ({ label, route, active }) => {
     "flex flex-col items-center",
     "py-2 px-3 rounded-md",
     "md:mx-2",
+    // "font-heading font-semibold",
   ];
 
   if (active) baseClasses.push("text-slate-900");
