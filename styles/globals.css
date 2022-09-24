@@ -12,6 +12,8 @@
     h5 { @apply font-heading; }
     h6 { @apply font-heading; }
     body { @apply text-slate-700; }
+    ul { @apply list-disc; }
+    ol { @apply list-decimal; }
     /* p { @apply text-slate-700; }
     h1 { @apply text-slate-700; @apply text-6xl; @apply font-bold; }
     h2 { @apply text-slate-700; @apply text-5xl; @apply font-bold; }
