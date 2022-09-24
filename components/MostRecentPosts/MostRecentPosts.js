@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import api from "utils/api";
 // import Button from "components/UI/Button";
@@ -7,6 +8,8 @@ import Loading from "components/UI/Loading";
 const MostRecentPosts = () => {
   const [recentPosts, setRecentPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchRecentPosts = async () => {
@@ -26,6 +29,10 @@ const MostRecentPosts = () => {
     fetchRecentPosts();
   }, []);
 
+  const handleClick = (postId) => {
+    router.push(`/post/${postId}`);
+  };
+
   if (loading) {
     return (
       <div className="h-20 flex justify-center items-center">
@@ -43,7 +50,7 @@ const MostRecentPosts = () => {
       <div className="flex flex-col">
         {recentPosts.length
           ? recentPosts.map((post, i) => {
-              return <RecentPost key={i} post={post} />;
+              return <RecentPost key={i} post={post} onClick={handleClick} />;
             })
           : null}
       </div>
@@ -53,7 +60,7 @@ const MostRecentPosts = () => {
 
 export default MostRecentPosts;
 
-const RecentPost = ({ post }) => {
+const RecentPost = ({ post, onClick }) => {
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -85,9 +92,14 @@ const RecentPost = ({ post }) => {
   }, []);
 
   return (
-    <div className="py-2 px-2 cursor-pointer duration-200 hover:bg-lightgreen/10 active:bg-lightgreen/20">
+    <div
+      onClick={() => onClick(post._id)}
+      className="py-2 px-2 cursor-pointer duration-200 hover:bg-lightgreen/10 active:bg-lightgreen/20"
+    >
       <div className="flex items-center justify-between">
-        <h4 className="text-lg font-medium">{post.title}</h4>
+        <h4 className="text-lg font-medium underline underline-offset-2 decoration-1">
+          {post.title}
+        </h4>
 
         <div className="flex items-center space-x-2 group">
           <svg
