@@ -11,7 +11,6 @@ const layout = ({ children }) => {
       {/* <Navbar /> */}
       <ToastContainer />
 
-      {/* 14 * 4 = 56px === exact navbar height */}
       <div className="overflow-y-auto relative min-h-screen-nav">
         {children}
       </div>
@@ -21,7 +20,3 @@ const layout = ({ children }) => {
 };
 
 export default layout;
-
-{
-  /* <Image publicId="sample" width="50" /> */
-}
