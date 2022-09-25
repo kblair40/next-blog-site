@@ -1,19 +1,22 @@
 import React from "react";
 
+import FullPageWrapper from "components/UI/FullPageWrapper";
+import SectionLeft from "./SectionLeft";
+import SectionRight from "./SectionRight";
+
 const HomePage = () => {
   return (
-    <div>
-      <SectionTitle title="Money and Travel" />
-    </div>
+    <FullPageWrapper>
+      <div className="flex h-full w-full">
+        <div className="h-full w-1/2">
+          <SectionLeft />
+        </div>
+        <div className="h-full w-1/2">
+          <SectionRight />
+        </div>
+      </div>
+    </FullPageWrapper>
   );
 };
 
 export default HomePage;
-
-const SectionTitle = ({ title }) => {
-  return (
-    <div className="h-screen w-60 border flex justify-center items-center">
-      <h1 className="rotate-90 text-4xl whitespace-nowrap">{title}</h1>
-    </div>
-  );
-};

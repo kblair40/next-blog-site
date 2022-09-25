@@ -8,7 +8,7 @@ import HomePage from "components/HomePage";
 
 export default function Home() {
   return (
-    <div className="max-w-5xl md:mx-auto xl:max-w-7xl">
+    <div>
       <Head>
         <title>Erins Blog!</title>
         <meta name="description" content="Money and other things" />
