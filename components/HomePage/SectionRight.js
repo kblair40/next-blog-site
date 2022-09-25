@@ -33,8 +33,9 @@ const HomeLink = ({ label, to }) => {
     "bg-[#f3efe9] rounded-sm text-slate-800": true,
     "cursor-pointer z-20 font-heading text-center": true,
     "py-3 px-4 w-3/5 uppercase text-lg": true,
-    "duration-200": true,
+    "duration-200 flex justify-center items-center": true,
   });
+
   return (
     <Link href={to}>
       <a className={classes}>{label}</a>
