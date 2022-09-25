@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 import FullPageWrapper from "components/UI/FullPageWrapper";
+import Navbar from "components/Navbar";
 
 const PostsCategoryPage = () => {
   const router = useRouter();
@@ -13,7 +14,9 @@ const PostsCategoryPage = () => {
         <div className="w-1/5 h-screen">
           <TitleSection sectionTitle={category} />
         </div>
-        <div className="w-4/5 bg-[#f3efe9] h-screen">{/*  */}</div>
+        <div className="w-4/5 bg-[#f3efe9] h-screen relative">
+          <Navbar />
+        </div>
       </div>
     </FullPageWrapper>
   );
