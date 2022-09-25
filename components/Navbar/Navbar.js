@@ -1,23 +1,33 @@
 import React from "react";
-import Link from "next/link";
+// import classNames from "classnames";
+import { useRouter } from "next/router";
 
-const Navbar = ({ activePage }) => {
+import NavLink from "./NavLink";
+import links from "./links";
+
+const Navbar = () => {
+  const router = useRouter();
+
+  const currentPage = "";
+  if (router.query && router.query.category) {
+    // console.log("CATEGORY:", router.query.category);
+    currentPage = router.query.category;
+  }
+
   return (
-    <div className="py-2 px-4 flex items-center justify-end space-x-6 font-medium">
-      <p className="pr-2 font-normal">Money and...</p>
+    <div className="pt-4 pb-2 pl-4 pr-8 flex items-center justify-end space-x-6 font-medium">
+      {/* <p className="pr-2 font-normal">Money and...</p> */}
 
-      <Link href="/posts/love">
-        <a className="">Love</a>
-      </Link>
-      <Link href="/posts/style">
-        <a className="">Style</a>
-      </Link>
-      <Link href="/posts/travel">
-        <a className="">Travel</a>
-      </Link>
-      <Link href="/posts/hunger">
-        <a className="">Hunger</a>
-      </Link>
+      {links.map((link, idx) => {
+        return (
+          <NavLink
+            key={idx}
+            to={link.to}
+            label={link.label}
+            isActive={link.label.toLowerCase() === currentPage}
+          />
+        );
+      })}
     </div>
   );
 };

@@ -28,7 +28,7 @@ const TitleSection = ({ sectionTitle }) => {
   return (
     <div className="h-full text-slate-800 flex flex-col items-center justify-center px-4">
       <h1 className="text-5xl -rotate-90 tracking-widest text-center font-medium tracking-wide leading-snug">
-        {sectionTitle.toUpperCase()}
+        {sectionTitle ? sectionTitle.toUpperCase() : ""}
       </h1>
     </div>
   );
