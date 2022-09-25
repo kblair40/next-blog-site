@@ -12,15 +12,20 @@ const PostsCategoryPage = () => {
   return (
     <FullPageWrapper>
       <div className="flex justify-center h-screen w-screen">
-        <div className="flex">
+        <div className="flex w-full ">
           <div className="h-screen w-fit">
             <TitleSection sectionTitle={category} />
           </div>
-          <div className="flex-1 bg-[#f3efe9] relative">
-            <Navbar />
 
-            <div className="px-2 mt-8">
-              <Posts />
+          <Navbar />
+          <div className="flex-1 bg-[#f3efe9] relative">
+            <div className="pt-12 max-h-screen overflow-y-auto">
+              <div className="px-2 mt-8">
+                <Posts />
+              </div>
+              <div className="px-2 mt-8">
+                <Posts />
+              </div>
             </div>
           </div>
         </div>
@@ -34,7 +39,7 @@ export default PostsCategoryPage;
 const TitleSection = ({ sectionTitle }) => {
   return (
     <div className="h-full text-slate-800 flex flex-col items-center justify-center">
-      <h1 className="text-5xl -rotate-90 tracking-widest text-center font-medium tracking-wide leading-snug">
+      <h1 className="text-5xl -rotate-90 tracking-widest text-center font-light tracking-wide leading-snug">
         {sectionTitle ? sectionTitle.toUpperCase() : ""}
       </h1>
     </div>

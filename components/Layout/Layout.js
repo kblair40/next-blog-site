@@ -1,17 +1,21 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
 
 import Navbar from "./Navbar";
 
 const layout = ({ children }) => {
+  console.log;
   return (
     <div id="layout" className="overflow-hidden">
       {/* <Navbar /> */}
       <ToastContainer />
 
       {/* 14 * 4 = 56px === exact navbar height */}
-      {/* <div className="relative top-14 min-h-screen-nav pb-24">{children}</div> */}
-      {children}
+      <div className="overflow-y-auto relative min-h-screen-nav">
+        {children}
+      </div>
+      {/* {children} */}
     </div>
   );
 };
