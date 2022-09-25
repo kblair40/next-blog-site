@@ -1,96 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Image from "next/image";
 
-import PostPreview from "./PostPreview";
-import api from "utils/api";
-import md from "utils/md";
+import one from "public/assets/images/models/one.jpg";
+import two from "public/assets/images/models/two.jpg";
+import three from "public/assets/images/models/three.jpg";
 
 const Posts = () => {
-  const [allPosts, setAllPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const allPosts = await api.get("/posts");
-        console.log("ALL POSTS:", allPosts.data.posts);
-
-        setAllPosts(
-          allPosts.data.posts.map((post, i) => {
-            return {
-              ...post,
-              content: "<div>" + post.content.trim() + "</div>",
-            };
-          })
-        );
-      } catch (e) {
-        console.error("FAILED TO FETCH POSTS:");
-      }
-
-      setLoading(false);
-    };
-
-    fetchPosts();
-  }, []);
-
-  if (loading) {
-    return (
-      <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        Loading...
-      </div>
-    );
-  }
-
-  const getPosts = () => {
-    if (!allPosts) return [];
-
-    let combinedPosts = [];
-    for (let i = 0; i < allPosts.length; i += 2) {
-      let post1 = allPosts[i];
-      let post2 = allPosts[i + 1];
-
-      post1 = (
-        <PostPreview key={i} title={post1.title} postId={post1._id}>
-          <div dangerouslySetInnerHTML={{ __html: md.render(post1.content) }} />
-        </PostPreview>
-      );
-
-      let posts = [post1];
-
-      if (post2) {
-        posts.push(
-          <PostPreview key={i + 1} title={post2.title} postId={post2._id}>
-            <div
-              dangerouslySetInnerHTML={{ __html: md.render(post2.content) }}
-            />
-          </PostPreview>
-        );
-      }
-
-      combinedPosts.push(posts);
-    }
-
-    return combinedPosts;
-  };
-
   return (
-    <div className="mt-4 px-4 flex flex-wrap">
-      {getPosts().map((posts, i) => {
-        return (
-          <div key={i} className="flex space-x-4 mb-4">
-            {posts}
-          </div>
-        );
+    <div className="p-2 flex items-center space-x-4">
+      {[one, two, three].map((img, i) => {
+        return <Post src={img} key={i} />;
       })}
     </div>
   );
 };
 
 export default Posts;
+
+const Post = ({ src }) => {
+  return (
+    <div className="cursor-pointer duration-200 p-1 hover:bg-slate-50 active:bg-slate-100">
+      <div className="flex flex-col items-center relative h-80 rounded-sm overflow-hidden">
+        <Image alt="style image" src={src} layout="fill" objectFit="cover" />
+      </div>
+
+      <div className="flex flex-col px-2">
+        <p className="text-center text-xl font-semibold mt-2">Post Title</p>
+        <p className="text-center line-clamp-2 mt-1">
+          Esse ea non Lorem nulla sint mollit ex ullamco irure in.
+        </p>
+      </div>
+    </div>
+  );
+};
