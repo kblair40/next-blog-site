@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/future/image";
+import Link from "next/link";
 import classNames from "classnames";
 
 import bgImage from "public/assets/images/statueofliberty.jpg";
 
 const SectionRight = () => {
   return (
-    <div className="relative h-full space-y-4 py-32 text-white flex flex-col items-center justify-around px-4">
+    <div className="relative h-full space-y-8 py-24 text-white flex flex-col items-center justify-around px-4">
       <HomeLink label="About" />
       <HomeLink label="Money and Love" />
       <HomeLink label="Money and Style" />
@@ -31,10 +32,14 @@ const HomeLink = ({ label, to }) => {
   const classes = classNames({
     "bg-[#f3efe9] rounded-sm text-slate-800": true,
     "cursor-pointer z-20 font-heading text-center": true,
-    "py-2 px-4 w-3/5 uppercase": true,
+    "py-3 px-4 w-3/5 uppercase text-lg": true,
     "duration-200": true,
   });
-  return <div className={classes}>{label}</div>;
+  return (
+    <Link href="#">
+      <a className={classes}>{label}</a>
+    </Link>
+  );
 };
 
 // #f3efe9
