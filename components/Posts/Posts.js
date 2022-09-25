@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
+import Loading from "components/UI/Loading";
 import one from "public/assets/images/models/one.jpg";
 import two from "public/assets/images/models/two.jpg";
 import three from "public/assets/images/models/three.jpg";
 
-const Posts = () => {
+const Posts = ({ category }) => {
+  const [posts, setPosts] = useState();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {}, [category]);
+
   return (
+    // CHANGE TO GRID
     <div className="p-2 flex items-center space-x-4">
       {[one, two, three].map((img, i) => {
         return <Post src={img} key={i} />;
