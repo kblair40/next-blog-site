@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Posts from "components/Posts";
 import FullPageWrapper from "components/UI/FullPageWrapper";
 import Navbar from "components/Navbar";
+import TitleSection from "components/TitleSection";
 
 const PostsCategoryPage = () => {
   const router = useRouter();
@@ -36,12 +37,12 @@ const PostsCategoryPage = () => {
 
 export default PostsCategoryPage;
 
-const TitleSection = ({ sectionTitle }) => {
-  return (
-    <div className="h-full text-slate-800 flex flex-col items-center justify-center">
-      <h1 className="text-5xl -rotate-90 tracking-widest text-center font-light tracking-wide leading-snug">
-        {sectionTitle ? sectionTitle.toUpperCase() : ""}
-      </h1>
-    </div>
-  );
-};
+// const TitleSection = ({ sectionTitle }) => {
+//   return (
+//     <div className="h-full text-slate-800 flex flex-col items-center justify-center">
+//       <h1 className="text-5xl -rotate-90 tracking-widest text-center font-light tracking-wide leading-snug">
+//         {sectionTitle ? sectionTitle.toUpperCase() : ""}
+//       </h1>
+//     </div>
+//   );
+// };
