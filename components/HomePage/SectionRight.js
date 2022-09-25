@@ -8,12 +8,12 @@ import bgImage from "public/assets/images/statueofliberty.jpg";
 const SectionRight = () => {
   return (
     <div className="relative h-full space-y-8 py-24 text-white flex flex-col items-center justify-around px-4">
-      <HomeLink label="About" />
-      <HomeLink label="Money and Love" />
-      <HomeLink label="Money and Style" />
-      <HomeLink label="Money and Travel" />
-      <HomeLink label="Money Hungry" />
-      <HomeLink label="Resources" />
+      <HomeLink label="About" to="/about" />
+      <HomeLink label="Money and Love" to="/posts/love" />
+      <HomeLink label="Money and Style" to="/posts/style" />
+      <HomeLink label="Money and Travel" to="/posts/travel" />
+      <HomeLink label="Money Hungry" to="/posts/hungry" />
+      <HomeLink label="Resources" to="/resources" />
       <div>
         <Image
           height={900}
@@ -36,7 +36,7 @@ const HomeLink = ({ label, to }) => {
     "duration-200": true,
   });
   return (
-    <Link href="#">
+    <Link href={to}>
       <a className={classes}>{label}</a>
     </Link>
   );
