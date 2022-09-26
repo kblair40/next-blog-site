@@ -1,43 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classNames from "classnames";
 
-import Loading from "components/UI/Loading";
-import api from "utils/api";
+// import Loading from "components/UI/Loading";
 
-const BlogPostNew = ({ postId }) => {
-  const [postContent, setPostContent] = useState();
-  const [loading, setLoading] = useState(false);
-
-  return null;
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await api.get(`/posts`, {
-          params: { id: postId },
-        });
-        console.log("\n\nRESPONSE:", response, "\n\n");
-
-        if (
-          response &&
-          response.data &&
-          response.data.post &&
-          response.data.post.content
-        ) {
-          const postContent = JSON.parse(response.data.post.content);
-          setPostContent(postContent);
-        }
-      } catch (e) {
-        console.error("FAILED TO FETCH POST:", e);
-      }
-
-      setLoading(false);
-    };
-
-    if (postId) {
-      fetchPost();
-    }
-  }, [postId]);
+const BlogPost = ({ postContent }) => {
+  postContent = JSON.parse(postContent);
 
   const makeElement = (el, i) => {
     const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
@@ -58,7 +25,6 @@ const BlogPostNew = ({ postId }) => {
 
     /* Add classes depending on value of 'type' */
     if (type === "img") {
-      // classes.push("mx-auto");
       let style = {};
       if (el.classes.includes("w-1/4")) style["width"] = "25%";
       if (el.classes.includes("w-3/4")) style["width"] = "75%";
@@ -77,7 +43,7 @@ const BlogPostNew = ({ postId }) => {
   };
 
   const classes = classNames({
-    "w-full": true,
+    "w-full mt-12": true,
     "px-12 flex justify-center": true,
     "no-border": true,
   });
@@ -86,10 +52,6 @@ const BlogPostNew = ({ postId }) => {
     "w-full pt-6": true,
     "max-w-3xl lg:max-w-4xl": true,
   });
-
-  if (loading) {
-    return <Loading fullScreen />;
-  }
 
   return (
     <div className={classes}>
@@ -104,4 +66,4 @@ const BlogPostNew = ({ postId }) => {
   );
 };
 
-export default BlogPostNew;
+export default BlogPost;

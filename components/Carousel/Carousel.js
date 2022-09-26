@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 import { Carousel as RRCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -10,6 +11,8 @@ import PostPreview from "./PostPreview";
 const Carousel = ({ posts }) => {
   const [formattedPosts, setFormattedPosts] = useState();
   // const [loading, setLoading] = useState();
+  const router = useRouter();
+  const category = router.query?.category;
 
   const isSmall = useMediaQuery("(min-width: 480px)");
   console.log("\nisSmall?", isSmall);
@@ -24,7 +27,9 @@ const Carousel = ({ posts }) => {
       let postComponents = [];
       for (let i = 0; i < posts.length; i++) {
         let post = posts[i];
-        let postComponent = <PostPreview key={i} post={post} />;
+        let postComponent = (
+          <PostPreview key={i} post={post} category={category} />
+        );
         postComponents.push(postComponent);
       }
 

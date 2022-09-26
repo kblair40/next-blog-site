@@ -14,11 +14,6 @@ const PostsCategoryPage = ({ category, posts }) => {
   console.log("\n\nCATEGORY:", category);
 
   posts = JSON.parse(posts);
-  console.log("PARSED POSTS:", posts);
-
-  // useEffect(() => {
-  //   console.log("UPDATED VALUES:", { category, posts });
-  // }, [category, posts]);
 
   return (
     <FullPageWrapper>
@@ -34,10 +29,6 @@ const PostsCategoryPage = ({ category, posts }) => {
               <div className="mt-8">
                 <Posts category={category} posts={posts} />
               </div>
-
-              {/* <div className="px-2 mt-8">
-                <Posts category={category} />
-              </div> */}
             </div>
           </div>
         </div>
