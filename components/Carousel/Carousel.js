@@ -14,15 +14,16 @@ const Carousel = ({ posts }) => {
   const isSmall = useMediaQuery("(min-width: 480px)");
   console.log("isSmall?", isSmall);
   const isMedium = useMediaQuery("(min-width: 768px)");
-  // console.log("isMedium?", isMedium);
+  console.log("isMedium?", isMedium);
 
   useEffect(() => {
     console.log("POSTS:", posts);
 
     if (posts && posts.length) {
       let postComponents = [];
-      for (let post of posts) {
-        let postComponent = <Post post={post} />;
+      for (let i = 0; i < posts.length; i++) {
+        let post = posts[i];
+        let postComponent = <Post key={i} post={post} />;
         postComponents.push(postComponent);
       }
 
@@ -37,10 +38,11 @@ const Carousel = ({ posts }) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className={classNames({
-          "min-w-[300px] sm:min-w-[340px]": true,
+          // "min-w-[300px] sm:min-w-[340px]": true,
           "w-fit": true,
-          "px-4 sm:mx-0": true,
+          "px-2 sm:mx-0": true,
           "md:my-2": true,
+          "border border-blue-400": true,
         })}
       >
         {item}
@@ -54,36 +56,36 @@ const Carousel = ({ posts }) => {
 
   const classes = classNames({
     "w-full h-fit": true,
-    "max-w-[100vw]": true,
+    "max-w-full": true,
     "rounded-md sm:shadow-inner": true,
     relative: true,
+    "border border-red-400": true,
   });
 
   return (
     <React.Fragment>
-      <div className="flex flex-col items-start w-full">
-        <div className="w-full flex flex-col items-center sm:max-w-[100vw]">
-          <div className={classes}>
-            {formattedPosts && formattedPosts.length ? (
-              <RRCarousel
-                renderItem={renderItem}
-                showArrows={true}
-                showStatus={false}
-                showIndicators={false}
-                infiniteLoop={true}
-                renderArrowPrev={(...args) => renderArrow("left", ...args)}
-                renderArrowNext={(...args) => renderArrow("right", ...args)}
-                centerMode={isSmall}
-                centerSlidePercentage={isMedium ? 60 : 80}
-                showThumbs={false}
-                swipeable={false}
-              >
-                {formattedPosts}
-              </RRCarousel>
-            ) : (
-              <Loading fullScreen />
-            )}
-          </div>
+      <div className="w-full flex flex-col items-start">
+        <div className={classes}>
+          {formattedPosts && formattedPosts.length ? (
+            <RRCarousel
+              renderItem={renderItem}
+              showArrows={true}
+              showStatus={false}
+              showIndicators={false}
+              infiniteLoop={true}
+              renderArrowPrev={(...args) => renderArrow("left", ...args)}
+              renderArrowNext={(...args) => renderArrow("right", ...args)}
+              centerMode={isSmall}
+              // centerSlidePercentage={isMedium ? 60 : 80}
+              centerSlidePercentage={isMedium ? 33 : isSmall ? 33 : 80}
+              showThumbs={false}
+              swipeable={false}
+            >
+              {formattedPosts}
+            </RRCarousel>
+          ) : (
+            <Loading fullScreen />
+          )}
         </div>
       </div>
     </React.Fragment>
@@ -94,7 +96,7 @@ export default Carousel;
 
 const Post = ({ post }) => {
   return (
-    <div className="cursor-pointer duration-200 p-1 hover:bg-slate-50 active:bg-slate-100">
+    <div className="cursor-pointer duration-200 p-1 hover:bg-slate-50 active:bg-slate-100 border border-orange-700">
       <div className="flex flex-col items-center relative h-80 rounded-sm overflow-hidden">
         <Image
           alt="style image"
@@ -127,6 +129,8 @@ const Arrow = ({ dir, onClick }) => {
   const svgClasses = classNames({
     "w-5 h-5 fill-darkgreen": true,
     "rotate-180": dir === "right",
+    "border border-green-600": true,
+    "z-50": true,
   });
 
   return (
