@@ -31,7 +31,7 @@ const PostsCategoryPage = ({ category, posts }) => {
           <Navbar />
           <div className="flex-1 bg-[#f3efe9] relative">
             <div className="pt-12 max-h-screen overflow-y-auto">
-              <div className="px-2 mt-8">
+              <div className="mt-8">
                 <Posts category={category} posts={posts} />
               </div>
 

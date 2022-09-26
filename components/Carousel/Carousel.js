@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import Loading from "components/UI/Loading";
 import useMediaQuery from "utils/hooks/useMediaQuery";
+import { format } from "@cloudinary/url-gen/actions/delivery";
 
 const Carousel = ({ posts }) => {
   const [formattedPosts, setFormattedPosts] = useState();
@@ -15,6 +16,8 @@ const Carousel = ({ posts }) => {
   console.log("isSmall?", isSmall);
   const isMedium = useMediaQuery("(min-width: 768px)");
   console.log("isMedium?", isMedium);
+  const isLarge = useMediaQuery("(min-width: 980px)");
+  console.log("isLarge?", isLarge);
 
   useEffect(() => {
     console.log("POSTS:", posts);
@@ -38,11 +41,9 @@ const Carousel = ({ posts }) => {
       <div
         onClick={(e) => e.stopPropagation()}
         className={classNames({
-          // "min-w-[300px] sm:min-w-[340px]": true,
-          "w-fit": true,
-          "px-2 sm:mx-0": true,
-          "md:my-2": true,
-          "border border-blue-400": true,
+          "max-w-screen": true,
+          relative: true,
+          "mx-auto": true,
         })}
       >
         {item}
@@ -56,15 +57,19 @@ const Carousel = ({ posts }) => {
 
   const classes = classNames({
     "w-full h-fit": true,
-    "max-w-full": true,
-    "rounded-md sm:shadow-inner": true,
-    relative: true,
-    "border border-red-400": true,
+    "max-w-screen sm:max-w-screen-title-sm md:max-w-screen-title-md": true,
+    "rounded-md relative": true,
+  });
+
+  const wrapperClasses = classNames({
+    "w-full flex flex-col pt-12": true,
+    "max-w-screen": true,
+    "items-start": true,
   });
 
   return (
     <React.Fragment>
-      <div className="w-full flex flex-col items-start">
+      <div className={wrapperClasses}>
         <div className={classes}>
           {formattedPosts && formattedPosts.length ? (
             <RRCarousel
@@ -72,16 +77,17 @@ const Carousel = ({ posts }) => {
               showArrows={true}
               showStatus={false}
               showIndicators={false}
-              infiniteLoop={true}
+              // infiniteLoop={true}
               renderArrowPrev={(...args) => renderArrow("left", ...args)}
               renderArrowNext={(...args) => renderArrow("right", ...args)}
               centerMode={isSmall}
-              // centerSlidePercentage={isMedium ? 60 : 80}
-              centerSlidePercentage={isMedium ? 33 : isSmall ? 33 : 80}
+              centerSlidePercentage={
+                isLarge ? 20 : isMedium ? 33.333 : isSmall ? 50 : 100
+              }
               showThumbs={false}
               swipeable={false}
             >
-              {formattedPosts}
+              {formattedPosts.concat(formattedPosts).concat(formattedPosts)}
             </RRCarousel>
           ) : (
             <Loading fullScreen />
@@ -96,8 +102,8 @@ export default Carousel;
 
 const Post = ({ post }) => {
   return (
-    <div className="cursor-pointer duration-200 p-1 hover:bg-slate-50 active:bg-slate-100 border border-orange-700">
-      <div className="flex flex-col items-center relative h-80 rounded-sm overflow-hidden">
+    <div className="cursor-pointer duration-200 p-1 sm:p-1.5 md:p-2 hover:bg-slate-50 active:bg-slate-100 max-w-screen">
+      <div className="relative h-80 rounded-sm overflow-hidden max-w-screen">
         <Image
           alt="style image"
           src={post.image_url}
@@ -118,18 +124,18 @@ const Post = ({ post }) => {
 
 const Arrow = ({ dir, onClick }) => {
   const classes = classNames({
-    "absolute top-0 bottom-0 z-10 duration-300": true,
+    "absolute top-1.5 bottom-0 z-50 duration-300": true,
     "right-0": dir === "right",
     "left-0": dir === "left",
     "flex flex-column h-full justify-center items-center w-8": true,
     "duration-150 cursor-pointer": true,
-    "bg-slate-300/25 hover:bg-slate-300/50 active:bg-slate-300/75": true,
+    "bg-slate-300/50 hover:bg-slate-300/75 active:bg-slate-300/90": true,
+    // "border border-red-400": true,
   });
 
   const svgClasses = classNames({
     "w-5 h-5 fill-darkgreen": true,
     "rotate-180": dir === "right",
-    "border border-green-600": true,
     "z-50": true,
   });
 
