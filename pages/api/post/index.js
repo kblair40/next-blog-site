@@ -1,10 +1,6 @@
 import dbConnect from "utils/dbConnect";
 import Post from "server/models/Post";
 
-const buildQuery = (query) => {
-  console.log("BUILD QUERY RCVD:", query, typeof query);
-};
-
 export default async function handler(req, res) {
   const { method, query } = req;
 
@@ -17,11 +13,16 @@ export default async function handler(req, res) {
 
   switch (method) {
     case "GET":
-      let filter;
+      let results = [];
       if (query) {
-        console.log("\n\nYES QUERY");
-        filter = buildQuery(query);
+        results = await Post.find(query);
+        console.log("\nRESULTS:", results);
+        if (results && results.length) {
+          return res.status(200).json({ success: true, results });
+        } else {
+          return res.status(404).json({ sucess: false, data: [] });
+        }
       }
-      return res.status(400).json({ success: false, msg: "UNHANDLED ERROR" });
+      return res.status(400).json({ success: false, data: [] });
   }
 }
