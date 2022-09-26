@@ -23,6 +23,13 @@ const PostSchema = new mongoose.Schema(
       // 3 - deleted
       // 4 - idk, might think of something
     },
+    category: {
+      type: String,
+      // This should eventually use enums below, although they may need modification
+      // For now, enforce enum client-side before sending request.
+      // enum: ["style", "love", "travel", "hunger"],
+      // default: undefined,
+    },
   },
   { timestamps: true }
 );
