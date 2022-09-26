@@ -10,7 +10,7 @@ import logo from "public/assets/images/money-and-other-things.webp";
 import navLinks from "./data";
 import SubscribeModal from "components/SubscribeModal";
 // import DropDown from "components/UI/DropDown";
-import Drawer from "./Drawer";
+import Drawer from "../../Navbar/Drawer";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
