@@ -118,3 +118,16 @@
 .no-border div {
     border: none !important;
 }
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 60px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
