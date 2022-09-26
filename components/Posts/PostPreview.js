@@ -14,7 +14,7 @@ const PostPreview = ({ post, category }) => {
       onClick={handleClickPost}
       className="cursor-pointer duration-200 p-1 sm:p-1.5 md:p-2 hover:bg-slate-50 active:bg-slate-100 max-w-screen"
     >
-      <div className="relative h-80 rounded-sm overflow-hidden max-w-screen">
+      <div className="relative h-60 rounded-sm overflow-hidden max-w-screen">
         <Image
           alt="style image"
           src={post.image_url}
