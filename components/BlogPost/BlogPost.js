@@ -1,9 +1,10 @@
 import React from "react";
 import classNames from "classnames";
+import Image from "next/image";
 
 // import Loading from "components/UI/Loading";
 
-const BlogPost = ({ postContent }) => {
+const BlogPost = ({ postContent, postImage }) => {
   postContent = JSON.parse(postContent);
 
   const makeElement = (el, i) => {
@@ -43,19 +44,29 @@ const BlogPost = ({ postContent }) => {
   };
 
   const classes = classNames({
-    "w-full mt-12": true,
-    "px-12 flex justify-center": true,
+    "w-full mt-4": true,
+    "px-4 sm:px-8 flex justify-center": true,
     "no-border": true,
   });
 
   const previewClasses = classNames({
     "w-full pt-6": true,
-    "max-w-3xl lg:max-w-4xl": true,
+    "flex flex-col items-center text-justify": true,
+    // "max-w-3xl lg:max-w-4xl": true,
   });
 
   return (
     <div className={classes}>
       <div className={previewClasses}>
+        <div className="relative h-60 w-full md:h-80 md:w-3/4 rounded-sm overflow-hidden mb-6 md:mb-8">
+          <Image
+            src={postImage}
+            alt="post image"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+
         {Array.isArray(postContent) && postContent.length
           ? postContent.map((elObj, i) => {
               return makeElement(elObj, i);

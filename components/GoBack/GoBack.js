@@ -7,9 +7,10 @@ const GoBack = ({ label, route }) => {
     <Link href={route}>
       <a className="flex items-center mt-2 w-fit">
         <IconButton
+          classes={["py-1 px-1"]}
           icon={
             <svg
-              className="w-6 h-6 fill-slate-800"
+              className="w-6 h-6 fill-darkgreen"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -18,8 +19,8 @@ const GoBack = ({ label, route }) => {
           }
         />
 
-        <div className="ml-1 h-full">
-          <p className="whitespace-nowrap font-medium text-xl">{label}</p>
+        <div className="h-full">
+          <p className="whitespace-nowrap font-normal text-xl">{label}</p>
         </div>
       </a>
     </Link>

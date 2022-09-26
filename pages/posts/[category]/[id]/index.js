@@ -1,21 +1,32 @@
 import React from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 import Post from "server/models/Post";
 import dbConnect from "utils/dbConnect";
 import NavBar from "components/NavBar";
 import BlogPost from "components/BlogPost";
-// import GoBack from "components/GoBack";
+import GoBack from "components/GoBack";
 
 const BlogPostPage = ({ post }) => {
-  // const router = useRouter();
+  const { query } = useRouter();
+
   post = JSON.parse(post);
   console.log("PARSED POST:", post);
+
   return (
     <div>
       <NavBar />
 
-      {post && post.content ? <BlogPost postContent={post.content} /> : null}
+      <div className="mt-16 pl-6">
+        <GoBack
+          route={`/posts/${query.category}`}
+          label={`Back to all ${query.category} posts`}
+        />
+      </div>
+
+      {post && post.content ? (
+        <BlogPost postContent={post.content} postImage={post.image_url} />
+      ) : null}
     </div>
   );
 };
