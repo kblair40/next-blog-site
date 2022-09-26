@@ -8,7 +8,7 @@ import TitleSection from "components/TitleSection";
 import api from "utils/api";
 
 const PostsCategoryPage = ({ category }) => {
-  // const router = useRouter();
+  const router = useRouter();
   const category1 = router.query.category;
 
   console.log("\n\nCATEGORY1:", category1);
@@ -39,19 +39,22 @@ const PostsCategoryPage = ({ category }) => {
   );
 };
 
-PostsCategoryPage.getInitialProps = async () => {
+PostsCategoryPage.getInitialProps = async ({ query }) => {
   console.log("GET PROPS GET PROPS GET PROPS GET PROPS GET PROPS");
   let posts = [];
+  // const router = useRouter();
+  // const category = router.query.category;
 
   try {
-    const response = await api.get("/posts", {
-      params: { category },
+    const response = await api.get("/post", {
+      params: { category: "" },
     });
+    console.log("\n\nRESPONSE:", response, "\n\n");
   } catch (e) {
     console.log("FAILED FETCHING POSTS:", e);
   }
 
-  return { category };
+  return { posts };
 };
 
 export default PostsCategoryPage;

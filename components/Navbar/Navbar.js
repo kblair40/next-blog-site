@@ -8,7 +8,7 @@ import links from "./links";
 const Navbar = () => {
   const router = useRouter();
 
-  const currentPage = "";
+  let currentPage = "";
   if (router.query && router.query.category) {
     currentPage = router.query.category;
   }

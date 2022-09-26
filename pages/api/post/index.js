@@ -19,6 +19,7 @@ export default async function handler(req, res) {
     case "GET":
       let filter;
       if (query) {
+        console.log("\n\nYES QUERY");
         filter = buildQuery(query);
       }
       return res.status(400).json({ success: false, msg: "UNHANDLED ERROR" });
