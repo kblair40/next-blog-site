@@ -1,9 +1,5 @@
 import Head from "next/head";
 
-// import Hero from "components/Hero";
-// import ResourcesImLoving from "components/ResourcesImLoving";
-// import MostRecentPosts from "components/MostRecentPosts";
-// import FeaturedPosts from "components/FeaturedPosts";
 import HomePage from "components/HomePage";
 
 export default function Home() {

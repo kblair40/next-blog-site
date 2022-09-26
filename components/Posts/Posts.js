@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Carousel from "components/Carousel";
 import PostPreview from "./PostPreview";
 
 const Posts = ({ posts, category }) => {
