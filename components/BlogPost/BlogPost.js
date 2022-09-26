@@ -8,6 +8,8 @@ const BlogPostNew = ({ postId }) => {
   const [postContent, setPostContent] = useState();
   const [loading, setLoading] = useState(false);
 
+  return null;
+
   useEffect(() => {
     const fetchPost = async () => {
       try {

@@ -8,6 +8,8 @@ import Button from "components/UI/Button";
 const CreatePreview = ({ content }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
+  return null;
+
   const makeListItems = (textArray) => {
     const listItems = [];
     for (let textItem of textArray) {
