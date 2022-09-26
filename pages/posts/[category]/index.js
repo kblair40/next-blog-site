@@ -17,18 +17,16 @@ const PostsCategoryPage = ({ category, posts }) => {
 
   return (
     <FullPageWrapper>
-      <div className="flex justify-center h-screen w-screen">
-        <div className="flex w-full ">
+      <Navbar />
+      <div className="h-screen w-screen">
+        <div className="flex w-full">
           <div className="h-screen w-fit">
             <TitleSection sectionTitle={category} />
           </div>
 
-          <Navbar />
           <div className="flex-1 bg-[#f3efe9] relative">
-            <div className="pt-12 max-h-screen overflow-y-auto">
-              <div className="mt-8">
-                <Posts category={category} posts={posts} />
-              </div>
+            <div className="max-h-screen-nav absolute bottom-0 left-0 right-0 overflow-y-auto pb-4">
+              <Posts category={category} posts={posts} />
             </div>
           </div>
         </div>

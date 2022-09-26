@@ -15,7 +15,9 @@ const Navbar = () => {
   }
 
   const wrapperClasses = classNames({
-    "absolute z-50 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center justify-end font-medium bg-[#f3efe9]": true,
+    "absolute z-50 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center justify-end font-medium": true,
+    "bg-[#f3efe9]": false,
+    "bg-transparent": true,
     "sm:left-24 md:left-36": Boolean(query.category) && !Boolean(query.id),
     "left-0": Boolean(query.id),
   });
