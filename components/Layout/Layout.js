@@ -11,9 +11,7 @@ const layout = ({ children }) => {
       {/* <Navbar /> */}
       <ToastContainer />
 
-      <div className="overflow-y-auto relative min-h-screen-nav">
-        {children}
-      </div>
+      <div className="overflow-y-auto relative min-h-screen">{children}</div>
       {/* {children} */}
     </div>
   );

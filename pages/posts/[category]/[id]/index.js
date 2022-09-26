@@ -14,10 +14,10 @@ const BlogPostPage = ({ post }) => {
   console.log("PARSED POST:", post);
 
   return (
-    <div>
+    <div className="min-h-screen h-full bg-[#f3efe9] pb-8">
       <NavBar />
 
-      <div className="mt-16 pl-6">
+      <div className="pt-16 pl-6">
         <GoBack
           route={`/posts/${query.category}`}
           label={`Back to all ${query.category} posts`}
