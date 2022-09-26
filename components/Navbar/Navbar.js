@@ -14,18 +14,20 @@ const Navbar = () => {
   }
 
   return (
-    // <div className="w-full z-50 bg-[#f3efe9] absolute top-0 right-0 pt-4 pb-2 pl-4 pr-8 flex items-center justify-end space-x-6 font-medium">
-    <div className="absolute z-50 top-0 right-0 pt-4 pb-2 pl-4 pr-8 flex items-center justify-end space-x-6 font-medium">
-      {links.map((link, idx) => {
-        return (
-          <NavLink
-            key={idx}
-            to={link.to}
-            label={link.label}
-            isActive={link.label.toLowerCase() === currentPage}
-          />
-        );
-      })}
+    <div className="left-36 absolute z-50 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center justify-end font-medium">
+      <p className="font-light mr-4">Money and...</p>
+      <div className="flex items-center space-x-6">
+        {links.map((link, idx) => {
+          return (
+            <NavLink
+              key={idx}
+              to={link.to}
+              label={link.label}
+              isActive={link.label.toLowerCase() === currentPage}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
