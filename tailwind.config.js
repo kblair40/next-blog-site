@@ -28,6 +28,9 @@ module.exports = {
         88: "352px",
         100: "400px",
       },
+      maxHeight: {
+        "screen-nav": "calc(100vh - 56px)",
+      },
       minHeight: {
         25: "100px",
         50: "200px",
