@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const {
+  ClipAction,
+} = require("@cloudinary/url-gen/actions/psdTools/ClipAction");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -38,6 +41,11 @@ module.exports = {
         "screen-80": "80vw",
         112: "28rem",
         128: "32rem",
+      },
+      maxWidth: {
+        screen: "100vw",
+        "screen-title-sm": "calc(100vw - 80px)",
+        "screen-title-md": "calc(100vw - 140px)",
       },
       minWidth: {
         base: "320px",
