@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import Post from "server/models/Post";
 import dbConnect from "utils/dbConnect";
-import NavBar from "components/NavBar";
+import NavBar from "components/Navbar";
 import BlogPost from "components/BlogPost";
 import GoBack from "components/GoBack";
 
@@ -15,7 +15,7 @@ const BlogPostPage = ({ post }) => {
 
   return (
     <div className="min-h-screen h-full bg-[#f3efe9] pb-8">
-      <NavBar />
+      <Navbar />
 
       <div className="pt-16 pl-6">
         <GoBack

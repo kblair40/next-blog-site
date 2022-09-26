@@ -25,7 +25,7 @@ const PostsCategoryPage = ({ category, posts }) => {
           </div>
 
           <div className="flex-1 bg-[#f3efe9] relative">
-            <div className="max-h-screen-nav absolute bottom-0 left-0 right-0 overflow-y-auto pb-4">
+            <div className="max-h-screen-nav pt-4 absolute bottom-0 left-0 right-0 overflow-y-auto pb-8">
               <Posts category={category} posts={posts} />
             </div>
           </div>

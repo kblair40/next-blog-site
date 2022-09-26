@@ -7,11 +7,11 @@ import SectionRight from "./SectionRight";
 const HomePage = () => {
   return (
     <FullPageWrapper>
-      <div className="flex h-full w-full">
-        <div className="h-full w-1/2">
+      <div className="flex flex-col sm:flex-row h-full w-full">
+        <div className="w-full h-2/5 sm:h-full sm:w-1/2">
           <SectionLeft />
         </div>
-        <div className="h-full w-1/2">
+        <div className="w-full h-3/5 sm:h-full sm:w-1/2">
           <SectionRight />
         </div>
       </div>
