@@ -16,7 +16,7 @@ const SectionRight = () => {
       <HomeLink label="Resources" to="/resources" />
 
       <div className="absolute left-0 top-0 right-0 bottom-0 h-full">
-        <Image layout="fill" objectFit="cover" src={bgImage} />
+        <Image layout="fill" objectFit="cover" src={bgImage} priority />
       </div>
     </div>
   );
