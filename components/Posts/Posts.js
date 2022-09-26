@@ -16,7 +16,7 @@ const Posts = ({ category }) => {
     // CHANGE TO GRID
     <div className="p-2 flex items-center space-x-4">
       {[one, two, three].map((img, i) => {
-        return <Post src={img} key={i} />;
+        return <Post imgSrc={img} key={i} />;
       })}
     </div>
   );
@@ -24,11 +24,11 @@ const Posts = ({ category }) => {
 
 export default Posts;
 
-const Post = ({ src }) => {
+const Post = ({ imgSrc }) => {
   return (
     <div className="cursor-pointer duration-200 p-1 hover:bg-slate-50 active:bg-slate-100">
       <div className="flex flex-col items-center relative h-80 rounded-sm overflow-hidden">
-        <Image alt="style image" src={src} layout="fill" objectFit="cover" />
+        <Image alt="style image" src={imgSrc} layout="fill" objectFit="cover" />
       </div>
 
       <div className="flex flex-col px-2">

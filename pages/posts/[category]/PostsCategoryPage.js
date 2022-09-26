@@ -47,6 +47,7 @@ PostsCategoryPage.getInitialProps = async ({ query }) => {
       params: { category },
     });
     console.log("\n\nRESPONSE:", response, "\n\n");
+    posts = response.data.posts;
   } catch (e) {
     console.log("FAILED FETCHING POSTS:", e);
   }
