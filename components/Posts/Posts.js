@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import Loading from "components/UI/Loading";
+import Carousel from "components/Carousel";
 import one from "public/assets/images/models/one.jpg";
 import two from "public/assets/images/models/two.jpg";
 import three from "public/assets/images/models/three.jpg";
@@ -12,14 +13,15 @@ const Posts = ({ category, posts }) => {
 
   useEffect(() => {}, [category]);
 
-  return (
-    // CHANGE TO GRID
-    <div className="p-2 flex items-center space-x-4">
-      {[one, two, three].map((img, i) => {
-        return <Post imgSrc={img} key={i} />;
-      })}
-    </div>
-  );
+  return <Carousel posts={posts} />;
+
+  // return (
+  //   <div className="p-2 flex items-center space-x-4">
+  //     {[one, two, three].map((img, i) => {
+  //       return <Post imgSrc={img} key={i} />;
+  //     })}
+  //   </div>
+  // );
 };
 
 export default Posts;
