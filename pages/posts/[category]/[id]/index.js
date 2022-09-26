@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import Post from "server/models/Post";
 import dbConnect from "utils/dbConnect";
-import NavBar from "components/Navbar";
+import Navbar from "components/Navbar";
 import BlogPost from "components/BlogPost";
 import GoBack from "components/GoBack";
 
