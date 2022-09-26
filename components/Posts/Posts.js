@@ -6,9 +6,9 @@ import one from "public/assets/images/models/one.jpg";
 import two from "public/assets/images/models/two.jpg";
 import three from "public/assets/images/models/three.jpg";
 
-const Posts = ({ category }) => {
-  const [posts, setPosts] = useState();
-  const [loading, setLoading] = useState(false);
+const Posts = ({ category, posts }) => {
+  // const [posts, setPosts] = useState();
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {}, [category]);
 

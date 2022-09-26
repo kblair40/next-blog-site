@@ -16,32 +16,32 @@ const PostsCategoryPage = ({ category, posts }) => {
   posts = JSON.parse(posts);
   console.log("PARSED POSTS:", posts);
 
-  useEffect(() => {
-    console.log("UPDATED VALUES:", { category, posts });
-  }, [category, posts]);
+  // useEffect(() => {
+  //   console.log("UPDATED VALUES:", { category, posts });
+  // }, [category, posts]);
 
   return (
     <FullPageWrapper>
       <div className="flex justify-center h-screen w-screen">
-        <div className="flex w-full ">gsafs</div>
-      </div>
-      {/* <div className="h-screen w-fit">
+        <div className="flex w-full ">
+          <div className="h-screen w-fit">
             <TitleSection sectionTitle={category} />
-          </div> */}
+          </div>
 
-      {/* <Navbar /> */}
-      {/* <div className="flex-1 bg-[#f3efe9] relative">
+          <Navbar />
+          <div className="flex-1 bg-[#f3efe9] relative">
             <div className="pt-12 max-h-screen overflow-y-auto">
               <div className="px-2 mt-8">
-                <Posts category={category} />
+                <Posts category={category} posts={posts} />
               </div>
-              <div className="px-2 mt-8">
+
+              {/* <div className="px-2 mt-8">
                 <Posts category={category} />
-              </div>
+              </div> */}
             </div>
-          </div> */}
-      {/* </div>
-      </div> */}
+          </div>
+        </div>
+      </div>
     </FullPageWrapper>
   );
 };
@@ -55,8 +55,7 @@ export const getServerSideProps = async ({ query }) => {
   }
 
   const posts = await Post.find({});
-  // const posts = [];
-  console.log("\nSERVER SIDE POSTS:", posts, "\n");
+  // console.log("\nSERVER SIDE POSTS:", posts, "\n");
 
   return {
     props: {
@@ -65,42 +64,5 @@ export const getServerSideProps = async ({ query }) => {
     },
   };
 };
-
-// export async function getServerSideProps({ query }) {
-//   const posts = await Post.find({});
-//   console.log("\nSERVER SIDE POSTS:", posts, "\n");
-
-//   return {
-//     props: {
-//       category: query?.category || "love",
-//       posts: [],
-//     },
-//   };
-// }
-
-// PostsCategoryPage.getInitialProps = async ({ query }) => {
-//   console.log("GET PROPS GET PROPS GET PROPS GET PROPS GET PROPS");
-//   console.log("\n\nQUERY CATEGORY:", query.category, "\n\n");
-//   const category = query.category;
-//   let posts = [];
-//   // const router = useRouter();
-//   // const category = router.query.category;
-
-//   try {
-//     // gets post with a category equal to query.category
-//     // const response = await api.get("/post", {
-//     //   params: { category },
-//     // });
-
-//     // gets ALL posts
-//     const response = await api.get("/post");
-//     console.log("\n\nRESPONSE:", response, "\n\n");
-//     posts = response.data.posts;
-//   } catch (e) {
-//     console.log("FAILED FETCHING POSTS:", e);
-//   }
-
-//   return { posts, category };
-// };
 
 export default PostsCategoryPage;
