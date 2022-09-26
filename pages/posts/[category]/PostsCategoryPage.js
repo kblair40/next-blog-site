@@ -5,27 +5,31 @@ import Posts from "components/Posts";
 import FullPageWrapper from "components/UI/FullPageWrapper";
 import Navbar from "components/Navbar";
 import TitleSection from "components/TitleSection";
+import api from "utils/api";
 
-const PostsCategoryPage = () => {
-  const router = useRouter();
-  const category = router.query.category;
+const PostsCategoryPage = ({ category }) => {
+  // const router = useRouter();
+  const category1 = router.query.category;
+
+  console.log("\n\nCATEGORY1:", category1);
+  console.log("PROPS CATEGORY:", category, "\n\n");
 
   return (
     <FullPageWrapper>
       <div className="flex justify-center h-screen w-screen">
         <div className="flex w-full ">
           <div className="h-screen w-fit">
-            <TitleSection sectionTitle={category} />
+            <TitleSection sectionTitle={category1} />
           </div>
 
           <Navbar />
           <div className="flex-1 bg-[#f3efe9] relative">
             <div className="pt-12 max-h-screen overflow-y-auto">
               <div className="px-2 mt-8">
-                <Posts category={category} />
+                <Posts category={category1} />
               </div>
               <div className="px-2 mt-8">
-                <Posts category={category} />
+                <Posts category={category1} />
               </div>
             </div>
           </div>
@@ -33,6 +37,21 @@ const PostsCategoryPage = () => {
       </div>
     </FullPageWrapper>
   );
+};
+
+PostsCategoryPage.getInitialProps = async () => {
+  console.log("GET PROPS GET PROPS GET PROPS GET PROPS GET PROPS");
+  let posts = [];
+
+  try {
+    const response = await api.get("/posts", {
+      params: { category },
+    });
+  } catch (e) {
+    console.log("FAILED FETCHING POSTS:", e);
+  }
+
+  return { category };
 };
 
 export default PostsCategoryPage;
