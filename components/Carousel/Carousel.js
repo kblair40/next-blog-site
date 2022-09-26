@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
-import Image from "next/image";
 import { Carousel as RRCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import Loading from "components/UI/Loading";
 import useMediaQuery from "utils/hooks/useMediaQuery";
-import { format } from "@cloudinary/url-gen/actions/delivery";
+import PostPreview from "./PostPreview";
 
 const Carousel = ({ posts }) => {
   const [formattedPosts, setFormattedPosts] = useState();
   // const [loading, setLoading] = useState();
 
   const isSmall = useMediaQuery("(min-width: 480px)");
-  console.log("isSmall?", isSmall);
+  console.log("\nisSmall?", isSmall);
   const isMedium = useMediaQuery("(min-width: 768px)");
   console.log("isMedium?", isMedium);
   const isLarge = useMediaQuery("(min-width: 980px)");
-  console.log("isLarge?", isLarge);
+  console.log("isLarge?", isLarge, "\n");
 
   useEffect(() => {
     console.log("POSTS:", posts);
-
     if (posts && posts.length) {
       let postComponents = [];
       for (let i = 0; i < posts.length; i++) {
         let post = posts[i];
-        let postComponent = <Post key={i} post={post} />;
+        let postComponent = <PostPreview key={i} post={post} />;
         postComponents.push(postComponent);
       }
 
@@ -100,27 +98,27 @@ const Carousel = ({ posts }) => {
 
 export default Carousel;
 
-const Post = ({ post }) => {
-  return (
-    <div className="cursor-pointer duration-200 p-1 sm:p-1.5 md:p-2 hover:bg-slate-50 active:bg-slate-100 max-w-screen">
-      <div className="relative h-80 rounded-sm overflow-hidden max-w-screen">
-        <Image
-          alt="style image"
-          src={post.image_url}
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
+// const Post = ({ post }) => {
+//   return (
+//     <div className="cursor-pointer duration-200 p-1 sm:p-1.5 md:p-2 hover:bg-slate-50 active:bg-slate-100 max-w-screen">
+//       <div className="relative h-80 rounded-sm overflow-hidden max-w-screen">
+//         <Image
+//           alt="style image"
+//           src={post.image_url}
+//           layout="fill"
+//           objectFit="cover"
+//         />
+//       </div>
 
-      <div className="flex flex-col px-2">
-        <p className="text-center text-xl font-semibold mt-2">{post.title}</p>
-        <p className="text-center line-clamp-2 mt-1">
-          Esse ea non Lorem nulla sint mollit ex ullamco irure in.
-        </p>
-      </div>
-    </div>
-  );
-};
+//       <div className="flex flex-col px-2">
+//         <p className="text-center text-xl font-semibold mt-2">{post.title}</p>
+//         <p className="text-center line-clamp-2 mt-1">
+//           Esse ea non Lorem nulla sint mollit ex ullamco irure in.
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
 
 const Arrow = ({ dir, onClick }) => {
   const classes = classNames({
