@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import Image from "next/image";
 import { Carousel as RRCarousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -17,6 +18,16 @@ const Carousel = ({ posts }) => {
 
   useEffect(() => {
     console.log("POSTS:", posts);
+
+    if (posts && posts.length) {
+      let postComponents = [];
+      for (let post of posts) {
+        let postComponent = <Post post={post} />;
+        postComponents.push(postComponent);
+      }
+
+      setFormattedPosts(postComponents);
+    }
   }, [posts]);
 
   const renderItem = (item, options) => {
@@ -53,7 +64,7 @@ const Carousel = ({ posts }) => {
       <div className="flex flex-col items-start w-full">
         <div className="w-full flex flex-col items-center sm:max-w-[100vw]">
           <div className={classes}>
-            {posts && posts.length ? (
+            {formattedPosts && formattedPosts.length ? (
               <RRCarousel
                 renderItem={renderItem}
                 showArrows={true}
@@ -67,10 +78,11 @@ const Carousel = ({ posts }) => {
                 showThumbs={false}
                 swipeable={false}
               >
-                <div />
-                {/* {posts} */}
+                {formattedPosts}
               </RRCarousel>
-            ) : null}
+            ) : (
+              <Loading fullScreen />
+            )}
           </div>
         </div>
       </div>
@@ -79,6 +91,28 @@ const Carousel = ({ posts }) => {
 };
 
 export default Carousel;
+
+const Post = ({ post }) => {
+  return (
+    <div className="cursor-pointer duration-200 p-1 hover:bg-slate-50 active:bg-slate-100">
+      <div className="flex flex-col items-center relative h-80 rounded-sm overflow-hidden">
+        <Image
+          alt="style image"
+          src={post.image_url}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+
+      <div className="flex flex-col px-2">
+        <p className="text-center text-xl font-semibold mt-2">{post.title}</p>
+        <p className="text-center line-clamp-2 mt-1">
+          Esse ea non Lorem nulla sint mollit ex ullamco irure in.
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const Arrow = ({ dir, onClick }) => {
   const classes = classNames({
