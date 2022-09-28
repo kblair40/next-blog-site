@@ -3,7 +3,8 @@ import classNames from "classnames";
 
 // import Spacers from "./Spacers";
 import ContentInput from "./ContentInput";
-import ContentOptions from "./ContentOptions";
+import ElementOptions from "./ElementOptions";
+// import ContentOptions from "./ContentOptions";
 import CreatePreview from "./CreatePreview";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
@@ -33,11 +34,6 @@ const CreatePostNew = () => {
     ]);
   };
 
-  const handleChangeClasses = (val) => {
-    console.log("CLASSES VALUE:", val);
-    setSelectedClasses(val);
-  };
-
   const handleSavePost = async () => {
     console.log("\n\nCONTENT ARRAY:", contentArray, "\n\n");
     const content = JSON.stringify(contentArray);
@@ -52,18 +48,6 @@ const CreatePostNew = () => {
     } catch (err) {
       console.error("ERROR SAVING POST:", err);
     }
-  };
-
-  const handleAddSpace = (heightClass) => {
-    const spacer = {
-      text: "",
-      el: { value: "div" },
-      classes: heightClass,
-    };
-    console.log("HEIGHT CLASS:", heightClass);
-    console.log("SPACER:", spacer);
-
-    setContentArray((prev) => [...prev, spacer]);
   };
 
   const undo = () => {
@@ -99,12 +83,7 @@ const CreatePostNew = () => {
           <ContentInput ref={contentRef} />
 
           <div className="w-full flex items-center justify-between flex-wrap space-x-4">
-            <ContentOptions
-              selectedEl={selectedEl}
-              onChangeEl={(el) => setSelectedEl(el)}
-              selectedClasses={selectedClasses}
-              onChangeClasses={handleChangeClasses}
-            />
+            <ElementOptions onChangeEl={(el) => setSelectedEl(el)} />
 
             <Button isDisabled={!selectedEl} onClick={handleSubmit}>
               Add Content
