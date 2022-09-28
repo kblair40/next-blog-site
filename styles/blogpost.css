@@ -1,5 +1,5 @@
 .live-blog-post {
-    padding-top: 2rem !important;
+    /* padding-top: 1rem !important; */
     border: 1px solid #cecece;
     width: 100% !important;
 }
@@ -41,3 +41,31 @@
     font-weight: 600 !important;
     margin-bottom: 1rem !important;
 }
+
+.live-blog-post :is(ul, ol) {
+    margin-bottom: 1rem !important;
+    padding-left: .5rem;
+}
+
+.live-blog-post div.spacer-sm {
+    height: 8px;
+}
+
+.live-blog-post div.spacer-lg {
+    height: 16px;
+}
+
+:is(h2, h3, h4, h5) + :is(ul, ol) {
+    margin-top: -.5rem;
+}
+
+/* .live-blog-post ol li {
+    
+} */
+
+/* .live-blog-post ul li {
+    
+} */
+
+
+/* if ul or ol follows an h2, h3, h4, or h5 tag, margin-bottom on the heading tag should be 0.5rem instead of 1rem */

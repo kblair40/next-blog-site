@@ -89,13 +89,14 @@ const CreatePreview = ({ content }) => {
     "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
       isFullScreen,
     "border px-12 flex justify-center": isFullScreen,
-    "no-border pt-4": isFullScreen,
+    "no-border pt-8": isFullScreen,
   });
 
   const previewClasses = classNames({
     "w-full pt-2": true,
     "max-w-3xl lg:max-w-4xl": isFullScreen,
     "live-blog-post": true,
+    "pt-8": !isFullScreen,
   });
 
   return (
