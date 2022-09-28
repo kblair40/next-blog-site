@@ -28,15 +28,20 @@ const Navbar = () => {
     "md:flex justify-end ": true,
     "left:0 sm:left-24 md:left-36":
       Boolean(query.category) && !Boolean(query.id),
-    "left-0": Boolean(query.id),
-    // hidden: true,
-    // "border border-green-400": true,
+    "w-full": Boolean(query.id),
+  });
+
+  const logoClasses = classNames({
+    "fixed top-1 sm:absolute": true,
+    "left-2 sm:-left-1 md:left-3":
+      Boolean(query.category) && !Boolean(query.id),
+    "left-2 sm:left-3": Boolean(query.id),
   });
 
   return (
     <React.Fragment>
       <div className={wrapperClasses}>
-        <div className="fixed top-1 left-2 sm:left-0 md:left-4 sm:top-1 sm:absolute">
+        <div className={logoClasses}>
           <Link href="/">
             <a>
               <Image alt="logo" src={logo} width={140} height={66} />
