@@ -26,10 +26,11 @@ export default SectionRight;
 
 const HomeLink = ({ label, to }) => {
   const classes = classNames({
-    "bg-[#f3efe9] rounded-sm text-slate-800": true,
+    "bg-[#f3efe9] rounded-sm text-slate-800 font-medium": true,
     "cursor-pointer z-20 font-heading text-center": true,
     "py-2 px-3 sm:py-3 sm:px-4 w-4/5 uppercase sm:text-lg": true,
-    "duration-200 flex justify-center items-center": true,
+    "duration-300 flex justify-center items-center": true,
+    "hover:bg-darkgreen hover:text-white": true,
   });
 
   return (
