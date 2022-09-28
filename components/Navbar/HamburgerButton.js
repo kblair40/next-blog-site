@@ -6,7 +6,7 @@ const HamburgerButton = ({ isOpen, onClick }) => {
   const btnClasses = classNames([
     "fixed top-3 right-4 z-50 flex flex-col",
     "h-12 w-12 border border-transparent",
-    "rounded group justify-center items-center",
+    "rounded group justify-center items-center md:hidden",
   ]);
 
   return (
