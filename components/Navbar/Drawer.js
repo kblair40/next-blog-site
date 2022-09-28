@@ -10,8 +10,8 @@ const Drawer = ({ isOpen, onClose, pathname }) => {
     "h-screen w-1/2 sm:w-1/3 px-4 py-16 shadow-sm",
     "transition-all duration-300 ease-in-out",
     "bottom-0 top-0 flex flex-col justify-center items-center space-y-8",
-    "shadow-md md:hidden",
-    "bg-[#f3efe9]",
+    "shadow-sm md:hidden",
+    "bg-creme-400",
   ];
 
   baseClasses.push(
