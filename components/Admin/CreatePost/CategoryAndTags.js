@@ -3,7 +3,12 @@ import CreatableSelect from "react-select/creatable";
 
 import { postCategories } from "utils/constants";
 
-const CategoryAndTags = ({ handleChangeCategory, category }) => {
+const CategoryAndTags = ({
+  handleChangeCategory,
+  handleChangeTags,
+  tags,
+  category,
+}) => {
   return (
     <React.Fragment>
       <CreatableSelect
@@ -25,8 +30,9 @@ const CategoryAndTags = ({ handleChangeCategory, category }) => {
         isMulti
         className="w-1/2"
         placeholder="Tags"
-        onChange={() => console.log("Not possible")}
-        // onInputChange={}
+        onChange={(tag) => handleChangeTags({ custom: false, tags: tag })}
+        onCreateOption={(tag) => handleChangeTags({ custom: true, tags: tag })}
+        value={tags}
         options={[]}
       />
     </React.Fragment>

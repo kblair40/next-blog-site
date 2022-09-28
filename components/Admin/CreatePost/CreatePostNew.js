@@ -35,10 +35,19 @@ const CreatePostNew = () => {
     ]);
   };
 
-  // const handleChangeCustomCategory = (value) => {
-  //   console.log("\nNEW CATEGORY:", value, "\n");
-  //   setCustomCategory(value);
-  // };
+  const handleChangeTags = ({ tags, custom = false }) => {
+    console.log("\nNEW TAG:", tags);
+    console.log("custom =", custom, "\n");
+
+    if (tags && custom === true) {
+      setTags((cur) => [...cur, { label: tags, value: tags }]);
+    } else if (tags && !custom) {
+      setTags(tags);
+    } else {
+      setTags(null);
+    }
+  };
+
   const handleChangeCategory = ({ category, custom = false }) => {
     console.log("\nNEW CATEGORY:", category);
     console.log("custom =", custom, "\n");
@@ -105,6 +114,8 @@ const CreatePostNew = () => {
           <div className="w-full flex space-x-4">
             <CategoryAndTags
               handleChangeCategory={handleChangeCategory}
+              handleChangeTags={handleChangeTags}
+              tags={tags}
               category={category}
             />
           </div>
