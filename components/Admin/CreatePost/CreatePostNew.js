@@ -4,7 +4,6 @@ import classNames from "classnames";
 // import Spacers from "./Spacers";
 import ContentInput from "./ContentInput";
 import ElementOptions from "./ElementOptions";
-// import ContentOptions from "./ContentOptions";
 import CreatePreview from "./CreatePreview";
 import Input from "components/UI/Input";
 import Button from "components/UI/Button";
@@ -28,8 +27,8 @@ const CreatePostNew = () => {
       {
         text: contentRef.current.value,
         el: selectedEl,
-        // classes: classNames(selectedClasses.map((cls) => cls.value)),
-        classes: [],
+        classes: classNames(selectedClasses.map((cls) => cls.value)),
+        // classes: [],
       },
     ]);
   };

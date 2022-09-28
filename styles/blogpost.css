@@ -1,33 +1,37 @@
-/* .live-blog-post {
-    padding-top: 2rem;
+.live-blog-post {
+    padding-top: 2rem !important;
     border: 1px solid #cecece;
-    width: 100%;
+    width: 100% !important;
 }
 
 .live-blog-post h1 {
-    font-size: 36px;
+    font-size: 48.83px !important;
 }
 
 .live-blog-post h2 {
-    font-size: 33px;
+    font-size: 39.06px !important;
 }
 
 .live-blog-post h3 {
-    font-size: 30px;
+    font-size: 31.25px !important;
 }
 
 .live-blog-post h4 {
-    font-size: 26px;
+    font-size: 25px !important;
 }
 
 .live-blog-post h5 {
-    font-size: 22px;
+    font-size: 20px !important;
 }
 
 .live-blog-post h6 {
-    font-size: 18px;
+    font-size: 18px !important;
 }
 
 .live-blog-post p {
-    font-size: 16px;
-} */
+    font-size: 16px !important;
+}
+
+.live-blog-post :is(h1, h2, h3, h4, h5, h6) {
+    font-weight: 600 !important;
+}

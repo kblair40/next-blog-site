@@ -1,1 +1,1 @@
-export { default } from "./CreatePreview";
+export { default } from "./CreatePreviewNew";

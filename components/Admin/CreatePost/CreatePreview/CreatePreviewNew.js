@@ -95,6 +95,7 @@ const CreatePreview = ({ content }) => {
   const previewClasses = classNames({
     "w-full pt-2": true,
     "max-w-3xl lg:max-w-4xl": isFullScreen,
+    "live-blog-post": true,
   });
 
   return (
