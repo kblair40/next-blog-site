@@ -8,8 +8,9 @@ import logo from "public/assets/images/logo_sm.png";
 const TitleSection = ({ sectionTitle }) => {
   const titleWrapperClasses = classNames({
     "hidden sm:flex sm:flex-col sm:items-center sm:justify-center": true,
-    "h-full w-full sm:max-w-80px md:max-w-140px": true,
+    "h-full w-full sm:max-w-[80px] md:max-w-[140px]": true,
     "text-slate-800 relative": true,
+    "box-border": true,
   });
 
   const titleClasses = classNames([

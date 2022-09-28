@@ -21,12 +21,14 @@ const Navbar = () => {
   }
 
   const wrapperClasses = classNames({
-    "absolute z-50 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
+    "absolute z-40 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
     "bg-[#f3efe9]": false,
     "bg-transparent": true,
-    "hidden md:flex justify-end ": true,
-    "sm:left-24 md:left-36": Boolean(query.category) && !Boolean(query.id),
-    "left-0": Boolean(query.id),
+    "md:flex justify-end ": true,
+    "left:0 sm:left-24 md:left-36":
+      Boolean(query.category) && !Boolean(query.id),
+    // "left-0": Boolean(query.id),
+    // hidden: true,
     // "border border-green-400": true,
   });
 
@@ -35,7 +37,7 @@ const Navbar = () => {
       {/* <div className="border border-red-400 h-8"> */}
 
       <div className={wrapperClasses}>
-        <div className="left-8 top-1 absolute">
+        <div className="fixed top-1 left-2 sm:left-2 md:left-6 sm:top-1 sm:absolute">
           <Link href="/">
             <a>
               <Image src={logo} width={140} height={66} />
@@ -43,11 +45,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <Link href="/">
-          <a className="font-light mr-4">Money and...</a>
-        </Link>
+        <div className="hidden md:block">
+          <Link href="/">
+            <a className="font-light mr-4">Money and...</a>
+          </Link>
+        </div>
 
-        <div className="flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-6">
           {links.map((link, idx) => {
             return (
               <NavLink
