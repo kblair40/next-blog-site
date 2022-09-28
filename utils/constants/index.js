@@ -55,3 +55,10 @@ export const defaultClasses = {
   ul: [],
   ol: [],
 };
+
+export const postCategories = [
+  { label: "Love", value: "love" },
+  { label: "Style", value: "style" },
+  { label: "Travel", value: "travel" },
+  { label: "Hunger", value: "hunger" },
+];

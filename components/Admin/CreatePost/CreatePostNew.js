@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
 import Spacers from "./Spacers";
+import CategoryAndTags from "./CategoryAndTags";
 import ContentInput from "./ContentInput";
 import ElementOptions from "./ElementOptions";
 import CreatePreview from "./CreatePreview";
@@ -11,11 +12,13 @@ import IconButton from "components/UI/IconButton";
 import api from "utils/api";
 
 const CreatePostNew = () => {
-  const [postTitle, setPostTitle] = useState("");
+  const [postTitle, setPostTitle] = useState("Post Title");
   const [postImageUrl, setPostImageUrl] = useState("");
   const [selectedEl, setSelectedEl] = useState("");
   const [selectedClasses, setSelectedClasses] = useState([]);
   const [contentArray, setContentArray] = useState([]);
+  const [category, setCategory] = useState("");
+  const [tags, setTags] = useState([]);
 
   const contentRef = useRef();
 
@@ -28,9 +31,25 @@ const CreatePostNew = () => {
         text: contentRef.current.value,
         el: selectedEl,
         classes: classNames(selectedClasses.map((cls) => cls.value)),
-        // classes: [],
       },
     ]);
+  };
+
+  // const handleChangeCustomCategory = (value) => {
+  //   console.log("\nNEW CATEGORY:", value, "\n");
+  //   setCustomCategory(value);
+  // };
+  const handleChangeCategory = ({ category, custom = false }) => {
+    console.log("\nNEW CATEGORY:", category);
+    console.log("custom =", custom, "\n");
+
+    if (category && custom === true) {
+      setCategory({ label: category, value: category });
+    } else if (category && !custom) {
+      setCategory(category);
+    } else {
+      setCategory(null);
+    }
   };
 
   const handleSavePost = async () => {
@@ -82,6 +101,14 @@ const CreatePostNew = () => {
               classes={["w-60"]}
               onChange={(val) => setPostImageUrl(val)}
             />
+          </div>
+          <div className="w-full flex space-x-4">
+            <CategoryAndTags
+              handleChangeCategory={handleChangeCategory}
+              category={category}
+            />
+          </div>
+          <div className="w-full flex space-x-4">
             <Button
               classes={["leading-4"]}
               isDisabled={!contentArray.length}
@@ -119,7 +146,7 @@ const CreatePostNew = () => {
 
           <Spacers addSpace={handleAddSpace} />
 
-          <CreatePreview content={contentArray} />
+          <CreatePreview content={contentArray} postTitle={postTitle} />
         </div>
       </div>
     </React.Fragment>

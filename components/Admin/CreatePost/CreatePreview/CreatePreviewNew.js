@@ -5,10 +5,8 @@ import Button from "components/UI/Button";
 
 // import BlogPost from "components/BlogPost";
 
-const CreatePreview = ({ content }) => {
+const CreatePreview = ({ content, postTitle }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
-
-  // return null;
 
   const makeListItems = (textArray) => {
     const listItems = [];
@@ -110,6 +108,7 @@ const CreatePreview = ({ content }) => {
       </Button>
 
       <div className={previewClasses}>
+        <h1>{postTitle}</h1>
         {Array.isArray(content) && content.length
           ? content.map((elObj, i) => {
               return makeElement(elObj, i);
