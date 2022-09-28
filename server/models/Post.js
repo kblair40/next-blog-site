@@ -30,6 +30,9 @@ const PostSchema = new mongoose.Schema(
       // enum: ["style", "love", "travel", "hunger"],
       // default: undefined,
     },
+    tags: {
+      type: [String],
+    },
   },
   { timestamps: true }
 );
