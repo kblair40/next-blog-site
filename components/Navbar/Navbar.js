@@ -8,6 +8,7 @@ import HamburgerButton from "./HamburgerButton";
 import logo from "public/assets/images/logo_sm.png";
 import Drawer from "./Drawer";
 import NavLink from "./NavLink";
+import DrawerOverlay from "./DrawerOverlay";
 import links from "./links";
 
 const Navbar = () => {
@@ -35,7 +36,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <div className={wrapperClasses}>
-        <div className="fixed top-1 left-2 sm:left-2 md:left-6 sm:top-1 sm:absolute">
+        <div className="fixed top-1 left-2 sm:left-0 md:left-4 sm:top-1 sm:absolute">
           <Link href="/">
             <a>
               <Image alt="logo" src={logo} width={140} height={66} />
@@ -63,11 +64,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="bg-white z-50 md:hidden">
+      <div className="bg-white z-20 md:hidden">
         <Drawer
           pathname={pathname}
           isOpen={drawerOpen}
           onClose={() => setDrawerOpen(false)}
+        />
+        <DrawerOverlay
+          isOpen={drawerOpen}
+          onClose={() => setDrawerOpen((prev) => !prev)}
         />
       </div>
 
