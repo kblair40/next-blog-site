@@ -30,8 +30,14 @@
 
 .live-blog-post p {
     font-size: 16px !important;
+    margin-bottom: 1rem !important;
 }
+
+/* .live-blog-post img {
+    
+} */
 
 .live-blog-post :is(h1, h2, h3, h4, h5, h6) {
     font-weight: 600 !important;
+    margin-bottom: 1rem !important;
 }
