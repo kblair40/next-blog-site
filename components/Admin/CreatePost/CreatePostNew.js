@@ -19,6 +19,7 @@ const CreatePostNew = () => {
   const [contentArray, setContentArray] = useState([]);
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const contentRef = useRef();
 
@@ -62,6 +63,7 @@ const CreatePostNew = () => {
   };
 
   const handleSavePost = async () => {
+    setLoading(true);
     console.log("\n\nCONTENT ARRAY:", contentArray, "\n\n");
     const content = JSON.stringify(contentArray);
     // const content = contentArray;
@@ -75,6 +77,8 @@ const CreatePostNew = () => {
     } catch (err) {
       console.error("ERROR SAVING POST:", err);
     }
+
+    setLoading(false);
   };
 
   const handleAddSpace = (heightClass) => {
@@ -124,6 +128,7 @@ const CreatePostNew = () => {
               classes={["leading-4"]}
               isDisabled={!contentArray.length}
               onClick={handleSavePost}
+              loading={loading}
             >
               Finish & Save Post
             </Button>
