@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import HamburgerButton from "./HamburgerButton";
 import logo from "public/assets/images/logo_sm.png";
 import Drawer from "./Drawer";
 import NavLink from "./NavLink";
@@ -73,32 +74,35 @@ const Navbar = () => {
         />
       </div>
 
-      <HamburgerButton onClick={() => setDrawerOpen((prev) => !prev)} />
+      <HamburgerButton
+        isOpen={drawerOpen}
+        onClick={() => setDrawerOpen((prev) => !prev)}
+      />
     </React.Fragment>
   );
 };
 
 export default Navbar;
 
-const HamburgerButton = ({ onClick }) => {
-  const btnClasses = [
-    "flex md:hidden",
-    "flex-col space-y-1 w-fit",
-    "hover:bg-slate-100 duration-300",
-    "h-10 w-10 flex items-center justify-center",
-    "p-2 rounded-full",
-    "fixed top-3 right-4 z-50",
-    "bg-transparent",
-  ];
+// const HamburgerButton = ({ onClick }) => {
+//   const btnClasses = [
+//     "flex md:hidden",
+//     "flex-col space-y-1 w-fit",
+//     "hover:bg-creme-300 duration-300",
+//     "h-10 w-10 flex items-center justify-center",
+//     "p-2 rounded-full",
+//     "fixed top-3 right-4 z-50",
+//     "bg-transparent",
+//   ];
 
-  return (
-    <button onClick={onClick} className={classNames(btnClasses)}>
-      <span className="h-0.5 w-5 bg-slate-700" />
-      <span className="h-0.5 w-5 bg-slate-700" />
-      <span className="h-0.5 w-5 bg-slate-700" />
-    </button>
-  );
-};
+//   return (
+//     <button onClick={onClick} className={classNames(btnClasses)}>
+//       <span className="h-0.5 w-5 bg-slate-700" />
+//       <span className="h-0.5 w-5 bg-slate-700" />
+//       <span className="h-0.5 w-5 bg-slate-700" />
+//     </button>
+//   );
+// };
 
 // const homeIcon = (
 //   <svg
