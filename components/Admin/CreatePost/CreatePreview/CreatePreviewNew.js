@@ -53,7 +53,7 @@ const CreatePreview = ({ content }) => {
     }
 
     // show border for spacers (div) while editing
-    if (type === "div") el.classes += " border border-slate-200/50";
+    // if (type === "div") el.classes += " border border-slate-200/50";
 
     // convert to array
     const classes = el.classes.split(" ");
@@ -86,9 +86,9 @@ const CreatePreview = ({ content }) => {
 
   const classes = classNames({
     "w-full": true,
-    "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
+    "fixed top-12 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
       isFullScreen,
-    "border px-12 flex justify-center": isFullScreen,
+    "px-12 flex justify-center": isFullScreen,
     "no-border pt-8": isFullScreen,
   });
 

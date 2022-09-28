@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
-// import Spacers from "./Spacers";
+import Spacers from "./Spacers";
 import ContentInput from "./ContentInput";
 import ElementOptions from "./ElementOptions";
 import CreatePreview from "./CreatePreview";
@@ -49,6 +49,18 @@ const CreatePostNew = () => {
     }
   };
 
+  const handleAddSpace = (heightClass) => {
+    const spacer = {
+      text: "",
+      el: { value: "div" },
+      classes: heightClass,
+    };
+    console.log("HEIGHT CLASS:", heightClass);
+    console.log("SPACER:", spacer);
+
+    setContentArray((prev) => [...prev, spacer]);
+  };
+
   const undo = () => {
     const copy = [...contentArray];
     copy.pop();
@@ -81,7 +93,7 @@ const CreatePostNew = () => {
 
           <ContentInput ref={contentRef} />
 
-          <div className="w-full flex items-center justify-between flex-wrap space-x-4">
+          <div className="w-full flex items-center flex-wrap space-x-4">
             <ElementOptions onChangeEl={(el) => setSelectedEl(el)} />
 
             <Button isDisabled={!selectedEl} onClick={handleSubmit}>
@@ -105,7 +117,7 @@ const CreatePostNew = () => {
             />
           </div>
 
-          {/* <Spacers addSpace={handleAddSpace} /> */}
+          <Spacers addSpace={handleAddSpace} />
 
           <CreatePreview content={contentArray} />
         </div>

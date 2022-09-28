@@ -18,14 +18,14 @@ const Spacers = ({ addSpace }) => {
     <div className={wrapperClasses}>
       <p className="font-medium">Spacers</p>
       <Button
-        onClick={() => handleClick("h-2")}
+        onClick={() => handleClick("spacer-sm")}
         size="sm"
         className={buttonClasses}
       >
-        8px (md)
+        8px (sm)
       </Button>
       <Button
-        onClick={() => handleClick("h-4")}
+        onClick={() => handleClick("spacer-lg")}
         size="sm"
         className={buttonClasses}
       >
