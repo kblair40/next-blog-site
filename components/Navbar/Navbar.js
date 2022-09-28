@@ -27,7 +27,7 @@ const Navbar = () => {
     "md:flex justify-end ": true,
     "left:0 sm:left-24 md:left-36":
       Boolean(query.category) && !Boolean(query.id),
-    // "left-0": Boolean(query.id),
+    "left-0": Boolean(query.id),
     // hidden: true,
     // "border border-green-400": true,
   });
@@ -85,10 +85,12 @@ const HamburgerButton = ({ onClick }) => {
   const btnClasses = [
     "flex md:hidden",
     "flex-col space-y-1 w-fit",
-    "bg-[#f3efe9] hover:bg-slate-100 duration-300",
+    "hover:bg-slate-100 duration-300",
     "h-10 w-10 flex items-center justify-center",
     "p-2 rounded-full",
-    "fixed top-3 right-4 z-50 ",
+    "fixed top-3 right-4 z-50",
+    // "bg-[#f3efe9]",
+    "bg-transparent",
   ];
 
   return (
