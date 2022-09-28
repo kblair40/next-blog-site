@@ -102,12 +102,12 @@ const CreatePostNew = () => {
           <div className="w-full flex space-x-4">
             <Input
               placeholder="Post Title"
-              classes={["w-60"]}
+              classes={["w-1/2"]}
               onChange={(val) => setPostTitle(val)}
             />
             <Input
               placeholder="Image URL"
-              classes={["w-60"]}
+              classes={["w-1/2"]}
               onChange={(val) => setPostImageUrl(val)}
             />
           </div>
