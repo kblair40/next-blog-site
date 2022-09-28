@@ -19,9 +19,9 @@ const GoBack = ({ label, route }) => {
           }
         />
 
-        <div className="h-full">
+        {/* <div className="h-full">
           <p className="whitespace-nowrap font-normal text-xl">{label}</p>
-        </div>
+        </div> */}
       </a>
     </Link>
   );

@@ -24,7 +24,7 @@ const PostsCategoryPage = ({ category, posts }) => {
             <TitleSection sectionTitle={category} />
           </div>
 
-          <div className="flex-1 bg-[#f3efe9] relative">
+          <div className="flex-1 bg-creme relative">
             <div className="absolute bottom-0 left-0 right-0 top-16 overflow-y-auto pb-8">
               <Posts category={category} posts={posts} />
             </div>

@@ -22,7 +22,6 @@ const Navbar = () => {
 
   const wrapperClasses = classNames({
     "absolute z-40 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
-    "bg-[#f3efe9]": false,
     "bg-transparent": true,
     "md:flex justify-end ": true,
     "left:0 sm:left-24 md:left-36":
@@ -89,7 +88,6 @@ const HamburgerButton = ({ onClick }) => {
     "h-10 w-10 flex items-center justify-center",
     "p-2 rounded-full",
     "fixed top-3 right-4 z-50",
-    // "bg-[#f3efe9]",
     "bg-transparent",
   ];
 
