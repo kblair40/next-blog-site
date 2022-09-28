@@ -25,7 +25,7 @@ const Posts = ({ posts, category }) => {
     return (
       <div className="flex justify-center px-1 sm:px-2 md:px-3">
         <div className="w-full grid auto-rows-min grid-cols-2 md:grid-cols-3 gap-x-2 sm:gap-x-4 gap-y-6">
-          {formattedPosts.concat(formattedPosts)}
+          {formattedPosts}
         </div>
       </div>
     );
