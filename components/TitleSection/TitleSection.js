@@ -24,13 +24,13 @@ const TitleSection = ({ sectionTitle }) => {
         {sectionTitle ? sectionTitle.toUpperCase() : ""}
       </h1>
 
-      <div className="absolute top-4 z-50">
+      {/* <div className="absolute top-4 mx-auto">
         <Link href="/">
           <a>
             <Image src={logo} width={140} height={66} />
           </a>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import logo from "public/assets/images/logo_sm.png";
 import Drawer from "./Drawer";
 import NavLink from "./NavLink";
 import links from "./links";
@@ -25,11 +27,22 @@ const Navbar = () => {
     "hidden md:flex justify-end ": true,
     "sm:left-24 md:left-36": Boolean(query.category) && !Boolean(query.id),
     "left-0": Boolean(query.id),
+    // "border border-green-400": true,
   });
 
   return (
     <React.Fragment>
+      {/* <div className="border border-red-400 h-8"> */}
+
       <div className={wrapperClasses}>
+        <div className="left-8 top-1 absolute">
+          <Link href="/">
+            <a>
+              <Image src={logo} width={140} height={66} />
+            </a>
+          </Link>
+        </div>
+
         <Link href="/">
           <a className="font-light mr-4">Money and...</a>
         </Link>
@@ -47,6 +60,7 @@ const Navbar = () => {
           })}
         </div>
       </div>
+      {/* </div> */}
 
       <div className="bg-white z-50 md:hidden">
         <Drawer
