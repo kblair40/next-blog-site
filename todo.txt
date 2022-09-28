@@ -1,5 +1,3 @@
-1. Category page routes
-2. heavier font-weight/general style changes to dropdown menu
 3. Admin
     - All Posts
         - Change status functionality to hide/show/delete
@@ -8,15 +6,8 @@
         - Add Post Title to comment cards
     - Manage Subscribers
     - Central location for uploading google doc + picture + category/tags/notes
-4. Tests, tests, and more tests for the carousel.
 5. POST CREATION
-    - Add button for adding space
-    - Build way to add image
-    - Build method for adding lists (ordered and unordered)
-    - Hide/show border on spacers toggle button
 6. Emails for unsubscribing
-7. Carousel cards should link to actual post.
-8. Carousel cards should pull data from new post creation method
 
 
 Maybes
