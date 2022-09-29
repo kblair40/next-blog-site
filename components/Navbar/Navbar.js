@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import HamburgerButton from "./HamburgerButton";
-import logo from "public/assets/images/logo_sm.png";
+// import logo from "public/assets/images/logo_sm.png";
 import Drawer from "./Drawer";
 import NavLink from "./NavLink";
 import DrawerOverlay from "./DrawerOverlay";
@@ -31,23 +31,23 @@ const Navbar = () => {
     "w-full": Boolean(query.id),
   });
 
-  const logoClasses = classNames({
-    "fixed top-1 sm:absolute": true,
-    "left-2 sm:-left-1 md:left-3":
-      Boolean(query.category) && !Boolean(query.id),
-    "left-2 sm:left-3": Boolean(query.id),
-  });
+  // const logoClasses = classNames({
+  //   "fixed top-1 sm:absolute": true,
+  //   "left-2 sm:-left-1 md:left-3":
+  //     Boolean(query.category) && !Boolean(query.id),
+  //   "left-2 sm:left-3": Boolean(query.id),
+  // });
 
   return (
     <React.Fragment>
       <div className={wrapperClasses}>
-        <div className={logoClasses}>
+        {/* <div className={logoClasses}>
           <Link href="/">
             <a>
               <Image alt="logo" src={logo} width={140} height={66} />
             </a>
           </Link>
-        </div>
+        </div> */}
 
         <div className="hidden md:block">
           <Link href="/">
