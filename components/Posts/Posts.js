@@ -18,6 +18,8 @@ const Posts = ({ posts, category }) => {
       }
 
       setFormattedPosts(postComponents);
+    } else if (posts) {
+      setFormattedPosts([]);
     }
   }, [posts]);
 

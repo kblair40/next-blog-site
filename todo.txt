@@ -8,6 +8,7 @@
     - Central location for uploading google doc + picture + category/tags/notes
 5. POST CREATION
 6. Emails for unsubscribing
+7. Show loading indicator when navigating between 'category' pages
 
 
 Maybes

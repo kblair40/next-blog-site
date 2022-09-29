@@ -1,12 +1,9 @@
-// export { default } from "./PostsCategoryPage";
-import React, { useEffect } from "react";
+import React from "react";
 
 import Posts from "components/Posts";
 import FullPageWrapper from "components/UI/FullPageWrapper";
 import Navbar from "components/Navbar";
 import TitleSection from "components/TitleSection";
-import api from "utils/api";
-
 import dbConnect from "utils/dbConnect";
 import Post from "server/models/Post";
 
@@ -43,8 +40,15 @@ export const getServerSideProps = async ({ query }) => {
     return;
   }
 
-  const posts = await Post.find({});
-  // console.log("\nSERVER SIDE POSTS:", posts, "\n");
+  let posts;
+  if (query.category) {
+    posts = await Post.find({ category: query.category });
+  } else {
+    posts = await Post.find({});
+  }
+
+  // const posts = await Post.find({});
+  console.log(`SERVER SIDE POSTS FOR ${query.category}:`, posts, "\n");
 
   return {
     props: {
