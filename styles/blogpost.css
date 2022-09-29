@@ -42,6 +42,9 @@
     font-weight: 600 !important;
     margin-bottom: 1rem !important;
 }
+.live-blog-post h1 {
+    text-align: center;
+}
 
 .live-blog-post :is(ul, ol) {
     margin-bottom: 1rem !important;
