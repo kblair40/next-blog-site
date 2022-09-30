@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { toast } from "react-toastify";
+import CreatableSelect from "react-select/creatable";
 
+import { postCategories } from "utils/constants";
 import Statuses from "components/Admin/Statuses";
 import LocalInput from "components/Admin/LocalInput";
 import Loading from "components/UI/Loading";
@@ -55,6 +57,7 @@ const AllPosts = () => {
     );
 
     postDataCopy[objectIndex][_id][fieldName] = value;
+    setAllPostData(postDataCopy);
   };
 
   const handleStatusesChange = async (statuses) => {
@@ -82,6 +85,8 @@ const AllPosts = () => {
         await api.patch(`/posts/${postObject._id}`, {
           title: postObject["title"],
           status: postObject["status"],
+          category: postObject["category"],
+          // tags: postObject["tags"],
         });
 
         const config = {
@@ -159,7 +164,24 @@ const AllPosts = () => {
 
                         <div className="flex space-x-2 items-center">
                           <p className={textClasses}>Category:</p>
-                          <p>{postVal.category}</p>
+                          <CreatableSelect
+                            isClearable
+                            className="w-40"
+                            placeholder="Post Category"
+                            onChange={(cat) =>
+                              handleChangePostData(
+                                postVal._id,
+                                "category",
+                                cat.value
+                              )
+                            }
+                            value={{
+                              label: postVal.category,
+                              value: postVal.category,
+                            }}
+                            options={postCategories}
+                          />
+                          {/* <p>{postVal.category}</p> */}
                         </div>
 
                         <div className="flex space-x-2 items-center">

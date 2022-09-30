@@ -25,6 +25,7 @@ export default async function handler(req, res) {
 
           foundPost.title = body.title;
           foundPost.status = parseInt(body.status);
+          foundPost.category = body.category;
 
           const savedPost = await foundPost.save();
           // console.log("\n\nSAVED POST:", savedPost);
