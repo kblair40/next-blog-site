@@ -45,7 +45,7 @@ const CreatePostNew = () => {
     } else if (tags && !custom) {
       setTags(tags);
     } else {
-      setTags(null);
+      setTags([]);
     }
   };
 
@@ -69,7 +69,20 @@ const CreatePostNew = () => {
     // const content = contentArray;
     const title = postTitle || "Temporary Title";
     const status = 2;
-    const data = { content, status, title, image_url: postImageUrl };
+
+    let tagValues = [];
+    if (tags && tags.length) {
+      tagValues = tags.map((tag) => tag.label.toLowerCase());
+    }
+
+    const data = {
+      content,
+      status,
+      title,
+      category: category.value,
+      tags: tagValues,
+      image_url: postImageUrl,
+    };
 
     try {
       const response = await api.post("/posts", data);
