@@ -12,7 +12,7 @@ const Tabs = () => {
     <ReactTabs defaultIndex={2}>
       <TabList>
         <Tab>All Posts</Tab>
-        <Tab>Comments</Tab>
+        {/* <Tab>Comments</Tab> */}
         <Tab>Add Post</Tab>
         <Tab>Subscribers</Tab>
       </TabList>
@@ -21,9 +21,9 @@ const Tabs = () => {
         <PostsTab />
       </TabPanel>
 
-      <TabPanel className="px-4 pt-2">
+      {/* <TabPanel className="px-4 pt-2">
         <CommentsTab />
-      </TabPanel>
+      </TabPanel> */}
 
       {/* <TabPanel className="px-4 pt-2"> */}
       <TabPanel>

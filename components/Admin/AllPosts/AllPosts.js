@@ -169,6 +169,7 @@ const AllPosts = () => {
 
                         <div className="flex space-x-2 items-center pt-1">
                           <p className={textClasses}>Created:</p>
+                          <p className="text-sm">{postVal.created}</p>
                         </div>
 
                         <div className="flex space-x-2 items-center pt-1 pb-4">
