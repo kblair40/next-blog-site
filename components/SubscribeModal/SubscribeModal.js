@@ -56,6 +56,7 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
       className={classNames(baseClasses)}
       isOpen={isOpen}
       onRequestClose={onClose}
+      shouldFocusAfterRender={false}
     >
       <div className="py-2">
         <p className="text-xl font-medium">Subscribe</p>
