@@ -44,20 +44,12 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
     emailRef.current.value = "";
   };
 
-  if (!elementSet) {
-    return <div />;
-  }
-
   const baseClasses = [
     "absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
     "drop-shadow-xl rounded-xl min-h-50 py-4 px-6 bg-white",
     "flex flex-col",
     "w-5/6 sm:w-80 md:w-96",
   ];
-
-  if (!modalOpen) {
-    return <div />;
-  }
 
   return (
     <Modal

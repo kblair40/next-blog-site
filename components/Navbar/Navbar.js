@@ -3,6 +3,7 @@ import Image from "next/image";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 import SubscribeModal from "components/SubscribeModal";
 import HamburgerButton from "./HamburgerButton";
@@ -13,6 +14,7 @@ import DrawerOverlay from "./DrawerOverlay";
 import links from "./links";
 
 const Navbar = () => {
+  const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const { query, pathname } = useRouter();
@@ -39,6 +41,15 @@ const Navbar = () => {
   //   "left-2 sm:left-3": Boolean(query.id),
   // });
 
+  const handleSubscribe = () => {
+    const toastConfig = {
+      position: toast.POSITION.BOTTOM_CENTER,
+      pauseOnHover: false,
+      autoClose: 8000,
+    };
+    toast.success("Successfully subscribed.  Thank you!", toastConfig);
+  };
+
   return (
     <React.Fragment>
       <div className={wrapperClasses}>
@@ -50,7 +61,10 @@ const Navbar = () => {
           </Link>
         </div> */}
 
-        <div className="duration-200 hover:text-darkgreen fixed sm:absolute left-4 top-6 sm:left-0 md:left-4 cursor-pointer">
+        <div
+          onClick={() => setSubscribeModalOpen(true)}
+          className="duration-200 hover:text-darkgreen fixed sm:absolute left-4 top-6 md:top-4 sm:left-0 md:left-4 cursor-pointer"
+        >
           <p>Subscribe</p>
         </div>
 
@@ -89,6 +103,12 @@ const Navbar = () => {
       <HamburgerButton
         isOpen={drawerOpen}
         onClick={() => setDrawerOpen((prev) => !prev)}
+      />
+
+      <SubscribeModal
+        isOpen={subscribeModalOpen}
+        onClose={() => setSubscribeModalOpen(false)}
+        onSubscribe={handleSubscribe}
       />
     </React.Fragment>
   );
