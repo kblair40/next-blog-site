@@ -10,6 +10,7 @@ import LocalInput from "components/Admin/LocalInput";
 import Loading from "components/UI/Loading";
 import Button from "components/UI/Button";
 import api from "utils/api";
+import { Tab } from "react-tabs";
 
 const AllPosts = () => {
   const [loading, setLoading] = useState(true);
@@ -86,7 +87,7 @@ const AllPosts = () => {
           title: postObject["title"],
           status: postObject["status"],
           category: postObject["category"],
-          // tags: postObject["tags"],
+          tags: postObject["tags"],
         });
 
         const config = {
@@ -165,7 +166,6 @@ const AllPosts = () => {
                         <div className="flex space-x-2 items-center">
                           <p className={textClasses}>Category:</p>
                           <CreatableSelect
-                            isClearable
                             className="w-40"
                             placeholder="Post Category"
                             onChange={(cat) =>
@@ -181,12 +181,29 @@ const AllPosts = () => {
                             }}
                             options={postCategories}
                           />
-                          {/* <p>{postVal.category}</p> */}
                         </div>
 
                         <div className="flex space-x-2 items-center">
                           <p className={textClasses}>Tags:</p>
-                          <p>{postVal.tags.join(", ")}</p>
+                          <CreatableSelect
+                            isClearable
+                            isMulti
+                            className="w-80"
+                            placeholder="Tags"
+                            onChange={(tags) =>
+                              // handleChangePostData({ custom: false, tags: tag })
+                              handleChangePostData(
+                                postVal._id,
+                                "tags",
+                                tags.map((tag) => tag.value)
+                              )
+                            }
+                            value={postVal.tags.map((tag) => ({
+                              label: tag,
+                              value: tag,
+                            }))}
+                            options={[]}
+                          />
                         </div>
 
                         <div className="flex space-x-2 items-center pt-1">
