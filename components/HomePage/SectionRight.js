@@ -12,7 +12,7 @@ const SectionRight = () => {
       <HomeLink label="Money and Love" to="/posts/love" />
       <HomeLink label="Money and Style" to="/posts/style" />
       <HomeLink label="Money and Travel" to="/posts/travel" />
-      <HomeLink label="Money Hungry" to="/posts/hungry" />
+      <HomeLink label="Money Hungry" to="/posts/hunger" />
       <HomeLink label="Resources" to="/resources" />
 
       <div className="absolute left-0 top-0 right-0 bottom-0 h-full">
@@ -36,7 +36,7 @@ const HomeLink = ({ label, to }) => {
     "cursor-pointer z-20 font-heading text-center": true,
     "py-2 px-3 sm:py-3 sm:px-4 w-4/5 uppercase sm:text-lg": true,
     "duration-300 flex justify-center items-center": true,
-    "hover:bg-darkgreen hover:text-white": true,
+    "hover:bg-darkgreen hover:text-white shadow-sm": true,
   });
 
   return (
