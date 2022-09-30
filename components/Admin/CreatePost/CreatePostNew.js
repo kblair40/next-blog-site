@@ -149,7 +149,9 @@ const CreatePostNew = () => {
           <div className="w-full flex space-x-4">
             <Button
               classes={["leading-4"]}
-              isDisabled={!contentArray.length}
+              isDisabled={
+                !contentArray.length || !postImageUrl || !postTitle || !category
+              }
               onClick={handleSavePost}
               loading={loading}
             >

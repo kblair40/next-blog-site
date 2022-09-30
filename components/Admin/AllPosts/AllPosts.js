@@ -120,6 +120,7 @@ const AllPosts = () => {
           {allPostData && allPostData.length
             ? allPostData.map((post, i) => {
                 const postVal = Object.values(post)[0];
+                console.log("post val:", postVal, "\n");
                 return (
                   <div key={i}>
                     <div className="flex space-x-8">
@@ -161,13 +162,20 @@ const AllPosts = () => {
                           </p>
                         </div>
 
-                        <div className="flex space-x-2 items-center pt-1 pb-4">
+                        <div className="flex space-x-2 items-center pt-1">
                           <p className="text-xs text-slate-400">_id:</p>
                           <p className="text-xs text-slate-400">
                             {postVal._id}
                           </p>
                           <p className="text-xs text-slate-400">
                             (don't worry about this)
+                          </p>
+                        </div>
+
+                        <div className="flex space-x-2 items-center pt-1 pb-4">
+                          <p className="text-xs text-slate-400">Category:</p>
+                          <p className="text-xs text-slate-400">
+                            {postVal.category}
                           </p>
                         </div>
 
