@@ -21,9 +21,9 @@ const SolidButton = ({
       "active:bg-emerald-800",
     ],
     primary: [
-      "bg-primary-600",
-      "hover:bg-primary-700",
-      "active:bg-primary-800",
+      "bg-darkgreen opacity-90",
+      "hover:opacity-95",
+      "active:opacity-100",
     ],
   };
 

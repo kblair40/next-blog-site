@@ -34,7 +34,7 @@ const HomeLink = ({ label, to }) => {
   const classes = classNames({
     "bg-creme rounded-sm text-slate-800 font-medium": true,
     "cursor-pointer z-20 font-heading text-center": true,
-    "py-2 px-3 sm:py-3 sm:px-4 w-4/5 uppercase sm:text-lg": true,
+    "py-2 px-3 sm:py-3 sm:px-4 w-7/8 sm:w-11/12 uppercase sm:text-lg": true,
     "duration-300 flex justify-center items-center": true,
     "hover:bg-darkgreen hover:text-white shadow-sm": true,
   });
@@ -45,5 +45,3 @@ const HomeLink = ({ label, to }) => {
     </Link>
   );
 };
-
-// #f3efe9
