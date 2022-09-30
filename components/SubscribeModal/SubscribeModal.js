@@ -24,10 +24,12 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
   const emailRef = useRef();
 
   const handleSubmit = async () => {
-    setLoading(true);
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     console.log("\nVALUES:", { name, email });
+
+    if (!name || !email) return;
+    setLoading(true);
 
     if (name && email) onSubscribe();
 
