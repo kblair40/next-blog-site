@@ -63,6 +63,7 @@ export default async function handler(req, res) {
           }
 
           const posts = await Post.find(statusQuery);
+          console.log("\n\n\nSTATUS POSTS FOUND:", posts, "\n\n\n");
 
           return res.status(201).json({ success: true, posts });
         } catch (e) {

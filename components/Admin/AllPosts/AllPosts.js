@@ -33,6 +33,8 @@ const AllPosts = () => {
               title: post.title,
               status: post.status,
               created: post.createdAt,
+              category: post.category,
+              tags: post.tags,
               _id: post._id,
             },
           };
@@ -155,27 +157,27 @@ const AllPosts = () => {
                           />
                         </div>
 
-                        <div className="flex space-x-2 items-center pt-1">
-                          <p className={textClasses}>Created:</p>
-                          <p className="text-sm">
-                            {formatDate(postVal.created)}
-                          </p>
+                        <div className="flex space-x-2 items-center">
+                          <p className={textClasses}>Category:</p>
+                          <p>{postVal.category}</p>
+                        </div>
+
+                        <div className="flex space-x-2 items-center">
+                          <p className={textClasses}>Tags:</p>
+                          <p>{postVal.tags.join(", ")}</p>
                         </div>
 
                         <div className="flex space-x-2 items-center pt-1">
+                          <p className={textClasses}>Created:</p>
+                        </div>
+
+                        <div className="flex space-x-2 items-center pt-1 pb-4">
                           <p className="text-xs text-slate-400">_id:</p>
                           <p className="text-xs text-slate-400">
                             {postVal._id}
                           </p>
                           <p className="text-xs text-slate-400">
                             (don't worry about this)
-                          </p>
-                        </div>
-
-                        <div className="flex space-x-2 items-center pt-1 pb-4">
-                          <p className="text-xs text-slate-400">Category:</p>
-                          <p className="text-xs text-slate-400">
-                            {postVal.category}
                           </p>
                         </div>
 
