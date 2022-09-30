@@ -4,7 +4,7 @@ import Image from "next/image";
 
 // import Loading from "components/UI/Loading";
 
-const BlogPost = ({ postContent, postImage }) => {
+const BlogPost = ({ postContent, postImage, postTitle }) => {
   postContent = JSON.parse(postContent);
 
   const makeListItems = (textArray) => {
@@ -95,6 +95,8 @@ const BlogPost = ({ postContent, postImage }) => {
             objectFit="cover"
           />
         </div>
+
+        <h1>{postTitle}</h1>
 
         {Array.isArray(postContent) && postContent.length
           ? postContent.map((elObj, i) => {

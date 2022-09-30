@@ -25,7 +25,11 @@ const BlogPostPage = ({ post }) => {
       </div>
 
       {post && post.content ? (
-        <BlogPost postContent={post.content} postImage={post.image_url} />
+        <BlogPost
+          postTitle={post.title}
+          postContent={post.content}
+          postImage={post.image_url}
+        />
       ) : null}
     </div>
   );
