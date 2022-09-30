@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import classNames from "classnames";
+import { toast } from "react-toastify";
 
 import Spacers from "./Spacers";
 import CategoryAndTags from "./CategoryAndTags";
@@ -63,6 +64,12 @@ const CreatePostNew = () => {
   };
 
   const handleSavePost = async () => {
+    const toastConfig = {
+      position: toast.POSITION.BOTTOM_CENTER,
+      pauseOnHover: false,
+      autoClose: 8000,
+    };
+
     setLoading(true);
     console.log("\n\nCONTENT ARRAY:", contentArray, "\n\n");
     const content = JSON.stringify(contentArray);
@@ -87,8 +94,11 @@ const CreatePostNew = () => {
     try {
       const response = await api.post("/posts", data);
       console.log("\n\nSAVE POST RESPONSE:", response.data);
+
+      toast.success("SAVED!", toastConfig);
     } catch (err) {
       console.error("ERROR SAVING POST:", err);
+      toast.error("FAILED TO SAVE FOR SOME REASON", toastConfig);
     }
 
     setLoading(false);
