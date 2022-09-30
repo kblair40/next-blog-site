@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import SubscribeModal from "components/SubscribeModal";
 import HamburgerButton from "./HamburgerButton";
 // import logo from "public/assets/images/logo_sm.png";
 import Drawer from "./Drawer";
@@ -48,6 +49,10 @@ const Navbar = () => {
             </a>
           </Link>
         </div> */}
+
+        <div className="duration-200 hover:text-darkgreen fixed sm:absolute left-4 top-6 sm:left-0 md:left-4 cursor-pointer">
+          <p>Subscribe</p>
+        </div>
 
         <div className="hidden md:block">
           <Link href="/">
