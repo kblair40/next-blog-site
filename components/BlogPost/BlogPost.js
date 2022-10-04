@@ -81,7 +81,7 @@ const BlogPost = ({ postContent, postImage, postTitle }) => {
   const previewClasses = classNames({
     "w-full pt-6": true,
     // "blog-post-content": true,
-    "max-w-[460px] md:max-w-[740px] lg:[max-w-940px]": true,
+    "max-w-[460px] md:max-w-[740px] lg:max-w-[940px]": true,
     // "flex flex-col items-center text-justify": true,
     // "max-w-3xl lg:max-w-4xl": true,
   });
