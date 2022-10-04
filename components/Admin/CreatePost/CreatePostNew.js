@@ -124,7 +124,7 @@ const CreatePostNew = () => {
 
   return (
     <React.Fragment>
-      <div className="flex justify-center w-screen">
+      <div className="flex justify-center w-screen border border-green-400">
         <div className="flex flex-col space-y-4 items-center w-4/5">
           <div className="w-full flex space-x-4">
             <Input

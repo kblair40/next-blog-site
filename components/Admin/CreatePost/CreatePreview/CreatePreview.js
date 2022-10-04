@@ -85,16 +85,20 @@ const CreatePreview = ({ content }) => {
   };
 
   const classes = classNames({
+    "border border-blue-400": true,
     "w-full": true,
     "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
       isFullScreen,
-    "border px-12 flex justify-center": isFullScreen,
-    "no-border pt-4": isFullScreen,
+    // "border px-12 flex justify-center": true,
+    // "no-border pt-4": true,
+    // "border px-12 flex justify-center": isFullScreen,
+    // "no-border pt-4": isFullScreen,
   });
 
   const previewClasses = classNames({
     "w-full pt-2": true,
-    "max-w-3xl lg:max-w-4xl": isFullScreen,
+    // "max-w-3xl lg:max-w-4xl": isFullScreen,
+    "max-w-[460px] md:max-w-[740px] lg:[max-w-940px]": true,
   });
 
   return (
