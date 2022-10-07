@@ -230,9 +230,9 @@ const AllPosts = () => {
                             Save Changes
                           </Button>
 
-                          {/* <Link href={`/admin/edit/${postVal._id}`}>
+                          <Link href={`/edit-post/${postVal._id}`}>
                             <a className="font-semibold">Edit Post</a>
-                          </Link> */}
+                          </Link>
                         </div>
                       </div>
                     </div>
