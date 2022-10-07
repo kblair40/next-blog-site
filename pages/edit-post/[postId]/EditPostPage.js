@@ -22,6 +22,7 @@ const EditPostPage = ({
   const [addModalOpen, setAddModalOpen] = useState(false);
   const [insertLocation, setInsertLocation] = useState(); // 'above' | 'below'
   const [sectionToDelete, setSelectionToDelete] = useState();
+  const [addContentSection, setAddContentSection] = useState();
   const [loading, setLoading] = useState(false);
 
   const classes = classNames({
@@ -92,6 +93,26 @@ const EditPostPage = ({
 
   const handleClickAddContent = (i) => {
     setAddModalOpen(true);
+    setAddContentSection(i);
+  };
+
+  const handleAddNewContent = async (newContent) => {
+    setLoading(true);
+    const contentCopy = [...content];
+
+    let spliceIdx =
+      insertLocation === "above" ? addContentSection : addContentSection + 1;
+
+    contentCopy.splice(spliceIdx, 0, newContent);
+
+    console.log("\nCONTENT COPY NOW:", contentCopy);
+
+    setLoading(false);
+    // return;
+
+    await saveContent(contentCopy);
+
+    setLoading(false);
   };
 
   return (
@@ -176,6 +197,7 @@ const EditPostPage = ({
           isOpen={addModalOpen}
           onClose={() => setAddModalOpen(false)}
           onChangeInsertLocation={setInsertLocation}
+          onSave={handleAddNewContent}
           insertLocation={insertLocation}
         />
       )}

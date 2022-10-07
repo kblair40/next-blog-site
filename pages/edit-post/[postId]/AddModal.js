@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import classNames from "classnames";
 import Select from "react-select";
 
+import { elementOptions } from "utils/constants";
 import Button from "components/UI/Button";
 
 // Modal.setAppElement("#layout");
@@ -15,6 +16,7 @@ const AddModal = ({
   onSave,
 }) => {
   const [value, setValue] = useState("");
+  const [selectedEl, setSelectedEl] = useState();
 
   useEffect(() => {
     if (document.querySelector("#layout")) {
@@ -23,10 +25,10 @@ const AddModal = ({
   }, []);
 
   const baseClasses = [
-    "absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
+    "absolute top-4 left-1/2 -translate-x-1/2",
     "drop-shadow-xl rounded-xl min-h-50 py-4 px-6 bg-white",
     "flex flex-col",
-    "w-5/6 h-5/6",
+    "w-5/6 h-2/3",
   ];
 
   const handleChange = (e) => {
@@ -35,13 +37,23 @@ const AddModal = ({
   };
 
   const handleClickClose = () => {
-    initialized.current = false;
     setValue(undefined);
     onClose();
   };
 
   const handleSubmit = () => {
-    //
+    const newContent = {
+      text: value,
+      classes: [],
+      el: selectedEl,
+    };
+
+    onSave(newContent);
+    onClose();
+  };
+
+  const handleChangeEl = (el) => {
+    setSelectedEl(el);
   };
 
   return (
@@ -51,9 +63,11 @@ const AddModal = ({
       onRequestClose={onClose}
       shouldFocusAfterRender={false}
     >
-      <div className="py-2">
+      <div className="py-2 flex items-center space-x-4">
+        <p className="whitespace-nowrap">Insert Location</p>
+
         <Select
-          placeholder="Insert Location"
+          className="w-full"
           options={[
             { value: "above", label: "Above" },
             { value: "below", label: "Below" },
@@ -65,14 +79,19 @@ const AddModal = ({
       <div className="h-full space-y-2 mb-4">
         {value !== undefined && (
           <textarea
-            className="w-full border border-slate-100 rounded-md p-2 h-3/4 focus:outline-none hover:border-slate-200 focus:border-slate-300"
+            className="w-full border border-slate-100 rounded-md p-2 h-full focus:outline-none hover:border-slate-200 focus:border-slate-300"
             onChange={handleChange}
             value={value}
           />
         )}
-
-        <div className="border border-slate-200 h-1/4 rounded-md"></div>
       </div>
+
+      <Select
+        className="mb-4"
+        placeholder="Element"
+        options={elementOptions}
+        onChange={(val) => handleChangeEl(val.value)}
+      />
 
       <div className="mt-4 flex flex-row items-end space-x-4 w-full">
         <Button classes={["w-1/4"]} onClick={handleClickClose}>
@@ -80,7 +99,7 @@ const AddModal = ({
         </Button>
 
         <Button
-          isDisabled={!insertLocation}
+          isDisabled={!insertLocation || !selectedEl}
           classes={["w-3/4"]}
           onClick={handleSubmit}
         >
