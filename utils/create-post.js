@@ -3,10 +3,15 @@ import classNames from "classnames";
 
 export const makeElement = (elObj, i) => {
   const type = elObj.el; // ex. "h2", "p", "div", "img", "ul" etc...
-  console.log("\n\nEL TYPE:", type, "\n\n");
+  // console.log("\n\nEL TYPE:", type, "\n\n");
   let classes = elObj.classes;
   // content in input at time of submission
   const innerText = ["div", "img"].includes(type) ? null : elObj.text;
+
+  if (type === "p-with-link") {
+    const el = makeParagraphWithLink(elObj);
+    return el;
+  }
 
   if (["ol", "ul"].includes(type)) {
     console.log("\n\nOL OR UL:", elObj.classes);
@@ -19,6 +24,46 @@ export const makeElement = (elObj, i) => {
 
   const newElement = React.createElement(type, props, innerText);
   return newElement;
+};
+
+const makeParagraphWithLink = (elObj) => {
+  console.log("\n\n********EL OBJ WITH LINK:", elObj);
+  let text = elObj.text;
+  // console.log("TEXT:", text);
+
+  const openIdx = text.search("<");
+  const closeIdx = text.search(">");
+
+  // console.log("OPEN AND CLOSE:", { openIdx, closeIdx });
+
+  let match = text.slice(openIdx, closeIdx + 1);
+  // console.log("MATCH:", match);
+  match = match.slice(1, -1); // remove start/end </>
+  let [url, textString] = match
+    .split("|")
+    .map((val) => val.trim().split("^")[1]);
+
+  let anchorEl = React.createElement(
+    "a",
+    { href: url, target: "_blank" },
+    textString
+  );
+  // console.log("ANCHOR ELEMENT:", anchorEl, "\n\n");
+  let frontString = text.slice(0, openIdx).trim().split(/ +/).join(" ");
+  let backString = text
+    .slice(closeIdx + 1)
+    .trim()
+    .split(/ +/)
+    .join(" ");
+  console.log("STRINGS:", { frontString, backString });
+  let paragraph = React.createElement("p", null, [
+    frontString + " ",
+    anchorEl,
+    " " + backString,
+  ]);
+  console.log("PARAGRAPH:", paragraph);
+
+  return paragraph;
 };
 
 const makeListItems = (textArray) => {

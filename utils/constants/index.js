@@ -12,6 +12,10 @@ export const elementOptions = [
   { value: "h5", label: "h5" },
   // { value: "h6", label: "h6" },
   { value: "p", label: "paragraph" },
+  {
+    value: "p-with-link",
+    label: "p-with-link DO NOT USE.  I AM EXPERIMENTING",
+  },
   { value: "img", label: "image" },
   { value: "ul", label: "u-list" },
   { value: "ol", label: "o-list" },
