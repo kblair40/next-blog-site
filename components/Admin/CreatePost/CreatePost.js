@@ -107,8 +107,8 @@ const CreatePostNew = () => {
   const handleAddSpace = (heightClass) => {
     const spacer = {
       text: "",
-      el: { value: "div" },
-      classes: heightClass,
+      el: "div",
+      classes: [heightClass],
     };
     console.log("HEIGHT CLASS:", heightClass);
     console.log("SPACER:", spacer);

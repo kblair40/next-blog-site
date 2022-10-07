@@ -38,14 +38,15 @@ const CreatePreview = ({ content, postTitle }) => {
   };
 
   const makeElement = (elObj, i) => {
-    const type = elObj.el; // ex. "h2", "p", "div", "img" etc...
+    const type = elObj.el; // ex. "h2", "p", "div", "img", "ul" etc...
     console.log("\n\nEL TYPE:", type, "\n\n");
     let classes = elObj.classes;
     // content in input at time of submission
     const innerText = ["div", "img"].includes(type) ? null : elObj.text;
 
     if (["ol", "ul"].includes(type)) {
-      return makeList(innerText, type, elObj.classes.split(" "));
+      console.log("\n\nOL OR UL:", elObj.classes);
+      return makeList(innerText, type, elObj.classes);
     }
 
     const props = { className: classNames(classes), key: i };

@@ -36,39 +36,28 @@ const BlogPost = ({ postContent, postImage, postTitle }) => {
     return list;
   };
 
-  const makeElement = (el, i) => {
-    const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
+  const makeElement = (elObj, i) => {
+    const type = elObj.el; // ex. "h2", "p", "div", "img" etc...
     console.log("\n\nEL TYPE:", type, "\n\n");
     // content in input when submitted
-    const innerText = ["div", "img"].includes(type) ? null : el.text;
+    const innerText = ["div", "img"].includes(type) ? null : elObj.text;
+    let classes = elObj.classes;
 
     if (["ol", "ul"].includes(type)) {
-      return makeList(innerText, type, el.classes.split(" "));
+      return makeList(innerText, type, classes);
     }
 
     // show border for spacers (div) while editing
-    if (type === "div") el.classes += " border border-slate-200/50";
+    if (type === "div") classes += " border border-slate-200/50";
 
     // convert to array
-    const classes = el.classes.split(" ");
-    const extraProps = {};
 
-    /* Add classes depending on value of 'type' */
-    if (type === "img") {
-      let style = {};
-      if (el.classes.includes("w-1/4")) style["width"] = "25%";
-      if (el.classes.includes("w-3/4")) style["width"] = "75%";
+    const props = { className: classNames(classes), key: i };
+    console.log("EL:", elObj, { type, props });
 
-      extraProps["style"] = style;
-    }
-    /* END ADDING CLASSES */
+    if (type === "img") props["src"] = elObj.text;
 
-    const props = { className: classNames(classes), key: i, ...extraProps };
-    console.log("EL:", el, { type, props });
-
-    if (type === "img") props["src"] = el.text;
-
-    const newElement = React.createElement(el.el.value, props, innerText);
+    const newElement = React.createElement(type, props, innerText);
     return newElement;
   };
 
@@ -80,10 +69,7 @@ const BlogPost = ({ postContent, postImage, postTitle }) => {
 
   const previewClasses = classNames({
     "w-full pt-6": true,
-    // "blog-post-content": true,
     "max-w-[460px] md:max-w-[740px] lg:max-w-[940px]": true,
-    // "flex flex-col items-center text-justify": true,
-    // "max-w-3xl lg:max-w-4xl": true,
   });
 
   return (
