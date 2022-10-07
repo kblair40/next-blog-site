@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import Link from "next/link";
 import Image from "next/image";
 
 import api from "utils/api";
@@ -201,6 +202,8 @@ const EditPostPage = ({
           insertLocation={insertLocation}
         />
       )}
+
+      <BackToAdmin />
     </>
   );
 };
@@ -212,6 +215,16 @@ const FullScreenSaving = () => {
     <div className="fixed text-xl font-semibold flex-col top-0 left-0 right-0 bottom-0 w-screen h-screen bg-slate-300/50 flex justify-center items-center">
       Saving
       <Loading />
+    </div>
+  );
+};
+
+const BackToAdmin = () => {
+  return (
+    <div className="fixed top-2 left-2">
+      <Link href="/admin">
+        <a className="text-sm font-semibold">Back to Admin</a>
+      </Link>
     </div>
   );
 };
