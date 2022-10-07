@@ -56,29 +56,22 @@
 .live-blog-post div.spacer-sm {
     height: 8px;
     border: 1px solid #cecece;
-    /* background-color: rgba(50, 50, 50, 0.2) */
 }
 
 .live-blog-post div.spacer-lg {
     height: 16px;
     border: 1px solid #cecece;
-    /* background-color: rgba(50, 50, 50, 0.2) */
+}
+
+.live-blog-post a {
+    font-weight: bold;
+    font-style: italic;
+}
+.live-blog-post a:hover {
+    text-decoration: underline;
 }
 
 :is(h2, h3, h4, h5) + :is(ul, ol) {
     margin-top: -.5rem;
 }
-
-/* .live-blog-post ol li {
-    
-} */
-
-/* .live-blog-post ul li {
-    
-} */
-
-
-/* if ul or ol follows an h2, h3, h4, or h5 tag, margin-bottom on the heading tag should be 0.5rem instead of 1rem */
-
-
 
