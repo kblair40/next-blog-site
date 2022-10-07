@@ -8,7 +8,13 @@ import styles from "./EditPostPage.module.css";
 import { makeElement } from "utils/create-post";
 import EditModal from "./EditModal";
 
-const EditPostPage = ({ content, postId, imageUrl, title }) => {
+const EditPostPage = ({
+  content,
+  postId,
+  imageUrl,
+  title,
+  handleChangeContent,
+}) => {
   const [selectedSection, setSelectedSection] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -45,6 +51,8 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
         content: JSON.stringify(contentCopy),
       });
       console.log("\nRESPONSE:", response);
+      let newContent = JSON.parse(response.data.content);
+      handleChangeContent(newContent);
     } catch (e) {
       console.error("FAILED TO PATCH POST:", e);
     }

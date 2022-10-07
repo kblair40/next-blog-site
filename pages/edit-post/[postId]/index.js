@@ -15,6 +15,10 @@ const Wrapper = () => {
 
   console.log("QUERY:", query);
 
+  const handleChangeContent = (newContent) => {
+    setContent(newContent);
+  };
+
   useEffect(() => {
     const fetchPost = async (postId) => {
       try {
@@ -61,6 +65,7 @@ const Wrapper = () => {
         <Button size="sm">Save Changes</Button>
       </div>
       <EditPostPage
+        handleChangeContent={handleChangeContent}
         postId={query.postId}
         content={content}
         title={title}

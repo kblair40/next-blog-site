@@ -32,6 +32,7 @@ const EditModal = ({
 
   const handleSubmit = async () => {
     onSaveChanges(value, contentIndex);
+    handleClickClose();
   };
 
   const baseClasses = [
