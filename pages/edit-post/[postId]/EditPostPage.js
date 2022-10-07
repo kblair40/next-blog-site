@@ -41,12 +41,12 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
     contentCopy[contentIdx] = contentItemCopy;
 
     try {
-      const response = await api.patch(`/posts/${postObject._id}`, {
+      const response = await api.patch(`/posts/${postId}`, {
         content: JSON.stringify(contentCopy),
       });
       console.log("\nRESPONSE:", response);
     } catch (e) {
-      console.error("FAILED TO PATCH POST:");
+      console.error("FAILED TO PATCH POST:", e);
     }
 
     setLoading(false);

@@ -60,7 +60,12 @@ const Wrapper = () => {
       <div className="fixed bottom-2 left-2">
         <Button size="sm">Save Changes</Button>
       </div>
-      <EditPostPage content={content} title={title} imageUrl={imageUrl} />
+      <EditPostPage
+        postId={query.postId}
+        content={content}
+        title={title}
+        imageUrl={imageUrl}
+      />
     </div>
   );
 };
