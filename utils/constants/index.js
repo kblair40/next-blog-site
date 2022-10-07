@@ -14,7 +14,7 @@ export const elementOptions = [
   { value: "p", label: "paragraph" },
   {
     value: "p-with-link",
-    label: "p-with-link DO NOT USE.  I AM EXPERIMENTING",
+    label: "paragraph-with-link",
   },
   { value: "img", label: "image" },
   { value: "ul", label: "u-list" },

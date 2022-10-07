@@ -2,15 +2,18 @@ import React from "react";
 import classNames from "classnames";
 
 export const makeElement = (elObj, i) => {
-  const type = elObj.el; // ex. "h2", "p", "div", "img", "ul" etc...
-  // console.log("\n\nEL TYPE:", type, "\n\n");
+  let type = elObj.el; // ex. "h2", "p", "div", "img", "ul" etc...
   let classes = elObj.classes;
+
   // content in input at time of submission
   const innerText = ["div", "img"].includes(type) ? null : elObj.text;
 
   if (type === "p-with-link") {
     const el = makeParagraphWithLink(elObj);
-    return el;
+    if (el) {
+      // if el === null, continue on and make a paragraph
+      return el;
+    }
   }
 
   if (["ol", "ul"].includes(type)) {
@@ -22,40 +25,41 @@ export const makeElement = (elObj, i) => {
 
   if (type === "img") props["src"] = elObj.text;
 
+  if (type === "p-with-link") type = "p";
+
   const newElement = React.createElement(type, props, innerText);
+
   return newElement;
 };
 
 const makeParagraphWithLink = (elObj) => {
-  console.log("\n\n********EL OBJ WITH LINK:", elObj);
+  console.log("\nEL OBJ WITH LINK:", elObj);
   let text = elObj.text;
-  // console.log("TEXT:", text);
 
   const openIdx = text.search("<");
   const closeIdx = text.search(">");
 
-  // console.log("OPEN AND CLOSE:", { openIdx, closeIdx });
-
   let match = text.slice(openIdx, closeIdx + 1);
-  // console.log("MATCH:", match);
   match = match.slice(1, -1); // remove start/end </>
   let [url, textString] = match
     .split("|")
     .map((val) => val.trim().split("^")[1]);
+
+  if (!url || !textString) return null;
 
   let anchorEl = React.createElement(
     "a",
     { href: url, target: "_blank" },
     textString
   );
-  // console.log("ANCHOR ELEMENT:", anchorEl, "\n\n");
+
   let frontString = text.slice(0, openIdx).trim().split(/ +/).join(" ");
   let backString = text
     .slice(closeIdx + 1)
     .trim()
     .split(/ +/)
     .join(" ");
-  console.log("STRINGS:", { frontString, backString });
+
   let paragraph = React.createElement("p", null, [
     frontString + " ",
     anchorEl,
@@ -73,7 +77,7 @@ const makeListItems = (textArray) => {
     listItems.push(li);
   }
 
-  console.log("\nLIST ITEMS:", listItems, "\n");
+  // console.log("\nLIST ITEMS:", listItems, "\n");
   return listItems;
 };
 
@@ -81,11 +85,8 @@ const makeList = (text, type, classes = []) => {
   console.log("\nLIST VALS:", { text, type, classes });
   // removes all newlines (\n)
   text = text.replace(/\n/g, "");
-  // console.log("text after:", { text });
   if (text.startsWith("#")) text = text.slice(1);
-  // console.log("TEXT DOUBLE AFTER:", { text });
   const textArr = text.split("#").map((t) => t.trim());
-  // console.log("TEXT ARR:", textArr, "\n\n");
   const listItems = makeListItems(textArr);
 
   const list = React.createElement(
