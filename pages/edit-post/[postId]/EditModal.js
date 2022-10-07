@@ -72,7 +72,9 @@ const EditModal = ({
           />
         )}
 
-        <div className="border border-slate-200 h-1/4 rounded-md"></div>
+        <div className="text-slate-800 border border-slate-200 h-1/4 rounded-md flex items-center justify-center">
+          Not ready yet. Working on adding ways for you to change styles here.
+        </div>
       </div>
 
       <div className="mt-4 flex flex-row items-end space-x-4 w-full">
