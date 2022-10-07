@@ -45,7 +45,8 @@ const BlogPost = () => {
   };
 
   const makeElement = (elObj, i) => {
-    const type = elObj.element; // ex. "h2", "p", "div", "img" etc...
+    const type = elObj.el; // ex. "h2", "p", "div", "img" etc...
+    let classes = elObj.classes;
     console.log("\n\nEL TYPE:", type, "\n\n");
     // content in input when submitted
     const innerText = ["div", "img"].includes(type) ? null : elObj.text;
@@ -57,12 +58,6 @@ const BlogPost = () => {
     // show border for spacers (div) while editing
     if (type === "div") elObj.classes += " border border-slate-200/50";
 
-    // convert to array
-    let classes = elObj.classes;
-    console.log("\n\n\nEL OBJ CLASSES:", classes, "\n\n");
-    // if (elObj.classes && elObj.classes.length) {
-    //   classes = elObj.classes.split(" ");
-    // }
     const extraProps = {};
 
     /* Add classes depending on value of 'type' */
@@ -110,7 +105,7 @@ const BlogPost = () => {
         {Array.isArray(postContent)
           ? postContent.map((elObj, i) => {
               console.log("EL OBJ:", elObj);
-              if (elObj.element === "inline") {
+              if (elObj.el === "inline") {
                 // return makeInlineElement(elObj, i)
                 console.log("INLINE ELEMENT:", elObj);
               } else {

@@ -5,10 +5,8 @@ import Button from "components/UI/Button";
 
 // import BlogPost from "components/BlogPost";
 
-const CreatePreview = ({ content }) => {
+const CreatePreview = ({ content, postTitle }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
-
-  // return null;
 
   const makeListItems = (textArray) => {
     const listItems = [];
@@ -53,7 +51,7 @@ const CreatePreview = ({ content }) => {
     }
 
     // show border for spacers (div) while editing
-    if (type === "div") el.classes += " border border-slate-200/50";
+    // if (type === "div") el.classes += " border border-slate-200/50";
 
     // convert to array
     const classes = el.classes.split(" ");
@@ -85,20 +83,20 @@ const CreatePreview = ({ content }) => {
   };
 
   const classes = classNames({
-    "border border-blue-400": true,
     "w-full": true,
-    "fixed top-10 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
+    "fixed top-12 right-0 bottom-0 left-0 h-screen-nav w-screen bg-white":
       isFullScreen,
-    // "border px-12 flex justify-center": true,
-    // "no-border pt-4": true,
-    // "border px-12 flex justify-center": isFullScreen,
-    // "no-border pt-4": isFullScreen,
+    "flex justify-center": isFullScreen,
+    "no-border pt-8": isFullScreen,
+    "live-blog-post": true,
+    "px-4 md:px-6": true,
   });
 
   const previewClasses = classNames({
     "w-full pt-2": true,
-    // "max-w-3xl lg:max-w-4xl": isFullScreen,
-    "max-w-[460px] md:max-w-[740px] lg:[max-w-940px]": true,
+    "pt-8": !isFullScreen,
+    "max-w-[460px] md:max-w-[740px] lg:max-w-[940px]": true,
+    "mx-auto": true,
   });
 
   return (
@@ -112,6 +110,7 @@ const CreatePreview = ({ content }) => {
       </Button>
 
       <div className={previewClasses}>
+        <h1>{postTitle}</h1>
         {Array.isArray(content) && content.length
           ? content.map((elObj, i) => {
               return makeElement(elObj, i);

@@ -7,66 +7,66 @@
   "tags": [],
   "content": [
     {
-      "element": "p",
+      "el": "p",
       "text": "With an upcoming wedding, a desire to buy a home, a packed travel schedule, and the rising cost of living, understanding our financial picture has become a regular topic of conversation at the dinner table. We’ve been asking ourselves questions like “How much house can we afford? Can we host a Welcome Party and a Rehearsal Dinner for our wedding? Flowers are how much? How much can we save by swapping all the flowers for candles?!”",
       "classes": []
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "These questions can be overwhelming. Especially without insight into our joint finances. We’re both financially organized as individuals, but we couldn’t find a way to seamlessly integrate our accounts to understand our net worth, recurring expenses, cash flow, or the progress we’re making towards goals, until now.",
       "classes": []
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "Cue Monarch Money. Jeff and I have tried a number of things, including a convoluted spreadsheet, hacking Mint.com, comparing Personal Capital dashboards, and nothing has given us a holistic view of our finances the way that Monarch has. Monarch has built a beautiful, action-oriented, and understandable dashboard that makes money management easy.",
       "classes": []
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "As the account owner, you can invite members of your household to create their own login and sync all of their financial accounts. This can include savings, checking, student, car, or personal loans, mortgages, investment accounts, HSAs, etc. Having a joint account like this is so helpful because it allows you to track things like your household’s net worth, recurring expenses, cash flow, and progress towards goals.",
       "classes": []
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "My favorite feature, which is only available in the mobile app, is the monthly progress report. The app walks you through your cash flow so far, goal progress, top income and expense categories, your net worth, asset balance, asset breakdown, and liability balance and breakdown. Instead of waiting until the end of the month to look back and review where your paycheck has gone, you can check-in at any point and make adjustments as necessary. Spent too much on eating out in the first half of the month? Great, focus on dining in for the remainder of the month. The way they’ve built the progress report is addictive - Instagram-level addictive but actually good for you.",
       "classes": []
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "There are two other features that have been game changers for us too. The first is the recurring expenses tab. The platform looks across all of our transactions and beautifully maps them out on a calendar. The transactions are green if they’ve already been paid that month, and blue if they have yet to be charged. I can’t stress how helpful this has been as we plan ahead.",
       "classes": []
     },
     {
-      "element": "img",
+      "el": "img",
       "image_url": "https://res.cloudinary.com/erinsblog/image/upload/v1664888732/Screen_Shot_2022-09-18_at_11.52.35_AM-1_uimmgv.png",
       "classes": ["w-5/6", "mx-auto", "mb-4"]
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "The second feature that we love is the ability to earmark cash for different goals. You have the ability to choose which accounts are calculated in your “available cash” amount and then allocate money from that bucket towards different goals. Let’s say you have $20,000 available between your checking and savings account. You can assign $10,000 to a down payment goal, $5,000 to a travel goal, and the remaining $5,000 to saving for something special. You decide the goal - Monarch just provides a visual so you can see your progress towards that goal. I’ve always mentally put my money in buckets to keep track of it, and now Monarch does it for me.",
       "classes": []
     },
     {
-      "element": "p",
+      "el": "p",
       "text": "I could talk about Monarch all day. I’m a huge fan and I don’t think Jeff and I would have the confidence or reassurance that we’re on track to meet our goals without this level of visibility and understanding. This platform is amazing for people at every stage of their financial journey - whether you’re trying to manage debt, understand your spending habits, or plan for the future, this platform actually serves people in a meaningful way.",
       "classes": []
     },
     {
-      "element": "inline",
+      "el": "inline",
       "content": [
         {
-            "element": "p",
+            "el": "p",
             "text": "If you are interested in signing up, you can use my link for a free 30 day trial",
             "classes": []
         },
         {
-            "element": "ext_link",
+            "el": "ext_link",
             "text": "here",
             "url": "https://www.monarchmoney.com/referral/shagh85epe",
             "classes": []
         },
         {
-            "element": "p",
+            "el": "p",
             "text": ". Monarch is $9.99 a month and the best money we spend each month. I initially had some hesitation about paying to understand what I pay for and where my cash goes, but now that I’m on the platform, I can’t imagine managing our finances without it.",
             "classes": []
         }
