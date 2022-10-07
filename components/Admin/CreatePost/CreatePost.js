@@ -32,7 +32,7 @@ const CreatePostNew = () => {
       {
         text: contentRef.current.value,
         el: selectedEl.value,
-        classes: classNames(selectedClasses.map((cls) => cls.value)),
+        classes: [],
       },
     ]);
   };

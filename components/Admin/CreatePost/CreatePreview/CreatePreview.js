@@ -37,44 +37,22 @@ const CreatePreview = ({ content, postTitle }) => {
     return list;
   };
 
-  const makeElement = (el, i) => {
-    const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
+  const makeElement = (elObj, i) => {
+    const type = elObj.el; // ex. "h2", "p", "div", "img" etc...
     console.log("\n\nEL TYPE:", type, "\n\n");
+    let classes = elObj.classes;
     // content in input at time of submission
-    const innerText = ["div", "img"].includes(type) ? null : el.text;
+    const innerText = ["div", "img"].includes(type) ? null : elObj.text;
 
     if (["ol", "ul"].includes(type)) {
-      return makeList(innerText, type, el.classes.split(" "));
-      // const list = makeList(innerText, type);
-      // console.log("LIST:", list);
-      // return;
+      return makeList(innerText, type, elObj.classes.split(" "));
     }
 
-    // show border for spacers (div) while editing
-    // if (type === "div") el.classes += " border border-slate-200/50";
+    const props = { className: classNames(classes), key: i };
 
-    // convert to array
-    const classes = el.classes.split(" ");
-    const extraProps = {};
+    if (type === "img") props["src"] = elObj.text;
 
-    /* Add classes depending on value of 'type' */
-    if (type === "img") {
-      // classes.push("mx-auto");
-      let style = {};
-      if (el.classes.includes("w-1/4")) style["width"] = "25%";
-      if (el.classes.includes("w-3/4")) style["width"] = "75%";
-
-      extraProps["style"] = style;
-    }
-
-    /* END ADDING CLASSES */
-
-    const props = { className: classNames(classes), key: i, ...extraProps };
-    console.log("EL:", el, { type, props });
-
-    if (type === "img") props["src"] = el.text;
-
-    const newElement = React.createElement(el.el.value, props, innerText);
+    const newElement = React.createElement(type, props, innerText);
     return newElement;
   };
 
