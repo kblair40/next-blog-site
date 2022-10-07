@@ -59,7 +59,7 @@ const makeParagraphWithLink = (elObj) => {
   let paragraph = React.createElement("p", null, [
     frontString + " ",
     anchorEl,
-    " " + backString,
+    backString.length ? backString : "",
   ]);
   console.log("PARAGRAPH:", paragraph);
 
