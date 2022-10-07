@@ -44,28 +44,32 @@ const BlogPost = () => {
     return list;
   };
 
-  const makeElement = (el, i) => {
-    const type = el.el.value; // ex. "h2", "p", "div", "img" etc...
+  const makeElement = (elObj, i) => {
+    const type = elObj.element; // ex. "h2", "p", "div", "img" etc...
     console.log("\n\nEL TYPE:", type, "\n\n");
     // content in input when submitted
-    const innerText = ["div", "img"].includes(type) ? null : el.text;
+    const innerText = ["div", "img"].includes(type) ? null : elObj.text;
 
     if (["ol", "ul"].includes(type)) {
-      return makeList(innerText, type, el.classes.split(" "));
+      return makeList(innerText, type, elObj.classes.split(" "));
     }
 
     // show border for spacers (div) while editing
-    if (type === "div") el.classes += " border border-slate-200/50";
+    if (type === "div") elObj.classes += " border border-slate-200/50";
 
     // convert to array
-    const classes = el.classes.split(" ");
+    let classes = elObj.classes;
+    console.log("\n\n\nEL OBJ CLASSES:", classes, "\n\n");
+    // if (elObj.classes && elObj.classes.length) {
+    //   classes = elObj.classes.split(" ");
+    // }
     const extraProps = {};
 
     /* Add classes depending on value of 'type' */
     if (type === "img") {
       let style = {};
-      if (el.classes.includes("w-1/4")) style["width"] = "25%";
-      if (el.classes.includes("w-3/4")) style["width"] = "75%";
+      if (classes.includes("w-1/4")) style["width"] = "25%";
+      if (classes.includes("w-3/4")) style["width"] = "75%";
 
       extraProps["style"] = style;
     }
@@ -73,9 +77,9 @@ const BlogPost = () => {
 
     const props = { className: classNames(classes), key: i, ...extraProps };
 
-    if (type === "img") props["src"] = el.text;
+    if (type === "img") props["src"] = elObj.image_url;
 
-    const newElement = React.createElement(el.el.value, props, innerText);
+    const newElement = React.createElement(type, props, innerText);
     return newElement;
   };
 
