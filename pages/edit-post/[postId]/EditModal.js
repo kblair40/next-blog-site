@@ -4,11 +4,16 @@ import classNames from "classnames";
 
 import Stack from "components/UI/Stack";
 import Button from "components/UI/Button";
-import api from "utils/api";
 
 // Modal.setAppElement("#layout");
 
-const EditModal = ({ content, onClose, isOpen }) => {
+const EditModal = ({
+  content,
+  onClose,
+  isOpen,
+  contentIndex,
+  onSaveChanges,
+}) => {
   const [value, setValue] = useState();
 
   useEffect(() => {
@@ -26,7 +31,7 @@ const EditModal = ({ content, onClose, isOpen }) => {
   }, [content]);
 
   const handleSubmit = async () => {
-    //
+    onSaveChanges(value, contentIndex);
   };
 
   const baseClasses = [
@@ -38,6 +43,7 @@ const EditModal = ({ content, onClose, isOpen }) => {
 
   const handleChange = (e) => {
     const { value } = e.target;
+    setValue(value);
   };
 
   const handleClickClose = () => {
@@ -61,6 +67,7 @@ const EditModal = ({ content, onClose, isOpen }) => {
         {value !== undefined && (
           <textarea
             className="w-full border border-slate-100 rounded-md p-2 h-3/4 focus:outline-none hover:border-slate-200 focus:border-slate-300"
+            onChange={handleChange}
             value={value}
           />
         )}

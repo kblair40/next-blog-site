@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import Image from "next/image";
 
+import api from "utils/api";
+import Loading from "components/UI/Loading";
 import styles from "./EditPostPage.module.css";
 import { makeElement } from "utils/create-post";
 import EditModal from "./EditModal";
 
 const EditPostPage = ({ content, postId, imageUrl, title }) => {
   const [selectedSection, setSelectedSection] = useState();
+  const [loading, setLoading] = useState(false);
 
   const classes = classNames({
     "w-full mt-4": true,
@@ -24,6 +27,27 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
 
   const handleClick = (i) => {
     setSelectedSection(i);
+  };
+
+  const handleSaveChanges = async (newValue, contentIdx) => {
+    setLoading(true);
+    console.log("NEW VALUE:", newValue);
+    console.log("CONTENT INDEX:", contentIdx);
+    const contentCopy = [...content];
+    const contentItemCopy = { ...contentCopy[contentIdx] };
+    console.log("\n\nCOPY AND ITEM:", { contentCopy, contentItemCopy });
+    contentItemCopy.text = newValue;
+
+    // try {
+    //   const response = await api.patch(`/posts/${postObject._id}`, {
+    //     content: contentItemCopy,
+    //   });
+    //   console.log("\nRESPONSE:", response);
+    // } catch (e) {
+    //   console.error("FAILED TO PATCH POST:");
+    // }
+
+    setLoading(false);
   };
 
   return (
@@ -57,8 +81,12 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
         </div>
       </div>
 
+      {loading && <FullScreenSaving />}
+
       <EditModal
         // if 0, still want modal to open
+        contentIndex={selectedSection}
+        onSaveChanges={handleSaveChanges}
         isOpen={selectedSection !== undefined}
         onClose={() => setSelectedSection(undefined)}
         content={content[selectedSection]}
@@ -68,3 +96,12 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
 };
 
 export default EditPostPage;
+
+const FullScreenSaving = () => {
+  return (
+    <div className="fixed text-xl font-semibold flex-col top-0 left-0 right-0 bottom-0 w-screen h-screen bg-slate-300/50 flex justify-center items-center">
+      Saving
+      <Loading />
+    </div>
+  );
+};
