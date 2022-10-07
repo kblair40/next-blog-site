@@ -3,7 +3,7 @@ import { Tab, TabList, TabPanel, Tabs as ReactTabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 import PostsTab from "./tabs/PostsTab";
-import CommentsTab from "./tabs/CommentsTab";
+// import CommentsTab from "./tabs/CommentsTab";
 import CreatePostTab from "./tabs/CreatePostTab";
 import SubscriberTab from "./tabs/SubscriberTab";
 
@@ -12,7 +12,6 @@ const Tabs = () => {
     <ReactTabs defaultIndex={0}>
       <TabList>
         <Tab>All Posts</Tab>
-        {/* <Tab>Comments</Tab> */}
         <Tab>Add Post</Tab>
         <Tab>Subscribers</Tab>
       </TabList>
@@ -20,12 +19,6 @@ const Tabs = () => {
       <TabPanel className="px-4 pt-2">
         <PostsTab />
       </TabPanel>
-
-      {/* <TabPanel className="px-4 pt-2">
-        <CommentsTab />
-      </TabPanel> */}
-
-      {/* <TabPanel className="px-4 pt-2"> */}
       <TabPanel>
         <CreatePostTab />
       </TabPanel>
