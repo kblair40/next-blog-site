@@ -7,6 +7,8 @@ import EditPostPage from "./EditPostPage";
 
 const Wrapper = () => {
   const [content, setContent] = useState();
+  const [title, setTitle] = useState();
+  const [imageUrl, setImageUrl] = useState();
 
   const { query } = useRouter();
 
@@ -22,7 +24,10 @@ const Wrapper = () => {
         console.log("\nRESPONSE:", response);
 
         if (response.data && response.data.post) {
-          setContent(response.data.post);
+          const post = response.data.post;
+          setContent(JSON.parse(post.content));
+          setTitle(post.title);
+          setImageUrl(post.image_url);
         }
       } catch (e) {
         console.log("FAILED FETCHING POST:", e);
@@ -54,7 +59,7 @@ const Wrapper = () => {
       <div className="fixed bottom-2 left-2">
         <Button size="sm">Save Changes</Button>
       </div>
-      <EditPostPage content={content} />
+      <EditPostPage content={content} title={title} imageUrl={imageUrl} />
     </div>
   );
 };

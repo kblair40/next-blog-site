@@ -1,0 +1,14 @@
+.editable {
+    /*  */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* padding: 4px; */
+}
+
+.editable:hover {
+    background-color: #dd9;
+}
+
+ .editable img:hover {
+    outline: yellow solid 3px;
+}
