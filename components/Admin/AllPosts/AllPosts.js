@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import classNames from "classnames";
 import { toast } from "react-toastify";
 import CreatableSelect from "react-select/creatable";
@@ -221,12 +222,18 @@ const AllPosts = () => {
                           </p>
                         </div>
 
-                        <Button
-                          size="sm"
-                          onClick={() => handleSubmit(postVal._id)}
-                        >
-                          Save Changes
-                        </Button>
+                        <div className="flex space-x-6 items-center">
+                          <Button
+                            size="sm"
+                            onClick={() => handleSubmit(postVal._id)}
+                          >
+                            Save Changes
+                          </Button>
+
+                          {/* <Link href={`/admin/edit/${postVal._id}`}>
+                            <a className="font-semibold">Edit Post</a>
+                          </Link> */}
+                        </div>
                       </div>
                     </div>
                   </div>
