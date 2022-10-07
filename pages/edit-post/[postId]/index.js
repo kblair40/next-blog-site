@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import api from "utils/api";
-import Button from "components/UI/Button";
 import Loading from "components/UI/Loading";
 import EditPostPage from "./EditPostPage";
 
@@ -61,9 +60,6 @@ const Wrapper = () => {
 
   return (
     <div>
-      <div className="fixed bottom-2 left-2">
-        <Button size="sm">Save Changes</Button>
-      </div>
       <EditPostPage
         handleChangeContent={handleChangeContent}
         postId={query.postId}

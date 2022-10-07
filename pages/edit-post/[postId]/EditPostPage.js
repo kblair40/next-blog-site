@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import Image from "next/image";
 
@@ -7,6 +7,7 @@ import Loading from "components/UI/Loading";
 import styles from "./EditPostPage.module.css";
 import { makeElement } from "utils/create-post";
 import EditModal from "./EditModal";
+import ConfirmDeleteModal from "./ConfirmDeleteModal";
 
 const EditPostPage = ({
   content,
@@ -16,6 +17,8 @@ const EditPostPage = ({
   handleChangeContent,
 }) => {
   const [selectedSection, setSelectedSection] = useState();
+  const [deleteModalOpen, setDeleteModalOpen] = useState();
+  const [sectionToDelete, setSelectionToDelete] = useState();
   const [loading, setLoading] = useState(false);
 
   const classes = classNames({
@@ -35,6 +38,21 @@ const EditPostPage = ({
     setSelectedSection(i);
   };
 
+  const saveContent = async (rawContent) => {
+    try {
+      const response = await api.patch(`/posts/${postId}`, {
+        content: JSON.stringify(rawContent),
+      });
+      // console.log("\nRESPONSE:", response);
+
+      // tells parent to render page with updated content
+      let newContent = JSON.parse(response.data.content);
+      handleChangeContent(newContent);
+    } catch (e) {
+      console.error("FAILED TO PATCH POST:", e);
+    }
+  };
+
   const handleSaveChanges = async (newValue, contentIdx) => {
     setLoading(true);
     console.log("NEW VALUE:", newValue);
@@ -46,19 +64,46 @@ const EditPostPage = ({
 
     contentCopy[contentIdx] = contentItemCopy;
 
-    try {
-      const response = await api.patch(`/posts/${postId}`, {
-        content: JSON.stringify(contentCopy),
-      });
-      console.log("\nRESPONSE:", response);
-      let newContent = JSON.parse(response.data.content);
-      handleChangeContent(newContent);
-    } catch (e) {
-      console.error("FAILED TO PATCH POST:", e);
-    }
+    await saveContent(contentCopy);
 
     setLoading(false);
   };
+
+  const handleClickDelete = (i) => {
+    //
+    console.log("I:", i);
+    setSelectionToDelete(i);
+    setDeleteModalOpen(true);
+  };
+  const handleConfirmDelete = async () => {
+    setLoading(true);
+    console.log("CONTENT INDEX:", sectionToDelete);
+    const contentCopy = [...content];
+    const removedVal = contentCopy.splice(sectionToDelete, 1);
+
+    console.log("REMOVED VALUE:", removedVal);
+
+    await saveContent(contentCopy);
+
+    // try {
+    //   const response = await api.patch(`/posts/${postId}`, {
+    //     content: JSON.stringify(contentCopy),
+    //   });
+    //   // console.log("\nRESPONSE:", response);
+
+    //   // tells parent to render page with updated content
+    //   let newContent = JSON.parse(response.data.content);
+    //   handleChangeContent(newContent);
+    // } catch (e) {
+    //   console.error("FAILED TO PATCH POST:", e);
+    // }
+
+    setLoading(false);
+  };
+
+  const deleteBtnClasses = classNames([
+    "absolute top-0 w-8 h-8 flex justify-center items-center hover:bg-slate-100 duration-200 -right-12",
+  ]);
 
   return (
     <>
@@ -79,12 +124,22 @@ const EditPostPage = ({
           {content
             ? content.map((item, i) => {
                 return (
-                  <div
-                    onClick={() => handleClick(i)}
-                    className={styles.editable}
-                    key={i}
-                  >
-                    {makeElement(item)}
+                  <div className="relative" key={i}>
+                    <div
+                      onClick={() => handleClick(i)}
+                      className={`${styles.editable}`}
+                    >
+                      {makeElement(item)}
+                      <div
+                        className={deleteBtnClasses}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleClickDelete(i);
+                        }}
+                      >
+                        X
+                      </div>
+                    </div>
                   </div>
                 );
               })
@@ -94,14 +149,27 @@ const EditPostPage = ({
 
       {loading && <FullScreenSaving />}
 
-      <EditModal
-        // if 0, still want modal to open
-        contentIndex={selectedSection}
-        onSaveChanges={handleSaveChanges}
-        isOpen={selectedSection !== undefined}
-        onClose={() => setSelectedSection(undefined)}
-        content={content[selectedSection]}
-      />
+      {selectedSection !== undefined && (
+        <EditModal
+          // if 0, still want modal to open
+          contentIndex={selectedSection}
+          onSaveChanges={handleSaveChanges}
+          isOpen={selectedSection !== undefined}
+          onClose={() => setSelectedSection(undefined)}
+          content={content[selectedSection]}
+        />
+      )}
+
+      {deleteModalOpen && (
+        <ConfirmDeleteModal
+          handleConfirm={handleConfirmDelete}
+          isOpen={deleteModalOpen}
+          onClose={() => {
+            setSelectionToDelete(undefined);
+            setDeleteModalOpen(false);
+          }}
+        />
+      )}
     </>
   );
 };
