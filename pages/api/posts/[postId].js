@@ -23,6 +23,18 @@ export default async function handler(req, res) {
         if (foundPost) {
           // console.log("\n\nFOUND POST:", foundPost, "\n\n");
 
+          if (body.content) {
+            foundPost.content = body.content;
+            try {
+              const savedPost = await foundPost.save();
+
+              return res.status(200).json(savedPost);
+            } catch (e) {
+              console.log("\n\nFAILED SAVING POST:", e);
+              return res.status(422).json({ success: false });
+            }
+          }
+
           foundPost.title = body.title;
           foundPost.status = parseInt(body.status);
           foundPost.category = body.category;

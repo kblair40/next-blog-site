@@ -38,14 +38,16 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
     console.log("\n\nCOPY AND ITEM:", { contentCopy, contentItemCopy });
     contentItemCopy.text = newValue;
 
-    // try {
-    //   const response = await api.patch(`/posts/${postObject._id}`, {
-    //     content: contentItemCopy,
-    //   });
-    //   console.log("\nRESPONSE:", response);
-    // } catch (e) {
-    //   console.error("FAILED TO PATCH POST:");
-    // }
+    contentCopy[contentIdx] = contentItemCopy;
+
+    try {
+      const response = await api.patch(`/posts/${postObject._id}`, {
+        content: JSON.stringify(contentCopy),
+      });
+      console.log("\nRESPONSE:", response);
+    } catch (e) {
+      console.error("FAILED TO PATCH POST:");
+    }
 
     setLoading(false);
   };
@@ -60,6 +62,7 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
               alt="post image"
               layout="fill"
               objectFit="cover"
+              priority
             />
           </div>
 

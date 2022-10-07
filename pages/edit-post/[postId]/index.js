@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import api from "utils/api";
 import Button from "components/UI/Button";
+import Loading from "components/UI/Loading";
 import EditPostPage from "./EditPostPage";
 
 const Wrapper = () => {
@@ -49,7 +50,7 @@ const Wrapper = () => {
           alignItems: "center",
         }}
       >
-        Loading
+        <Loading />
       </div>
     );
   }
