@@ -1,11 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import Modal from "react-modal";
 import classNames from "classnames";
 
-import Stack from "components/UI/Stack";
 import Button from "components/UI/Button";
-
-// Modal.setAppElement("#layout");
 
 const ConfirmDeleteModal = ({ handleConfirm, onClose, isOpen }) => {
   useEffect(() => {

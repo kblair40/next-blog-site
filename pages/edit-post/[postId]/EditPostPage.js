@@ -7,6 +7,7 @@ import Loading from "components/UI/Loading";
 import styles from "./EditPostPage.module.css";
 import { makeElement } from "utils/create-post";
 import EditModal from "./EditModal";
+import AddModal from "./AddModal";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
 
 const EditPostPage = ({
@@ -18,6 +19,8 @@ const EditPostPage = ({
 }) => {
   const [selectedSection, setSelectedSection] = useState();
   const [deleteModalOpen, setDeleteModalOpen] = useState();
+  const [addModalOpen, setAddModalOpen] = useState(false);
+  const [insertLocation, setInsertLocation] = useState(); // 'above' | 'below'
   const [sectionToDelete, setSelectionToDelete] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -31,10 +34,9 @@ const EditPostPage = ({
   const previewClasses = classNames({
     "w-full pt-6": true,
     "max-w-[460px] md:max-w-[740px] lg:max-w-[940px]": true,
-    // [`${styles.border_wrapper}`]: true,
   });
 
-  const handleClick = (i) => {
+  const handleClickSection = (i) => {
     setSelectedSection(i);
   };
 
@@ -43,7 +45,6 @@ const EditPostPage = ({
       const response = await api.patch(`/posts/${postId}`, {
         content: JSON.stringify(rawContent),
       });
-      // console.log("\nRESPONSE:", response);
 
       // tells parent to render page with updated content
       let newContent = JSON.parse(response.data.content);
@@ -55,11 +56,8 @@ const EditPostPage = ({
 
   const handleSaveChanges = async (newValue, contentIdx) => {
     setLoading(true);
-    console.log("NEW VALUE:", newValue);
-    console.log("CONTENT INDEX:", contentIdx);
     const contentCopy = [...content];
     const contentItemCopy = { ...contentCopy[contentIdx] };
-    console.log("\n\nCOPY AND ITEM:", { contentCopy, contentItemCopy });
     contentItemCopy.text = newValue;
 
     contentCopy[contentIdx] = contentItemCopy;
@@ -70,33 +68,16 @@ const EditPostPage = ({
   };
 
   const handleClickDelete = (i) => {
-    //
-    console.log("I:", i);
     setSelectionToDelete(i);
     setDeleteModalOpen(true);
   };
+
   const handleConfirmDelete = async () => {
     setLoading(true);
-    console.log("CONTENT INDEX:", sectionToDelete);
     const contentCopy = [...content];
-    const removedVal = contentCopy.splice(sectionToDelete, 1);
-
-    console.log("REMOVED VALUE:", removedVal);
+    contentCopy.splice(sectionToDelete, 1);
 
     await saveContent(contentCopy);
-
-    // try {
-    //   const response = await api.patch(`/posts/${postId}`, {
-    //     content: JSON.stringify(contentCopy),
-    //   });
-    //   // console.log("\nRESPONSE:", response);
-
-    //   // tells parent to render page with updated content
-    //   let newContent = JSON.parse(response.data.content);
-    //   handleChangeContent(newContent);
-    // } catch (e) {
-    //   console.error("FAILED TO PATCH POST:", e);
-    // }
 
     setLoading(false);
   };
@@ -104,6 +85,14 @@ const EditPostPage = ({
   const deleteBtnClasses = classNames([
     "absolute top-0 w-8 h-8 flex justify-center items-center hover:bg-slate-100 duration-200 -right-12",
   ]);
+
+  const addBtnClasses = classNames([
+    "absolute top-0 w-8 h-8 flex justify-center items-center hover:bg-slate-100 duration-200 -left-12",
+  ]);
+
+  const handleClickAddContent = (i) => {
+    setAddModalOpen(true);
+  };
 
   return (
     <>
@@ -126,10 +115,11 @@ const EditPostPage = ({
                 return (
                   <div className="relative" key={i}>
                     <div
-                      onClick={() => handleClick(i)}
+                      onClick={() => handleClickSection(i)}
                       className={`${styles.editable}`}
                     >
                       {makeElement(item)}
+
                       <div
                         className={deleteBtnClasses}
                         onClick={(e) => {
@@ -138,6 +128,16 @@ const EditPostPage = ({
                         }}
                       >
                         X
+                      </div>
+
+                      <div
+                        className={addBtnClasses}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleClickAddContent(i);
+                        }}
+                      >
+                        +
                       </div>
                     </div>
                   </div>
@@ -168,6 +168,15 @@ const EditPostPage = ({
             setSelectionToDelete(undefined);
             setDeleteModalOpen(false);
           }}
+        />
+      )}
+
+      {addModalOpen && (
+        <AddModal
+          isOpen={addModalOpen}
+          onClose={() => setAddModalOpen(false)}
+          onChangeInsertLocation={setInsertLocation}
+          insertLocation={insertLocation}
         />
       )}
     </>

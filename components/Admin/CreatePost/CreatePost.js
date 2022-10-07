@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import classNames from "classnames";
 import { toast } from "react-toastify";
 
 import Spacers from "./Spacers";
@@ -16,7 +15,6 @@ const CreatePostNew = () => {
   const [postTitle, setPostTitle] = useState("Post Title");
   const [postImageUrl, setPostImageUrl] = useState("");
   const [selectedEl, setSelectedEl] = useState("");
-  const [selectedClasses, setSelectedClasses] = useState([]);
   const [contentArray, setContentArray] = useState([]);
   const [category, setCategory] = useState("");
   const [tags, setTags] = useState([]);

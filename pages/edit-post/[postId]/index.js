@@ -12,8 +12,6 @@ const Wrapper = () => {
 
   const { query } = useRouter();
 
-  console.log("QUERY:", query);
-
   const handleChangeContent = (newContent) => {
     setContent(newContent);
   };
@@ -24,8 +22,7 @@ const Wrapper = () => {
         const response = await api.get("/posts", {
           params: { id: postId },
         });
-
-        console.log("\nRESPONSE:", response);
+        // console.log("\nRESPONSE:", response);
 
         if (response.data && response.data.post) {
           const post = response.data.post;

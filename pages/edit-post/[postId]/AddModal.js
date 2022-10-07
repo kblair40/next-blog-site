@@ -1,38 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import classNames from "classnames";
+import Select from "react-select";
 
 import Button from "components/UI/Button";
 
 // Modal.setAppElement("#layout");
 
-const EditModal = ({
-  content,
+const AddModal = ({
   onClose,
   isOpen,
-  contentIndex,
-  onSaveChanges,
+  onChangeInsertLocation,
+  insertLocation,
+  onSave,
 }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     if (document.querySelector("#layout")) {
       Modal.setAppElement("#layout");
     }
   }, []);
-
-  const initialized = useRef(false);
-  useEffect(() => {
-    if (!initialized.current && content) {
-      setValue(content.text);
-      initialized.current = true;
-    }
-  }, [content]);
-
-  const handleSubmit = async () => {
-    onSaveChanges(value, contentIndex);
-    handleClickClose();
-  };
 
   const baseClasses = [
     "absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
@@ -52,6 +40,10 @@ const EditModal = ({
     onClose();
   };
 
+  const handleSubmit = () => {
+    //
+  };
+
   return (
     <Modal
       className={classNames(baseClasses)}
@@ -60,7 +52,14 @@ const EditModal = ({
       shouldFocusAfterRender={false}
     >
       <div className="py-2">
-        <p className="text-xl font-medium">Edit</p>
+        <Select
+          placeholder="Insert Location"
+          options={[
+            { value: "above", label: "Above" },
+            { value: "below", label: "Below" },
+          ]}
+          onChange={(val) => onChangeInsertLocation(val.value)}
+        />
       </div>
 
       <div className="h-full space-y-2 mb-4">
@@ -80,7 +79,11 @@ const EditModal = ({
           Cancel
         </Button>
 
-        <Button classes={["w-3/4"]} onClick={handleSubmit}>
+        <Button
+          isDisabled={!insertLocation}
+          classes={["w-3/4"]}
+          onClick={handleSubmit}
+        >
           Save
         </Button>
       </div>
@@ -88,4 +91,4 @@ const EditModal = ({
   );
 };
 
-export default EditModal;
+export default AddModal;
