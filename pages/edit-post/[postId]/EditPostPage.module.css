@@ -10,5 +10,5 @@
 }
 
  .editable img:hover {
-    outline: yellow solid 3px;
+    outline: #dd9 solid 3px;
 }

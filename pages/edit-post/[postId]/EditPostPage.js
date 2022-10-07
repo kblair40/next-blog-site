@@ -4,8 +4,11 @@ import Image from "next/image";
 
 import styles from "./EditPostPage.module.css";
 import { makeElement } from "utils/create-post";
+import EditModal from "./EditModal";
 
 const EditPostPage = ({ content, postId, imageUrl, title }) => {
+  const [selectedSection, setSelectedSection] = useState();
+
   const classes = classNames({
     "w-full mt-4": true,
     "px-4 sm:px-8 flex justify-center": true,
@@ -19,31 +22,48 @@ const EditPostPage = ({ content, postId, imageUrl, title }) => {
     // [`${styles.border_wrapper}`]: true,
   });
 
+  const handleClick = (i) => {
+    setSelectedSection(i);
+  };
+
   return (
-    <div className={classes}>
-      <div className={previewClasses}>
-        <div className="relative h-60 w-full md:h-80 md:w-3/4 rounded-sm overflow-hidden mb-6 md:mb-8 mx-auto">
-          <Image
-            src={imageUrl}
-            alt="post image"
-            layout="fill"
-            objectFit="cover"
-          />
+    <>
+      <div className={classes}>
+        <div className={previewClasses}>
+          <div className="relative h-60 w-full md:h-80 md:w-3/4 rounded-sm overflow-hidden mb-6 md:mb-8 mx-auto">
+            <Image
+              src={imageUrl}
+              alt="post image"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+
+          <h1>{title}</h1>
+
+          {content
+            ? content.map((item, i) => {
+                return (
+                  <div
+                    onClick={() => handleClick(i)}
+                    className={styles.editable}
+                    key={i}
+                  >
+                    {makeElement(item)}
+                  </div>
+                );
+              })
+            : null}
         </div>
-
-        <h1>{title}</h1>
-
-        {content
-          ? content.map((item, i) => {
-              return (
-                <div className={styles.editable} key={i}>
-                  {makeElement(item)}
-                </div>
-              );
-            })
-          : null}
       </div>
-    </div>
+
+      <EditModal
+        // if 0, still want modal to open
+        isOpen={selectedSection !== undefined}
+        onClose={() => setSelectedSection(undefined)}
+        content={content[selectedSection]}
+      />
+    </>
   );
 };
 
