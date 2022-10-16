@@ -14,15 +14,16 @@ const PostsCategoryPage = ({ category, posts }) => {
 
   return (
     <FullPageWrapper>
-      <Navbar />
-      <div className="h-screen w-screen">
+      {/* <Navbar /> */}
+      <div className="h-screen w-screen bg-creme">
         <div className="flex w-full">
-          <div className="h-screen w-fit">
+          {/* <div className="h-screen w-fit">
             <TitleSection sectionTitle={category} />
-          </div>
+          </div> */}
 
-          <div className="flex-1 bg-creme relative">
-            <div className="absolute bottom-0 left-0 right-0 top-16 overflow-y-auto pb-8">
+          <div className="flex-1 ">
+            {/* <div className="absolute bottom-0 left-0 right-0 top-16 overflow-y-auto pb-8"> */}
+            <div className="overflow-y-auto pb-8">
               <Posts category={category} posts={posts} />
             </div>
           </div>
