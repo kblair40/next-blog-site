@@ -15,8 +15,8 @@ const NavBanner = () => {
 
   const wrapperClasses = classNames({
     "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]":
-      !Boolean(postId),
-    hidden: Boolean(postId),
+      !Boolean(postId) && Boolean(currentPage),
+    hidden: Boolean(postId) || (!postId && !currentPage),
   });
 
   return (
@@ -80,7 +80,7 @@ export default NavBanner;
 
 const NavButton = ({ label, isActive, children }) => {
   return (
-    <div className="flex w-[117px] flex-col items-center font-semibold relative right-[0.5px] z-30">
+    <div className="flex w-[116px] flex-col items-center font-semibold relative z-30">
       {children}
       <p className={label === "Hungry" ? "pt-1" : "-mt-1"}>{label}</p>
 
