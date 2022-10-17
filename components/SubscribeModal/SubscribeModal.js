@@ -50,13 +50,14 @@ const SubscribeModal = ({ isOpen, onClose, onSubscribe }) => {
     "absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
     "drop-shadow-xl rounded-xl min-h-50 py-4 px-6 bg-white",
     "flex flex-col",
-    "w-5/6 sm:w-80 md:w-96",
+    "w-5/6 sm:w-80 md:w-96 z-50",
   ];
 
   return (
     <Modal
       className={classNames(baseClasses)}
       isOpen={isOpen}
+      overlayClassName="z-40 bg-black/40 fixed top-0 left-0 right-0 bottom-0"
       onRequestClose={onClose}
       shouldFocusAfterRender={false}
     >
