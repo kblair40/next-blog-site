@@ -53,8 +53,8 @@ const BannerNav = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="94" height="600" fill="#eee" />
-      <path d="M47 600L0 626.015V600H94V626.015L47 600Z" fill="#eee" />
+      <rect width="94" height="600" fill="#fff" />
+      <path d="M47 600L0 626.015V600H94V626.015L47 600Z" fill="#fff" />
     </svg>
   );
 };

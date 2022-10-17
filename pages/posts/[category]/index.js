@@ -2,8 +2,7 @@ import React from "react";
 
 import Posts from "components/Posts";
 import FullPageWrapper from "components/UI/FullPageWrapper";
-import Navbar from "components/Navbar";
-import TitleSection from "components/TitleSection";
+// import Navbar from "components/Navbar";
 import dbConnect from "utils/dbConnect";
 import Post from "server/models/Post";
 
@@ -17,13 +16,9 @@ const PostsCategoryPage = ({ category, posts }) => {
       {/* <Navbar /> */}
       <div className="h-screen w-screen bg-creme">
         <div className="flex w-full">
-          {/* <div className="h-screen w-fit">
-            <TitleSection sectionTitle={category} />
-          </div> */}
-
           <div className="flex-1 ">
             {/* <div className="absolute bottom-0 left-0 right-0 top-16 overflow-y-auto pb-8"> */}
-            <div className="overflow-y-auto pb-8">
+            <div className="overflow-y-auto pb-8 pl-20">
               <Posts category={category} posts={posts} />
             </div>
           </div>
