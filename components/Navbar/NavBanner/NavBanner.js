@@ -1,6 +1,16 @@
 import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const NavBanner = () => {
+  const { query } = useRouter();
+  console.log("QUERY:", query);
+
+  let currentPage = query?.category || "";
+
+  const activeNavButton = "#414b3b";
+  const inactiveNavButton = "#757575";
+
   return (
     <div className="relative left-7 flex flex-col items-center h-100 w-24">
       <div className="absolute">
@@ -8,20 +18,46 @@ const NavBanner = () => {
       </div>
 
       <div className="absolute flex flex-col items-center space-y-6 mt-4">
-        <NavButton label="Style">
-          <ShirtIcon />
+        <NavButton label="Style" isActive={currentPage === "style"}>
+          <Link href="/posts/style">
+            <a className="z-50">
+              <ShirtIcon
+                fill={
+                  currentPage === "style" ? activeNavButton : inactiveNavButton
+                }
+              />
+            </a>
+          </Link>
         </NavButton>
 
-        <NavButton label="Love">
-          <HeartIcon />
+        <NavButton label="Love" isActive={currentPage === "love"}>
+          <Link href="/posts/love">
+            <a className="z-50">
+              <HeartIcon
+                fill={
+                  currentPage === "love" ? activeNavButton : inactiveNavButton
+                }
+              />
+            </a>
+          </Link>
         </NavButton>
 
-        <NavButton label="Travel" isActive={true}>
-          <PlaneIcon fill="#414b3b" />
+        <NavButton label="Travel" isActive={currentPage === "travel"}>
+          <Link href="/posts/travel">
+            <a className="z-50">
+              <PlaneIcon
+                fill={
+                  currentPage === "travel" ? activeNavButton : inactiveNavButton
+                }
+              />
+            </a>
+          </Link>
         </NavButton>
 
-        <NavButton label="Hungry">
-          <FoodIcon />
+        <NavButton label="Hungry" isActive={currentPage === "hunger"}>
+          <FoodIcon
+            fill={currentPage === "style" ? activeNavButton : inactiveNavButton}
+          />
         </NavButton>
       </div>
     </div>
@@ -32,7 +68,7 @@ export default NavBanner;
 
 const NavButton = ({ label, isActive, children }) => {
   return (
-    <div className="flex flex-col items-center font-semibold relative">
+    <div className="flex flex-col items-center font-semibold relative z-50">
       {children}
       <p className={label === "Hungry" ? "pt-2" : undefined}>{label}</p>
 
