@@ -2,22 +2,20 @@ import React from "react";
 
 import Posts from "components/Posts";
 import FullPageWrapper from "components/UI/FullPageWrapper";
-// import Navbar from "components/Navbar";
 import dbConnect from "utils/dbConnect";
 import Post from "server/models/Post";
 
 const PostsCategoryPage = ({ category, posts }) => {
-  console.log("\n\nCATEGORY:", category);
+  // console.log("\n\nCATEGORY:", category);
 
   posts = JSON.parse(posts);
 
   return (
     <FullPageWrapper>
-      {/* <Navbar /> */}
       <div className="h-screen w-screen bg-creme">
         <div className="flex w-full">
           <div className="flex-1 ">
-            <div className="overflow-y-auto pb-8 pl-20 pt-8">
+            <div className="overflow-y-auto pb-8 pt-20 px-3 sm:px-4 md:pl-40">
               <Posts category={category} posts={posts} />
             </div>
           </div>

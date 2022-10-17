@@ -1,20 +1,27 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import classNames from "classnames";
 
 const NavBanner = () => {
   const { query } = useRouter();
 
   let currentPage = query?.category || "";
+  let postId = query?.id;
+  // console.log("\nPOST ID:", postId, "\n");
 
   const activeNavButton = "#414b3b";
   const inactiveNavButton = "#757575";
 
+  const wrapperClasses = classNames({
+    "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]":
+      !Boolean(postId),
+    hidden: Boolean(postId),
+  });
+
   return (
-    <div className="hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]">
-      <div>
-        <BannerNav />
-      </div>
+    <div className={wrapperClasses}>
+      <BannerNav />
 
       <div className="absolute flex flex-col items-center space-y-4 mt-4">
         <NavButton label="Style" isActive={currentPage === "style"}>

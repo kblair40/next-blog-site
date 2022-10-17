@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 import Post from "server/models/Post";
 import dbConnect from "utils/dbConnect";
-import Navbar from "components/Navbar";
 import BlogPost from "components/BlogPost";
 import GoBack from "components/GoBack";
 
@@ -11,16 +10,13 @@ const BlogPostPage = ({ post }) => {
   const { query } = useRouter();
 
   post = JSON.parse(post);
-  console.log("PARSED POST:", post);
 
   return (
     <div className="min-h-screen h-full bg-creme pb-8">
-      <Navbar />
-
       <div className="pt-20 pl-4 sm:pl-6">
         <GoBack
           route={`/posts/${query.category}`}
-          label={`Back to all ${query.category} posts`}
+          label={`Back to ${query.category} posts`}
         />
       </div>
 

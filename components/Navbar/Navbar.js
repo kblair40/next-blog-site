@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -7,7 +6,6 @@ import { toast } from "react-toastify";
 
 import SubscribeModal from "components/SubscribeModal";
 import HamburgerButton from "./HamburgerButton";
-// import logo from "public/assets/images/logo_sm.png";
 import Drawer from "./Drawer";
 import NavLink from "./NavLink";
 import DrawerOverlay from "./DrawerOverlay";
@@ -34,13 +32,6 @@ const Navbar = () => {
     "w-full": Boolean(query.id),
   });
 
-  // const logoClasses = classNames({
-  //   "fixed top-1 sm:absolute": true,
-  //   "left-2 sm:-left-1 md:left-3":
-  //     Boolean(query.category) && !Boolean(query.id),
-  //   "left-2 sm:left-3": Boolean(query.id),
-  // });
-
   const handleSubscribe = () => {
     const toastConfig = {
       position: toast.POSITION.BOTTOM_CENTER,
@@ -53,14 +44,6 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <div className={wrapperClasses}>
-        {/* <div className={logoClasses}>
-          <Link href="/">
-            <a>
-              <Image alt="logo" src={logo} width={140} height={66} />
-            </a>
-          </Link>
-        </div> */}
-
         <div
           onClick={() => setSubscribeModalOpen(true)}
           className="duration-200 hover:text-darkgreen fixed sm:absolute left-4 top-6 md:top-4 sm:left-0 md:left-4 cursor-pointer"
