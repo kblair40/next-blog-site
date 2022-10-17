@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 const NavBanner = () => {
   const { query } = useRouter();
-  console.log("QUERY:", query);
 
   let currentPage = query?.category || "";
 
@@ -12,12 +11,10 @@ const NavBanner = () => {
   const inactiveNavButton = "#757575";
 
   return (
-    <div className="relative left-7 flex flex-col items-center h-100 w-24">
-      <div className="absolute">
-        <BannerNav />
-      </div>
+    <div className="fixed -top-px left-5 flex flex-col items-center h-[640px] w-[115px]">
+      <BannerNav />
 
-      <div className="absolute flex flex-col items-center space-y-6 mt-4">
+      <div className="absolute flex flex-col items-center space-y-4 mt-4">
         <NavButton label="Style" isActive={currentPage === "style"}>
           <Link href="/posts/style">
             <a className="z-50">
@@ -68,9 +65,9 @@ export default NavBanner;
 
 const NavButton = ({ label, isActive, children }) => {
   return (
-    <div className="flex flex-col items-center font-semibold relative z-50">
+    <div className="flex w-full flex-col items-center font-semibold relative z-50">
       {children}
-      <p className={label === "Hungry" ? "pt-2" : undefined}>{label}</p>
+      <p className={label === "Hungry" ? "pt-1" : "-mt-1"}>{label}</p>
 
       {isActive && (
         <div className="flex justify-between absolute z-20 w-full h-full border-l-2 border-r-2 border-darkgreen" />
@@ -82,18 +79,38 @@ const NavButton = ({ label, isActive, children }) => {
 const BannerNav = () => {
   return (
     <svg
-      className="z-0"
-      width="94"
-      height="627"
-      viewBox="0 0 94 627"
+      width="116"
+      height="640"
+      viewBox="0 0 116 640"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="94" height="600" fill="#fff" />
-      <path d="M47 600L0 626.015V600H94V626.015L47 600Z" fill="#fff" />
+      <rect width="115" height="640" transform="translate(1)" fill="white" />
+      <path d="M57.4995 532L114 640H0.999512L57.4995 532Z" fill="#FFF9F3" />
+      <path
+        d="M115 640H114L57.4277 532.53L1.00046 640H0V0H115V640ZM1.00046 1V637.864L57.4277 530.53L114 637.864V1H1.00046Z"
+        fill="#414B3B"
+      />
     </svg>
   );
 };
+// const BannerNav = () => {
+//   return (
+//     <svg
+//       className="absolute w-[115px] h-[640px]"
+//       width="115"
+//       height="640"
+//       viewBox="0 0 115 640"
+//       fill="none"
+//       xmlns="http://www.w3.org/2000/svg"
+//     >
+//       <path
+//         d="M115 640H114L57.4277 532.53L1.00046 640H0V0H115V640ZM1.00046 1V637.864L57.4277 530.53L114 637.864V1H1.00046Z"
+//         fill="#414B3B"
+//       />
+//     </svg>
+//   );
+// };
 
 const ShirtIcon = ({ fill = "black" }) => {
   return (
