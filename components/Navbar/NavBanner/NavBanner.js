@@ -12,7 +12,9 @@ const NavBanner = () => {
 
   return (
     <div className="fixed -top-px left-5 flex flex-col items-center h-[640px] w-[115px]">
-      <BannerNav />
+      <div>
+        <BannerNav />
+      </div>
 
       <div className="absolute flex flex-col items-center space-y-4 mt-4">
         <NavButton label="Style" isActive={currentPage === "style"}>
@@ -65,12 +67,12 @@ export default NavBanner;
 
 const NavButton = ({ label, isActive, children }) => {
   return (
-    <div className="flex w-full flex-col items-center font-semibold relative z-50">
+    <div className="flex w-[117px] flex-col items-center font-semibold relative right-[0.5px] z-50">
       {children}
       <p className={label === "Hungry" ? "pt-1" : "-mt-1"}>{label}</p>
 
       {isActive && (
-        <div className="flex justify-between absolute z-20 w-full h-full border-l-2 border-r-2 border-darkgreen" />
+        <div className="flex justify-between absolute z-20 w-full h-full border-l border-r border-darkgreen" />
       )}
     </div>
   );
