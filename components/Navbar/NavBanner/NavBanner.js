@@ -11,7 +11,7 @@ const NavBanner = () => {
   const inactiveNavButton = "#757575";
 
   return (
-    <div className="fixed -top-px left-5 flex flex-col items-center h-[640px] w-[115px]">
+    <div className="hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]">
       <div>
         <BannerNav />
       </div>
@@ -54,9 +54,15 @@ const NavBanner = () => {
         </NavButton>
 
         <NavButton label="Hungry" isActive={currentPage === "hunger"}>
-          <FoodIcon
-            fill={currentPage === "style" ? activeNavButton : inactiveNavButton}
-          />
+          <Link href="/posts/hunger">
+            <a className="z-50">
+              <FoodIcon
+                fill={
+                  currentPage === "hunger" ? activeNavButton : inactiveNavButton
+                }
+              />
+            </a>
+          </Link>
         </NavButton>
       </div>
     </div>
@@ -96,23 +102,6 @@ const BannerNav = () => {
     </svg>
   );
 };
-// const BannerNav = () => {
-//   return (
-//     <svg
-//       className="absolute w-[115px] h-[640px]"
-//       width="115"
-//       height="640"
-//       viewBox="0 0 115 640"
-//       fill="none"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <path
-//         d="M115 640H114L57.4277 532.53L1.00046 640H0V0H115V640ZM1.00046 1V637.864L57.4277 530.53L114 637.864V1H1.00046Z"
-//         fill="#414B3B"
-//       />
-//     </svg>
-//   );
-// };
 
 const ShirtIcon = ({ fill = "black" }) => {
   return (
@@ -187,8 +176,14 @@ const FoodIcon = ({ fill = "black" }) => {
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M29.536 23.1778H20.7016V2.56433H14.812V23.1778H5.9777V2.56433H0.0881348V25.3864C0.0881348 33.7615 6.46635 40.7348 14.812 42.0824V80.6011H20.7016V42.0824C29.0473 40.7348 35.4255 33.7615 35.4255 25.3864V2.56433H29.536V23.1778ZM17.7568 36.4293C12.6382 36.4293 8.27389 33.3517 6.65316 29.0674H28.8605C27.2398 33.3517 22.8754 36.4293 17.7568 36.4293Z" />
-      <path d="M64.4257 1.12633C58.4011 2.05313 52.9073 5.10584 48.9383 9.73206C44.9694 14.3583 42.7876 20.2524 42.7876 26.3478V57.0428H61.9287V80.601H67.8183V0.60437L64.4257 1.12633ZM61.9287 51.1532H48.6772V26.3478C48.657 22.253 49.9261 18.2556 52.3045 14.9222C54.6829 11.5887 58.05 9.08834 61.9287 7.77528V51.1532Z" />
+      <path
+        stroke={fill}
+        d="M29.536 23.1778H20.7016V2.56433H14.812V23.1778H5.9777V2.56433H0.0881348V25.3864C0.0881348 33.7615 6.46635 40.7348 14.812 42.0824V80.6011H20.7016V42.0824C29.0473 40.7348 35.4255 33.7615 35.4255 25.3864V2.56433H29.536V23.1778ZM17.7568 36.4293C12.6382 36.4293 8.27389 33.3517 6.65316 29.0674H28.8605C27.2398 33.3517 22.8754 36.4293 17.7568 36.4293Z"
+      />
+      <path
+        stroke={fill}
+        d="M64.4257 1.12633C58.4011 2.05313 52.9073 5.10584 48.9383 9.73206C44.9694 14.3583 42.7876 20.2524 42.7876 26.3478V57.0428H61.9287V80.601H67.8183V0.60437L64.4257 1.12633ZM61.9287 51.1532H48.6772V26.3478C48.657 22.253 49.9261 18.2556 52.3045 14.9222C54.6829 11.5887 58.05 9.08834 61.9287 7.77528V51.1532Z"
+      />
     </svg>
   );
 };
