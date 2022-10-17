@@ -24,12 +24,21 @@ const Navbar = () => {
   }
 
   const wrapperClasses = classNames({
-    "absolute z-40 top-0 right-0 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
+    "absolute z-40 top-0 left-4 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
     "bg-transparent": true,
-    "md:flex justify-end ": true,
-    "left:0 sm:left-24 md:left-36":
-      Boolean(query.category) && !Boolean(query.id),
+    // "md:flex justify-end ": true,
+    // "left:0 sm:left-24 md:left-36":
+    //   Boolean(query.category) && !Boolean(query.id),
     "w-full": Boolean(query.id),
+    hidden: !Boolean(query.id),
+  });
+
+  const subscribeBtnClasses = classNames({
+    "duration-200 hover:text-darkgreen fixed inline-block top-6 md:top-4 cursor-pointer": true,
+    // "right-8": true,
+    "left-4 md:right-6 md:left-auto z-30": true,
+    "border border-red-600": false,
+    // hidden: Boolean(query.id),
   });
 
   const handleSubscribe = () => {
@@ -43,13 +52,19 @@ const Navbar = () => {
 
   return (
     <React.Fragment>
+      <div
+        onClick={() => setSubscribeModalOpen(true)}
+        className={subscribeBtnClasses}
+      >
+        <p className="font-medium text-lg">Subscribe</p>
+      </div>
       <div className={wrapperClasses}>
-        <div
+        {/* <div
           onClick={() => setSubscribeModalOpen(true)}
-          className="duration-200 hover:text-darkgreen fixed sm:absolute left-4 top-6 md:top-4 sm:left-0 md:left-4 cursor-pointer"
+          className="duration-200 hover:text-darkgreen fixed sm:absolute right-8 top-6 md:top-4 cursor-pointer"
         >
           <p>Subscribe</p>
-        </div>
+        </div> */}
 
         <div className="hidden md:block">
           <Link href="/">

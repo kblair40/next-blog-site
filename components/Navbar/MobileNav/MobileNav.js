@@ -6,7 +6,7 @@ import Drawer from "../Drawer";
 import DrawerOverlay from "../DrawerOverlay";
 
 const MobileNav = () => {
-  const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
+  // const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const { query, pathname } = useRouter();

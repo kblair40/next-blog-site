@@ -8,7 +8,6 @@ import GoBack from "components/GoBack";
 
 const BlogPostPage = ({ post }) => {
   const { query } = useRouter();
-
   post = JSON.parse(post);
 
   return (

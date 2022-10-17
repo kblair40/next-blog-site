@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 
 import MobileNav from "components/Navbar/MobileNav";
 import NavBanner from "components/Navbar/NavBanner";
+import Navbar from "components/Navbar";
 
 const layout = ({ children }) => {
   return (
@@ -12,6 +13,8 @@ const layout = ({ children }) => {
       <div className="absolute z-20">
         <NavBanner />
       </div>
+
+      <Navbar />
 
       {/* hides self when md breakpoint is hit */}
       <MobileNav />

@@ -26,7 +26,7 @@ const NavBanner = () => {
       <div className="absolute flex flex-col items-center space-y-4 mt-4">
         <NavButton label="Style" isActive={currentPage === "style"}>
           <Link href="/posts/style">
-            <a className="z-50">
+            <a className="z-30">
               <ShirtIcon
                 fill={
                   currentPage === "style" ? activeNavButton : inactiveNavButton
@@ -38,7 +38,7 @@ const NavBanner = () => {
 
         <NavButton label="Love" isActive={currentPage === "love"}>
           <Link href="/posts/love">
-            <a className="z-50">
+            <a className="z-30">
               <HeartIcon
                 fill={
                   currentPage === "love" ? activeNavButton : inactiveNavButton
@@ -50,7 +50,7 @@ const NavBanner = () => {
 
         <NavButton label="Travel" isActive={currentPage === "travel"}>
           <Link href="/posts/travel">
-            <a className="z-50">
+            <a className="z-30">
               <PlaneIcon
                 fill={
                   currentPage === "travel" ? activeNavButton : inactiveNavButton
@@ -62,7 +62,7 @@ const NavBanner = () => {
 
         <NavButton label="Hungry" isActive={currentPage === "hunger"}>
           <Link href="/posts/hunger">
-            <a className="z-50">
+            <a className="z-30">
               <FoodIcon
                 fill={
                   currentPage === "hunger" ? activeNavButton : inactiveNavButton
@@ -80,7 +80,7 @@ export default NavBanner;
 
 const NavButton = ({ label, isActive, children }) => {
   return (
-    <div className="flex w-[117px] flex-col items-center font-semibold relative right-[0.5px] z-50">
+    <div className="flex w-[117px] flex-col items-center font-semibold relative right-[0.5px] z-30">
       {children}
       <p className={label === "Hungry" ? "pt-1" : "-mt-1"}>{label}</p>
 
