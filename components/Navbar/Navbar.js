@@ -5,10 +5,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 
 import SubscribeModal from "components/SubscribeModal";
-import HamburgerButton from "./HamburgerButton";
-import Drawer from "./Drawer";
 import NavLink from "./NavLink";
-import DrawerOverlay from "./DrawerOverlay";
 import links from "./links";
 
 const Navbar = () => {
@@ -26,19 +23,14 @@ const Navbar = () => {
   const wrapperClasses = classNames({
     "absolute z-40 top-0 left-4 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
     "bg-transparent": true,
-    // "md:flex justify-end ": true,
-    // "left:0 sm:left-24 md:left-36":
-    //   Boolean(query.category) && !Boolean(query.id),
     "w-full": Boolean(query.id),
     hidden: !Boolean(query.id),
   });
 
   const subscribeBtnClasses = classNames({
     "duration-200 hover:text-darkgreen fixed inline-block top-6 md:top-4 cursor-pointer": true,
-    // "right-8": true,
     "left-4 md:right-6 md:left-auto z-30": true,
     "border border-red-600": false,
-    // hidden: Boolean(query.id),
   });
 
   const handleSubscribe = () => {
@@ -59,13 +51,6 @@ const Navbar = () => {
         <p className="font-medium text-lg">Subscribe</p>
       </div>
       <div className={wrapperClasses}>
-        {/* <div
-          onClick={() => setSubscribeModalOpen(true)}
-          className="duration-200 hover:text-darkgreen fixed sm:absolute right-8 top-6 md:top-4 cursor-pointer"
-        >
-          <p>Subscribe</p>
-        </div> */}
-
         <div className="hidden md:block">
           <Link href="/">
             <a className="font-light mr-4">Money and...</a>
@@ -85,23 +70,6 @@ const Navbar = () => {
           })}
         </div>
       </div>
-
-      <div className="bg-white z-20 md:hidden">
-        <Drawer
-          pathname={pathname}
-          isOpen={drawerOpen}
-          onClose={() => setDrawerOpen(false)}
-        />
-        <DrawerOverlay
-          isOpen={drawerOpen}
-          onClose={() => setDrawerOpen((prev) => !prev)}
-        />
-      </div>
-
-      <HamburgerButton
-        isOpen={drawerOpen}
-        onClick={() => setDrawerOpen((prev) => !prev)}
-      />
 
       <SubscribeModal
         isOpen={subscribeModalOpen}
