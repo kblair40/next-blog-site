@@ -94,17 +94,17 @@ const NavButton = ({ label, isActive, children }) => {
 const BannerNav = () => {
   return (
     <svg
-      width="116"
+      className="drop-shadow-xl"
+      width="115"
       height="640"
-      viewBox="0 0 116 640"
+      viewBox="0 0 115 640"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="115" height="640" transform="translate(1)" fill="white" />
-      <path d="M57.4995 532L114 640H0.999512L57.4995 532Z" fill="#FFF9F3" />
       <path
-        d="M115 640H114L57.4277 532.53L1.00046 640H0V0H115V640ZM1.00046 1V637.864L57.4277 530.53L114 637.864V1H1.00046Z"
-        fill="#414B3B"
+        d="M57.1983 596.101L0.5 638.995V0.5H114.5V638.995L57.8017 596.101L57.5 595.873L57.1983 596.101Z"
+        fill="white"
+        stroke="#414B3B"
       />
     </svg>
   );

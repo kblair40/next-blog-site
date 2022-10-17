@@ -21,15 +21,15 @@ const Navbar = () => {
   }
 
   const wrapperClasses = classNames({
-    "absolute z-40 top-0 left-4 pt-4 pb-2 pl-0 pr-8 flex items-center font-medium": true,
+    "absolute z-40 top-0 left-4 pt-4 pb-2 pl-0 flex items-center font-medium": true,
     "bg-transparent": true,
-    "w-full": Boolean(query.id),
+    "w-full right-8": Boolean(query.id),
     hidden: !Boolean(query.id),
   });
 
   const subscribeBtnClasses = classNames({
     "duration-200 hover:text-darkgreen fixed inline-block top-6 md:top-4 cursor-pointer": true,
-    "left-4 md:right-6 md:left-auto z-30": true,
+    "left-4 md:right-6 md:left-auto z-50": true,
     "border border-red-600": false,
   });
 
