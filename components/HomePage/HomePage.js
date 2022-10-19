@@ -6,6 +6,8 @@ import SectionLeft from "./SectionLeft";
 import SectionRight from "./SectionRight";
 
 const HomePage = () => {
+  return <NewHomePage />;
+
   return (
     <FullPageWrapper>
       <NewHomePage />

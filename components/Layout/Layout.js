@@ -7,7 +7,7 @@ import Navbar from "components/Navbar";
 
 const layout = ({ children }) => {
   return (
-    <div id="layout" className="overflow-hidden">
+    <div id="layout" className="overflow-hidden bg-creme min-h-screen">
       <ToastContainer />
 
       <div className="absolute z-20">
@@ -19,7 +19,7 @@ const layout = ({ children }) => {
       {/* hides self when md breakpoint is hit */}
       <MobileNav />
 
-      <div className="relative min-h-screen">{children}</div>
+      <div className="relative">{children}</div>
     </div>
   );
 };
