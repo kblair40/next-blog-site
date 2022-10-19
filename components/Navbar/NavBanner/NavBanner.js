@@ -10,13 +10,17 @@ const NavBanner = () => {
   let postId = query?.id;
   // console.log("\nPOST ID:", postId, "\n");
 
+  console.log("PAGE META:", { currentPage, postId });
+
   const activeNavButton = "#414b3b";
   const inactiveNavButton = "#757575";
 
   const wrapperClasses = classNames({
-    "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]":
-      !Boolean(postId) && Boolean(currentPage),
-    hidden: Boolean(postId) || (!postId && !currentPage),
+    "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]": true,
+    // !Boolean(postId) && currentPage === "",
+    // "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]":
+    //   !Boolean(postId) && Boolean(currentPage),
+    // hidden: Boolean(postId) || (!postId && !currentPage),
   });
 
   return (
@@ -24,6 +28,16 @@ const NavBanner = () => {
       <BannerNav />
 
       <div className="absolute flex flex-col items-center space-y-4 mt-4">
+        <NavButton isActive={currentPage === "style"}>
+          <Link href="/">
+            <a className="z-30">
+              <HomeIcon
+                fill={currentPage === "" ? activeNavButton : inactiveNavButton}
+              />
+            </a>
+          </Link>
+        </NavButton>
+
         <NavButton label="Style" isActive={currentPage === "style"}>
           <Link href="/posts/style">
             <a className="z-30">
@@ -82,7 +96,9 @@ const NavButton = ({ label, isActive, children }) => {
   return (
     <div className="flex w-[116px] flex-col items-center font-semibold relative z-30">
       {children}
-      <p className={label === "Hungry" ? "pt-1" : "-mt-1"}>{label}</p>
+      {label && (
+        <p className={label === "Hungry" ? "pt-1" : "-mt-1"}>{label}</p>
+      )}
 
       {isActive && (
         <div className="flex justify-between absolute z-20 w-full h-full border-l border-r border-darkgreen" />
@@ -190,6 +206,40 @@ const FoodIcon = ({ fill = "black" }) => {
       <path
         stroke={fill}
         d="M64.4257 1.12633C58.4011 2.05313 52.9073 5.10584 48.9383 9.73206C44.9694 14.3583 42.7876 20.2524 42.7876 26.3478V57.0428H61.9287V80.601H67.8183V0.60437L64.4257 1.12633ZM61.9287 51.1532H48.6772V26.3478C48.657 22.253 49.9261 18.2556 52.3045 14.9222C54.6829 11.5887 58.05 9.08834 61.9287 7.77528V51.1532Z"
+      />
+    </svg>
+  );
+};
+
+const HomeIcon = ({ fill = "black" }) => {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 12H3L12 3L21 12H19"
+        stroke={fill}
+        strokeWidth="2.95939"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5 12V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V12"
+        stroke={fill}
+        strokeWidth="2.95939"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 21V15C9 14.4696 9.21071 13.9609 9.58579 13.5858C9.96086 13.2107 10.4696 13 11 13H13C13.5304 13 14.0391 13.2107 14.4142 13.5858C14.7893 13.9609 15 14.4696 15 15V21"
+        stroke={fill}
+        strokeWidth="2.95939"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
