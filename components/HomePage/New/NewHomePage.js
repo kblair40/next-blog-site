@@ -11,9 +11,9 @@ const NewHomePage = () => {
 
   return (
     <div className="flex flex-col items-center bg-creme min-h-screen md: pl-20">
-      <div className={logoWrapperClasses}>
+      {/* <div className={logoWrapperClasses}>
         <Image alt="logo" src={logo} width={300} height={60} />
-      </div>
+      </div> */}
     </div>
   );
 };

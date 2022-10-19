@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/future/image";
 
+import logo from "public/assets/images/logo_short.png";
 import HamburgerButton from "../HamburgerButton";
 import Drawer from "../Drawer";
 import DrawerOverlay from "../DrawerOverlay";
@@ -23,6 +25,15 @@ const MobileNav = () => {
         <DrawerOverlay
           isOpen={drawerOpen}
           onClose={() => setDrawerOpen((prev) => !prev)}
+        />
+      </div>
+      <div className="flex w-screen justify-center bg-creme md: pl-20">
+        <Image
+          alt="logo"
+          src={logo}
+          className="mt-6 w-[200px] h-10 sm:w-80 sm:h-16"
+          quality={100}
+          priority
         />
       </div>
 
