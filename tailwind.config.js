@@ -91,9 +91,18 @@ module.exports = {
             animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
       },
       animation: {
         "point-right": "point-right 1s ease-in-out infinite",
+        "fade-in": "fade-in .25s ease-in-out forwards",
       },
     },
   },
