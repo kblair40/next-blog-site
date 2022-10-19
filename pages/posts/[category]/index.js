@@ -6,22 +6,18 @@ import dbConnect from "utils/dbConnect";
 import Post from "server/models/Post";
 
 const PostsCategoryPage = ({ category, posts }) => {
-  // console.log("\n\nCATEGORY:", category);
-
   posts = JSON.parse(posts);
 
   return (
-    <FullPageWrapper>
-      <div className="h-screen w-screen bg-creme">
-        <div className="flex w-full">
-          <div className="flex-1 ">
-            <div className="overflow-y-auto pb-8 pt-20 px-3 sm:px-4 md:pl-40">
-              <Posts category={category} posts={posts} />
-            </div>
+    <div className="w-screen bg-creme">
+      <div className="flex w-full">
+        <div className="flex-1 ">
+          <div className="overflow-y-auto pb-8 pt-20 px-3 sm:px-4 md:pl-40">
+            <Posts category={category} posts={posts} />
           </div>
         </div>
       </div>
-    </FullPageWrapper>
+    </div>
   );
 };
 
@@ -40,7 +36,6 @@ export const getServerSideProps = async ({ query }) => {
     posts = await Post.find({});
   }
 
-  // const posts = await Post.find({});
   console.log(`SERVER SIDE POSTS FOR ${query.category}:`, posts, "\n");
 
   return {

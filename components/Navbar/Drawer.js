@@ -6,8 +6,9 @@ import links from "./links";
 
 const Drawer = ({ isOpen, onClose, pathname }) => {
   let baseClasses = [
-    "inset-x-0 z-50 absolute",
-    "h-screen w-1/2 sm:w-1/3 px-4 py-16 shadow-sm",
+    // "inset-x-0 z-50 absolute",
+    "inset-x-0 z-50 fixed",
+    "w-1/2 sm:w-1/3 px-4 py-16 shadow-sm",
     "transition-all duration-300 ease-in-out",
     "bottom-0 top-0 flex flex-col justify-center items-center space-y-8",
     "shadow-sm md:hidden",
