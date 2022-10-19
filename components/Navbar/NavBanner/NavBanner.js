@@ -29,7 +29,7 @@ const NavBanner = () => {
       <BannerNav />
 
       <div className="absolute flex flex-col items-center space-y-4 mt-4">
-        <NavButton isActive={currentPage === "style"}>
+        <NavButton isActive={currentPage === ""}>
           <Link href="/">
             <a className="z-30">
               <HomeIcon
