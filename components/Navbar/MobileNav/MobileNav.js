@@ -27,7 +27,7 @@ const MobileNav = () => {
           onClose={() => setDrawerOpen((prev) => !prev)}
         />
       </div>
-      <div className="flex w-screen justify-center bg-creme md: pl-20">
+      <div className="flex w-screen justify-center bg-creme md:pl-20">
         <Image
           alt="logo"
           src={logo}
