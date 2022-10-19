@@ -10,9 +10,8 @@ import links from "./links";
 
 const Navbar = () => {
   const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const { query, pathname } = useRouter();
+  const { query } = useRouter();
   console.log("\n\nNAV QUERY:", query, "\n\n");
 
   let currentPage = "";
@@ -48,16 +47,16 @@ const Navbar = () => {
         onClick={() => setSubscribeModalOpen(true)}
         className={subscribeBtnClasses}
       >
-        <p className="font-medium text-lg">Subscribe</p>
+        <p className="font-medium sm:text-lg">Subscribe</p>
       </div>
       <div className={wrapperClasses}>
         <div className="hidden md:block">
           <Link href="/">
-            <a className="font-light mr-4">Money and...</a>
+            <a className="font-light mr-2">Money and...</a>
           </Link>
         </div>
 
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-4">
           {links.map((link, idx) => {
             return (
               <NavLink

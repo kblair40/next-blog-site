@@ -17,6 +17,7 @@ const NavBanner = () => {
 
   const wrapperClasses = classNames({
     "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]": true,
+    "!hidden": Boolean(postId),
     // !Boolean(postId) && currentPage === "",
     // "hidden md:flex md:flex-col fixed -top-px left-5 items-center h-[640px] w-[115px]":
     //   !Boolean(postId) && Boolean(currentPage),

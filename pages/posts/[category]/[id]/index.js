@@ -12,7 +12,7 @@ const BlogPostPage = ({ post }) => {
 
   return (
     <div className="min-h-screen h-full bg-creme pb-8">
-      <div className="pt-20 pl-4 sm:pl-6">
+      <div className="pt-16 pl-4 sm:pl-6">
         <GoBack
           route={`/posts/${query.category}`}
           label={`Back to ${query.category} posts`}

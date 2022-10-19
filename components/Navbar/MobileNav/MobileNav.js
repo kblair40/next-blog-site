@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/future/image";
+import classNames from "classnames";
 
 import logo from "public/assets/images/logo_short.png";
 import HamburgerButton from "../HamburgerButton";
@@ -13,6 +14,12 @@ const MobileNav = () => {
 
   const { query, pathname } = useRouter();
   console.log("\n\nNAV QUERY:", query, "\n\n");
+
+  const imageClasses = classNames({
+    "flex w-screen justify-center bg-creme": true,
+    "md:pl-20": !Boolean(query.id),
+    hidden: Boolean(query.id),
+  });
 
   return (
     <React.Fragment>
@@ -27,7 +34,8 @@ const MobileNav = () => {
           onClose={() => setDrawerOpen((prev) => !prev)}
         />
       </div>
-      <div className="flex w-screen justify-center bg-creme md:pl-20">
+
+      <div className={imageClasses}>
         <Image
           alt="logo"
           src={logo}
