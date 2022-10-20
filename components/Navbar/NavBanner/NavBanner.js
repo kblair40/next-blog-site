@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import classNames from "classnames";
 
 const NavBanner = () => {
+  const router = useRouter();
+  console.log("ROUTER:", router);
   const { query } = useRouter();
 
   let currentPage = query?.category || "";
