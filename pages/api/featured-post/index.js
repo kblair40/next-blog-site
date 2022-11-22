@@ -1,5 +1,6 @@
 import dbConnect from "utils/dbConnect";
-import FeaturedPost from "server/models/FeaturedPost";
+// import FeaturedPost from "server/models/FeaturedPost";
+import Post from "server/models/Post";
 
 // const getAllPosts = async (limit) => {
 //   try {
@@ -14,7 +15,18 @@ import FeaturedPost from "server/models/FeaturedPost";
 
 const getFeaturedPost = async () => {
   try {
-    const post = await FeaturedPost.find({});
+    const post = await Post.find({ featured: true });
+    console.log("\n\nFOUND POST:", post, "\n\n");
+    return post;
+  } catch (e) {
+    console.log("FAILED TO GET POST:", e);
+    return false;
+  }
+};
+
+const getPostById = async (id) => {
+  try {
+    const post = await Post.find({ featured: true });
     console.log("\n\nFOUND POST:", post, "\n\n");
     return post;
   } catch (e) {
@@ -43,18 +55,24 @@ export default async function handler(req, res) {
       } catch (e) {
         return res.status(400).json({ success: false });
       }
+    case "PATCH":
+      try {
+        console.log("REQ BODY:", req.body);
+        const { id } = req.body;
+        const [currentFeaturedPost, postToFeature] = await Promise.all([
+          getFeaturedPost(),
+          getPostById(id),
+        ]);
+        if (currentFeaturedPost && postToFeature) {
+          currentFeaturedPost.featured = false;
+          postToFeature.featured = true;
+        }
 
-      return res.status(400).json({ success: false, msg: "UNHANDLED ERROR" });
-    // case "POST":
-    //   try {
-    //     console.log("REQ BODY:", req.body);
-    //     const post = await Post.create(req.body);
-
-    //     res.status(201).json({ success: true, data: post });
-    //   } catch (error) {
-    //     res.status(400).json({ success: false });
-    //   }
-    //   break;
+        res.status(201).json({ success: true, data: post });
+      } catch (error) {
+        res.status(400).json({ success: false });
+      }
+      break;
     default:
       res.status(400).json({ success: false });
       break;

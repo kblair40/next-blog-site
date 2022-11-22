@@ -1,11 +1,46 @@
-import React from "react";
-import { Box, Text, Flex, Center } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Text,
+  Flex,
+  Center,
+  // Spinner
+} from "@chakra-ui/react";
 import Image from "next/image";
+
+import api from "utils/api";
+
+// import Post from "server/models/Post";
+// import Post from "../../server/models/Post";
 
 // width * 0.56276596
 // style="width: 940px; height: 529px;" (from example wix page)
 
 const FeaturedPost = () => {
+  const [loading, setLoading] = useState(true);
+  const [featuredPost, setFeaturedPost] = useState(null);
+  const [error, setError] = useState(false);
+  // console.log("\n\nFEATURED POST PROP:", featuredPost, "\n\n");
+
+  useEffect(() => {
+    const fetchFeaturedPost = async () => {
+      try {
+        const response = await api.get("/featured-post");
+        if (response && response.data?.post) {
+          setFeaturedPost(response.data.post[0]);
+        }
+        console.log("FEATURED POST RESPONSE:", response.data);
+        setError(false); // Shouldn't ever be the case. Just being safe
+      } catch (e) {
+        console.log("FAILED TO FETCH POST:", e);
+        setError(true);
+      }
+      setLoading(false);
+    };
+
+    fetchFeaturedPost();
+  }, []);
+
   return (
     <React.Fragment>
       <Box
@@ -13,9 +48,11 @@ const FeaturedPost = () => {
         height={{ base: "191px", sm: "236px", md: "394px", lg: "506px" }}
         position="relative"
       >
+        {/* <React.Fragment> */}
         <Image
           alt="post image"
-          src="https://res.cloudinary.com/erinsblog/image/upload/v1664548607/arturo-esparza-33fWPnyN6tU-unsplash_ofqueo.jpg"
+          src={featuredPost?.image_url || ""}
+          // src="https://res.cloudinary.com/erinsblog/image/upload/v1664548607/arturo-esparza-33fWPnyN6tU-unsplash_ofqueo.jpg"
           objectFit="cover"
           fill
         />
@@ -39,7 +76,9 @@ const FeaturedPost = () => {
             FEATURED POST
           </Text>
         </Center>
+        {/* </React.Fragment> */}
       </Box>
+
       <Flex
         width={{ base: "340px", sm: "420px", md: "700px", lg: "900px" }}
         direction="column"
@@ -57,7 +96,8 @@ const FeaturedPost = () => {
         </Box>
 
         <Text fontWeight="700" mb="12px" fontSize="30px">
-          Buying A Car Sight Unseen
+          {featuredPost && featuredPost.title ? featuredPost.title : ""}
+          {/* Buying A Car Sight Unseen */}
         </Text>
 
         <Text>
@@ -70,29 +110,40 @@ const FeaturedPost = () => {
   );
 };
 
-export const getServerSideProps = async ({ query }) => {
-  try {
-    await dbConnect();
-  } catch (err) {
-    console.log("FAILED CONNECTING TO MONGO:", err);
-    return;
-  }
+// export const getServerSideProps = async (context) => {
+//   console.log("POST MODEL:", Post);
+//   try {
+//     await dbConnect();
+//   } catch (err) {
+//     console.log("FAILED CONNECTING TO MONGO:", err);
+//     return;
+//   }
 
-  let posts;
-  if (query.category) {
-    posts = await Post.find({ category: query.category });
-  } else {
-    posts = await Post.find({});
-  }
+//   // let posts;
+//   // if (query.category) {
+//   //   posts = await Post.find({ category: query.category });
+//   // } else {
+//   //   posts = await Post.find({});
+//   // }
 
-  console.log(`SERVER SIDE POSTS FOR ${query.category}:`, posts, "\n");
+//   let featuredPost;
+//   try {
+//     // featuredPost = await Post.find({ featured: true });
+//     featuredPost = await Post.find({});
+//     console.log("\n\nFEATURED POST:", featuredPost, "\n\n");
+//   } catch (e) {
+//     console.log("FAILED RETRIEVING FEATURED POST:", e);
+//   }
 
-  return {
-    props: {
-      category: query?.category || "love",
-      posts: JSON.stringify(posts),
-    },
-  };
-};
+//   // console.log(`SERVER SIDE POSTS FOR ${query.category}:`, posts, "\n");
+
+//   return {
+//     props: {
+//       featuredPost,
+//       // category: query?.category || "love",
+//       // posts: JSON.stringify(posts),
+//     },
+//   };
+// };
 
 export default FeaturedPost;

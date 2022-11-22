@@ -4,6 +4,7 @@ import Link from "next/link";
 import classNames from "classnames";
 import { toast } from "react-toastify";
 import CreatableSelect from "react-select/creatable";
+import { Button as ChakraButton, Input, Flex } from "@chakra-ui/react";
 
 import { postCategories } from "utils/constants";
 import Statuses from "components/Admin/Statuses";
@@ -11,7 +12,6 @@ import LocalInput from "components/Admin/LocalInput";
 import Loading from "components/UI/Loading";
 import Button from "components/UI/Button";
 import api from "utils/api";
-import { Tab } from "react-tabs";
 
 const AllPosts = () => {
   const [loading, setLoading] = useState(true);
@@ -102,10 +102,6 @@ const AllPosts = () => {
     } else {
       console.error("COULD NOT FIND POST");
     }
-  };
-
-  const formatDate = (date) => {
-    return new Date(date).toLocaleString();
   };
 
   const textClasses = classNames(["font-semibold w-16 text-sm"]);

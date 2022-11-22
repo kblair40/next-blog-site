@@ -12,7 +12,7 @@ const Navbar = () => {
   const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
 
   const { query } = useRouter();
-  console.log("\n\nNAV QUERY:", query, "\n\n");
+  // console.log("\n\nNAV QUERY:", query, "\n\n");
 
   let currentPage = "";
   if (query && query.category) {

@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// import { getCurrentUnixStamp } from "utils/dateHelpers";
 
 const PostSchema = new mongoose.Schema(
   {
@@ -13,6 +12,14 @@ const PostSchema = new mongoose.Schema(
     },
     image_url: {
       type: String,
+    },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
+    estimated_read_time: {
+      type: String,
+      default: "5 min",
     },
     status: {
       type: Number,
