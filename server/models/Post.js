@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+const lorem =
+  "In ad voluptate eiusmod adipisicing consectetur amet esse cupidatat enim. Consectetur sint sunt eu Lorem commodo reprehenderit. Commodo dolore est deserunt dolor ipsum eu ex cillum. Sunt laboris duis do consequat esse id ut. Qui voluptate sint tempor consectetur ea Lorem velit consectetur. Laborum anim laborum irure aliquip velit cupidatat do ea incididunt voluptate.";
+
 const PostSchema = new mongoose.Schema(
   {
     content: {
@@ -16,6 +19,10 @@ const PostSchema = new mongoose.Schema(
     featured: {
       type: Boolean,
       default: false,
+    },
+    preview_text: {
+      type: String,
+      default: lorem,
     },
     estimated_read_time: {
       type: String,

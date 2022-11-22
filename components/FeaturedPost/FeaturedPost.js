@@ -11,12 +11,6 @@ import Link from "next/link";
 
 import api from "utils/api";
 
-// import Post from "server/models/Post";
-// import Post from "../../server/models/Post";
-
-// width * 0.56276596
-// style="width: 940px; height: 529px;" (from example wix page)
-
 const FeaturedPost = () => {
   const [loading, setLoading] = useState(true);
   const [featuredPost, setFeaturedPost] = useState(null);
@@ -75,7 +69,6 @@ const FeaturedPost = () => {
             FEATURED POST
           </Text>
         </Center>
-        {/* </React.Fragment> */}
       </Box>
 
       <Flex
@@ -96,66 +89,32 @@ const FeaturedPost = () => {
           </Text>
         </Box>
 
-        <Flex direction="column" role="group" cursor="pointer">
-          <Text
-            fontWeight="700"
-            mb="12px"
-            fontSize="30px"
-            _groupHover={{ color: "brand.lightgreen" }}
-            transition="color 0.3s"
-          >
-            {featuredPost?.title || ""}
-          </Text>
+        <Link href={featuredPost ? `/post/${featuredPost._id}` : "#"}>
+          <Flex direction="column" role="group" cursor="pointer">
+            <Text
+              fontWeight="700"
+              mb="12px"
+              fontSize="30px"
+              _groupHover={{ color: "brand.lightgreen" }}
+              transition="color 0.3s"
+            >
+              {featuredPost?.title || ""}
+            </Text>
 
-          <Text
-            _groupHover={{ color: "brand.lightgreen" }}
-            transition="color 0.3s"
-          >
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            We're not fraudsters, but everyone thought we were. Buying a car
-            sight unseen is terrifying and anxiety-inducing, but also
-            shockingly...
-          </Text>
-        </Flex>
+            <Text
+              _groupHover={{ color: "brand.lightgreen" }}
+              transition="color 0.3s"
+            >
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              We're not fraudsters, but everyone thought we were. Buying a car
+              sight unseen is terrifying and anxiety-inducing, but also
+              shockingly...
+            </Text>
+          </Flex>
+        </Link>
       </Flex>
     </React.Fragment>
   );
 };
-
-// export const getServerSideProps = async (context) => {
-//   console.log("POST MODEL:", Post);
-//   try {
-//     await dbConnect();
-//   } catch (err) {
-//     console.log("FAILED CONNECTING TO MONGO:", err);
-//     return;
-//   }
-
-//   // let posts;
-//   // if (query.category) {
-//   //   posts = await Post.find({ category: query.category });
-//   // } else {
-//   //   posts = await Post.find({});
-//   // }
-
-//   let featuredPost;
-//   try {
-//     // featuredPost = await Post.find({ featured: true });
-//     featuredPost = await Post.find({});
-//     console.log("\n\nFEATURED POST:", featuredPost, "\n\n");
-//   } catch (e) {
-//     console.log("FAILED RETRIEVING FEATURED POST:", e);
-//   }
-
-//   // console.log(`SERVER SIDE POSTS FOR ${query.category}:`, posts, "\n");
-
-//   return {
-//     props: {
-//       featuredPost,
-//       // category: query?.category || "love",
-//       // posts: JSON.stringify(posts),
-//     },
-//   };
-// };
 
 export default FeaturedPost;
