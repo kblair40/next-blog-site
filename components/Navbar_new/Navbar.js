@@ -13,17 +13,20 @@ export default Navbar;
 
 const TextLogo = () => {
   return (
-    <Flex align="center" direction="column">
+    <Flex align="center" direction="column" pt="60px">
       <Heading
         color="brand.darkgreen"
         fontFamily="Playfair Display"
-        // fontWeight="400"
         textAlign="center"
-        fontSize="68px"
+        fontSize={{ base: "36px", sm: "48px", md: "64px", lg: "72px" }}
+        lineHeight="normal"
+        mb="10px"
       >
         Money and Other Things
       </Heading>
-      <Text>A collection of money stories and tips</Text>
+      <Text color="brand.darkgreen" fontSize={{ sm: "17px" }}>
+        A collection of money stories and tips
+      </Text>
     </Flex>
   );
 };
