@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Image from "next/future/image";
 import classNames from "classnames";
 
-import logo from "public/assets/images/logo_short.png";
+// import logo from "public/assets/images/logo_short.png";
 import HamburgerButton from "../HamburgerButton";
 import Drawer from "../Drawer";
 import DrawerOverlay from "../DrawerOverlay";
@@ -35,7 +35,7 @@ const MobileNav = () => {
         />
       </div>
 
-      <div className={imageClasses}>
+      {/* <div className={imageClasses}>
         <Image
           alt="logo"
           src={logo}
@@ -43,7 +43,7 @@ const MobileNav = () => {
           quality={100}
           priority
         />
-      </div>
+      </div> */}
 
       <HamburgerButton
         isOpen={drawerOpen}

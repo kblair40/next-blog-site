@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import classNames from "classnames";
 
-import logo from "public/assets/images/logo_sm.png";
+// import logo from "public/assets/images/logo_sm.png";
 
 const TitleSection = ({ sectionTitle }) => {
   const titleWrapperClasses = classNames({

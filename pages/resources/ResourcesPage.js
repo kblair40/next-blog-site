@@ -1,8 +1,8 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 
-import logo from "public/assets/images/logo_short.png";
+// import logo from "public/assets/images/logo_short.png";
 import TimeCurrencyCalculator from "components/Resources/TimeCurrencyCalculator";
 
 const ResourcesPage = () => {

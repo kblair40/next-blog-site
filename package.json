@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.4.1",
     "@cloudinary/react": "^1.4.2",
     "@cloudinary/url-gen": "^1.8.6",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "flickity": "2.3.0",
+    "framer-motion": "^6",
     "markdown-it": "^13.0.1",
     "mongoose": "^6.6.0",
     "multiparty": "^4.2.3",
@@ -37,5 +41,6 @@
     "eslint-config-next": "12.3.0",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
-  }
+  },
+  "packageManager": "yarn@3.2.4"
 }
