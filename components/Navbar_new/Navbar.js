@@ -1,8 +1,14 @@
 import React from "react";
-import { Box, Flex, Text, Heading, Center } from "@chakra-ui/react";
+import { Box, Flex, Text, Heading, Center, HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import {
+  FacebookIcon,
+  TwitterIcon,
+  PinterestIcon,
+  InstagramIcon,
+} from "utils/icons";
 import { navLinks } from "./links";
 
 const Navbar = () => {
@@ -15,6 +21,9 @@ const Navbar = () => {
         {navLinks.map((linkObj, i) => {
           return <NavLink linkObj={linkObj} key={i} />;
         })}
+        <NavLink>
+          <SocialLinks />
+        </NavLink>
       </Flex>
     </Box>
   );
@@ -22,7 +31,19 @@ const Navbar = () => {
 
 export default Navbar;
 
-const NavLink = ({ linkObj }) => {
+const SocialLinks = () => {
+  const boxSize = "20px";
+  return (
+    <HStack border="1px solid gray">
+      <FacebookIcon boxSize={boxSize} />
+      <InstagramIcon boxSize={boxSize} />
+      <TwitterIcon boxSize={boxSize} />
+      <PinterestIcon boxSize={boxSize} />
+    </HStack>
+  );
+};
+
+const NavLink = ({ linkObj, children }) => {
   return (
     <Box
       role="group"
@@ -33,7 +54,7 @@ const NavLink = ({ linkObj }) => {
       border="1px solid #424242"
       borderRight="none"
     >
-      <Link href={linkObj.to}>
+      <Link href={linkObj ? linkObj.to : "#"}>
         <Center
           // isActive && setcolor to light green
           h="100%"
@@ -44,7 +65,8 @@ const NavLink = ({ linkObj }) => {
             color: "brand.lightgreen",
           }}
         >
-          {linkObj.label}
+          {children ? children : linkObj.label}
+          {/* {linkObj.label} */}
         </Center>
       </Link>
     </Box>

@@ -19,8 +19,8 @@ export const navLinks = [
     label: "Contact",
     to: "/contact",
   },
-  {
-    label: "social icons",
-    to: "#",
-  },
+  // {
+  //   label: "social icons",
+  //   to: "#",
+  // },
 ];
