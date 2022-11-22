@@ -7,6 +7,7 @@ import {
   // Spinner
 } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 import api from "utils/api";
 
@@ -48,11 +49,9 @@ const FeaturedPost = () => {
         height={{ base: "191px", sm: "236px", md: "394px", lg: "506px" }}
         position="relative"
       >
-        {/* <React.Fragment> */}
         <Image
           alt="post image"
           src={featuredPost?.image_url || ""}
-          // src="https://res.cloudinary.com/erinsblog/image/upload/v1664548607/arturo-esparza-33fWPnyN6tU-unsplash_ofqueo.jpg"
           objectFit="cover"
           fill
         />
@@ -92,19 +91,32 @@ const FeaturedPost = () => {
           <Text display="inline" mx="6px">
             &bull;
           </Text>
-          <Text display="inline">4 min</Text>
+          <Text display="inline">
+            {featuredPost?.estimated_read_time || "&nbsp;"}
+          </Text>
         </Box>
 
-        <Text fontWeight="700" mb="12px" fontSize="30px">
-          {featuredPost && featuredPost.title ? featuredPost.title : ""}
-          {/* Buying A Car Sight Unseen */}
-        </Text>
+        <Flex direction="column" role="group" cursor="pointer">
+          <Text
+            fontWeight="700"
+            mb="12px"
+            fontSize="30px"
+            _groupHover={{ color: "brand.lightgreen" }}
+            transition="color 0.3s"
+          >
+            {featuredPost?.title || ""}
+          </Text>
 
-        <Text>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
-          We're not fraudsters, but everyone thought we were. Buying a car sight
-          unseen is terrifying and anxiety-inducing, but also shockingly...
-        </Text>
+          <Text
+            _groupHover={{ color: "brand.lightgreen" }}
+            transition="color 0.3s"
+          >
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            We're not fraudsters, but everyone thought we were. Buying a car
+            sight unseen is terrifying and anxiety-inducing, but also
+            shockingly...
+          </Text>
+        </Flex>
       </Flex>
     </React.Fragment>
   );
