@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, Fragment } from "react";
 import {
   Flex,
   Text,
@@ -18,6 +18,7 @@ import { useRouter } from "next/router";
 
 import api from "utils/api";
 import { postCategories } from "utils/constants";
+import EditPreviewTextModal from "components/Modals/EditPreviewTextModal";
 
 const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
   // const [postData, setPostData] = useState(post);
@@ -26,6 +27,8 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
   const [category, setCategory] = useState(post.category);
   const [patchingFeatured, setPatchingFeatured] = useState(false);
   const [previewText, setPreviewText] = useState(post.preview_text);
+  const [editPreviewTextModalOpen, setEditPreviewTextModalOpen] =
+    useState(false);
 
   const [saving, setSaving] = useState(false);
   // console.log("IS FEATURED:", isFeatured.current);
@@ -59,91 +62,108 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
   };
 
   return (
-    <VStack align="start" w="100%" position="relative">
-      {isFeatured && (
-        <Box position="absolute" top=".5rem" right=".5rem" fontWeight="600">
-          **Featured Post**
-        </Box>
+    <Fragment>
+      {editPreviewTextModalOpen && (
+        <EditPreviewTextModal
+          isOpen={editPreviewTextModalOpen}
+          onClose={() => setEditPreviewTextModalOpen(false)}
+          previewText={previewText}
+          postId={post._id}
+        />
       )}
-      <Flex align="center">
-        <Text fontWeight="600" w={labelWidth} minW={labelWidth} fontSize="sm">
-          Title
-        </Text>
-
-        <Input
-          size="sm"
-          maxW="300px"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-        />
-      </Flex>
-
-      <Flex align="center">
-        <Text fontWeight="600" minW={labelWidth} w={labelWidth} fontSize="sm">
-          Status
-        </Text>
-
-        <NumberInput
-          size="sm"
-          maxW="100px"
-          minW="80px"
-          value={status}
-          min={1}
-          max={4}
-          onChange={(val) => setStatus(val)}
-        >
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
-      </Flex>
-
-      <Flex align="center">
-        <Text fontWeight="600" minW={labelWidth} w={labelWidth} fontSize="sm">
-          Category
-        </Text>
-        <CreatableSelect
-          placeholder="Post Category"
-          onChange={(cat) => setCategory(cat.value)}
-          value={{
-            label: category,
-            value: category,
-          }}
-          options={postCategories}
-        />
-      </Flex>
-
-      <Flex align="center">
-        <Text
-          whiteSpace="nowrap"
-          fontWeight="600"
-          // minW={labelWidth}
-          minW="max-content"
-          w={labelWidth}
-          fontSize="sm"
-        >
-          Preview Text
-        </Text>
-        {previewText && (
-          <Button size="sm" ml="1rem">
-            View/Edit Preview Text
-          </Button>
+      <VStack align="start" w="100%" position="relative">
+        {isFeatured && (
+          <Box position="absolute" top=".5rem" right=".5rem" fontWeight="600">
+            **Featured Post**
+          </Box>
         )}
-        {/* <Text noOfLines={1}>{previewText}</Text> */}
-      </Flex>
+        <Flex align="center">
+          <Text fontWeight="600" w={labelWidth} minW={labelWidth} fontSize="sm">
+            Title
+          </Text>
 
-      <ButtonGroup size="sm" mt="8px">
-        <Button onClick={handleClickSave} isLoading={saving}>
-          Save Changes
-        </Button>
-        <Button onClick={handleClickEdit}>Edit Post</Button>
-        <Button isLoading={patchingFeatured} onClick={handleClickMakeFeatured}>
-          Make Featured Post
-        </Button>
-      </ButtonGroup>
-    </VStack>
+          <Input
+            size="sm"
+            maxW="300px"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
+        </Flex>
+
+        <Flex align="center">
+          <Text fontWeight="600" minW={labelWidth} w={labelWidth} fontSize="sm">
+            Status
+          </Text>
+
+          <NumberInput
+            size="sm"
+            maxW="100px"
+            minW="80px"
+            value={status}
+            min={1}
+            max={4}
+            onChange={(val) => setStatus(val)}
+          >
+            <NumberInputField />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
+        </Flex>
+
+        <Flex align="center">
+          <Text fontWeight="600" minW={labelWidth} w={labelWidth} fontSize="sm">
+            Category
+          </Text>
+          <CreatableSelect
+            placeholder="Post Category"
+            onChange={(cat) => setCategory(cat.value)}
+            value={{
+              label: category,
+              value: category,
+            }}
+            options={postCategories}
+          />
+        </Flex>
+
+        <Flex align="center">
+          <Text
+            whiteSpace="nowrap"
+            fontWeight="600"
+            // minW={labelWidth}
+            minW="max-content"
+            w={labelWidth}
+            fontSize="sm"
+          >
+            Preview Text
+          </Text>
+          {previewText && (
+            <Button
+              size="sm"
+              ml="1rem"
+              onClick={() => setEditPreviewTextModalOpen(true)}
+            >
+              View/Edit Preview Text
+            </Button>
+          )}
+          {/* <Text noOfLines={1}>{previewText}</Text> */}
+        </Flex>
+
+        <ButtonGroup size="sm" mt="8px">
+          <Button onClick={handleClickSave} isLoading={saving}>
+            Save Changes
+          </Button>
+          <Button onClick={handleClickEdit}>Edit Post</Button>
+          <Button
+            isLoading={patchingFeatured}
+            onClick={handleClickMakeFeatured}
+          >
+            Make Featured Post
+          </Button>
+        </ButtonGroup>
+      </VStack>
+    </Fragment>
   );
 };
 
