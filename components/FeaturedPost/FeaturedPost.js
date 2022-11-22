@@ -104,11 +104,9 @@ const FeaturedPost = () => {
             <Text
               _groupHover={{ color: "brand.lightgreen" }}
               transition="color 0.3s"
+              noOfLines={2}
             >
-              {/* eslint-disable-next-line react/no-unescaped-entities */}
-              We're not fraudsters, but everyone thought we were. Buying a car
-              sight unseen is terrifying and anxiety-inducing, but also
-              shockingly...
+              {featuredPost?.preview_text || ""}
             </Text>
           </Flex>
         </Link>
