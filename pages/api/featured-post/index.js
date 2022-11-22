@@ -63,13 +63,25 @@ export default async function handler(req, res) {
           getFeaturedPost(),
           getPostById(id),
         ]);
+
+        console.log("currentFeaturedPost:", currentFeaturedPost);
+        console.log("postToFeature:", postToFeature);
+
+        console.log("\n\nDIR:", Object.keys(currentFeaturedPost));
+
         if (currentFeaturedPost && postToFeature) {
           currentFeaturedPost.featured = false;
           postToFeature.featured = true;
+
+          await Promise.all([
+            currentFeaturedPost[0].save(),
+            postToFeature[0].save(),
+          ]);
         }
 
-        res.status(201).json({ success: true, data: post });
+        res.status(201).json({ success: true });
       } catch (error) {
+        console.log("\n\nERROR:", error);
         res.status(400).json({ success: false });
       }
       break;

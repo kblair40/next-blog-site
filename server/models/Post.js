@@ -18,6 +18,7 @@ const PostSchema = new mongoose.Schema(
     },
     featured: {
       type: Boolean,
+      required: true,
       default: false,
     },
     preview_text: {

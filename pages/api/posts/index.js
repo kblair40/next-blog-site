@@ -12,7 +12,9 @@ const getPostById = async (id) => {
 
 const getAllPosts = async (limit) => {
   try {
-    const posts = await Post.find({}).limit(limit); /* gets all posts in db */
+    const posts = await Post.find({}).limit(
+      limit ? limit : null
+    ); /* gets all posts in db */
     return posts;
   } catch (error) {
     res.status(400).json({ success: false });
@@ -32,7 +34,10 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       let data;
-      if (query && query.id) {
+      if (query && query.limit && query.limit === "all") {
+        const posts = await getAllPosts();
+        return res.status(200).json({ success: true, posts });
+      } else if (query && query.id) {
         // console.log("\n\n\n\n\n\nQUERY:", query, "\n\n\n\n\n\n");
         data = await getPostById(query.id);
         return res.status(200).json({ success: true, post: data });
@@ -74,7 +79,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         console.log("REQ BODY:", req.body);
-        const post = await Post.create(req.body);
+        const post = await Post.create({ ...req.body, featured: false });
 
         res.status(201).json({ success: true, data: post });
       } catch (error) {

@@ -1,1 +1,2 @@
-export { default } from "./AllPosts";
+export { default } from "./AllPostsNew";
+// export { default } from "./AllPosts";
