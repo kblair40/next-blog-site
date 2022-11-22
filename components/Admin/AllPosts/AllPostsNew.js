@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Input, Flex, Box, VStack, StackDivider } from "@chakra-ui/react";
+import { Box, VStack, StackDivider } from "@chakra-ui/react";
 
-import { postCategories } from "utils/constants";
 import EditablePost from "./EditablePost";
-// import Statuses from "components/Admin/Statuses";
-// import LocalInput from "components/Admin/LocalInput";
 import Loading from "components/UI/Loading";
-// import Button from "components/UI/Button";
 import api from "utils/api";
 
 const AllPosts = () => {
   const [loading, setLoading] = useState(true);
   const [allPostData, setAllPostData] = useState();
   const [featuredPostId, setFeaturedPostId] = useState(null);
-  // const [checkedStatuses, setCheckedStatuses] = useState([1, 2]);
 
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  const fetchPosts = async (updatedStatuses = null) => {
+  const fetchPosts = async () => {
+    if (!loading) setLoading(true);
     try {
       const response = await api.get("/posts", {
         params: {
           limit: "all",
-          // statuses: updatedStatuses ? updatedStatuses : checkedStatuses,
         },
       });
 
@@ -51,23 +46,6 @@ const AllPosts = () => {
       });
 
       setAllPostData(allData);
-
-      // setAllPostData(
-      //   response.data.posts.map((post, i) => {
-      //     return {
-      //       [`${post._id}`]: {
-      //         title: post.title,
-      //         status: post.status,
-      //         created: post.createdAt,
-      //         category: post.category,
-      //         tags: post.tags,
-      //         featured: post.featured,
-      //         preview_text: post.preview_text,
-      //         _id: post._id,
-      //       },
-      //     };
-      //   })
-      // );
     } catch (e) {
       console.error("FAILED TO FETCH ALL POSTS:", e);
     }
@@ -85,20 +63,6 @@ const AllPosts = () => {
     postDataCopy[objectIndex][_id][fieldName] = value;
     setAllPostData(postDataCopy);
   };
-
-  // const handleStatusesChange = async (statuses) => {
-  //   setLoading(true);
-
-  //   let newStatuses = [];
-  //   statuses.forEach((status, i) => {
-  //     const [val, checked] = Object.entries(status)[0];
-  //     if (checked) newStatuses.push(parseInt(val));
-  //   });
-
-  //   setCheckedStatuses(newStatuses);
-  //   await fetchPosts(newStatuses);
-  //   setLoading(false);
-  // };
 
   const handleSubmit = async (_id) => {
     let postDataCopy = [...allPostData];
@@ -147,6 +111,7 @@ const AllPosts = () => {
                     onChangeFeaturedPost={(id) => setFeaturedPostId(id)}
                     isFeatured={postVal._id === featuredPostId}
                     post={postVal}
+                    fetchPosts={fetchPosts}
                     key={i}
                   />
                 );

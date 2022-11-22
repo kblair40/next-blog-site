@@ -154,10 +154,13 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
           <Button onClick={handleClickSave} isLoading={saving}>
             Save Changes
           </Button>
-          <Button onClick={handleClickEdit}>Edit Post</Button>
+          <Button onClick={handleClickEdit} colorScheme="blue">
+            Edit Post
+          </Button>
           <Button
             isLoading={patchingFeatured}
             onClick={handleClickMakeFeatured}
+            colorScheme="green"
           >
             Make Featured Post
           </Button>
