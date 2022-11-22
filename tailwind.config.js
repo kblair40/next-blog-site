@@ -20,7 +20,8 @@ module.exports = {
     extend: {
       fontFamily: {
         cursive: ["cursive"],
-        heading: ["'Bodoni Moda'", ...defaultTheme.fontFamily.serif],
+        body: ["Nunito", ...defaultTheme.fontFamily.sans],
+        heading: ["'Playfair Display'", ...defaultTheme.fontFamily.serif],
       },
       height: {
         "screen-nav": "calc(100vh - 56px)",
