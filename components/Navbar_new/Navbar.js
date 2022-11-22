@@ -17,14 +17,16 @@ const Navbar = () => {
     <Box>
       <TextLogo />
 
-      <Flex justify="space-evenly" h="50px">
-        {navLinks.map((linkObj, i) => {
-          return <NavLink linkObj={linkObj} key={i} />;
-        })}
-        <NavLink>
-          <SocialLinks />
-        </NavLink>
-      </Flex>
+      <Box display={{ base: "none", md: "block" }}>
+        <Flex justify="space-evenly" h="50px">
+          {navLinks.map((linkObj, i) => {
+            return <NavLink linkObj={linkObj} key={i} />;
+          })}
+          <NavLink>
+            <SocialLinks />
+          </NavLink>
+        </Flex>
+      </Box>
     </Box>
   );
 };
@@ -63,7 +65,12 @@ const NavLink = ({ linkObj, children }) => {
 
 const TextLogo = () => {
   return (
-    <Flex align="center" direction="column" pt="60px" mb="58px">
+    <Flex
+      align="center"
+      direction="column"
+      pt="60px"
+      mb={{ base: "28px", md: "58px" }}
+    >
       <Heading
         color="brand.darkgreen"
         fontFamily="Playfair Display"
