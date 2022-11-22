@@ -22,7 +22,7 @@ const SubscribeSection = () => {
       borderBottom="1px solid black"
       width={{
         base: "340px",
-        sm: "calc(100% - 48px)",
+        sm: "calc(100% - 68px)",
         md: "700px",
         lg: "900px",
       }}
@@ -38,7 +38,7 @@ const SubscribeSection = () => {
         fontSize={{ base: "28px", sm: "36px" }}
         flex={{ md: 1 }}
         fontWeight="800"
-        mb={{ base: "1rem", md: 0 }}
+        mb={{ base: "1.5rem", md: 0 }}
       >
         Never Miss a New Post.
       </Heading>

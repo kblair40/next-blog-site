@@ -17,7 +17,7 @@ const Navbar = () => {
     <Box>
       <TextLogo />
 
-      <Box display={{ base: "none", md: "block" }}>
+      <Box w="100%" display={{ base: "none", md: "block" }}>
         <Flex justify="space-evenly" h="50px">
           {navLinks.map((linkObj, i) => {
             return <NavLink linkObj={linkObj} key={i} />;
@@ -70,8 +70,10 @@ const TextLogo = () => {
       direction="column"
       pt="60px"
       mb={{ base: "28px", md: "58px" }}
+      // w="100%"
     >
       <Heading
+        maxW="90vw"
         color="brand.darkgreen"
         fontFamily="Playfair Display"
         textAlign="center"
