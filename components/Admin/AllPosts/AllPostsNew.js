@@ -13,6 +13,7 @@ import api from "utils/api";
 const AllPosts = () => {
   const [loading, setLoading] = useState(true);
   const [allPostData, setAllPostData] = useState();
+  const [featuredPostId, setFeaturedPostId] = useState(null);
   // const [checkedStatuses, setCheckedStatuses] = useState([1, 2]);
 
   useEffect(() => {
@@ -28,22 +29,45 @@ const AllPosts = () => {
         },
       });
 
-      setAllPostData(
-        response.data.posts.map((post, i) => {
-          return {
-            [`${post._id}`]: {
-              title: post.title,
-              status: post.status,
-              created: post.createdAt,
-              category: post.category,
-              tags: post.tags,
-              featured: post.featured,
-              preview_text: post.preview_text,
-              _id: post._id,
-            },
-          };
-        })
-      );
+      let allData = [];
+      response.data.posts.forEach((post) => {
+        let postObj = {
+          [`${post._id}`]: {
+            title: post.title,
+            status: post.status,
+            created: post.createdAt,
+            category: post.category,
+            tags: post.tags,
+            featured: post.featured,
+            preview_text: post.preview_text,
+            _id: post._id,
+          },
+        };
+
+        allData.push(postObj);
+        if (post.featured) {
+          setFeaturedPostId(post._id);
+        }
+      });
+
+      setAllPostData(allData);
+
+      // setAllPostData(
+      //   response.data.posts.map((post, i) => {
+      //     return {
+      //       [`${post._id}`]: {
+      //         title: post.title,
+      //         status: post.status,
+      //         created: post.createdAt,
+      //         category: post.category,
+      //         tags: post.tags,
+      //         featured: post.featured,
+      //         preview_text: post.preview_text,
+      //         _id: post._id,
+      //       },
+      //     };
+      //   })
+      // );
     } catch (e) {
       console.error("FAILED TO FETCH ALL POSTS:", e);
     }
@@ -118,7 +142,14 @@ const AllPosts = () => {
             ? allPostData.map((post, i) => {
                 const postVal = Object.values(post)[0];
                 // console.log("POST VAL:", postVal);
-                return <EditablePost post={postVal} key={i} />;
+                return (
+                  <EditablePost
+                    onChangeFeaturedPost={(id) => setFeaturedPostId(id)}
+                    isFeatured={postVal._id === featuredPostId}
+                    post={postVal}
+                    key={i}
+                  />
+                );
               })
             : null}
         </VStack>

@@ -6,6 +6,7 @@ import {
   ButtonGroup,
   Input,
   VStack,
+  Box,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -18,15 +19,14 @@ import { useRouter } from "next/router";
 import api from "utils/api";
 import { postCategories } from "utils/constants";
 
-const EditablePost = ({ post }) => {
+const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
   // const [postData, setPostData] = useState(post);
   const [title, setTitle] = useState(post.title);
   const [status, setStatus] = useState(post.status);
   const [category, setCategory] = useState(post.category);
   const [patchingFeatured, setPatchingFeatured] = useState(false);
-  const [saving, setSaving] = useState(false);
 
-  const isFeatured = useRef(post.featured);
+  const [saving, setSaving] = useState(false);
   // console.log("IS FEATURED:", isFeatured.current);
 
   const initialData = useRef(post);
@@ -46,6 +46,7 @@ const EditablePost = ({ post }) => {
         id: post._id,
       });
       console.log("PATCH FEATURED RESPONSE:", response.data);
+      onChangeFeaturedPost(post._id);
     } catch (e) {
       console.log("FAILED TO MAKE FAVORITE POST:", e);
     }
@@ -57,7 +58,12 @@ const EditablePost = ({ post }) => {
   };
 
   return (
-    <VStack align="start">
+    <VStack align="start" w="100%" position="relative">
+      {isFeatured && (
+        <Box position="absolute" top=".5rem" right=".5rem" fontWeight="600">
+          **Featured Post**
+        </Box>
+      )}
       <Flex align="center">
         <Text fontWeight="500" w={labelWidth} minW={labelWidth} fontSize="sm">
           Title
