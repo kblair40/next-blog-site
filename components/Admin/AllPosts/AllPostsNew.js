@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import classNames from "classnames";
 import { toast } from "react-toastify";
-import CreatableSelect from "react-select/creatable";
-import { Button as ChakraButton, Input, Flex } from "@chakra-ui/react";
+import { Input, Flex, Box, VStack } from "@chakra-ui/react";
 
 import { postCategories } from "utils/constants";
 import EditablePost from "./EditablePost";
-import Statuses from "components/Admin/Statuses";
-import LocalInput from "components/Admin/LocalInput";
+// import Statuses from "components/Admin/Statuses";
+// import LocalInput from "components/Admin/LocalInput";
 import Loading from "components/UI/Loading";
-import Button from "components/UI/Button";
+// import Button from "components/UI/Button";
 import api from "utils/api";
 
 const AllPosts = () => {
   const [loading, setLoading] = useState(true);
   const [allPostData, setAllPostData] = useState();
-  const [checkedStatuses, setCheckedStatuses] = useState([1, 2]);
+  // const [checkedStatuses, setCheckedStatuses] = useState([1, 2]);
 
   useEffect(() => {
     fetchPosts();
@@ -63,19 +60,19 @@ const AllPosts = () => {
     setAllPostData(postDataCopy);
   };
 
-  const handleStatusesChange = async (statuses) => {
-    setLoading(true);
+  // const handleStatusesChange = async (statuses) => {
+  //   setLoading(true);
 
-    let newStatuses = [];
-    statuses.forEach((status, i) => {
-      const [val, checked] = Object.entries(status)[0];
-      if (checked) newStatuses.push(parseInt(val));
-    });
+  //   let newStatuses = [];
+  //   statuses.forEach((status, i) => {
+  //     const [val, checked] = Object.entries(status)[0];
+  //     if (checked) newStatuses.push(parseInt(val));
+  //   });
 
-    setCheckedStatuses(newStatuses);
-    await fetchPosts(newStatuses);
-    setLoading(false);
-  };
+  //   setCheckedStatuses(newStatuses);
+  //   await fetchPosts(newStatuses);
+  //   setLoading(false);
+  // };
 
   const handleSubmit = async (_id) => {
     let postDataCopy = [...allPostData];
@@ -106,16 +103,16 @@ const AllPosts = () => {
   };
 
   return (
-    <div>
-      <div className="mb-4">
+    <Box>
+      {/* <div className="mb-4">
         <Statuses statusOptions={[1, 2]} onChange={handleStatusesChange} />
-      </div>
+      </div> */}
 
-      <div className="flex flex-col mb-4">
+      {/* <div className="flex flex-col mb-4">
         <p className="font-semibold text-lg">NOTE: </p>
         <p>Status = 1: Post will be shown on main site</p>
         <p>Status = 2: Post will be hidden from main site</p>
-      </div>
+      </div> */}
 
       {loading ? (
         <Loading fullScreen />
@@ -130,7 +127,7 @@ const AllPosts = () => {
             : null}
         </div>
       )}
-    </div>
+    </Box>
   );
 };
 
