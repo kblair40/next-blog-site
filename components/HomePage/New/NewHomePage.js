@@ -6,9 +6,9 @@ import FeaturedPost from "components/FeaturedPost";
 
 const NewHomePage = () => {
   return (
-    <Box>
+    <Flex pt="80px" pb="2rem" direction="column" align="center" w="100%">
       <FeaturedPost />
-    </Box>
+    </Flex>
   );
 };
 
