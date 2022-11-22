@@ -25,6 +25,7 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
   const [status, setStatus] = useState(post.status);
   const [category, setCategory] = useState(post.category);
   const [patchingFeatured, setPatchingFeatured] = useState(false);
+  const [previewText, setPreviewText] = useState(post.preview_text);
 
   const [saving, setSaving] = useState(false);
   // console.log("IS FEATURED:", isFeatured.current);
@@ -65,7 +66,7 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
         </Box>
       )}
       <Flex align="center">
-        <Text fontWeight="500" w={labelWidth} minW={labelWidth} fontSize="sm">
+        <Text fontWeight="600" w={labelWidth} minW={labelWidth} fontSize="sm">
           Title
         </Text>
 
@@ -78,7 +79,7 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
       </Flex>
 
       <Flex align="center">
-        <Text fontWeight="500" minW={labelWidth} w={labelWidth} fontSize="sm">
+        <Text fontWeight="600" minW={labelWidth} w={labelWidth} fontSize="sm">
           Status
         </Text>
 
@@ -100,7 +101,7 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
       </Flex>
 
       <Flex align="center">
-        <Text fontWeight="500" minW={labelWidth} w={labelWidth} fontSize="sm">
+        <Text fontWeight="600" minW={labelWidth} w={labelWidth} fontSize="sm">
           Category
         </Text>
         <CreatableSelect
@@ -112,6 +113,25 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
           }}
           options={postCategories}
         />
+      </Flex>
+
+      <Flex align="center">
+        <Text
+          whiteSpace="nowrap"
+          fontWeight="600"
+          // minW={labelWidth}
+          minW="max-content"
+          w={labelWidth}
+          fontSize="sm"
+        >
+          Preview Text
+        </Text>
+        {previewText && (
+          <Button size="sm" ml="1rem">
+            View/Edit Preview Text
+          </Button>
+        )}
+        {/* <Text noOfLines={1}>{previewText}</Text> */}
       </Flex>
 
       <ButtonGroup size="sm" mt="8px">
