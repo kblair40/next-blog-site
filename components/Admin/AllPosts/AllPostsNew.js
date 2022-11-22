@@ -64,34 +64,6 @@ const AllPosts = () => {
     setAllPostData(postDataCopy);
   };
 
-  const handleSubmit = async (_id) => {
-    let postDataCopy = [...allPostData];
-    let post = postDataCopy.find((obj) => Object.keys(obj)[0] === _id);
-
-    if (post) {
-      let postObject = Object.values(post)[0];
-
-      try {
-        await api.patch(`/posts/${postObject._id}`, {
-          title: postObject["title"],
-          status: postObject["status"],
-          category: postObject["category"],
-          tags: postObject["tags"],
-        });
-
-        const config = {
-          position: toast.POSITION.BOTTOM_CENTER,
-          pauseOnHover: false,
-        };
-        toast.success("Changes saved!", config);
-      } catch (e) {
-        console.log("FAILED PATCHING POST" + postObject, "   ", e);
-      }
-    } else {
-      console.error("COULD NOT FIND POST");
-    }
-  };
-
   return (
     <Box>
       {loading ? (

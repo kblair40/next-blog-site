@@ -21,7 +21,6 @@ import { postCategories } from "utils/constants";
 import EditPreviewTextModal from "components/Modals/EditPreviewTextModal";
 
 const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
-  // const [postData, setPostData] = useState(post);
   const [title, setTitle] = useState(post.title);
   const [status, setStatus] = useState(post.status);
   const [category, setCategory] = useState(post.category);
@@ -58,7 +57,30 @@ const EditablePost = ({ post, isFeatured, onChangeFeaturedPost }) => {
   };
 
   const handleClickSave = async () => {
-    //
+    setSaving(true);
+
+    if (post) {
+      let postPatchObject = {};
+      const {
+        category: initCategory,
+        status: initStatus,
+        title: initTitle,
+      } = initialData.current;
+      console.log("REF VALUES:", { initCategory, initStatus, initTitle });
+      // Make sure only values that were changed are added to patch data
+      if (initCategory !== category) postPatchObject.category = category;
+      if (initStatus !== status) postPatchObject.status = status;
+      if (initTitle !== title) postPatchObject.title = title;
+
+      try {
+        await api.patch(`/posts/${post._id}`, postPatchObject);
+      } catch (e) {
+        console.log("FAILED PATCHING POST:", e);
+      }
+    } else {
+      console.error("COULD NOT FIND POST");
+    }
+    setSaving(false);
   };
 
   return (
