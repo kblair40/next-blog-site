@@ -35,10 +35,11 @@ export default async function handler(req, res) {
             }
           }
 
-          foundPost.title = body.title;
-          foundPost.status = parseInt(body.status);
-          foundPost.category = body.category;
-          foundPost.tags = body.tags;
+          if (body.title) foundPost.title = body.title;
+          if (body.status) foundPost.status = parseInt(body.status);
+          if (body.category) foundPost.category = body.category;
+          if (body.tags) foundPost.tags = body.tags;
+          if (body.preview_text) foundPost.preview_text = body.preview_text;
 
           const savedPost = await foundPost.save();
           // console.log("\n\nSAVED POST:", savedPost);
