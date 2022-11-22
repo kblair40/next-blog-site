@@ -31,18 +31,6 @@ const Navbar = () => {
 
 export default Navbar;
 
-const SocialLinks = () => {
-  const boxSize = "20px";
-  return (
-    <HStack border="1px solid gray">
-      <FacebookIcon boxSize={boxSize} />
-      <InstagramIcon boxSize={boxSize} />
-      <TwitterIcon boxSize={boxSize} />
-      <PinterestIcon boxSize={boxSize} />
-    </HStack>
-  );
-};
-
 const NavLink = ({ linkObj, children }) => {
   return (
     <Box
@@ -91,5 +79,17 @@ const TextLogo = () => {
         A collection of money stories and tips
       </Text>
     </Flex>
+  );
+};
+
+const SocialLinks = () => {
+  const boxSize = "20px";
+  return (
+    <HStack>
+      <FacebookIcon boxSize={boxSize} />
+      <InstagramIcon boxSize={boxSize} />
+      <TwitterIcon boxSize={boxSize} />
+      <PinterestIcon boxSize={boxSize} />
+    </HStack>
   );
 };
