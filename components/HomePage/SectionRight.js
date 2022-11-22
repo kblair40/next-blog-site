@@ -41,7 +41,7 @@ const HomeLink = ({ label, to }) => {
   });
 
   return (
-    <Link href={to}>
+    <Link href={to} legacyBehavior>
       <a className={classes}>{label}</a>
     </Link>
   );

@@ -42,7 +42,7 @@ const NavLink = ({ linkObj, children }) => {
       border="1px solid #424242"
       borderRight="none"
     >
-      <Link href={linkObj ? linkObj.to : "#"}>
+      <Link href={linkObj ? linkObj.to : "#"} legacyBehavior>
         <Center
           // isActive && setcolor to light green
           h="100%"

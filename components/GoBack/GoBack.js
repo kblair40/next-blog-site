@@ -4,7 +4,7 @@ import IconButton from "components/UI/IconButton";
 
 const GoBack = ({ label, route }) => {
   return (
-    <Link href={route}>
+    <Link href={route} legacyBehavior>
       <a className="flex items-center w-fit">
         <IconButton
           classes={["py-1 px-1"]}

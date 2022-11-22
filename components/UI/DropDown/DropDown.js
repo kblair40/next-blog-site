@@ -126,7 +126,7 @@ const Option = ({ option }) => {
 
   return (
     <li>
-      <Link href={option.href}>
+      <Link href={option.href} legacyBehavior>
         <a className={itemClasses} href="#">
           {option.label}
         </a>

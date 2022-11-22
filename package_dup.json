@@ -1,0 +1,48 @@
+{
+    "name": "blog-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "upgrade": "yarn upgrade next react react-dom eslint-config-next --latest"
+    },
+    "dependencies": {
+      "@chakra-ui/react": "^2.4.1",
+      "@cloudinary/react": "^1.4.2",
+      "@cloudinary/url-gen": "^1.8.6",
+      "@emotion/react": "^11",
+      "@emotion/styled": "^11",
+      "axios": "^0.27.2",
+      "classnames": "^2.3.1",
+      "flickity": "2.3.0",
+      "framer-motion": "^6",
+      "markdown-it": "^13.0.1",
+      "mongoose": "^6.6.0",
+      "multiparty": "^4.2.3",
+      "next": "12.3.0",
+      "next-connect": "^0.13.0",
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "react-modal": "^3.15.1",
+      "react-responsive-carousel": "^3.2.23",
+      "react-select": "^5.4.0",
+      "react-tabs": "^5.1.0",
+      "react-textarea-markdown-editor": "^2.3.0",
+      "react-toastify": "^9.0.8",
+      "use-debounce": "^8.0.4"
+    },
+    "devDependencies": {
+      "@tailwindcss/line-clamp": "^0.4.2",
+      "@tailwindcss/typography": "^0.5.7",
+      "autoprefixer": "^10.4.11",
+      "eslint": "8.23.0",
+      "eslint-config-next": "12.3.0",
+      "postcss": "^8.4.16",
+      "tailwindcss": "^3.1.8"
+    },
+    "packageManager": "yarn@3.2.4"
+  }
+  

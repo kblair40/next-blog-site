@@ -51,7 +51,7 @@ const Navbar = () => {
       </div>
       <div className={wrapperClasses}>
         <div className="hidden md:block">
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <a className="font-light mr-2">Money and...</a>
           </Link>
         </div>

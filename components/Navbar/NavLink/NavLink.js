@@ -10,7 +10,7 @@ const NavLink = ({ to, label, isActive }) => {
   });
 
   return (
-    <Link href={to}>
+    <Link href={to} legacyBehavior>
       <a className={linkClasses}>{label}</a>
     </Link>
   );

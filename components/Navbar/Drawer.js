@@ -57,7 +57,7 @@ const NavLink = ({ label, route, active, onClick }) => {
   if (active) baseClasses.push("text-slate-900");
 
   return (
-    <Link href={route}>
+    <Link href={route} legacyBehavior>
       <a onClick={onClick} className={classNames(baseClasses)}>
         {label}
       </a>

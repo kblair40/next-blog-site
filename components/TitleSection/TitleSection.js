@@ -26,7 +26,7 @@ const TitleSection = ({ sectionTitle }) => {
       </h1>
 
       <div className="group hover:pb-3 top-8 mx-auto absolute hover:-translate-y-3 duration-300">
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a className="relative w-screen text-6xl">
             <svg
               className="h-12 w-12 fill-darkgreen group-hover:fill-lightgreen"

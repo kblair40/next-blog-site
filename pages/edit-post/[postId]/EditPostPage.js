@@ -222,7 +222,7 @@ const FullScreenSaving = () => {
 const BackToAdmin = () => {
   return (
     <div className="fixed top-2 left-2">
-      <Link href="/admin">
+      <Link href="/admin" legacyBehavior>
         <a className="text-sm font-semibold">Back to Admin</a>
       </Link>
     </div>

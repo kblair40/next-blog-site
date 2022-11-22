@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/future/image";
+// import Image from "next/future/image";
 import classNames from "classnames";
 
 // import logo from "public/assets/images/logo_short.png";
