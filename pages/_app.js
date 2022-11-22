@@ -3,12 +3,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "react-textarea-markdown-editor/build/TextareaMarkdownEditor.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import "../styles/globals.css";
+import theme from "utils/theme";
 
 import Layout from "components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
