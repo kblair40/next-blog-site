@@ -22,22 +22,37 @@ const SubscribeSection = () => {
       mt="72px"
       borderTop="1px solid black"
       borderBottom="1px solid black"
-      width={{ base: "340px", sm: "420px", md: "700px", lg: "900px" }}
+      // width={{ base: "340px", sm: "420px", md: "700px", lg: "900px" }}
+      width={{
+        base: "340px",
+        sm: "calc(100% - 48px)",
+        md: "700px",
+        lg: "900px",
+      }}
       h={{ base: "183px" }}
-      align="center"
-      justify="space-between"
-      px="1.5rem"
+      align={{ base: "center", md: "center" }}
+      justify={{ base: "center", md: "space-between" }}
+      px={{ base: "1rem" }}
+      direction={{ base: "column", md: "row" }}
     >
-      <Heading color="text.body" fontSize="36px" flex={1} fontWeight="800">
+      <Heading
+        textAlign={{ base: "left" }}
+        color="text.body"
+        fontSize={{ base: "28px", sm: "36px" }}
+        flex={{ md: 1 }}
+        fontWeight="800"
+        mb={{ base: "1rem", md: 0 }}
+      >
         Never Miss a New Post.
       </Heading>
+
       <Flex align="end">
         <Input
           // size="sm"
           borderBottom="2px solid"
           borderColor="brand.lightgreen"
           variant="flushed"
-          w="220px"
+          w={{ base: "max-content", sm: "220px", lg: "260px" }}
           placeholder="Email*"
           fontSize="15px"
           _placeholder={{
@@ -57,6 +72,7 @@ const SubscribeSection = () => {
           transition="background-color 0.3s"
           _hover={{ bg: "text.body" }}
           _active={{ bg: "text.body" }}
+          size={{ base: "sm", sm: "md" }}
         >
           Subscribe
         </Button>
