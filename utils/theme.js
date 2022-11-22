@@ -5,6 +5,9 @@ const theme = extendTheme({
     brand: {
       darkgreen: "#53614D",
     },
+    text: {
+      body: "#303030",
+    },
   },
   fonts: {
     body: "Nunito, system-ui, sans-serif",
