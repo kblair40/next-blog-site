@@ -15,7 +15,7 @@ import Post from "server/models/Post";
 
 const getFeaturedPost = async () => {
   try {
-    const post = await Post.find({ featured: true });
+    const post = await Post.findOne({ featured: true });
     console.log("\n\nFOUND POST:", post, "\n\n");
     return post;
   } catch (e) {
@@ -26,7 +26,7 @@ const getFeaturedPost = async () => {
 
 const getPostById = async (id) => {
   try {
-    const post = await Post.find({ featured: true });
+    const post = await Post.findById(id);
     console.log("\n\nFOUND POST:", post, "\n\n");
     return post;
   } catch (e) {
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
       }
     case "PATCH":
       try {
-        console.log("REQ BODY:", req.body);
+        // console.log("REQ BODY:", req.body);
         const { id } = req.body;
         const [currentFeaturedPost, postToFeature] = await Promise.all([
           getFeaturedPost(),
@@ -67,19 +67,35 @@ export default async function handler(req, res) {
         console.log("currentFeaturedPost:", currentFeaturedPost);
         console.log("postToFeature:", postToFeature);
 
-        console.log("\n\nDIR:", Object.keys(currentFeaturedPost));
-
+        let promises = [];
         if (currentFeaturedPost && postToFeature) {
           currentFeaturedPost.featured = false;
           postToFeature.featured = true;
+          promises.push(currentFeaturedPost.save());
+          promises.push(postToFeature.save());
 
-          await Promise.all([
-            currentFeaturedPost[0].save(),
-            postToFeature[0].save(),
-          ]);
+          // await Promise.all([currentFeaturedPost.save(), postToFeature.save()]);
+          // const newFeaturedPost = await getFeaturedPost();
+          // console.log("\\n\nNEW FEATURED POST:", newFeaturedPost, "\n\n");
+          // return res.status(201).json({ success: true, post: newFeaturedPost });
+        } else if (currentFeaturedPost) {
+          return res.status(404).json({
+            success: false,
+            msg: "Could not find the post you want to feature",
+          });
+        } else if (postToFeature) {
+          postToFeature.featured = true;
+          promises.push(postToFeature.save());
         }
 
-        res.status(201).json({ success: true });
+        try {
+          await Promise.all(promises);
+          return res.status(200).json({ success: true });
+        } catch (e) {
+          return res.status(400).json({ success: false, msg: "Not sure" });
+        }
+
+        return res.status(400).json({ success: false });
       } catch (error) {
         console.log("\n\nERROR:", error);
         res.status(400).json({ success: false });

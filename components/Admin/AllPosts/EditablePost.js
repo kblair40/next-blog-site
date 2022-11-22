@@ -27,7 +27,7 @@ const EditablePost = ({ post }) => {
   const [saving, setSaving] = useState(false);
 
   const isFeatured = useRef(post.featured);
-  console.log("IS FEATURED:", isFeatured.current);
+  // console.log("IS FEATURED:", isFeatured.current);
 
   const initialData = useRef(post);
 

@@ -37,6 +37,8 @@ const AllPosts = () => {
               created: post.createdAt,
               category: post.category,
               tags: post.tags,
+              featured: post.featured,
+              preview_text: post.preview_text,
               _id: post._id,
             },
           };
@@ -115,7 +117,7 @@ const AllPosts = () => {
           {allPostData && allPostData.length
             ? allPostData.map((post, i) => {
                 const postVal = Object.values(post)[0];
-                console.log("POST VAL:", postVal);
+                // console.log("POST VAL:", postVal);
                 return <EditablePost post={postVal} key={i} />;
               })
             : null}
