@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import { Box, Flex, Text, Heading, Input, Button } from "@chakra-ui/react";
+import { Flex, Heading, Input, Button } from "@chakra-ui/react";
 
 import FeaturedPost from "components/FeaturedPost";
 
@@ -17,12 +16,10 @@ export default NewHomePage;
 
 const SubscribeSection = () => {
   return (
-    // <Box w={{ base: "max-content" }}>
     <Flex
       mt="72px"
       borderTop="1px solid black"
       borderBottom="1px solid black"
-      // width={{ base: "340px", sm: "420px", md: "700px", lg: "900px" }}
       width={{
         base: "340px",
         sm: "calc(100% - 48px)",
@@ -48,7 +45,6 @@ const SubscribeSection = () => {
 
       <Flex align="end">
         <Input
-          // size="sm"
           borderBottom="2px solid"
           borderColor="brand.lightgreen"
           variant="flushed"
@@ -63,6 +59,7 @@ const SubscribeSection = () => {
           pl="4px"
           _focusVisible={{ borderColor: "brand.lightgreen" }}
         />
+
         <Button
           w="140px"
           borderRadius="2px"
@@ -78,6 +75,5 @@ const SubscribeSection = () => {
         </Button>
       </Flex>
     </Flex>
-    // </Box>
   );
 };
