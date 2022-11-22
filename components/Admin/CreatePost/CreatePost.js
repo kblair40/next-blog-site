@@ -144,7 +144,9 @@ const CreatePostNew = () => {
 
       <ContentInput ref={contentRef} />
 
-      <ElementOptions onChangeEl={(el) => setSelectedEl(el)} />
+      <Box w="100%" maxW="300px" mb="1rem">
+        <ElementOptions onChangeEl={(el) => setSelectedEl(el)} />
+      </Box>
 
       <Button isDisabled={!selectedEl} onClick={handleSubmit}>
         Add Content

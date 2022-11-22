@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import { Box, Text, Flex, HStack } from "@chakra-ui/react";
 
 import { elementOptions, classOptions, defaultClasses } from "utils/constants";
 
@@ -20,7 +21,7 @@ const ContentOptions = ({
   }, [selectedEl]);
 
   return (
-    <div className="flex space-x-4 items-center flex-1">
+    <HStack border="1px solid red">
       <Select
         placeholder="Element"
         options={elementOptions}
@@ -37,7 +38,7 @@ const ContentOptions = ({
         onChange={(val) => onChangeClasses(val)}
         isClearable={selectedClasses.some((v) => !v.isFixed)}
       />
-    </div>
+    </HStack>
   );
 };
 
