@@ -57,7 +57,7 @@ const EditablePost = ({ post }) => {
   };
 
   return (
-    <VStack align="start" border="1px solid #ccc" rounded="sm" p="8px 4px">
+    <VStack align="start">
       <Flex align="center">
         <Text fontWeight="500" w={labelWidth} minW={labelWidth} fontSize="sm">
           Title

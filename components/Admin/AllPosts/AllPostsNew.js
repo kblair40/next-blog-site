@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Input, Flex, Box, VStack } from "@chakra-ui/react";
+import { Input, Flex, Box, VStack, StackDivider } from "@chakra-ui/react";
 
 import { postCategories } from "utils/constants";
 import EditablePost from "./EditablePost";
@@ -104,20 +104,14 @@ const AllPosts = () => {
 
   return (
     <Box>
-      {/* <div className="mb-4">
-        <Statuses statusOptions={[1, 2]} onChange={handleStatusesChange} />
-      </div> */}
-
-      {/* <div className="flex flex-col mb-4">
-        <p className="font-semibold text-lg">NOTE: </p>
-        <p>Status = 1: Post will be shown on main site</p>
-        <p>Status = 2: Post will be hidden from main site</p>
-      </div> */}
-
       {loading ? (
         <Loading fullScreen />
       ) : (
-        <div className="flex flex-col space-y-2">
+        <VStack
+          spacing="1rem"
+          align="start"
+          divider={<StackDivider borderColor="gray.400" />}
+        >
           {allPostData && allPostData.length
             ? allPostData.map((post, i) => {
                 const postVal = Object.values(post)[0];
@@ -125,7 +119,7 @@ const AllPosts = () => {
                 return <EditablePost post={postVal} key={i} />;
               })
             : null}
-        </div>
+        </VStack>
       )}
     </Box>
   );
