@@ -12,7 +12,7 @@ const Drawer = ({ isOpen, onClose, pathname }) => {
     "transition-all duration-300 ease-in-out",
     "bottom-0 top-0 flex flex-col justify-center items-center space-y-8",
     "shadow-sm md:hidden",
-    "bg-creme-400",
+    // "bg-creme-400",
   ];
 
   baseClasses.push(

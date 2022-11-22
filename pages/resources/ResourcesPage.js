@@ -7,7 +7,8 @@ import TimeCurrencyCalculator from "components/Resources/TimeCurrencyCalculator"
 
 const ResourcesPage = () => {
   return (
-    <div className="flex justify-center items-center h-screen w-screen py-4 bg-creme">
+    // <div className="flex justify-center items-center h-screen w-screen py-4 bg-creme">
+    <div className="flex justify-center items-center h-screen w-screen py-4">
       <div className="min-w-[320px] max-w-md sm:max-w-2xl px-6">
         <TimeCurrencyCalculator />
       </div>

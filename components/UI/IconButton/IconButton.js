@@ -11,7 +11,8 @@ const IconButton = ({
   let baseClasses = [
     "text-black text-sm text-center bg-transparent rounded-lg mr-2",
     "inline-flex items-center",
-    "hover:bg-creme-300 focus-visible:outline-none duration-300",
+    // "hover:bg-creme-300 focus-visible:outline-none duration-300",
+    "focus-visible:outline-none duration-300",
     "disabled:hover:bg-transparent disabled:opacity-50",
   ];
 

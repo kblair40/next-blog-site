@@ -7,7 +7,8 @@ import Navbar from "components/Navbar_new";
 
 const layout = ({ children }) => {
   return (
-    <div id="layout" className="overflow-hidden bg-creme min-h-screen">
+    // <div id="layout" className="overflow-hidden bg-creme min-h-screen">
+    <div id="layout" className="overflow-hidden min-h-screen">
       <ToastContainer />
 
       <Navbar />

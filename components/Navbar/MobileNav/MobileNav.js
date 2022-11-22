@@ -16,7 +16,8 @@ const MobileNav = () => {
   console.log("\n\nNAV QUERY:", query, "\n\n");
 
   const imageClasses = classNames({
-    "flex w-screen justify-center bg-creme": true,
+    // "flex w-screen justify-center bg-creme": true,
+    "flex w-screen justify-center": true,
     "md:pl-20": !Boolean(query.id),
     hidden: Boolean(query.id),
   });

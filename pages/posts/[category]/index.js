@@ -9,7 +9,8 @@ const PostsCategoryPage = ({ category, posts }) => {
   posts = JSON.parse(posts);
 
   return (
-    <div className="w-screen bg-creme">
+    // <div className="w-screen bg-creme">
+    <div className="w-screen">
       <div className="flex w-full">
         <div className="flex-1 ">
           <div className="overflow-y-auto pb-8 pt-20 px-3 sm:px-4 md:pl-40">

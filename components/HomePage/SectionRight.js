@@ -32,7 +32,8 @@ export default SectionRight;
 
 const HomeLink = ({ label, to }) => {
   const classes = classNames({
-    "bg-creme rounded-sm text-slate-800 font-medium": true,
+    "rounded-sm text-slate-800 font-medium": true,
+    // "bg-creme rounded-sm text-slate-800 font-medium": true,
     "cursor-pointer z-20 font-heading text-center": true,
     "py-2 px-3 sm:py-3 sm:px-4 w-7/8 sm:w-11/12 uppercase sm:text-lg": true,
     "duration-300 flex justify-center items-center": true,

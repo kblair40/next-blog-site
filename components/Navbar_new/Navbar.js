@@ -14,7 +14,15 @@ export default Navbar;
 const TextLogo = () => {
   return (
     <Flex align="center" direction="column">
-      <Heading>Money and Other Things</Heading>
+      <Heading
+        color="brand.darkgreen"
+        fontFamily="Playfair Display"
+        // fontWeight="400"
+        textAlign="center"
+        fontSize="68px"
+      >
+        Money and Other Things
+      </Heading>
       <Text>A collection of money stories and tips</Text>
     </Flex>
   );
