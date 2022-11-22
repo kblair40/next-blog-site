@@ -22,7 +22,7 @@ const FeaturedPost = () => {
       try {
         const response = await api.get("/featured-post");
         if (response && response.data?.post) {
-          setFeaturedPost(response.data.post[0]);
+          setFeaturedPost(response.data.post);
         }
         console.log("FEATURED POST RESPONSE:", response.data);
         setError(false); // Shouldn't ever be the case. Just being safe
