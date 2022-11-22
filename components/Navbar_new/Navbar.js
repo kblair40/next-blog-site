@@ -1,10 +1,12 @@
 import React from "react";
 import { Box, Flex, Text, Heading, Center } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { navLinks } from "./links";
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <Box>
       <TextLogo />
@@ -23,14 +25,25 @@ export default Navbar;
 const NavLink = ({ linkObj }) => {
   return (
     <Box
+      role="group"
+      cursor="pointer"
       flex={1}
       h="100%"
-      px="2px"
+      px="5px"
       border="1px solid #424242"
       borderRight="none"
     >
       <Link href={linkObj.to}>
-        <Center h="100%" fontSize="sm" textAlign="center">
+        <Center
+          // isActive && setcolor to light green
+          h="100%"
+          fontSize="15px"
+          textAlign="center"
+          transitionDuration="0.3s"
+          _groupHover={{
+            color: "brand.lightgreen",
+          }}
+        >
           {linkObj.label}
         </Center>
       </Link>

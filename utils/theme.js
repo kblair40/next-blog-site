@@ -1,12 +1,47 @@
 import { extendTheme } from "@chakra-ui/react";
 
+// const TextStyle = {
+//   baseStyle: {},
+//   // sizes: {},
+//   variants: {},
+//   // default values for 'size', 'variant' and 'colorScheme'
+//   defaultProps: {
+//     size: '',
+//     variant: '',
+//     colorScheme: '',
+//   },
+// }
+
 const theme = extendTheme({
   colors: {
     brand: {
       darkgreen: "#53614D",
+      lightgreen: "#7D9174",
     },
     text: {
       body: "#303030",
+    },
+  },
+  components: {
+    Text: {
+      baseStyle: ({ variant }) => {
+        const secondary = "#636363";
+        const primary = "#303030";
+        const colors = { secondary, primary };
+        return {
+          color: colors[variant],
+        };
+      }, // 183, 167, 167
+      // default values for 'size', 'variant' and 'colorScheme'
+      defaultProps: {
+        variant: "primary",
+      },
+      // variants: {},
+      // defaultProps: {
+      //   size: "",
+      //   variant: "",
+      //   colorScheme: "",
+      // },
     },
   },
   fonts: {

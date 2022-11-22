@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "upgrade": "yarn upgrade next react react-dom eslint-config-next --latest"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.4.1",
