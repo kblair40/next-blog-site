@@ -70,4 +70,29 @@ const FeaturedPost = () => {
   );
 };
 
+export const getServerSideProps = async ({ query }) => {
+  try {
+    await dbConnect();
+  } catch (err) {
+    console.log("FAILED CONNECTING TO MONGO:", err);
+    return;
+  }
+
+  let posts;
+  if (query.category) {
+    posts = await Post.find({ category: query.category });
+  } else {
+    posts = await Post.find({});
+  }
+
+  console.log(`SERVER SIDE POSTS FOR ${query.category}:`, posts, "\n");
+
+  return {
+    props: {
+      category: query?.category || "love",
+      posts: JSON.stringify(posts),
+    },
+  };
+};
+
 export default FeaturedPost;
