@@ -1,1 +1,1 @@
-export { default } from "./AllSubscribers";
+export { default } from "./AllSubscribersNew";
