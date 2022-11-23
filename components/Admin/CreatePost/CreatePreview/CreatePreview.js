@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { Button } from "@chakra-ui/react";
 
-import Button from "components/UI/Button";
+// import Button from "components/UI/Button";
 import { makeElement } from "utils/create-post";
 
 // import BlogPost from "components/BlogPost";
@@ -33,7 +34,7 @@ const CreatePreview = ({ content, postTitle }) => {
   return (
     <div className={classes}>
       <Button
-        classes={[btnClasses]}
+        mt="1px"
         onClick={() => setIsFullScreen((prev) => !prev)}
         isDisabled={!content.length}
       >
