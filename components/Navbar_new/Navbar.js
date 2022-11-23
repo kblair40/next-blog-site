@@ -91,10 +91,10 @@ const TextLogo = () => {
   );
 };
 
-const SocialLinks = () => {
-  const boxSize = "20px";
+export const SocialLinks = ({ spacing = "8px", iconBoxSize = "20px" }) => {
+  const boxSize = iconBoxSize;
   return (
-    <HStack>
+    <HStack spacing={spacing} h="40px">
       <FacebookIcon boxSize={boxSize} />
       <InstagramIcon boxSize={boxSize} />
       <TwitterIcon boxSize={boxSize} />
