@@ -1,37 +1,31 @@
 import React from "react";
-import classNames from "classnames";
-
-import Button from "components/UI/Button";
+import { Button as ChakraButton, Text, Flex } from "@chakra-ui/react";
 
 const Spacers = ({ addSpace }) => {
-  const wrapperClasses = classNames({
-    "flex space-x-2 w-full": true,
-  });
-
-  const buttonClasses = ["font-sm py-1 px-1"];
-
   const handleClick = (cls) => {
     addSpace(cls);
   };
 
   return (
-    <div className={wrapperClasses}>
-      <p className="font-medium">Spacers</p>
-      <Button
+    <Flex align="end">
+      <Text className="font-medium">Spacers</Text>
+      <ChakraButton
+        colorScheme="teal"
         onClick={() => handleClick("spacer-sm")}
         size="sm"
-        className={buttonClasses}
+        ml="1rem"
       >
         8px (sm)
-      </Button>
-      <Button
+      </ChakraButton>
+      <ChakraButton
+        colorScheme="teal"
+        ml=".5rem"
         onClick={() => handleClick("spacer-lg")}
         size="sm"
-        className={buttonClasses}
       >
         16px (lg)
-      </Button>
-    </div>
+      </ChakraButton>
+    </Flex>
   );
 };
 
