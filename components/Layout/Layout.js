@@ -1,7 +1,7 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 
-import MobileNav from "components/Navbar/MobileNav";
+import MobileNav from "components/Navbar_new/MobileNav";
 import Navbar from "components/Navbar_new";
 // import Navbar from "components/Navbar";
 
