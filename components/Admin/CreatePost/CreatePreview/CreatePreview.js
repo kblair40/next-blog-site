@@ -34,11 +34,11 @@ const CreatePreview = ({ content, postTitle }) => {
   return (
     <div className={classes}>
       <Button
-        mt="1px"
+        mt="1rem"
         onClick={() => setIsFullScreen((prev) => !prev)}
         isDisabled={!content.length}
       >
-        Full Screen
+        {`${isFullScreen ? "Exit " : ""}Full Screen`}
       </Button>
 
       <div className={previewClasses}>
