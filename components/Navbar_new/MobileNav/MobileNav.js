@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
   Button,
+  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -31,8 +32,6 @@ const MobileNav = ({ isOpen, onClose }) => {
         borderBottom="1px solid"
         borderColor="text.body"
         py=".5rem"
-        // py="1.5rem"
-        // border="1px solid blue"
       >
         <Flex
           position="relative"
@@ -44,6 +43,8 @@ const MobileNav = ({ isOpen, onClose }) => {
         >
           <SocialLinks spacing="1rem" iconBoxSize="24px" />
         </Flex>
+
+        <Divider orientation="vertical" />
 
         <Flex
           w="100%"
