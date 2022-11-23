@@ -41,10 +41,12 @@ const MobileNav = ({ isOpen, onClose }) => {
           justify="center"
           align="center"
         >
-          <SocialLinks spacing="1rem" iconBoxSize="24px" />
+          <SocialLinks spacing="1rem" iconBoxSize="22px" />
         </Flex>
 
-        <Divider orientation="vertical" />
+        <Box my="-8px" h="56px">
+          <Divider orientation="vertical" borderColor="text.body" />
+        </Box>
 
         <Flex
           w="100%"
