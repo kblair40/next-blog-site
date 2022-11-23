@@ -138,7 +138,7 @@ const SubscriberCard = ({ sub }) => {
   };
 
   return (
-    <Stack p=".5rem 1rem" rounded="lg" border="1px solid #424242" spacing="4px">
+    <Stack p=".5rem 1rem" rounded="lg" border="1px solid #b9b9b9" spacing="4px">
       <Stack direction="row">
         <Text {...labelStyles}>Name:</Text>
         <Text fontSize="sm">{sub.name}</Text>
