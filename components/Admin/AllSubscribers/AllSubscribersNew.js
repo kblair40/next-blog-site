@@ -6,19 +6,15 @@ import {
   Stack,
   Text,
   Button as ChakraButton,
-  Input as ChakraInput,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react";
-import classNames from "classnames";
 import { toast } from "react-toastify";
 
 import Statuses from "components/Admin/Statuses";
-import LocalInput from "components/Admin/LocalInput";
-import Button from "components/UI/Button";
 import Loading from "components/UI/Loading";
 import api from "utils/api";
 import { formatDateToLocale } from "utils/dateHelpers";
@@ -70,22 +66,22 @@ const AllSubscribers = () => {
 
       <Flex direction="column" mb="1rem">
         <Text fontWeight="600" fontSize="lg">
-          NOTE:{" "}
+          NOTE:
         </Text>
-        <p>Status = 1: Subscribed</p>
-        <p>Status = 2: Cancelled subscription</p>
+        <Text>Status = 1: Subscribed</Text>
+        <Text>Status = 2: Cancelled subscription</Text>
       </Flex>
 
       {loading ? (
         <Loading fullScreen />
       ) : (
-        <div className="space-y-2">
+        <Stack>
           {allSubscribers && allSubscribers.length
             ? allSubscribers.map((sub, i) => {
                 return <SubscriberCard key={i} sub={sub} />;
               })
             : null}
-        </div>
+        </Stack>
       )}
     </Box>
   );
@@ -103,7 +99,7 @@ const SubscriberCard = ({ sub }) => {
     position: toast.POSITION.BOTTOM_CENTER,
     pauseOnHover: false,
     pauseOnFocusLoss: false,
-    autoClose: 8000,
+    autoClose: 4000,
   };
 
   const handleSubmit = async () => {
@@ -113,7 +109,7 @@ const SubscriberCard = ({ sub }) => {
       return toast.error(msg, toastConfig);
     }
 
-    if (!["1", "2"].includes(status)) {
+    if (![1, 2].includes(status)) {
       let msg = "Status needs to be 1 or 2";
       return toast.error(msg, toastConfig);
     }
@@ -142,7 +138,7 @@ const SubscriberCard = ({ sub }) => {
   };
 
   return (
-    <Box className="px-4 py-2 rounded-md border border-slate-300 space-y-1">
+    <Stack p=".5rem 1rem" rounded="lg" border="1px solid #424242" spacing="4px">
       <Stack direction="row">
         <Text {...labelStyles}>Name:</Text>
         <Text fontSize="sm">{sub.name}</Text>
@@ -160,12 +156,20 @@ const SubscriberCard = ({ sub }) => {
 
       <Stack direction="row">
         <Text {...labelStyles}>Status:</Text>
-        <LocalInput
-          onChange={(e) => setStatus(e.target.value)}
-          defaultValue={sub.status}
-          max="2"
-          type="number"
-        />
+        <NumberInput
+          value={status}
+          onChange={(val) => setStatus(parseInt(val))}
+          min={1}
+          max={2}
+          size="sm"
+          maxW="80px"
+        >
+          <NumberInputField />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
       </Stack>
 
       <Box pt=".5rem">
@@ -173,6 +177,6 @@ const SubscriberCard = ({ sub }) => {
           Save Changes
         </ChakraButton>
       </Box>
-    </Box>
+    </Stack>
   );
 };
